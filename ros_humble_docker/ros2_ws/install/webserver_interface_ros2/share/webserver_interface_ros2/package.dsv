@@ -1,0 +1,9 @@
+source;share/webserver_interface_ros2/hook/pythonpath.ps1
+source;share/webserver_interface_ros2/hook/pythonpath.dsv
+source;share/webserver_interface_ros2/hook/pythonpath.sh
+source;share/webserver_interface_ros2/hook/ament_prefix_path.ps1
+source;share/webserver_interface_ros2/hook/ament_prefix_path.dsv
+source;share/webserver_interface_ros2/hook/ament_prefix_path.sh
+source;../../build/webserver_interface_ros2/share/webserver_interface_ros2/hook/pythonpath_develop.ps1
+source;../../build/webserver_interface_ros2/share/webserver_interface_ros2/hook/pythonpath_develop.dsv
+source;../../build/webserver_interface_ros2/share/webserver_interface_ros2/hook/pythonpath_develop.sh

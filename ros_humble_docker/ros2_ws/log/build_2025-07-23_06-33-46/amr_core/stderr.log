@@ -1,0 +1,60 @@
+In file included from [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/velocity_profile.cpp:1[m[K:
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/include/amr_core/velocity_profile.h:[m[K In constructor ‘[01m[KAMR::VelocityProfile::VelocityProfile(geometry_msgs::msg::Twist, double)[m[K’:
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/include/amr_core/velocity_profile.h:15:29:[m[K [01;35m[Kwarning: [m[K‘[01m[KAMR::VelocityProfile::acc[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   15 |   geometry_msgs::msg::Twist [01;35m[Kacc[m[K;
+      |                             [01;35m[K^~~[m[K
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/include/amr_core/velocity_profile.h:14:10:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kdouble AMR::VelocityProfile::control_hz[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   14 |   double [01;35m[Kcontrol_hz[m[K;
+      |          [01;35m[K^~~~~~~~~~[m[K
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/velocity_profile.cpp:5:1:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+    5 | [01;35m[KVelocityProfile[m[K::VelocityProfile(geometry_msgs::msg::Twist acc, double control_hz)
+      | [01;35m[K^~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/velocity_profile.cpp:1[m[K:
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/include/amr_core/velocity_profile.h:14:10:[m[K [01;35m[Kwarning: [m[K‘[01m[KAMR::VelocityProfile::control_hz[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   14 |   double [01;35m[Kcontrol_hz[m[K;
+      |          [01;35m[K^~~~~~~~~~[m[K
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/include/amr_core/velocity_profile.h:12:46:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kstd::shared_ptr<geometry_msgs::msg::Twist_<std::allocator<void> > > AMR::VelocityProfile::target_speed[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   12 |   std::shared_ptr<geometry_msgs::msg::Twist> [01;35m[Ktarget_speed[m[K;
+      |                                              [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/velocity_profile.cpp:5:1:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+    5 | [01;35m[KVelocityProfile[m[K::VelocityProfile(geometry_msgs::msg::Twist acc, double control_hz)
+      | [01;35m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:[m[K In member function ‘[01m[Kvoid AMR::Core::setParam()[m[K’:
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:116:24:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::Motor::enc_r[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+  116 |     motor = new Motor{0[01;35m[K}[m[K;
+      |                        [01;35m[K^[m[K
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:117:24:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::Error::left[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+  117 |     error = new Error{0[01;35m[K}[m[K;
+      |                        [01;35m[K^[m[K
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:118:35:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::RobotState::y[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+  118 |     robot_state = new RobotState{0[01;35m[K}[m[K;
+      |                                   [01;35m[K^[m[K
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:118:35:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::RobotState::z[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:118:35:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::RobotState::roll[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:118:35:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::RobotState::pitch[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:118:35:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::RobotState::yaw[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+In file included from [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/teleop_keyboard.cpp:1[m[K:
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/include/teleop_keyboard/teleop_keyboard.h:[m[K In constructor ‘[01m[KTeleopKeyboard::TeleopKeyboard()[m[K’:
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/include/teleop_keyboard/teleop_keyboard.h:42:10:[m[K [01;35m[Kwarning: [m[K‘[01m[KTeleopKeyboard::key_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   42 |     char [01;35m[Kkey_[m[K;
+      |          [01;35m[K^~~~[m[K
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/include/teleop_keyboard/teleop_keyboard.h:41:12:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kdouble TeleopKeyboard::x_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   41 |     double [01;35m[Kx_[m[K, y_, z_, th_;
+      |            [01;35m[K^~[m[K
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/teleop_keyboard.cpp:49:1:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   49 | [01;35m[KTeleopKeyboard[m[K::TeleopKeyboard()
+      | [01;35m[K^~~~~~~~~~~~~~[m[K
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:[m[K In member function ‘[01m[Kvoid AMR::Core::setParam()[m[K’:
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:116:24:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::Motor::enc_r[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+  116 |     motor = new Motor{0[01;35m[K}[m[K;
+      |                        [01;35m[K^[m[K
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:117:24:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::Error::left[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+  117 |     error = new Error{0[01;35m[K}[m[K;
+      |                        [01;35m[K^[m[K
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:118:35:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::RobotState::y[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+  118 |     robot_state = new RobotState{0[01;35m[K}[m[K;
+      |                                   [01;35m[K^[m[K
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:118:35:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::RobotState::z[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:118:35:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::RobotState::roll[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:118:35:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::RobotState::pitch[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+[01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:118:35:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::RobotState::yaw[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]

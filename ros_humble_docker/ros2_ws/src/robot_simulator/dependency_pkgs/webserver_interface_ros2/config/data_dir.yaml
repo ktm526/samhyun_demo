@@ -1,0 +1,4 @@
+map_data : "/root/ros2_ws/src/robot_simulator/robot_simulator/data/map_data/maps"
+node_data : "/root/ros2_ws/src/robot_simulator/robot_simulator/data/map_data/nodes"
+camera_data : "/root/ros2_ws/src/robot_simulator/robot_simulator/data/camera_data"
+buildmap_data : "/root/ros2_ws/src/robot_simulator/robot_simulator/data/build_map_data"

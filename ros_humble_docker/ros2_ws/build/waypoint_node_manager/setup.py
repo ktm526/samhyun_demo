@@ -1,0 +1,1 @@
+/root/ros2_ws/src/robot_simulator/dependency_pkgs/waypoint_node_manager/waypoint_node_manager/setup.py

@@ -1,0 +1,1 @@
+/root/ros2_ws/build/san_msgs/rosidl_generator_py/san_msgs/_san_msgs_s.ep.rosidl_typesupport_introspection_c.c

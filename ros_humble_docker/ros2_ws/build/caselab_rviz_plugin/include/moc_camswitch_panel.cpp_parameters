@@ -1,0 +1,4 @@
+-DROS_PACKAGE_NAME="caselab_rviz_plugin"
+-o
+/root/ros2_ws/build/caselab_rviz_plugin/include/moc_camswitch_panel.cpp
+/root/ros2_ws/src/robot_simulator/dependency_pkgs/caselab_rviz2_plugin/include/camswitch_panel.hpp

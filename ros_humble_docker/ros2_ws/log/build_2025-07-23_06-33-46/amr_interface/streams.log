@@ -1,0 +1,123 @@
+[0.015s] Invoking command in '/root/ros2_ws/build/amr_interface': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/amr_interface
+[0.054s] -- The C compiler identification is GNU 11.4.0
+[0.102s] -- The CXX compiler identification is GNU 11.4.0
+[0.109s] -- Detecting C compiler ABI info
+[0.169s] -- Detecting C compiler ABI info - done
+[0.177s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.178s] -- Detecting C compile features
+[0.178s] -- Detecting C compile features - done
+[0.181s] -- Detecting CXX compiler ABI info
+[0.245s] -- Detecting CXX compiler ABI info - done
+[0.256s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.256s] -- Detecting CXX compile features
+[0.257s] -- Detecting CXX compile features - done
+[0.260s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.405s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.477s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.526s] -- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)
+[0.589s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.596s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.605s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.619s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.643s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.707s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.711s] -- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+[0.735s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[0.750s] -- Looking for pthread.h
+[0.814s] -- Looking for pthread.h - found
+[0.814s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.877s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.878s] -- Found Threads: TRUE  
+[0.938s] -- Found rclcpp_action: 16.0.12 (/opt/ros/humble/share/rclcpp_action/cmake)
+[0.979s] -- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[1.013s] -- Found nav_msgs: 4.9.0 (/opt/ros/humble/share/nav_msgs/cmake)
+[1.035s] -- Found nav2_msgs: 1.1.18 (/opt/ros/humble/share/nav2_msgs/cmake)
+[1.059s] -- Found tf2: 0.25.13 (/opt/ros/humble/share/tf2/cmake)
+[1.077s] -- Found tf2_ros: 0.25.13 (/opt/ros/humble/share/tf2_ros/cmake)
+[1.149s] -- Found tf2_geometry_msgs: 0.25.13 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+[1.172s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[1.173s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[1.173s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.176s] -- Found std_srvs: 4.9.0 (/opt/ros/humble/share/std_srvs/cmake)
+[1.185s] -- Found san_msgs: 0.0.0 (/root/ros2_ws/install/san_msgs/share/san_msgs/cmake)
+[1.207s] -- Found visualization_msgs: 4.9.0 (/opt/ros/humble/share/visualization_msgs/cmake)
+[1.301s] -- Configuring done
+[1.329s] -- Generating done
+[1.339s] -- Build files have been written to: /root/ros2_ws/build/amr_interface
+[1.346s] Invoked command in '/root/ros2_ws/build/amr_interface' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/amr_interface
+[1.348s] Invoking command in '/root/ros2_ws/build/amr_interface': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /root/ros2_ws/build/amr_interface -- -j16 -l16
+[1.393s] [ 22%] [32mBuilding CXX object CMakeFiles/amr_interface_lib.dir/src/interface.cpp.o[0m
+[1.394s] [ 22%] [32mBuilding CXX object CMakeFiles/amr_interface_lib.dir/src/path_status_manager.cpp.o[0m
+[1.396s] [ 44%] [32mBuilding CXX object CMakeFiles/amr_interface_lib.dir/src/parameter_updater.cpp.o[0m
+[1.396s] [ 55%] [32mBuilding CXX object CMakeFiles/amr_interface_lib.dir/src/execution.cpp.o[0m
+[1.396s] [ 55%] [32mBuilding CXX object CMakeFiles/amr_interface_lib.dir/src/map_manager.cpp.o[0m
+[1.396s] [ 66%] [32mBuilding CXX object CMakeFiles/amr_interface_lib.dir/src/node_manager.cpp.o[0m
+[5.281s] In file included from [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface/src/path_status_manager.cpp:1[m[K:
+[5.281s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface/include/amr_interface/path_status_manager.hpp:[m[K In constructor ‘[01m[KPathStatusManager::PathStatusManager(rclcpp::Publisher<std_msgs::msg::UInt16MultiArray_<std::allocator<void> > >::SharedPtr, rclcpp::Publisher<std_msgs::msg::UInt8MultiArray_<std::allocator<void> > >::SharedPtr, double, double)[m[K’:
+[5.282s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface/include/amr_interface/path_status_manager.hpp:26:67:[m[K [01;35m[Kwarning: [m[K‘[01m[KPathStatusManager::path_pub_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[5.282s]    26 |     rclcpp::Publisher<std_msgs::msg::UInt16MultiArray>::SharedPtr [01;35m[Kpath_pub_[m[K;
+[5.282s]       |                                                                   [01;35m[K^~~~~~~~~[m[K
+[5.282s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface/include/amr_interface/path_status_manager.hpp:25:66:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Krclcpp::Publisher<std_msgs::msg::UInt8MultiArray_<std::allocator<void> > >::SharedPtr PathStatusManager::path_status_pub_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[5.282s]    25 |     rclcpp::Publisher<std_msgs::msg::UInt8MultiArray>::SharedPtr [01;35m[Kpath_status_pub_[m[K;
+[5.282s]       |                                                                  [01;35m[K^~~~~~~~~~~~~~~~[m[K
+[5.282s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface/src/path_status_manager.cpp:3:1:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[5.282s]     3 | [01;35m[KPathStatusManager[m[K::PathStatusManager(rclcpp::Publisher<std_msgs::msg::UInt16MultiArray>::SharedPtr pub, rclcpp::Publisher<std_msgs::msg::UInt8MultiArray>::SharedPtr pub2, double threshold, double missed_dist)
+[5.282s]       | [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[8.305s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface/src/interface.cpp:[m[K In member function ‘[01m[Kvoid AMR::Interface::stateLoopCallback()[m[K’:
+[8.305s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface/src/interface.cpp:395:12:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kodom_timeout[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[8.305s]   395 |     double [01;35m[Kodom_timeout[m[K = (check_time - last_odom_msg_time_).seconds();
+[8.306s]       |            [01;35m[K^~~~~~~~~~~~[m[K
+[8.306s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface/src/interface.cpp:396:16:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kodom_timeout_cnt[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[8.306s]   396 |     static int [01;35m[Kodom_timeout_cnt[m[K = 0;
+[8.306s]       |                [01;35m[K^~~~~~~~~~~~~~~~[m[K
+[8.330s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface/src/interface.cpp:[m[K In member function ‘[01m[Kvoid AMR::Interface::manualVelCallback(const std::shared_ptr<const geometry_msgs::msg::Twist_<std::allocator<void> > >&)[m[K’:
+[8.330s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface/src/interface.cpp:711:91:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsgs[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[8.331s]   711 | void Interface::manualVelCallback([01;35m[Kconst std::shared_ptr<const geometry_msgs::msg::Twist>& msgs[m[K)
+[8.331s]       |                                   [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~[m[K
+[8.694s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface/src/execution.cpp:[m[K In member function ‘[01m[Kvoid AMR::ExecutionNode::obstacleChecker(sensor_msgs::msg::LaserScan_<std::allocator<void> >::SharedPtr)[m[K’:
+[8.694s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface/src/execution.cpp:1633:15:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kwindow_size[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[8.694s]  1633 |     const int [01;35m[Kwindow_size[m[K = 3;
+[8.695s]       |               [01;35m[K^~~~~~~~~~~[m[K
+[20.835s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface/src/interface.cpp:[m[K At global scope:
+[20.835s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface/src/interface.cpp:396:16:[m[K [01;35m[Kwarning: [m[K‘[01m[Kodom_timeout_cnt[m[K’ defined but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[20.835s]   396 |     static int [01;35m[Kodom_timeout_cnt[m[K = 0;
+[20.835s]       |                [01;35m[K^~~~~~~~~~~~~~~~[m[K
+[39.083s] [ 77%] [32m[1mLinking CXX shared library libamr_interface_lib.so[0m
+[42.141s] [ 77%] Built target amr_interface_lib
+[42.159s] [ 88%] [32mBuilding CXX object CMakeFiles/interface_node.dir/src/node/interface_node.cpp.o[0m
+[46.423s] [100%] [32m[1mLinking CXX executable interface_node[0m
+[47.386s] [100%] Built target interface_node
+[47.394s] Invoked command in '/root/ros2_ws/build/amr_interface' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /root/ros2_ws/build/amr_interface -- -j16 -l16
+[47.395s] Invoking command in '/root/ros2_ws/build/amr_interface': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /root/ros2_ws/build/amr_interface
+[47.400s] -- Install configuration: ""
+[47.400s] -- Execute custom install script
+[47.401s] -- Symlinking: /root/ros2_ws/install/amr_interface/lib/amr_interface/interface_node
+[47.406s] -- Symlinking: /root/ros2_ws/install/amr_interface/lib/amr_interface/libamr_interface_lib.so
+[47.412s] -- Symlinking: /root/ros2_ws/install/amr_interface/include/amr_interface/enhanced_execution.hpp
+[47.418s] -- Symlinking: /root/ros2_ws/install/amr_interface/include/amr_interface/execution.hpp
+[47.425s] -- Symlinking: /root/ros2_ws/install/amr_interface/include/amr_interface/interface.hpp
+[47.431s] -- Symlinking: /root/ros2_ws/install/amr_interface/include/amr_interface/map_manager.hpp
+[47.438s] -- Symlinking: /root/ros2_ws/install/amr_interface/include/amr_interface/node_manager.hpp
+[47.447s] -- Symlinking: /root/ros2_ws/install/amr_interface/include/amr_interface/parameter_updater.hpp
+[47.453s] -- Symlinking: /root/ros2_ws/install/amr_interface/include/amr_interface/path_status_manager.hpp
+[47.459s] -- Symlinking: /root/ros2_ws/install/amr_interface/include/amr_interface/simulation.h
+[47.464s] -- Symlinking: /root/ros2_ws/install/amr_interface/include/amr_interface/state.hpp
+[47.470s] -- Symlinking: /root/ros2_ws/install/amr_interface/share/amr_interface/param/interface.yaml
+[47.476s] -- Symlinking: /root/ros2_ws/install/amr_interface/share/amr_interface/param/update_param.yaml
+[47.482s] -- Symlinking: /root/ros2_ws/install/amr_interface/share/amr_interface/launch/interface.launch.py
+[47.487s] -- Symlinking: /root/ros2_ws/install/amr_interface/share/ament_index/resource_index/package_run_dependencies/amr_interface
+[47.493s] -- Symlinking: /root/ros2_ws/install/amr_interface/share/ament_index/resource_index/parent_prefix_path/amr_interface
+[47.498s] -- Symlinking: /root/ros2_ws/install/amr_interface/share/amr_interface/environment/ament_prefix_path.sh
+[47.504s] -- Symlinking: /root/ros2_ws/install/amr_interface/share/amr_interface/environment/ament_prefix_path.dsv
+[47.509s] -- Symlinking: /root/ros2_ws/install/amr_interface/share/amr_interface/environment/path.sh
+[47.515s] -- Symlinking: /root/ros2_ws/install/amr_interface/share/amr_interface/environment/path.dsv
+[47.522s] -- Symlinking: /root/ros2_ws/install/amr_interface/share/amr_interface/local_setup.bash
+[47.529s] -- Symlinking: /root/ros2_ws/install/amr_interface/share/amr_interface/local_setup.sh
+[47.535s] -- Symlinking: /root/ros2_ws/install/amr_interface/share/amr_interface/local_setup.zsh
+[47.542s] -- Symlinking: /root/ros2_ws/install/amr_interface/share/amr_interface/local_setup.dsv
+[47.548s] -- Symlinking: /root/ros2_ws/install/amr_interface/share/amr_interface/package.dsv
+[47.556s] -- Symlinking: /root/ros2_ws/install/amr_interface/share/ament_index/resource_index/packages/amr_interface
+[47.562s] -- Symlinking: /root/ros2_ws/install/amr_interface/share/amr_interface/cmake/amr_interfaceConfig.cmake
+[47.568s] -- Symlinking: /root/ros2_ws/install/amr_interface/share/amr_interface/cmake/amr_interfaceConfig-version.cmake
+[47.574s] -- Symlinking: /root/ros2_ws/install/amr_interface/share/amr_interface/package.xml
+[47.582s] Invoked command in '/root/ros2_ws/build/amr_interface' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /root/ros2_ws/build/amr_interface

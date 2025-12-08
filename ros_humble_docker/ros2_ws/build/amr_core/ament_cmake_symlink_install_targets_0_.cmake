@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/root/ros2_ws/build/amr_core/amr_core_node" "/root/ros2_ws/build/amr_core/teleop_keyboard" "/root/ros2_ws/build/amr_core/libamr_core_lib.so" "TARGETS" "amr_core_node" "teleop_keyboard" "amr_core_lib" "DESTINATION" "lib/amr_core")

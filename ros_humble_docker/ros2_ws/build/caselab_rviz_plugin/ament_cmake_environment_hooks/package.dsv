@@ -1,0 +1,4 @@
+source;share/caselab_rviz_plugin/local_setup.bash
+source;share/caselab_rviz_plugin/local_setup.dsv
+source;share/caselab_rviz_plugin/local_setup.sh
+source;share/caselab_rviz_plugin/local_setup.zsh

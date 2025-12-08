@@ -1,0 +1,1 @@
+{image: testId.pgm, resolution: 999, origin: [-600.3, -300, 123], negate: 0, occupied_thresh: 0.111, free_thresh: 0.111}

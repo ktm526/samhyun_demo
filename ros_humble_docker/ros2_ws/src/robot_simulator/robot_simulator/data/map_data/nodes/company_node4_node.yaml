@@ -1,0 +1,277 @@
+# type : (home,0) (main,1) (path,2) (coverage,3)
+node:
+  - name: "작업실_child1"
+    type: 3
+    index: 1001
+    connection: []
+    child: []
+    data: 2
+    position:
+      x: 4.99
+      y: 6.38
+      yaw: 20
+
+  - name: "작업실_child2"
+    type: 3
+    index: 1002
+    connection: []
+    child: []
+    data: 2
+    position:
+      x: 8.03
+      y: 6.64
+      yaw: 0
+
+  - name: "작업실_child3"
+    type: 3
+    index: 1003
+    connection: []
+    child: []
+    data: 2
+    position:
+      x: 8.34
+      y: 2.62
+      yaw: 0
+
+  - name: "작업실_child4"
+    type: 3
+    index: 1004
+    connection: []
+    child: []
+    data: 2
+    position:
+      x: 8.39
+      y: 0.907
+      yaw: 0
+
+  - name: "작업실_child5"
+    type: 3
+    index: 1005
+    connection: []
+    child: []
+    data: 2
+    position:
+      x: 5.08
+      y: -1.06
+      yaw: 0
+
+  - name: "작업실_child6"
+    type: 3
+    index: 1006
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: 5.07
+      y: 3.08
+      yaw: 0
+
+  - name: "사무실_child1"
+    type: 3
+    index: 2001
+    connection: []
+    child: []
+    data: 2
+    position:
+      x: 0.858
+      y: 7.65
+      yaw: 0
+
+  - name: "사무실_child2"
+    type: 3
+    index: 2002
+    connection: []
+    child: []
+    data: 2
+    position:
+      x: -4.3
+      y: 7.46
+      yaw: 0
+
+  - name: "사무실_child3"
+    type: 3
+    index: 2003
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: 0.858
+      y: 7.65
+      yaw: 0
+
+  - name: "사무실_child4"
+    type: 3
+    index: 2004
+    connection: []
+    child: []
+    data: 2
+    position:
+      x: 0.953
+      y: 5.01
+      yaw: 0
+
+  - name: "사무실_child5"
+    type: 3
+    index: 2005
+    connection: []
+    child: []
+    data: 2
+    position:
+      x: -4.47
+      y: 4.96
+      yaw: 0
+
+  - name: "사무실_child6"
+    type: 3
+    index: 2006
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: 0.953
+      y: 5.01
+      yaw: 0
+
+  - name: "사무실_child7"
+    type: 3
+    index: 2007
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: 0.685
+      y: 6.43
+      yaw: 0
+
+  - name: "현관_child1"
+    type: 3
+    index: 3001
+    connection: []
+    child: []
+    data: 2
+    position:
+      x: -1.61
+      y: 9.3
+      yaw: 0
+
+  - name: "현관_child2"
+    type: 3
+    index: 3002
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: 3.01
+      y: 9.22
+      yaw: 0
+
+  - name: "현관_child3"
+    type: 3
+    index: 3003
+    connection: []
+    child: []
+    data: 2
+    position:
+      x: 4.8
+      y: 9.35
+      yaw: 0
+
+  - name: "현관_child4"
+    type: 3
+    index: 3004
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: 3.01
+      y: 9.22
+      yaw: 0
+
+  - name: "path1"
+    type: 2
+    index: 1
+    connection: [2, 777]
+    child: []
+    data: 0
+    position:
+      x: 0.9
+      y: 0
+      yaw: 0
+
+  - name: "path2"
+    type: 2
+    index: 2
+    connection: [1, 3]
+    child: []
+    data: 0
+    position:
+      x: 3
+      y: 0
+      yaw: 0
+
+  - name: "path3"
+    type: 2
+    index: 3
+    connection: [2, 101, 4]
+    child: []
+    data: 0
+    position:
+      x: 3.37
+      y: 3.01
+      yaw: 0
+
+  - name: "path4"
+    type: 2
+    index: 4
+    connection: [3, 102, 103]
+    child: []
+    data: 0
+    position:
+      x: 3.13
+      y: 6.65
+      yaw: 0
+
+  - name: "작업실"
+    type: 1
+    index: 101
+    connection: [3]
+    child: [1001, 1002, 1003, 1004, 1005, 1006]
+    data: 0
+    position:
+      x: 5.07
+      y: 3.08
+      yaw: 0
+
+  - name: "사무실"
+    type: 1
+    index: 102
+    connection: [4]
+    child: [2001, 2002, 2003, 2004, 2005, 2007]
+    data: 0
+    position:
+      x: 0.685
+      y: 6.43
+      yaw: 0
+
+  - name: "현관"
+    type: 1
+    index: 103
+    connection: [4]
+    child: [3001, 3002, 3003, 3004]
+    data: 0
+    position:
+      x: 3.01
+      y: 9.22
+      yaw: 0
+
+  - name: "home"
+    type: 0
+    index: 777
+    connection: [1]
+    child: []
+    data: 0
+    position:
+      x: 0.04
+      y: 0
+      yaw: 0
+

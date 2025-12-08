@@ -1,0 +1,97 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-065014c6a4d03b5df1ad.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "amr_core",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "amr_core_lib::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-amr_core_lib-015cf0ea03873811bdb4.json",
+					"name" : "amr_core_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "amr_core_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-amr_core_node-280f075dbd86ae61092b.json",
+					"name" : "amr_core_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "amr_core_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-amr_core_uninstall-168a26c3390a6bb995e3.json",
+					"name" : "amr_core_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "teleop_keyboard::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-teleop_keyboard-5da3d0e45d6320ddbbd7.json",
+					"name" : "teleop_keyboard",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-c49f7dc2548004be0748.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/root/ros2_ws/build/amr_core",
+		"source" : "/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

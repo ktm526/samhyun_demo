@@ -1,0 +1,55 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from san_msgs/msg/StateMachine.msg
+// generated code does not contain a copyright notice
+
+
+module san_msgs {
+  module msg {
+    module StateMachine_Constants {
+      @verbatim (language="comment", text=
+        "0")
+      const uint8 INIT = 0;
+      @verbatim (language="comment", text=
+        "16")
+      const uint8 IDLE = 16;
+      @verbatim (language="comment", text=
+        "32")
+      const uint8 AUTO = 32;
+      @verbatim (language="comment", text=
+        "48")
+      const uint8 MANUAL = 48;
+      @verbatim (language="comment", text=
+        "64")
+      const uint8 DOCKING = 64;
+      @verbatim (language="comment", text=
+        "80")
+      const uint8 UNDOCKING = 80;
+      @verbatim (language="comment", text=
+        "96")
+      const uint8 CHARGING = 96;
+      @verbatim (language="comment", text=
+        "112  Send for Robot Arm")
+      const uint8 MANIPULATION = 112;
+      @verbatim (language="comment", text=
+        "128")
+      const uint8 EMERGENCY = 128;
+      @verbatim (language="comment", text=
+        "144")
+      const uint8 STOP = 144;
+      @verbatim (language="comment", text=
+        "Status")
+      const uint8 RUNNING = 0;
+      const uint8 SUCCESS = 1;
+      const uint8 FAIL = 2;
+    };
+    @verbatim (language="comment", text=
+      "State")
+    struct StateMachine {
+      @verbatim (language="comment", text=
+        "uint8 SLAM           = 0x100     # 160 Back to the Docking Waypoint Node")
+      uint8 state;
+
+      uint8 status;
+    };
+  };
+};

@@ -1,0 +1,41 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from san_msgs/action/TaskCommandAction.action
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/PoseArray.idl"
+#include "geometry_msgs/msg/PoseStamped.idl"
+#include "san_msgs/msg/Behavior.idl"
+
+module san_msgs {
+  module action {
+    @verbatim (language="comment", text=
+      "Goal")
+    struct TaskCommandAction_Goal {
+      @verbatim (language="comment", text=
+        "ex: \"load\", \"unload\", \"move\", \"home\"")
+      string mission;
+
+      uint16 start_node;
+
+      uint16 goal_node;
+
+      geometry_msgs::msg::PoseArray waypoint_lists;
+
+      @verbatim (language="comment", text=
+        "Nav2")
+      geometry_msgs::msg::PoseStamped target_goal;
+    };
+    @verbatim (language="comment", text=
+      "Result")
+    struct TaskCommandAction_Result {
+      boolean success;
+
+      string message;
+    };
+    @verbatim (language="comment", text=
+      "Feedback")
+    struct TaskCommandAction_Feedback {
+      san_msgs::msg::Behavior current_behavior;
+    };
+  };
+};

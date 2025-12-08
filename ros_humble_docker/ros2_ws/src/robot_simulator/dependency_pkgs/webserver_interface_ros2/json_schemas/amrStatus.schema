@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "amrStatus",
+  "description": "JSON Schema for publishing the current status of an AMR (Autonomous Mobile Robot).",
+  "subtopic": "/amrStatus",
+  "type": "object",
+  "required": [
+    "headerId",
+    "robot_id",
+    "robot_name",
+    "robot_model",
+    "timestamp",
+    "hw_version",
+    "sw_version",
+    "driving_status",
+    "driving_mode",
+    "position_x",
+    "position_y",
+    "position_theta",
+    "velocity_x",
+    "velocity_y",
+    "velocity_theta",
+    "connection_status",
+    "order_status",
+    "path_status",
+    "battery_soc",
+    "battery_voltage",
+    "battery_soh",
+    "charging_status"
+  ],
+
+  "properties": {
+    "headerId": {
+      "title": "Header ID",
+      "type": "integer",
+      "description": "Incremented with each message."
+    },
+    "robot_id": {
+      "title": "Robot ID",
+      "type": "string",
+      "description": "Unique identifier of the robot."
+    },
+    "robot_name": {
+      "title": "Robot Name",
+      "type": "string",
+      "description": "Human-readable name of the robot."
+    },
+    "robot_model": {
+      "title": "Robot Model",
+      "type": "string",
+      "description": "Model or type designation of the robot."
+    },
+    "timestamp": {
+      "title": "Timestamp",
+      "type": "string",
+      "format": "date-time",
+      "description": "Time when this status was recorded, in ISO 8601 format.",
+      "examples": [
+        "2025-01-01T00:00:00Z"
+      ]
+    },
+    "hw_version": {
+      "title": "Hardware Version",
+      "type": "string",
+      "description": "Hardware revision or version of the robot."
+    },
+    "sw_version": {
+      "title": "Software Version",
+      "type": "string",
+      "description": "Software/firmware version running on the robot."
+    },
+    "driving_status": {
+      "title": "Driving Status",
+      "type": "integer",
+      "description": "Numeric code representing the current driving status of the robot."
+    },
+    "driving_mode": {
+      "title": "Driving Mode",
+      "type": "integer",
+      "description": "Numeric code representing the driving mode (e.g., manual, auto)."
+    },
+    "position_x": {
+      "title": "Position X",
+      "type": "number",
+      "description": "X coordinate of the robot in the map frame (meters)."
+    },
+    "position_y": {
+      "title": "Position Y",
+      "type": "number",
+      "description": "Y coordinate of the robot in the map frame (meters)."
+    },
+    "position_theta": {
+      "title": "Position Theta",
+      "type": "number",
+      "description": "Orientation (yaw) of the robot in the map frame (radians)."
+    },
+    "velocity_x": {
+      "title": "Velocity X",
+      "type": "number",
+      "description": "Linear velocity along the X axis (m/s)."
+    },
+    "velocity_y": {
+      "title": "Velocity Y",
+      "type": "number",
+      "description": "Linear velocity along the Y axis (m/s)."
+    },
+    "velocity_theta": {
+      "title": "Velocity Theta",
+      "type": "number",
+      "description": "Angular velocity around the Z axis (rad/s)."
+    },
+    "connection_status": {
+      "title": "Connection Status",
+      "type": "boolean",
+      "description": "Whether the robot is currently connected to the controller/server."
+    },
+    "order_status": {
+      "title": "Order Status",
+      "type": "integer",
+      "description": "Numeric code indicating the robot’s current order/task status."
+    },
+    "path_status": {
+      "title": "Path Status",
+      "type": "array",
+      "description": "Array of objects describing the status of each segment or waypoint in the current planned path.",
+      "items": {}
+    },
+    "battery_soc": {
+      "title": "Battery State of Charge",
+      "type": "number",
+      "description": "Battery state of charge as a percentage (0.0–100.0)."
+    },
+    "battery_voltage": {
+      "title": "Battery Voltage",
+      "type": "number",
+      "description": "Measured battery voltage (volts)."
+    },
+    "battery_soh": {
+      "title": "Battery State of Health",
+      "type": "number",
+      "description": "Battery state of health as a percentage (0.0–100.0)."
+    },
+    "charging_status": {
+      "title": "Charging Status",
+      "type": "boolean",
+      "description": "Whether the robot’s battery is currently charging."
+    },
+    "error_code": {
+      "title": "Error Code",
+      "type": "integer",
+      "description": "Numeric code of any current error condition (0 if none)."
+    },
+    "error_msg": {
+      "title": "Error Message",
+      "type": "string",
+      "description": "Human-readable description of the current error, if any.",
+      "examples": [
+        ""
+      ]
+    }
+  }
+}

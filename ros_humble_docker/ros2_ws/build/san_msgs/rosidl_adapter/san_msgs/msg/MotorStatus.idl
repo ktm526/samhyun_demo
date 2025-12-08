@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from san_msgs/msg/MotorStatus.msg
+// generated code does not contain a copyright notice
+
+
+module san_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "MotorStatus.msg" "\n"
+      "0: STATE_MOTOR_SERVO_OFF" "\n"
+      "1: STATE_MOTOR_SERVO_ON" "\n"
+      "2: STATE_MOTOR_QUICK_STOP" "\n"
+      "3: STATE_MOTOR_BRAKE_DISABLE" "\n"
+      "4: STATE_MOTOR_STO" "\n"
+      "6: STATE_BATTERY_CHARGING  " "\n"
+      "8: STATE_MOTOR_SW_STOP")
+    struct MotorStatus {
+      uint8 state;
+    };
+  };
+};

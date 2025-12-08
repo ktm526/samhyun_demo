@@ -1,0 +1,1241 @@
+// generated from rosidl_generator_c/resource/idl__functions.h.em
+// with input from san_msgs:action/SetState.idl
+// generated code does not contain a copyright notice
+
+#ifndef SAN_MSGS__ACTION__DETAIL__SET_STATE__FUNCTIONS_H_
+#define SAN_MSGS__ACTION__DETAIL__SET_STATE__FUNCTIONS_H_
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+#include <stdbool.h>
+#include <stdlib.h>
+
+#include "rosidl_runtime_c/visibility_control.h"
+#include "san_msgs/msg/rosidl_generator_c__visibility_control.h"
+
+#include "san_msgs/action/detail/set_state__struct.h"
+
+/// Initialize action/SetState message.
+/**
+ * If the init function is called twice for the same message without
+ * calling fini inbetween previously allocated memory will be leaked.
+ * \param[in,out] msg The previously allocated message pointer.
+ * Fields without a default value will not be initialized by this function.
+ * You might want to call memset(msg, 0, sizeof(
+ * san_msgs__action__SetState_Goal
+ * )) before or use
+ * san_msgs__action__SetState_Goal__create()
+ * to allocate and initialize the message.
+ * \return true if initialization was successful, otherwise false
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_Goal__init(san_msgs__action__SetState_Goal * msg);
+
+/// Finalize action/SetState message.
+/**
+ * \param[in,out] msg The allocated message pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_Goal__fini(san_msgs__action__SetState_Goal * msg);
+
+/// Create action/SetState message.
+/**
+ * It allocates the memory for the message, sets the memory to zero, and
+ * calls
+ * san_msgs__action__SetState_Goal__init().
+ * \return The pointer to the initialized message if successful,
+ * otherwise NULL
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+san_msgs__action__SetState_Goal *
+san_msgs__action__SetState_Goal__create();
+
+/// Destroy action/SetState message.
+/**
+ * It calls
+ * san_msgs__action__SetState_Goal__fini()
+ * and frees the memory of the message.
+ * \param[in,out] msg The allocated message pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_Goal__destroy(san_msgs__action__SetState_Goal * msg);
+
+/// Check for action/SetState message equality.
+/**
+ * \param[in] lhs The message on the left hand size of the equality operator.
+ * \param[in] rhs The message on the right hand size of the equality operator.
+ * \return true if messages are equal, otherwise false.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_Goal__are_equal(const san_msgs__action__SetState_Goal * lhs, const san_msgs__action__SetState_Goal * rhs);
+
+/// Copy a action/SetState message.
+/**
+ * This functions performs a deep copy, as opposed to the shallow copy that
+ * plain assignment yields.
+ *
+ * \param[in] input The source message pointer.
+ * \param[out] output The target message pointer, which must
+ *   have been initialized before calling this function.
+ * \return true if successful, or false if either pointer is null
+ *   or memory allocation fails.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_Goal__copy(
+  const san_msgs__action__SetState_Goal * input,
+  san_msgs__action__SetState_Goal * output);
+
+/// Initialize array of action/SetState messages.
+/**
+ * It allocates the memory for the number of elements and calls
+ * san_msgs__action__SetState_Goal__init()
+ * for each element of the array.
+ * \param[in,out] array The allocated array pointer.
+ * \param[in] size The size / capacity of the array.
+ * \return true if initialization was successful, otherwise false
+ * If the array pointer is valid and the size is zero it is guaranteed
+ # to return true.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_Goal__Sequence__init(san_msgs__action__SetState_Goal__Sequence * array, size_t size);
+
+/// Finalize array of action/SetState messages.
+/**
+ * It calls
+ * san_msgs__action__SetState_Goal__fini()
+ * for each element of the array and frees the memory for the number of
+ * elements.
+ * \param[in,out] array The initialized array pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_Goal__Sequence__fini(san_msgs__action__SetState_Goal__Sequence * array);
+
+/// Create array of action/SetState messages.
+/**
+ * It allocates the memory for the array and calls
+ * san_msgs__action__SetState_Goal__Sequence__init().
+ * \param[in] size The size / capacity of the array.
+ * \return The pointer to the initialized array if successful, otherwise NULL
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+san_msgs__action__SetState_Goal__Sequence *
+san_msgs__action__SetState_Goal__Sequence__create(size_t size);
+
+/// Destroy array of action/SetState messages.
+/**
+ * It calls
+ * san_msgs__action__SetState_Goal__Sequence__fini()
+ * on the array,
+ * and frees the memory of the array.
+ * \param[in,out] array The initialized array pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_Goal__Sequence__destroy(san_msgs__action__SetState_Goal__Sequence * array);
+
+/// Check for action/SetState message array equality.
+/**
+ * \param[in] lhs The message array on the left hand size of the equality operator.
+ * \param[in] rhs The message array on the right hand size of the equality operator.
+ * \return true if message arrays are equal in size and content, otherwise false.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_Goal__Sequence__are_equal(const san_msgs__action__SetState_Goal__Sequence * lhs, const san_msgs__action__SetState_Goal__Sequence * rhs);
+
+/// Copy an array of action/SetState messages.
+/**
+ * This functions performs a deep copy, as opposed to the shallow copy that
+ * plain assignment yields.
+ *
+ * \param[in] input The source array pointer.
+ * \param[out] output The target array pointer, which must
+ *   have been initialized before calling this function.
+ * \return true if successful, or false if either pointer
+ *   is null or memory allocation fails.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_Goal__Sequence__copy(
+  const san_msgs__action__SetState_Goal__Sequence * input,
+  san_msgs__action__SetState_Goal__Sequence * output);
+
+/// Initialize action/SetState message.
+/**
+ * If the init function is called twice for the same message without
+ * calling fini inbetween previously allocated memory will be leaked.
+ * \param[in,out] msg The previously allocated message pointer.
+ * Fields without a default value will not be initialized by this function.
+ * You might want to call memset(msg, 0, sizeof(
+ * san_msgs__action__SetState_Result
+ * )) before or use
+ * san_msgs__action__SetState_Result__create()
+ * to allocate and initialize the message.
+ * \return true if initialization was successful, otherwise false
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_Result__init(san_msgs__action__SetState_Result * msg);
+
+/// Finalize action/SetState message.
+/**
+ * \param[in,out] msg The allocated message pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_Result__fini(san_msgs__action__SetState_Result * msg);
+
+/// Create action/SetState message.
+/**
+ * It allocates the memory for the message, sets the memory to zero, and
+ * calls
+ * san_msgs__action__SetState_Result__init().
+ * \return The pointer to the initialized message if successful,
+ * otherwise NULL
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+san_msgs__action__SetState_Result *
+san_msgs__action__SetState_Result__create();
+
+/// Destroy action/SetState message.
+/**
+ * It calls
+ * san_msgs__action__SetState_Result__fini()
+ * and frees the memory of the message.
+ * \param[in,out] msg The allocated message pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_Result__destroy(san_msgs__action__SetState_Result * msg);
+
+/// Check for action/SetState message equality.
+/**
+ * \param[in] lhs The message on the left hand size of the equality operator.
+ * \param[in] rhs The message on the right hand size of the equality operator.
+ * \return true if messages are equal, otherwise false.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_Result__are_equal(const san_msgs__action__SetState_Result * lhs, const san_msgs__action__SetState_Result * rhs);
+
+/// Copy a action/SetState message.
+/**
+ * This functions performs a deep copy, as opposed to the shallow copy that
+ * plain assignment yields.
+ *
+ * \param[in] input The source message pointer.
+ * \param[out] output The target message pointer, which must
+ *   have been initialized before calling this function.
+ * \return true if successful, or false if either pointer is null
+ *   or memory allocation fails.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_Result__copy(
+  const san_msgs__action__SetState_Result * input,
+  san_msgs__action__SetState_Result * output);
+
+/// Initialize array of action/SetState messages.
+/**
+ * It allocates the memory for the number of elements and calls
+ * san_msgs__action__SetState_Result__init()
+ * for each element of the array.
+ * \param[in,out] array The allocated array pointer.
+ * \param[in] size The size / capacity of the array.
+ * \return true if initialization was successful, otherwise false
+ * If the array pointer is valid and the size is zero it is guaranteed
+ # to return true.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_Result__Sequence__init(san_msgs__action__SetState_Result__Sequence * array, size_t size);
+
+/// Finalize array of action/SetState messages.
+/**
+ * It calls
+ * san_msgs__action__SetState_Result__fini()
+ * for each element of the array and frees the memory for the number of
+ * elements.
+ * \param[in,out] array The initialized array pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_Result__Sequence__fini(san_msgs__action__SetState_Result__Sequence * array);
+
+/// Create array of action/SetState messages.
+/**
+ * It allocates the memory for the array and calls
+ * san_msgs__action__SetState_Result__Sequence__init().
+ * \param[in] size The size / capacity of the array.
+ * \return The pointer to the initialized array if successful, otherwise NULL
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+san_msgs__action__SetState_Result__Sequence *
+san_msgs__action__SetState_Result__Sequence__create(size_t size);
+
+/// Destroy array of action/SetState messages.
+/**
+ * It calls
+ * san_msgs__action__SetState_Result__Sequence__fini()
+ * on the array,
+ * and frees the memory of the array.
+ * \param[in,out] array The initialized array pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_Result__Sequence__destroy(san_msgs__action__SetState_Result__Sequence * array);
+
+/// Check for action/SetState message array equality.
+/**
+ * \param[in] lhs The message array on the left hand size of the equality operator.
+ * \param[in] rhs The message array on the right hand size of the equality operator.
+ * \return true if message arrays are equal in size and content, otherwise false.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_Result__Sequence__are_equal(const san_msgs__action__SetState_Result__Sequence * lhs, const san_msgs__action__SetState_Result__Sequence * rhs);
+
+/// Copy an array of action/SetState messages.
+/**
+ * This functions performs a deep copy, as opposed to the shallow copy that
+ * plain assignment yields.
+ *
+ * \param[in] input The source array pointer.
+ * \param[out] output The target array pointer, which must
+ *   have been initialized before calling this function.
+ * \return true if successful, or false if either pointer
+ *   is null or memory allocation fails.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_Result__Sequence__copy(
+  const san_msgs__action__SetState_Result__Sequence * input,
+  san_msgs__action__SetState_Result__Sequence * output);
+
+/// Initialize action/SetState message.
+/**
+ * If the init function is called twice for the same message without
+ * calling fini inbetween previously allocated memory will be leaked.
+ * \param[in,out] msg The previously allocated message pointer.
+ * Fields without a default value will not be initialized by this function.
+ * You might want to call memset(msg, 0, sizeof(
+ * san_msgs__action__SetState_Feedback
+ * )) before or use
+ * san_msgs__action__SetState_Feedback__create()
+ * to allocate and initialize the message.
+ * \return true if initialization was successful, otherwise false
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_Feedback__init(san_msgs__action__SetState_Feedback * msg);
+
+/// Finalize action/SetState message.
+/**
+ * \param[in,out] msg The allocated message pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_Feedback__fini(san_msgs__action__SetState_Feedback * msg);
+
+/// Create action/SetState message.
+/**
+ * It allocates the memory for the message, sets the memory to zero, and
+ * calls
+ * san_msgs__action__SetState_Feedback__init().
+ * \return The pointer to the initialized message if successful,
+ * otherwise NULL
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+san_msgs__action__SetState_Feedback *
+san_msgs__action__SetState_Feedback__create();
+
+/// Destroy action/SetState message.
+/**
+ * It calls
+ * san_msgs__action__SetState_Feedback__fini()
+ * and frees the memory of the message.
+ * \param[in,out] msg The allocated message pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_Feedback__destroy(san_msgs__action__SetState_Feedback * msg);
+
+/// Check for action/SetState message equality.
+/**
+ * \param[in] lhs The message on the left hand size of the equality operator.
+ * \param[in] rhs The message on the right hand size of the equality operator.
+ * \return true if messages are equal, otherwise false.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_Feedback__are_equal(const san_msgs__action__SetState_Feedback * lhs, const san_msgs__action__SetState_Feedback * rhs);
+
+/// Copy a action/SetState message.
+/**
+ * This functions performs a deep copy, as opposed to the shallow copy that
+ * plain assignment yields.
+ *
+ * \param[in] input The source message pointer.
+ * \param[out] output The target message pointer, which must
+ *   have been initialized before calling this function.
+ * \return true if successful, or false if either pointer is null
+ *   or memory allocation fails.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_Feedback__copy(
+  const san_msgs__action__SetState_Feedback * input,
+  san_msgs__action__SetState_Feedback * output);
+
+/// Initialize array of action/SetState messages.
+/**
+ * It allocates the memory for the number of elements and calls
+ * san_msgs__action__SetState_Feedback__init()
+ * for each element of the array.
+ * \param[in,out] array The allocated array pointer.
+ * \param[in] size The size / capacity of the array.
+ * \return true if initialization was successful, otherwise false
+ * If the array pointer is valid and the size is zero it is guaranteed
+ # to return true.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_Feedback__Sequence__init(san_msgs__action__SetState_Feedback__Sequence * array, size_t size);
+
+/// Finalize array of action/SetState messages.
+/**
+ * It calls
+ * san_msgs__action__SetState_Feedback__fini()
+ * for each element of the array and frees the memory for the number of
+ * elements.
+ * \param[in,out] array The initialized array pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_Feedback__Sequence__fini(san_msgs__action__SetState_Feedback__Sequence * array);
+
+/// Create array of action/SetState messages.
+/**
+ * It allocates the memory for the array and calls
+ * san_msgs__action__SetState_Feedback__Sequence__init().
+ * \param[in] size The size / capacity of the array.
+ * \return The pointer to the initialized array if successful, otherwise NULL
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+san_msgs__action__SetState_Feedback__Sequence *
+san_msgs__action__SetState_Feedback__Sequence__create(size_t size);
+
+/// Destroy array of action/SetState messages.
+/**
+ * It calls
+ * san_msgs__action__SetState_Feedback__Sequence__fini()
+ * on the array,
+ * and frees the memory of the array.
+ * \param[in,out] array The initialized array pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_Feedback__Sequence__destroy(san_msgs__action__SetState_Feedback__Sequence * array);
+
+/// Check for action/SetState message array equality.
+/**
+ * \param[in] lhs The message array on the left hand size of the equality operator.
+ * \param[in] rhs The message array on the right hand size of the equality operator.
+ * \return true if message arrays are equal in size and content, otherwise false.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_Feedback__Sequence__are_equal(const san_msgs__action__SetState_Feedback__Sequence * lhs, const san_msgs__action__SetState_Feedback__Sequence * rhs);
+
+/// Copy an array of action/SetState messages.
+/**
+ * This functions performs a deep copy, as opposed to the shallow copy that
+ * plain assignment yields.
+ *
+ * \param[in] input The source array pointer.
+ * \param[out] output The target array pointer, which must
+ *   have been initialized before calling this function.
+ * \return true if successful, or false if either pointer
+ *   is null or memory allocation fails.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_Feedback__Sequence__copy(
+  const san_msgs__action__SetState_Feedback__Sequence * input,
+  san_msgs__action__SetState_Feedback__Sequence * output);
+
+/// Initialize action/SetState message.
+/**
+ * If the init function is called twice for the same message without
+ * calling fini inbetween previously allocated memory will be leaked.
+ * \param[in,out] msg The previously allocated message pointer.
+ * Fields without a default value will not be initialized by this function.
+ * You might want to call memset(msg, 0, sizeof(
+ * san_msgs__action__SetState_SendGoal_Request
+ * )) before or use
+ * san_msgs__action__SetState_SendGoal_Request__create()
+ * to allocate and initialize the message.
+ * \return true if initialization was successful, otherwise false
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_SendGoal_Request__init(san_msgs__action__SetState_SendGoal_Request * msg);
+
+/// Finalize action/SetState message.
+/**
+ * \param[in,out] msg The allocated message pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_SendGoal_Request__fini(san_msgs__action__SetState_SendGoal_Request * msg);
+
+/// Create action/SetState message.
+/**
+ * It allocates the memory for the message, sets the memory to zero, and
+ * calls
+ * san_msgs__action__SetState_SendGoal_Request__init().
+ * \return The pointer to the initialized message if successful,
+ * otherwise NULL
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+san_msgs__action__SetState_SendGoal_Request *
+san_msgs__action__SetState_SendGoal_Request__create();
+
+/// Destroy action/SetState message.
+/**
+ * It calls
+ * san_msgs__action__SetState_SendGoal_Request__fini()
+ * and frees the memory of the message.
+ * \param[in,out] msg The allocated message pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_SendGoal_Request__destroy(san_msgs__action__SetState_SendGoal_Request * msg);
+
+/// Check for action/SetState message equality.
+/**
+ * \param[in] lhs The message on the left hand size of the equality operator.
+ * \param[in] rhs The message on the right hand size of the equality operator.
+ * \return true if messages are equal, otherwise false.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_SendGoal_Request__are_equal(const san_msgs__action__SetState_SendGoal_Request * lhs, const san_msgs__action__SetState_SendGoal_Request * rhs);
+
+/// Copy a action/SetState message.
+/**
+ * This functions performs a deep copy, as opposed to the shallow copy that
+ * plain assignment yields.
+ *
+ * \param[in] input The source message pointer.
+ * \param[out] output The target message pointer, which must
+ *   have been initialized before calling this function.
+ * \return true if successful, or false if either pointer is null
+ *   or memory allocation fails.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_SendGoal_Request__copy(
+  const san_msgs__action__SetState_SendGoal_Request * input,
+  san_msgs__action__SetState_SendGoal_Request * output);
+
+/// Initialize array of action/SetState messages.
+/**
+ * It allocates the memory for the number of elements and calls
+ * san_msgs__action__SetState_SendGoal_Request__init()
+ * for each element of the array.
+ * \param[in,out] array The allocated array pointer.
+ * \param[in] size The size / capacity of the array.
+ * \return true if initialization was successful, otherwise false
+ * If the array pointer is valid and the size is zero it is guaranteed
+ # to return true.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_SendGoal_Request__Sequence__init(san_msgs__action__SetState_SendGoal_Request__Sequence * array, size_t size);
+
+/// Finalize array of action/SetState messages.
+/**
+ * It calls
+ * san_msgs__action__SetState_SendGoal_Request__fini()
+ * for each element of the array and frees the memory for the number of
+ * elements.
+ * \param[in,out] array The initialized array pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_SendGoal_Request__Sequence__fini(san_msgs__action__SetState_SendGoal_Request__Sequence * array);
+
+/// Create array of action/SetState messages.
+/**
+ * It allocates the memory for the array and calls
+ * san_msgs__action__SetState_SendGoal_Request__Sequence__init().
+ * \param[in] size The size / capacity of the array.
+ * \return The pointer to the initialized array if successful, otherwise NULL
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+san_msgs__action__SetState_SendGoal_Request__Sequence *
+san_msgs__action__SetState_SendGoal_Request__Sequence__create(size_t size);
+
+/// Destroy array of action/SetState messages.
+/**
+ * It calls
+ * san_msgs__action__SetState_SendGoal_Request__Sequence__fini()
+ * on the array,
+ * and frees the memory of the array.
+ * \param[in,out] array The initialized array pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_SendGoal_Request__Sequence__destroy(san_msgs__action__SetState_SendGoal_Request__Sequence * array);
+
+/// Check for action/SetState message array equality.
+/**
+ * \param[in] lhs The message array on the left hand size of the equality operator.
+ * \param[in] rhs The message array on the right hand size of the equality operator.
+ * \return true if message arrays are equal in size and content, otherwise false.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_SendGoal_Request__Sequence__are_equal(const san_msgs__action__SetState_SendGoal_Request__Sequence * lhs, const san_msgs__action__SetState_SendGoal_Request__Sequence * rhs);
+
+/// Copy an array of action/SetState messages.
+/**
+ * This functions performs a deep copy, as opposed to the shallow copy that
+ * plain assignment yields.
+ *
+ * \param[in] input The source array pointer.
+ * \param[out] output The target array pointer, which must
+ *   have been initialized before calling this function.
+ * \return true if successful, or false if either pointer
+ *   is null or memory allocation fails.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_SendGoal_Request__Sequence__copy(
+  const san_msgs__action__SetState_SendGoal_Request__Sequence * input,
+  san_msgs__action__SetState_SendGoal_Request__Sequence * output);
+
+/// Initialize action/SetState message.
+/**
+ * If the init function is called twice for the same message without
+ * calling fini inbetween previously allocated memory will be leaked.
+ * \param[in,out] msg The previously allocated message pointer.
+ * Fields without a default value will not be initialized by this function.
+ * You might want to call memset(msg, 0, sizeof(
+ * san_msgs__action__SetState_SendGoal_Response
+ * )) before or use
+ * san_msgs__action__SetState_SendGoal_Response__create()
+ * to allocate and initialize the message.
+ * \return true if initialization was successful, otherwise false
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_SendGoal_Response__init(san_msgs__action__SetState_SendGoal_Response * msg);
+
+/// Finalize action/SetState message.
+/**
+ * \param[in,out] msg The allocated message pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_SendGoal_Response__fini(san_msgs__action__SetState_SendGoal_Response * msg);
+
+/// Create action/SetState message.
+/**
+ * It allocates the memory for the message, sets the memory to zero, and
+ * calls
+ * san_msgs__action__SetState_SendGoal_Response__init().
+ * \return The pointer to the initialized message if successful,
+ * otherwise NULL
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+san_msgs__action__SetState_SendGoal_Response *
+san_msgs__action__SetState_SendGoal_Response__create();
+
+/// Destroy action/SetState message.
+/**
+ * It calls
+ * san_msgs__action__SetState_SendGoal_Response__fini()
+ * and frees the memory of the message.
+ * \param[in,out] msg The allocated message pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_SendGoal_Response__destroy(san_msgs__action__SetState_SendGoal_Response * msg);
+
+/// Check for action/SetState message equality.
+/**
+ * \param[in] lhs The message on the left hand size of the equality operator.
+ * \param[in] rhs The message on the right hand size of the equality operator.
+ * \return true if messages are equal, otherwise false.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_SendGoal_Response__are_equal(const san_msgs__action__SetState_SendGoal_Response * lhs, const san_msgs__action__SetState_SendGoal_Response * rhs);
+
+/// Copy a action/SetState message.
+/**
+ * This functions performs a deep copy, as opposed to the shallow copy that
+ * plain assignment yields.
+ *
+ * \param[in] input The source message pointer.
+ * \param[out] output The target message pointer, which must
+ *   have been initialized before calling this function.
+ * \return true if successful, or false if either pointer is null
+ *   or memory allocation fails.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_SendGoal_Response__copy(
+  const san_msgs__action__SetState_SendGoal_Response * input,
+  san_msgs__action__SetState_SendGoal_Response * output);
+
+/// Initialize array of action/SetState messages.
+/**
+ * It allocates the memory for the number of elements and calls
+ * san_msgs__action__SetState_SendGoal_Response__init()
+ * for each element of the array.
+ * \param[in,out] array The allocated array pointer.
+ * \param[in] size The size / capacity of the array.
+ * \return true if initialization was successful, otherwise false
+ * If the array pointer is valid and the size is zero it is guaranteed
+ # to return true.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_SendGoal_Response__Sequence__init(san_msgs__action__SetState_SendGoal_Response__Sequence * array, size_t size);
+
+/// Finalize array of action/SetState messages.
+/**
+ * It calls
+ * san_msgs__action__SetState_SendGoal_Response__fini()
+ * for each element of the array and frees the memory for the number of
+ * elements.
+ * \param[in,out] array The initialized array pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_SendGoal_Response__Sequence__fini(san_msgs__action__SetState_SendGoal_Response__Sequence * array);
+
+/// Create array of action/SetState messages.
+/**
+ * It allocates the memory for the array and calls
+ * san_msgs__action__SetState_SendGoal_Response__Sequence__init().
+ * \param[in] size The size / capacity of the array.
+ * \return The pointer to the initialized array if successful, otherwise NULL
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+san_msgs__action__SetState_SendGoal_Response__Sequence *
+san_msgs__action__SetState_SendGoal_Response__Sequence__create(size_t size);
+
+/// Destroy array of action/SetState messages.
+/**
+ * It calls
+ * san_msgs__action__SetState_SendGoal_Response__Sequence__fini()
+ * on the array,
+ * and frees the memory of the array.
+ * \param[in,out] array The initialized array pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_SendGoal_Response__Sequence__destroy(san_msgs__action__SetState_SendGoal_Response__Sequence * array);
+
+/// Check for action/SetState message array equality.
+/**
+ * \param[in] lhs The message array on the left hand size of the equality operator.
+ * \param[in] rhs The message array on the right hand size of the equality operator.
+ * \return true if message arrays are equal in size and content, otherwise false.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_SendGoal_Response__Sequence__are_equal(const san_msgs__action__SetState_SendGoal_Response__Sequence * lhs, const san_msgs__action__SetState_SendGoal_Response__Sequence * rhs);
+
+/// Copy an array of action/SetState messages.
+/**
+ * This functions performs a deep copy, as opposed to the shallow copy that
+ * plain assignment yields.
+ *
+ * \param[in] input The source array pointer.
+ * \param[out] output The target array pointer, which must
+ *   have been initialized before calling this function.
+ * \return true if successful, or false if either pointer
+ *   is null or memory allocation fails.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_SendGoal_Response__Sequence__copy(
+  const san_msgs__action__SetState_SendGoal_Response__Sequence * input,
+  san_msgs__action__SetState_SendGoal_Response__Sequence * output);
+
+/// Initialize action/SetState message.
+/**
+ * If the init function is called twice for the same message without
+ * calling fini inbetween previously allocated memory will be leaked.
+ * \param[in,out] msg The previously allocated message pointer.
+ * Fields without a default value will not be initialized by this function.
+ * You might want to call memset(msg, 0, sizeof(
+ * san_msgs__action__SetState_GetResult_Request
+ * )) before or use
+ * san_msgs__action__SetState_GetResult_Request__create()
+ * to allocate and initialize the message.
+ * \return true if initialization was successful, otherwise false
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_GetResult_Request__init(san_msgs__action__SetState_GetResult_Request * msg);
+
+/// Finalize action/SetState message.
+/**
+ * \param[in,out] msg The allocated message pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_GetResult_Request__fini(san_msgs__action__SetState_GetResult_Request * msg);
+
+/// Create action/SetState message.
+/**
+ * It allocates the memory for the message, sets the memory to zero, and
+ * calls
+ * san_msgs__action__SetState_GetResult_Request__init().
+ * \return The pointer to the initialized message if successful,
+ * otherwise NULL
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+san_msgs__action__SetState_GetResult_Request *
+san_msgs__action__SetState_GetResult_Request__create();
+
+/// Destroy action/SetState message.
+/**
+ * It calls
+ * san_msgs__action__SetState_GetResult_Request__fini()
+ * and frees the memory of the message.
+ * \param[in,out] msg The allocated message pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_GetResult_Request__destroy(san_msgs__action__SetState_GetResult_Request * msg);
+
+/// Check for action/SetState message equality.
+/**
+ * \param[in] lhs The message on the left hand size of the equality operator.
+ * \param[in] rhs The message on the right hand size of the equality operator.
+ * \return true if messages are equal, otherwise false.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_GetResult_Request__are_equal(const san_msgs__action__SetState_GetResult_Request * lhs, const san_msgs__action__SetState_GetResult_Request * rhs);
+
+/// Copy a action/SetState message.
+/**
+ * This functions performs a deep copy, as opposed to the shallow copy that
+ * plain assignment yields.
+ *
+ * \param[in] input The source message pointer.
+ * \param[out] output The target message pointer, which must
+ *   have been initialized before calling this function.
+ * \return true if successful, or false if either pointer is null
+ *   or memory allocation fails.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_GetResult_Request__copy(
+  const san_msgs__action__SetState_GetResult_Request * input,
+  san_msgs__action__SetState_GetResult_Request * output);
+
+/// Initialize array of action/SetState messages.
+/**
+ * It allocates the memory for the number of elements and calls
+ * san_msgs__action__SetState_GetResult_Request__init()
+ * for each element of the array.
+ * \param[in,out] array The allocated array pointer.
+ * \param[in] size The size / capacity of the array.
+ * \return true if initialization was successful, otherwise false
+ * If the array pointer is valid and the size is zero it is guaranteed
+ # to return true.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_GetResult_Request__Sequence__init(san_msgs__action__SetState_GetResult_Request__Sequence * array, size_t size);
+
+/// Finalize array of action/SetState messages.
+/**
+ * It calls
+ * san_msgs__action__SetState_GetResult_Request__fini()
+ * for each element of the array and frees the memory for the number of
+ * elements.
+ * \param[in,out] array The initialized array pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_GetResult_Request__Sequence__fini(san_msgs__action__SetState_GetResult_Request__Sequence * array);
+
+/// Create array of action/SetState messages.
+/**
+ * It allocates the memory for the array and calls
+ * san_msgs__action__SetState_GetResult_Request__Sequence__init().
+ * \param[in] size The size / capacity of the array.
+ * \return The pointer to the initialized array if successful, otherwise NULL
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+san_msgs__action__SetState_GetResult_Request__Sequence *
+san_msgs__action__SetState_GetResult_Request__Sequence__create(size_t size);
+
+/// Destroy array of action/SetState messages.
+/**
+ * It calls
+ * san_msgs__action__SetState_GetResult_Request__Sequence__fini()
+ * on the array,
+ * and frees the memory of the array.
+ * \param[in,out] array The initialized array pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_GetResult_Request__Sequence__destroy(san_msgs__action__SetState_GetResult_Request__Sequence * array);
+
+/// Check for action/SetState message array equality.
+/**
+ * \param[in] lhs The message array on the left hand size of the equality operator.
+ * \param[in] rhs The message array on the right hand size of the equality operator.
+ * \return true if message arrays are equal in size and content, otherwise false.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_GetResult_Request__Sequence__are_equal(const san_msgs__action__SetState_GetResult_Request__Sequence * lhs, const san_msgs__action__SetState_GetResult_Request__Sequence * rhs);
+
+/// Copy an array of action/SetState messages.
+/**
+ * This functions performs a deep copy, as opposed to the shallow copy that
+ * plain assignment yields.
+ *
+ * \param[in] input The source array pointer.
+ * \param[out] output The target array pointer, which must
+ *   have been initialized before calling this function.
+ * \return true if successful, or false if either pointer
+ *   is null or memory allocation fails.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_GetResult_Request__Sequence__copy(
+  const san_msgs__action__SetState_GetResult_Request__Sequence * input,
+  san_msgs__action__SetState_GetResult_Request__Sequence * output);
+
+/// Initialize action/SetState message.
+/**
+ * If the init function is called twice for the same message without
+ * calling fini inbetween previously allocated memory will be leaked.
+ * \param[in,out] msg The previously allocated message pointer.
+ * Fields without a default value will not be initialized by this function.
+ * You might want to call memset(msg, 0, sizeof(
+ * san_msgs__action__SetState_GetResult_Response
+ * )) before or use
+ * san_msgs__action__SetState_GetResult_Response__create()
+ * to allocate and initialize the message.
+ * \return true if initialization was successful, otherwise false
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_GetResult_Response__init(san_msgs__action__SetState_GetResult_Response * msg);
+
+/// Finalize action/SetState message.
+/**
+ * \param[in,out] msg The allocated message pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_GetResult_Response__fini(san_msgs__action__SetState_GetResult_Response * msg);
+
+/// Create action/SetState message.
+/**
+ * It allocates the memory for the message, sets the memory to zero, and
+ * calls
+ * san_msgs__action__SetState_GetResult_Response__init().
+ * \return The pointer to the initialized message if successful,
+ * otherwise NULL
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+san_msgs__action__SetState_GetResult_Response *
+san_msgs__action__SetState_GetResult_Response__create();
+
+/// Destroy action/SetState message.
+/**
+ * It calls
+ * san_msgs__action__SetState_GetResult_Response__fini()
+ * and frees the memory of the message.
+ * \param[in,out] msg The allocated message pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_GetResult_Response__destroy(san_msgs__action__SetState_GetResult_Response * msg);
+
+/// Check for action/SetState message equality.
+/**
+ * \param[in] lhs The message on the left hand size of the equality operator.
+ * \param[in] rhs The message on the right hand size of the equality operator.
+ * \return true if messages are equal, otherwise false.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_GetResult_Response__are_equal(const san_msgs__action__SetState_GetResult_Response * lhs, const san_msgs__action__SetState_GetResult_Response * rhs);
+
+/// Copy a action/SetState message.
+/**
+ * This functions performs a deep copy, as opposed to the shallow copy that
+ * plain assignment yields.
+ *
+ * \param[in] input The source message pointer.
+ * \param[out] output The target message pointer, which must
+ *   have been initialized before calling this function.
+ * \return true if successful, or false if either pointer is null
+ *   or memory allocation fails.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_GetResult_Response__copy(
+  const san_msgs__action__SetState_GetResult_Response * input,
+  san_msgs__action__SetState_GetResult_Response * output);
+
+/// Initialize array of action/SetState messages.
+/**
+ * It allocates the memory for the number of elements and calls
+ * san_msgs__action__SetState_GetResult_Response__init()
+ * for each element of the array.
+ * \param[in,out] array The allocated array pointer.
+ * \param[in] size The size / capacity of the array.
+ * \return true if initialization was successful, otherwise false
+ * If the array pointer is valid and the size is zero it is guaranteed
+ # to return true.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_GetResult_Response__Sequence__init(san_msgs__action__SetState_GetResult_Response__Sequence * array, size_t size);
+
+/// Finalize array of action/SetState messages.
+/**
+ * It calls
+ * san_msgs__action__SetState_GetResult_Response__fini()
+ * for each element of the array and frees the memory for the number of
+ * elements.
+ * \param[in,out] array The initialized array pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_GetResult_Response__Sequence__fini(san_msgs__action__SetState_GetResult_Response__Sequence * array);
+
+/// Create array of action/SetState messages.
+/**
+ * It allocates the memory for the array and calls
+ * san_msgs__action__SetState_GetResult_Response__Sequence__init().
+ * \param[in] size The size / capacity of the array.
+ * \return The pointer to the initialized array if successful, otherwise NULL
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+san_msgs__action__SetState_GetResult_Response__Sequence *
+san_msgs__action__SetState_GetResult_Response__Sequence__create(size_t size);
+
+/// Destroy array of action/SetState messages.
+/**
+ * It calls
+ * san_msgs__action__SetState_GetResult_Response__Sequence__fini()
+ * on the array,
+ * and frees the memory of the array.
+ * \param[in,out] array The initialized array pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_GetResult_Response__Sequence__destroy(san_msgs__action__SetState_GetResult_Response__Sequence * array);
+
+/// Check for action/SetState message array equality.
+/**
+ * \param[in] lhs The message array on the left hand size of the equality operator.
+ * \param[in] rhs The message array on the right hand size of the equality operator.
+ * \return true if message arrays are equal in size and content, otherwise false.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_GetResult_Response__Sequence__are_equal(const san_msgs__action__SetState_GetResult_Response__Sequence * lhs, const san_msgs__action__SetState_GetResult_Response__Sequence * rhs);
+
+/// Copy an array of action/SetState messages.
+/**
+ * This functions performs a deep copy, as opposed to the shallow copy that
+ * plain assignment yields.
+ *
+ * \param[in] input The source array pointer.
+ * \param[out] output The target array pointer, which must
+ *   have been initialized before calling this function.
+ * \return true if successful, or false if either pointer
+ *   is null or memory allocation fails.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_GetResult_Response__Sequence__copy(
+  const san_msgs__action__SetState_GetResult_Response__Sequence * input,
+  san_msgs__action__SetState_GetResult_Response__Sequence * output);
+
+/// Initialize action/SetState message.
+/**
+ * If the init function is called twice for the same message without
+ * calling fini inbetween previously allocated memory will be leaked.
+ * \param[in,out] msg The previously allocated message pointer.
+ * Fields without a default value will not be initialized by this function.
+ * You might want to call memset(msg, 0, sizeof(
+ * san_msgs__action__SetState_FeedbackMessage
+ * )) before or use
+ * san_msgs__action__SetState_FeedbackMessage__create()
+ * to allocate and initialize the message.
+ * \return true if initialization was successful, otherwise false
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_FeedbackMessage__init(san_msgs__action__SetState_FeedbackMessage * msg);
+
+/// Finalize action/SetState message.
+/**
+ * \param[in,out] msg The allocated message pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_FeedbackMessage__fini(san_msgs__action__SetState_FeedbackMessage * msg);
+
+/// Create action/SetState message.
+/**
+ * It allocates the memory for the message, sets the memory to zero, and
+ * calls
+ * san_msgs__action__SetState_FeedbackMessage__init().
+ * \return The pointer to the initialized message if successful,
+ * otherwise NULL
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+san_msgs__action__SetState_FeedbackMessage *
+san_msgs__action__SetState_FeedbackMessage__create();
+
+/// Destroy action/SetState message.
+/**
+ * It calls
+ * san_msgs__action__SetState_FeedbackMessage__fini()
+ * and frees the memory of the message.
+ * \param[in,out] msg The allocated message pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_FeedbackMessage__destroy(san_msgs__action__SetState_FeedbackMessage * msg);
+
+/// Check for action/SetState message equality.
+/**
+ * \param[in] lhs The message on the left hand size of the equality operator.
+ * \param[in] rhs The message on the right hand size of the equality operator.
+ * \return true if messages are equal, otherwise false.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_FeedbackMessage__are_equal(const san_msgs__action__SetState_FeedbackMessage * lhs, const san_msgs__action__SetState_FeedbackMessage * rhs);
+
+/// Copy a action/SetState message.
+/**
+ * This functions performs a deep copy, as opposed to the shallow copy that
+ * plain assignment yields.
+ *
+ * \param[in] input The source message pointer.
+ * \param[out] output The target message pointer, which must
+ *   have been initialized before calling this function.
+ * \return true if successful, or false if either pointer is null
+ *   or memory allocation fails.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_FeedbackMessage__copy(
+  const san_msgs__action__SetState_FeedbackMessage * input,
+  san_msgs__action__SetState_FeedbackMessage * output);
+
+/// Initialize array of action/SetState messages.
+/**
+ * It allocates the memory for the number of elements and calls
+ * san_msgs__action__SetState_FeedbackMessage__init()
+ * for each element of the array.
+ * \param[in,out] array The allocated array pointer.
+ * \param[in] size The size / capacity of the array.
+ * \return true if initialization was successful, otherwise false
+ * If the array pointer is valid and the size is zero it is guaranteed
+ # to return true.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_FeedbackMessage__Sequence__init(san_msgs__action__SetState_FeedbackMessage__Sequence * array, size_t size);
+
+/// Finalize array of action/SetState messages.
+/**
+ * It calls
+ * san_msgs__action__SetState_FeedbackMessage__fini()
+ * for each element of the array and frees the memory for the number of
+ * elements.
+ * \param[in,out] array The initialized array pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_FeedbackMessage__Sequence__fini(san_msgs__action__SetState_FeedbackMessage__Sequence * array);
+
+/// Create array of action/SetState messages.
+/**
+ * It allocates the memory for the array and calls
+ * san_msgs__action__SetState_FeedbackMessage__Sequence__init().
+ * \param[in] size The size / capacity of the array.
+ * \return The pointer to the initialized array if successful, otherwise NULL
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+san_msgs__action__SetState_FeedbackMessage__Sequence *
+san_msgs__action__SetState_FeedbackMessage__Sequence__create(size_t size);
+
+/// Destroy array of action/SetState messages.
+/**
+ * It calls
+ * san_msgs__action__SetState_FeedbackMessage__Sequence__fini()
+ * on the array,
+ * and frees the memory of the array.
+ * \param[in,out] array The initialized array pointer.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+void
+san_msgs__action__SetState_FeedbackMessage__Sequence__destroy(san_msgs__action__SetState_FeedbackMessage__Sequence * array);
+
+/// Check for action/SetState message array equality.
+/**
+ * \param[in] lhs The message array on the left hand size of the equality operator.
+ * \param[in] rhs The message array on the right hand size of the equality operator.
+ * \return true if message arrays are equal in size and content, otherwise false.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_FeedbackMessage__Sequence__are_equal(const san_msgs__action__SetState_FeedbackMessage__Sequence * lhs, const san_msgs__action__SetState_FeedbackMessage__Sequence * rhs);
+
+/// Copy an array of action/SetState messages.
+/**
+ * This functions performs a deep copy, as opposed to the shallow copy that
+ * plain assignment yields.
+ *
+ * \param[in] input The source array pointer.
+ * \param[out] output The target array pointer, which must
+ *   have been initialized before calling this function.
+ * \return true if successful, or false if either pointer
+ *   is null or memory allocation fails.
+ */
+ROSIDL_GENERATOR_C_PUBLIC_san_msgs
+bool
+san_msgs__action__SetState_FeedbackMessage__Sequence__copy(
+  const san_msgs__action__SetState_FeedbackMessage__Sequence * input,
+  san_msgs__action__SetState_FeedbackMessage__Sequence * output);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif  // SAN_MSGS__ACTION__DETAIL__SET_STATE__FUNCTIONS_H_

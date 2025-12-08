@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/root/ros2_ws/build/amr_odometry/amr_odometry" "/root/ros2_ws/build/amr_odometry/libamr_odometry_lib.so" "TARGETS" "amr_odometry" "amr_odometry_lib" "DESTINATION" "lib/amr_odometry")

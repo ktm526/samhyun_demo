@@ -1,0 +1,79 @@
+# type : (home,0) (main,1) (path,2) (coverage,3)
+node:
+  - name: "Node 1"
+    type: 2
+    index: 1
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: 1.0699077590149093
+      y: 0.4235827353309718
+      yaw: 9999
+
+  - name: "Node 2"
+    type: 2
+    index: 2
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: 1.3009077590149092
+      y: -1.508417264669029
+      yaw: 9999
+
+  - name: "Node 3"
+    type: 2
+    index: 3
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: 0.4819077590149101
+      y: -0.3534172646690279
+      yaw: 9999
+
+  - name: "Node 4"
+    type: 2
+    index: 4
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: 3.0439077590149095
+      y: 0.1085827353309714
+      yaw: 9999
+
+  - name: "Node 5"
+    type: 2
+    index: 5
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: 3.0333149391822944
+      y: 1.7085739933941086
+      yaw: 9999
+
+  - name: "Node 6"
+    type: 2
+    index: 6
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: 6
+      y: 6
+      yaw: 9999
+
+  - name: "Node 7"
+    type: 2
+    index: 7
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: 7
+      y: 7
+      yaw: 9999
+

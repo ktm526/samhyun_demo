@@ -1,0 +1,1 @@
+/root/ros2_ws/build/san_msgs/rosidl_typesupport_introspection_c/san_msgs/msg/detail/motor_status__rosidl_typesupport_introspection_c.h

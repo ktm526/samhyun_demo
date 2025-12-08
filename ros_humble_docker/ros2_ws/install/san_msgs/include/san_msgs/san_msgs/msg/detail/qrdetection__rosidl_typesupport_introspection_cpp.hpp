@@ -1,0 +1,1 @@
+/root/ros2_ws/build/san_msgs/rosidl_typesupport_introspection_cpp/san_msgs/msg/detail/qrdetection__rosidl_typesupport_introspection_cpp.hpp

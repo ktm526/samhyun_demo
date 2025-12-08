@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/root/ros2_ws/build/amr_navigation/periodic_costmap_clearer_node" "/root/ros2_ws/build/amr_navigation/libamr_navigation_lib.so" "TARGETS" "periodic_costmap_clearer_node" "amr_navigation_lib" "DESTINATION" "lib/amr_navigation")

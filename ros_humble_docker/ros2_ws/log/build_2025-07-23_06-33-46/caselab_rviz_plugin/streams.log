@@ -1,0 +1,121 @@
+[0.011s] Invoking command in '/root/ros2_ws/build/caselab_rviz_plugin': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/caselab_rviz2_plugin -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/caselab_rviz_plugin
+[0.054s] -- The C compiler identification is GNU 11.4.0
+[0.104s] -- The CXX compiler identification is GNU 11.4.0
+[0.112s] -- Detecting C compiler ABI info
+[0.171s] -- Detecting C compiler ABI info - done
+[0.178s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.178s] -- Detecting C compile features
+[0.179s] -- Detecting C compile features - done
+[0.181s] -- Detecting CXX compiler ABI info
+[0.244s] -- Detecting CXX compiler ABI info - done
+[0.256s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.256s] -- Detecting CXX compile features
+[0.257s] -- Detecting CXX compile features - done
+[0.260s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.401s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.466s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.510s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[0.522s] -- Found pluginlib: 5.1.0 (/opt/ros/humble/share/pluginlib/cmake)
+[0.577s] -- Found rviz_common: 11.2.17 (/opt/ros/humble/share/rviz_common/cmake)
+[0.601s] -- Setting assimp_DIR to: '/opt/ros/humble/share/rviz_assimp_vendor/cmake/../../../opt/rviz_assimp_vendor/lib/cmake/assimp-4.1'
+[0.614s] -- Setting OGRE_DIR to: '/opt/ros/humble/share/rviz_ogre_vendor/cmake/../../../opt/rviz_ogre_vendor/lib/OGRE/cmake'
+[0.616s] -- Found OGRE
+[0.616s] --   static     : OFF
+[0.616s] --   components : HLMS;MeshLodGenerator;Overlay;Paging;Property;RTShaderSystem;Terrain;Volume
+[0.616s] --   plugins    : Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI
+[0.616s] --   media      : /opt/ros/humble/opt/rviz_ogre_vendor/share/OGRE/Media
+[0.616s] -- OGRE_LIBRARIES: OgreHLMS;OgreMeshLodGenerator;OgreOverlay;OgrePaging;OgreProperty;OgreRTShaderSystem;OgreTerrain;OgreVolume;OgreMain
+[0.616s] -- OGRE_LIBRARY_DIRS: /opt/ros/humble/opt/rviz_ogre_vendor/lib
+[0.616s] -- OGRE_PLUGINS: Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI
+[0.617s] -- OGRE_PLUGIN_DIR: /opt/ros/humble/opt/rviz_ogre_vendor/lib/OGRE
+[0.617s] -- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_RELEASE: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
+[0.617s] -- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_DEBUG: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
+[0.617s] -- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_RELEASE: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so
+[0.617s] -- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_DEBUG: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so
+[0.635s] -- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11") 
+[0.640s] -- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so   
+[0.710s] -- Found X11: /usr/include   
+[0.710s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so
+[0.775s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so - found
+[0.775s] -- Looking for gethostbyname
+[0.833s] -- Looking for gethostbyname - found
+[0.833s] -- Looking for connect
+[0.891s] -- Looking for connect - found
+[0.891s] -- Looking for remove
+[0.954s] -- Looking for remove - found
+[0.954s] -- Looking for shmat
+[1.011s] -- Looking for shmat - found
+[1.011s] -- Looking for IceConnectionNumber in ICE
+[1.068s] -- Looking for IceConnectionNumber in ICE - found
+[1.154s] -- library: /usr/lib/x86_64-linux-gnu/libcurl.so
+[1.191s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.199s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.209s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.222s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.237s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.326s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.330s] -- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+[1.355s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[1.368s] -- Looking for pthread.h
+[1.440s] -- Looking for pthread.h - found
+[1.441s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.525s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.526s] -- Found Threads: TRUE  
+[1.650s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[1.650s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.839s] -- Found san_msgs: 0.0.0 (/root/ros2_ws/install/san_msgs/share/san_msgs/cmake)
+[1.977s] -- Configuring done
+[2.020s] -- Generating done
+[2.031s] -- Build files have been written to: /root/ros2_ws/build/caselab_rviz_plugin
+[2.045s] Invoked command in '/root/ros2_ws/build/caselab_rviz_plugin' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/caselab_rviz2_plugin -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/caselab_rviz_plugin
+[2.046s] Invoking command in '/root/ros2_ws/build/caselab_rviz_plugin': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /root/ros2_ws/build/caselab_rviz_plugin -- -j16 -l16
+[2.110s] [  8%] [34m[1mAutomatic MOC for target caselab_rviz_plugin[0m
+[2.139s] [  8%] Built target caselab_rviz_plugin_autogen
+[2.150s] [ 25%] [34m[1mGenerating include/moc_ammrTask_panel.cpp[0m
+[2.150s] [ 33%] [34m[1mGenerating include/moc_camswitch_panel.cpp[0m
+[2.150s] [ 33%] [34m[1mGenerating include/moc_demo_panel.cpp[0m
+[2.181s] [ 41%] [32mBuilding CXX object CMakeFiles/caselab_rviz_plugin.dir/caselab_rviz_plugin_autogen/mocs_compilation.cpp.o[0m
+[2.181s] [ 50%] [32mBuilding CXX object CMakeFiles/caselab_rviz_plugin.dir/src/demo_panel.cpp.o[0m
+[2.193s] [ 58%] [32mBuilding CXX object CMakeFiles/caselab_rviz_plugin.dir/include/moc_demo_panel.cpp.o[0m
+[2.198s] [ 66%] [32mBuilding CXX object CMakeFiles/caselab_rviz_plugin.dir/src/ammrTask_panel.cpp.o[0m
+[2.220s] [ 75%] [32mBuilding CXX object CMakeFiles/caselab_rviz_plugin.dir/src/camswitch_panel.cpp.o[0m
+[2.225s] [ 83%] [32mBuilding CXX object CMakeFiles/caselab_rviz_plugin.dir/include/moc_camswitch_panel.cpp.o[0m
+[2.244s] [ 91%] [32mBuilding CXX object CMakeFiles/caselab_rviz_plugin.dir/include/moc_ammrTask_panel.cpp.o[0m
+[13.513s] [100%] [32m[1mLinking CXX shared library libcaselab_rviz_plugin.so[0m
+[15.504s] [100%] Built target caselab_rviz_plugin
+[15.515s] Invoked command in '/root/ros2_ws/build/caselab_rviz_plugin' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /root/ros2_ws/build/caselab_rviz_plugin -- -j16 -l16
+[15.516s] Invoking command in '/root/ros2_ws/build/caselab_rviz_plugin': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /root/ros2_ws/build/caselab_rviz_plugin
+[15.522s] -- Install configuration: ""
+[15.523s] -- Execute custom install script
+[15.523s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/include/ammrTask_panel.hpp
+[15.532s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/include/camswitch_panel.hpp
+[15.540s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/include/demo_panel.hpp
+[15.548s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/rviz_common_plugins.xml
+[15.555s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/icons/classes/DemoPanel.png
+[15.562s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/task/ammrtask.yaml
+[15.570s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/rviz/ammr.rviz
+[15.577s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/launch/test.launch.py
+[15.584s] -- Up-to-date symlink: /root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin//rviz_common_plugins.xml
+[15.584s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/share/ament_index/resource_index/package_run_dependencies/caselab_rviz_plugin
+[15.591s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/share/ament_index/resource_index/parent_prefix_path/caselab_rviz_plugin
+[15.598s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/environment/ament_prefix_path.sh
+[15.604s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/environment/ament_prefix_path.dsv
+[15.611s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/environment/path.sh
+[15.617s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/environment/path.dsv
+[15.624s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/local_setup.bash
+[15.631s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/local_setup.sh
+[15.637s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/local_setup.zsh
+[15.645s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/local_setup.dsv
+[15.652s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/package.dsv
+[15.660s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/share/ament_index/resource_index/packages/caselab_rviz_plugin
+[15.667s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/share/ament_index/resource_index/rviz_common__pluginlib__plugin/caselab_rviz_plugin
+[15.675s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/cmake/ament_cmake_export_include_directories-extras.cmake
+[15.682s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/cmake/ament_cmake_export_targets-extras.cmake
+[15.690s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/cmake/caselab_rviz_pluginConfig.cmake
+[15.697s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/cmake/caselab_rviz_pluginConfig-version.cmake
+[15.704s] -- Symlinking: /root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/package.xml
+[15.712s] -- Installing: /root/ros2_ws/install/caselab_rviz_plugin/lib/libcaselab_rviz_plugin.so
+[15.718s] -- Set runtime path of "/root/ros2_ws/install/caselab_rviz_plugin/lib/libcaselab_rviz_plugin.so" to ""
+[15.718s] -- Installing: /root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/cmake/export_caselab_rviz_pluginExport.cmake
+[15.718s] -- Installing: /root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/cmake/export_caselab_rviz_pluginExport-noconfig.cmake
+[15.720s] Invoked command in '/root/ros2_ws/build/caselab_rviz_plugin' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /root/ros2_ws/build/caselab_rviz_plugin

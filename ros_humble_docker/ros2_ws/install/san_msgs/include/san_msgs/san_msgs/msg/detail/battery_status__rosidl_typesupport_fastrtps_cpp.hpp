@@ -1,0 +1,1 @@
+/root/ros2_ws/build/san_msgs/rosidl_typesupport_fastrtps_cpp/san_msgs/msg/detail/battery_status__rosidl_typesupport_fastrtps_cpp.hpp

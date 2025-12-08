@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from san_msgs/srv/ManualManipulatorControl.srv
+// generated code does not contain a copyright notice
+
+
+module san_msgs {
+  module srv {
+    @verbatim (language="comment", text=
+      "Request")
+    struct ManualManipulatorControl_Request {
+      string command;
+
+      sequence<double> position;
+    };
+    @verbatim (language="comment", text=
+      "Response")
+    struct ManualManipulatorControl_Response {
+      boolean success;
+    };
+  };
+};

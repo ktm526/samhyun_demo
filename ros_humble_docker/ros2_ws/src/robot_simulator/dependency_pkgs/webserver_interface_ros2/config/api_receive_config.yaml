@@ -1,0 +1,9 @@
+host: "0.0.0.0"
+port: 8081
+api_endpoint: "/receive"
+endpoints:
+  manual_move: "/api/v1/amr/manual_move"
+  map_list: "/api/v1/amr/maps"
+  map_detail: "/api/v1/amr/map_detail/{map_id}"
+  amr_status: "/api/v1/amr/status" 
+  amr_command: "/api/v1/amr/command"

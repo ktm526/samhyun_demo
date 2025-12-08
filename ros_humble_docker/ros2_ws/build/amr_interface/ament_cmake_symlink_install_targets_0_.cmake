@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/root/ros2_ws/build/amr_interface/interface_node" "/root/ros2_ws/build/amr_interface/libamr_interface_lib.so" "TARGETS" "interface_node" "amr_interface_lib" "DESTINATION" "lib/amr_interface")

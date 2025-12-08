@@ -1,0 +1,67 @@
+# type : (home,0) (main,1) (path,2) (coverage,3)
+node:
+  - name: "path1"
+    type: 2
+    index: 1
+    connection: [777, 2, 3, 4, 5]
+    child: []
+    data: 0
+    position:
+      x: 0.0
+      y: 3.0
+      yaw: 0.0
+
+  - name: "elevator1"
+    type: 2
+    index: 2
+    connection: [1]
+    child: []
+    data: 0
+    position:
+      x: 0.0
+      y: -2.0
+      yaw: 0.0
+
+  - name: "elevator2"
+    type: 2
+    index: 3
+    connection: [1]
+    child: []
+    data: 0
+    position:
+      x: -1.0
+      y: -2.0
+      yaw: 0.0
+
+  - name: "elevator3"
+    type: 2
+    index: 4
+    connection: [1]
+    child: []
+    data: 0
+    position:
+      x: 0.0
+      y: -0.5
+      yaw: 0.0
+
+  - name: "elevator4"
+    type: 2
+    index: 5
+    connection: [1]
+    child: []
+    data: 0
+    position:
+      x: -1.0
+      y: -0.5
+      yaw: 0.0
+
+  - name: "home"
+    type: 0
+    index: 777
+    connection: [1]
+    child: []
+    data: 0
+    position:
+      x: 30.0
+      y: 4.0
+      yaw: 0.0

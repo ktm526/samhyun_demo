@@ -1,0 +1,591 @@
+[0.039s] Invoking command in '/root/ros2_ws/build/san_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/san_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/san_msgs
+[0.373s] -- The C compiler identification is GNU 11.4.0
+[0.374s] -- The CXX compiler identification is GNU 11.4.0
+[0.374s] -- Detecting C compiler ABI info
+[0.375s] -- Detecting C compiler ABI info - done
+[0.375s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.375s] -- Detecting C compile features
+[0.375s] -- Detecting C compile features - done
+[0.375s] -- Detecting CXX compiler ABI info
+[0.375s] -- Detecting CXX compiler ABI info - done
+[0.375s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.375s] -- Detecting CXX compile features
+[0.375s] -- Detecting CXX compile features - done
+[0.375s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.488s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.553s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.594s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.600s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.611s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.659s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.704s] -- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)
+[0.778s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.784s] -- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+[0.821s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[0.832s] -- Looking for pthread.h
+[0.901s] -- Looking for pthread.h - found
+[0.901s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.976s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.977s] -- Found Threads: TRUE  
+[1.047s] -- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.586s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[1.910s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.253s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.277s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[2.280s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[2.305s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[2.305s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[2.305s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[2.305s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[2.325s] -- Found PythonExtra: .so  
+[2.415s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.448s] -- Added test 'lint_cmake' to check CMake code style
+[2.449s] -- Added test 'xmllint' to check XML markup files
+[2.453s] -- Configuring done
+[2.507s] -- Generating done
+[2.522s] -- Build files have been written to: /root/ros2_ws/build/san_msgs
+[2.533s] Invoked command in '/root/ros2_ws/build/san_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/san_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/san_msgs
+[2.535s] Invoking command in '/root/ros2_ws/build/san_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --build /root/ros2_ws/build/san_msgs -- -j16 -l16
+[2.571s] [  1%] [34m[1mGenerating C code for ROS interfaces[0m
+[2.579s] [  1%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[2.585s] [  1%] Built target ament_cmake_python_symlink_san_msgs
+[2.820s] running egg_info
+[2.821s] creating san_msgs.egg-info
+[2.821s] writing san_msgs.egg-info/PKG-INFO
+[2.821s] writing dependency_links to san_msgs.egg-info/dependency_links.txt
+[2.821s] writing top-level names to san_msgs.egg-info/top_level.txt
+[2.821s] writing manifest file 'san_msgs.egg-info/SOURCES.txt'
+[2.823s] reading manifest file 'san_msgs.egg-info/SOURCES.txt'
+[2.823s] writing manifest file 'san_msgs.egg-info/SOURCES.txt'
+[2.849s] [  1%] Built target ament_cmake_python_build_san_msgs_egg
+[4.604s] [  1%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_c.dir/rosidl_generator_c/san_msgs/msg/detail/state_machine__functions.c.o[0m
+[4.604s] [  1%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_c.dir/rosidl_generator_c/san_msgs/msg/detail/qrdetection__functions.c.o[0m
+[4.604s] [  3%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_c.dir/rosidl_generator_c/san_msgs/msg/detail/battery_status__functions.c.o[0m
+[4.604s] [  3%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_c.dir/rosidl_generator_c/san_msgs/msg/detail/motor_status__functions.c.o[0m
+[4.604s] [  3%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_c.dir/rosidl_generator_c/san_msgs/msg/detail/emergency__functions.c.o[0m
+[4.604s] [  5%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_c.dir/rosidl_generator_c/san_msgs/srv/detail/build_map__functions.c.o[0m
+[4.605s] [  5%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_c.dir/rosidl_generator_c/san_msgs/srv/detail/manual_manipulator_control__functions.c.o[0m
+[4.605s] [  5%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_c.dir/rosidl_generator_c/san_msgs/msg/detail/task__functions.c.o[0m
+[4.605s] [  6%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_c.dir/rosidl_generator_c/san_msgs/srv/detail/task_command__functions.c.o[0m
+[4.607s] [  7%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_c.dir/rosidl_generator_c/san_msgs/srv/detail/slam_mode__functions.c.o[0m
+[4.608s] [  9%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_c.dir/rosidl_generator_c/san_msgs/srv/detail/get_waypoints__functions.c.o[0m
+[4.608s] [  8%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_c.dir/rosidl_generator_c/san_msgs/msg/detail/behavior__functions.c.o[0m
+[4.613s] [ 10%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_c.dir/rosidl_generator_c/san_msgs/action/detail/set_state__functions.c.o[0m
+[4.615s] [ 10%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_c.dir/rosidl_generator_c/san_msgs/action/detail/marker_docking__functions.c.o[0m
+[4.642s] [ 11%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_c.dir/rosidl_generator_c/san_msgs/action/detail/task_command_action__functions.c.o[0m
+[4.765s] [ 11%] Built target san_msgs__cpp
+[4.776s] [ 12%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[4.778s] [ 13%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[4.778s] [ 13%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[4.808s] [ 14%] [32m[1mLinking C shared library libsan_msgs__rosidl_generator_c.so[0m
+[4.843s] [ 14%] Built target san_msgs__rosidl_generator_c
+[4.854s] [ 15%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[4.855s] [ 16%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[4.856s] [ 17%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[6.087s] [ 18%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/san_msgs/msg/behavior__type_support.cpp.o[0m
+[6.087s] [ 18%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/san_msgs/msg/emergency__type_support.cpp.o[0m
+[6.087s] [ 20%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/san_msgs/msg/motor_status__type_support.cpp.o[0m
+[6.087s] [ 20%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/san_msgs/msg/task__type_support.cpp.o[0m
+[6.087s] [ 21%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/san_msgs/msg/qrdetection__type_support.cpp.o[0m
+[6.089s] [ 22%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/san_msgs/msg/state_machine__type_support.cpp.o[0m
+[6.090s] [ 22%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/san_msgs/msg/battery_status__type_support.cpp.o[0m
+[6.095s] [ 23%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/san_msgs/srv/task_command__type_support.cpp.o[0m
+[6.095s] [ 24%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/san_msgs/srv/build_map__type_support.cpp.o[0m
+[6.096s] [ 24%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/san_msgs/srv/slam_mode__type_support.cpp.o[0m
+[6.096s] [ 25%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/san_msgs/srv/manual_manipulator_control__type_support.cpp.o[0m
+[6.102s] [ 25%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/san_msgs/msg/state_machine__type_support.cpp.o[0m
+[6.155s] [ 26%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/san_msgs/msg/battery_status__type_support.cpp.o[0m
+[6.216s] [ 27%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/san_msgs/msg/emergency__type_support.cpp.o[0m
+[6.275s] [ 27%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/san_msgs/msg/qrdetection__type_support.cpp.o[0m
+[6.357s] [ 28%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/san_msgs/msg/behavior__type_support.cpp.o[0m
+[6.420s] [ 29%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/san_msgs/msg/task__type_support.cpp.o[0m
+[6.465s] [ 29%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/san_msgs/srv/get_waypoints__type_support.cpp.o[0m
+[6.474s] [ 30%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/san_msgs/msg/motor_status__type_support.cpp.o[0m
+[6.502s] [ 31%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/san_msgs/action/set_state__type_support.cpp.o[0m
+[6.509s] [ 31%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/san_msgs/srv/task_command__type_support.cpp.o[0m
+[6.528s] [ 32%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/san_msgs/action/marker_docking__type_support.cpp.o[0m
+[6.538s] [ 33%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/san_msgs/srv/slam_mode__type_support.cpp.o[0m
+[6.563s] [ 34%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/san_msgs/srv/build_map__type_support.cpp.o[0m
+[6.572s] [ 34%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/san_msgs/action/task_command_action__type_support.cpp.o[0m
+[6.590s] [ 34%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/san_msgs/srv/manual_manipulator_control__type_support.cpp.o[0m
+[6.617s] [ 35%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/san_msgs/srv/get_waypoints__type_support.cpp.o[0m
+[6.630s] [ 36%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/san_msgs/action/set_state__type_support.cpp.o[0m
+[6.639s] [ 36%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/san_msgs/action/marker_docking__type_support.cpp.o[0m
+[6.656s] [ 37%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/san_msgs/action/task_command_action__type_support.cpp.o[0m
+[6.730s] [ 38%] [32m[1mLinking CXX shared library libsan_msgs__rosidl_typesupport_c.so[0m
+[6.740s] [ 39%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/san_msgs/msg/detail/state_machine__type_support.cpp.o[0m
+[6.751s] [ 40%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/san_msgs/msg/detail/battery_status__type_support.cpp.o[0m
+[6.751s] [ 42%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/san_msgs/msg/detail/qrdetection__type_support.cpp.o[0m
+[6.751s] [ 42%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/san_msgs/msg/detail/behavior__type_support.cpp.o[0m
+[6.755s] [ 42%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/san_msgs/msg/detail/emergency__type_support.cpp.o[0m
+[6.761s] [ 43%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/san_msgs/msg/detail/task__type_support.cpp.o[0m
+[6.770s] [ 43%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/san_msgs/msg/detail/motor_status__type_support.cpp.o[0m
+[6.780s] [ 44%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/san_msgs/srv/detail/task_command__type_support.cpp.o[0m
+[6.832s] [ 44%] Built target san_msgs__rosidl_typesupport_c
+[6.868s] [ 45%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/san_msgs/srv/detail/slam_mode__type_support.cpp.o[0m
+[7.101s] [ 45%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/san_msgs/srv/detail/build_map__type_support.cpp.o[0m
+[7.139s] [ 46%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/san_msgs/msg/detail/state_machine__type_support.c.o[0m
+[7.228s] [ 46%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/san_msgs/msg/detail/battery_status__type_support.c.o[0m
+[7.271s] [ 48%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/san_msgs/srv/detail/manual_manipulator_control__type_support.cpp.o[0m
+[7.271s] [ 47%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/san_msgs/msg/detail/emergency__type_support.c.o[0m
+[7.294s] [ 49%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/san_msgs/srv/detail/get_waypoints__type_support.cpp.o[0m
+[7.324s] [ 49%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/san_msgs/action/detail/set_state__type_support.cpp.o[0m
+[7.332s] [ 50%] [32m[1mLinking CXX shared library libsan_msgs__rosidl_typesupport_cpp.so[0m
+[7.351s] [ 51%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/san_msgs/msg/detail/qrdetection__type_support.c.o[0m
+[7.355s] [ 52%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/san_msgs/msg/detail/behavior__type_support.c.o[0m
+[7.356s] [ 52%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/san_msgs/msg/detail/task__type_support.c.o[0m
+[7.391s] [ 53%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/san_msgs/action/detail/marker_docking__type_support.cpp.o[0m
+[7.413s] [ 54%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/san_msgs/action/detail/task_command_action__type_support.cpp.o[0m
+[7.418s] [ 54%] Built target san_msgs__rosidl_typesupport_cpp
+[7.427s] [ 55%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/san_msgs/msg/detail/motor_status__type_support.c.o[0m
+[7.427s] [ 56%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/san_msgs/srv/detail/task_command__type_support.c.o[0m
+[7.430s] [ 56%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/san_msgs/srv/detail/slam_mode__type_support.c.o[0m
+[7.481s] [ 57%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/san_msgs/srv/detail/build_map__type_support.c.o[0m
+[7.494s] [ 57%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/san_msgs/srv/detail/get_waypoints__type_support.c.o[0m
+[7.497s] [ 58%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/san_msgs/msg/detail/state_machine__type_support_c.cpp.o[0m
+[7.497s] [ 59%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/san_msgs/srv/detail/manual_manipulator_control__type_support.c.o[0m
+[7.505s] [ 59%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/san_msgs/msg/detail/battery_status__type_support_c.cpp.o[0m
+[7.511s] [ 60%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/san_msgs/action/detail/set_state__type_support.c.o[0m
+[7.538s] [ 61%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/san_msgs/msg/detail/emergency__type_support_c.cpp.o[0m
+[7.549s] [ 62%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/san_msgs/msg/detail/qrdetection__type_support_c.cpp.o[0m
+[7.578s] [ 63%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/san_msgs/action/detail/marker_docking__type_support.c.o[0m
+[7.578s] [ 63%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/san_msgs/msg/detail/behavior__type_support_c.cpp.o[0m
+[7.608s] [ 65%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/san_msgs/msg/detail/task__type_support_c.cpp.o[0m
+[7.608s] [ 65%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/san_msgs/msg/detail/motor_status__type_support_c.cpp.o[0m
+[7.632s] [ 65%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/san_msgs/srv/detail/task_command__type_support_c.cpp.o[0m
+[7.670s] [ 66%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/san_msgs/msg/detail/dds_fastrtps/state_machine__type_support.cpp.o[0m
+[7.719s] [ 67%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/san_msgs/action/detail/task_command_action__type_support.c.o[0m
+[7.805s] [ 68%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/san_msgs/srv/detail/slam_mode__type_support_c.cpp.o[0m
+[7.823s] [ 68%] [32m[1mLinking C shared library libsan_msgs__rosidl_typesupport_introspection_c.so[0m
+[7.913s] [ 68%] Built target san_msgs__rosidl_typesupport_introspection_c
+[7.939s] [ 69%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/san_msgs/msg/detail/dds_fastrtps/battery_status__type_support.cpp.o[0m
+[8.038s] [ 70%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/san_msgs/srv/detail/build_map__type_support_c.cpp.o[0m
+[8.072s] [ 70%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/san_msgs/msg/detail/dds_fastrtps/emergency__type_support.cpp.o[0m
+[8.096s] [ 71%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/san_msgs/srv/detail/manual_manipulator_control__type_support_c.cpp.o[0m
+[8.136s] [ 71%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/san_msgs/srv/detail/get_waypoints__type_support_c.cpp.o[0m
+[8.138s] [ 72%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/san_msgs/action/detail/set_state__type_support_c.cpp.o[0m
+[8.187s] [ 73%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/san_msgs/action/detail/marker_docking__type_support_c.cpp.o[0m
+[8.247s] [ 74%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/san_msgs/msg/detail/dds_fastrtps/qrdetection__type_support.cpp.o[0m
+[8.274s] [ 75%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/san_msgs/msg/detail/dds_fastrtps/behavior__type_support.cpp.o[0m
+[8.287s] [ 75%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/san_msgs/msg/detail/dds_fastrtps/task__type_support.cpp.o[0m
+[8.333s] [ 75%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/san_msgs/action/detail/task_command_action__type_support_c.cpp.o[0m
+[8.358s] [ 76%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/san_msgs/msg/detail/dds_fastrtps/motor_status__type_support.cpp.o[0m
+[8.374s] [ 77%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/san_msgs/srv/detail/dds_fastrtps/task_command__type_support.cpp.o[0m
+[8.391s] [ 77%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/san_msgs/srv/detail/dds_fastrtps/slam_mode__type_support.cpp.o[0m
+[8.507s] [ 78%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/san_msgs/srv/detail/dds_fastrtps/build_map__type_support.cpp.o[0m
+[8.558s] [ 79%] [32m[1mLinking CXX shared library libsan_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[8.682s] [ 80%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/san_msgs/srv/detail/dds_fastrtps/manual_manipulator_control__type_support.cpp.o[0m
+[8.693s] [ 81%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/san_msgs/srv/detail/dds_fastrtps/get_waypoints__type_support.cpp.o[0m
+[8.703s] [ 81%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/san_msgs/action/detail/dds_fastrtps/set_state__type_support.cpp.o[0m
+[8.755s] [ 82%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/san_msgs/action/detail/dds_fastrtps/marker_docking__type_support.cpp.o[0m
+[8.777s] [ 83%] [32mBuilding CXX object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/san_msgs/action/detail/dds_fastrtps/task_command_action__type_support.cpp.o[0m
+[8.839s] [ 83%] Built target san_msgs__rosidl_typesupport_introspection_cpp
+[8.958s] [ 84%] [32m[1mLinking CXX shared library libsan_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[9.081s] [ 84%] Built target san_msgs__rosidl_typesupport_fastrtps_c
+[9.586s] [ 84%] [32m[1mLinking CXX shared library libsan_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[9.665s] [ 84%] Built target san_msgs__rosidl_typesupport_fastrtps_cpp
+[9.681s] [ 84%] Built target san_msgs
+[9.697s] [ 85%] [34m[1mGenerating Python code for ROS interfaces[0m
+[13.306s] [ 85%] Built target san_msgs__py
+[13.326s] [ 87%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_py.dir/rosidl_generator_py/san_msgs/msg/_state_machine_s.c.o[0m
+[13.327s] [ 89%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_py.dir/rosidl_generator_py/san_msgs/msg/_battery_status_s.c.o[0m
+[13.327s] [ 89%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_py.dir/rosidl_generator_py/san_msgs/msg/_task_s.c.o[0m
+[13.328s] [ 87%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_py.dir/rosidl_generator_py/san_msgs/msg/_emergency_s.c.o[0m
+[13.328s] [ 89%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_py.dir/rosidl_generator_py/san_msgs/msg/_qrdetection_s.c.o[0m
+[13.328s] [ 87%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_py.dir/rosidl_generator_py/san_msgs/msg/_behavior_s.c.o[0m
+[13.328s] [ 90%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_py.dir/rosidl_generator_py/san_msgs/msg/_motor_status_s.c.o[0m
+[13.328s] [ 92%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_py.dir/rosidl_generator_py/san_msgs/srv/_slam_mode_s.c.o[0m
+[13.328s] [ 92%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_py.dir/rosidl_generator_py/san_msgs/srv/_build_map_s.c.o[0m
+[13.328s] [ 92%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_py.dir/rosidl_generator_py/san_msgs/srv/_task_command_s.c.o[0m
+[13.328s] [ 93%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_py.dir/rosidl_generator_py/san_msgs/srv/_get_waypoints_s.c.o[0m
+[13.328s] [ 94%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_py.dir/rosidl_generator_py/san_msgs/action/_set_state_s.c.o[0m
+[13.328s] [ 95%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_py.dir/rosidl_generator_py/san_msgs/action/_task_command_action_s.c.o[0m
+[13.329s] [ 95%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_py.dir/rosidl_generator_py/san_msgs/srv/_manual_manipulator_control_s.c.o[0m
+[13.329s] [ 95%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_generator_py.dir/rosidl_generator_py/san_msgs/action/_marker_docking_s.c.o[0m
+[13.518s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/san_msgs/libsan_msgs__rosidl_generator_py.so[0m
+[13.553s] [ 96%] Built target san_msgs__rosidl_generator_py
+[13.570s] [ 99%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/san_msgs/_san_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[13.570s] [ 99%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/san_msgs/_san_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[13.571s] [ 99%] [32mBuilding C object CMakeFiles/san_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/san_msgs/_san_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[13.757s] [ 99%] [32m[1mLinking C shared library rosidl_generator_py/san_msgs/san_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[13.761s] [ 99%] [32m[1mLinking C shared library rosidl_generator_py/san_msgs/san_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[13.769s] [100%] [32m[1mLinking C shared library rosidl_generator_py/san_msgs/san_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[13.799s] [100%] Built target san_msgs__rosidl_typesupport_fastrtps_c__pyext
+[13.805s] [100%] Built target san_msgs__rosidl_typesupport_c__pyext
+[13.812s] [100%] Built target san_msgs__rosidl_typesupport_introspection_c__pyext
+[13.823s] Invoked command in '/root/ros2_ws/build/san_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --build /root/ros2_ws/build/san_msgs -- -j16 -l16
+[13.824s] Invoking command in '/root/ros2_ws/build/san_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --install /root/ros2_ws/build/san_msgs
+[13.830s] -- Install configuration: ""
+[13.831s] -- Execute custom install script
+[13.831s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/ament_index/resource_index/rosidl_interfaces/san_msgs
+[13.839s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/marker_docking__functions.h
+[13.845s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/marker_docking__struct.h
+[13.851s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/marker_docking__type_support.h
+[13.857s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/set_state__functions.h
+[13.863s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/set_state__struct.h
+[13.870s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/set_state__type_support.h
+[13.877s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/task_command_action__functions.h
+[13.883s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/task_command_action__struct.h
+[13.890s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/task_command_action__type_support.h
+[13.897s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/marker_docking.h
+[13.904s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/set_state.h
+[13.911s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/task_command_action.h
+[13.918s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/battery_status.h
+[13.925s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/behavior.h
+[13.932s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/battery_status__functions.h
+[13.939s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/battery_status__struct.h
+[13.944s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/battery_status__type_support.h
+[13.950s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/behavior__functions.h
+[13.956s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/behavior__struct.h
+[13.963s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/behavior__type_support.h
+[13.970s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/emergency__functions.h
+[13.977s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/emergency__struct.h
+[13.983s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/emergency__type_support.h
+[13.989s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/motor_status__functions.h
+[13.996s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/motor_status__struct.h
+[14.002s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/motor_status__type_support.h
+[14.009s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/qrdetection__functions.h
+[14.017s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/qrdetection__struct.h
+[14.024s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/qrdetection__type_support.h
+[14.031s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/state_machine__functions.h
+[14.038s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/state_machine__struct.h
+[14.044s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/state_machine__type_support.h
+[14.050s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/task__functions.h
+[14.057s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/task__struct.h
+[14.064s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/task__type_support.h
+[14.071s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/emergency.h
+[14.078s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/motor_status.h
+[14.084s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/qrdetection.h
+[14.090s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/rosidl_generator_c__visibility_control.h
+[14.097s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/state_machine.h
+[14.104s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/task.h
+[14.110s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/build_map.h
+[14.117s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/build_map__functions.h
+[14.124s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/build_map__struct.h
+[14.130s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/build_map__type_support.h
+[14.136s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/get_waypoints__functions.h
+[14.143s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/get_waypoints__struct.h
+[14.149s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/get_waypoints__type_support.h
+[14.156s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/manual_manipulator_control__functions.h
+[14.164s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/manual_manipulator_control__struct.h
+[14.172s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/manual_manipulator_control__type_support.h
+[14.179s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/slam_mode__functions.h
+[14.185s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/slam_mode__struct.h
+[14.192s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/slam_mode__type_support.h
+[14.199s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/task_command__functions.h
+[14.207s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/task_command__struct.h
+[14.215s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/task_command__type_support.h
+[14.222s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/get_waypoints.h
+[14.230s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/manual_manipulator_control.h
+[14.237s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/slam_mode.h
+[14.244s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/task_command.h
+[14.251s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/environment/library_path.sh
+[14.257s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/environment/library_path.dsv
+[14.265s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/marker_docking__rosidl_typesupport_fastrtps_c.h
+[14.272s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/set_state__rosidl_typesupport_fastrtps_c.h
+[14.279s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/task_command_action__rosidl_typesupport_fastrtps_c.h
+[14.285s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/battery_status__rosidl_typesupport_fastrtps_c.h
+[14.291s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/behavior__rosidl_typesupport_fastrtps_c.h
+[14.297s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/emergency__rosidl_typesupport_fastrtps_c.h
+[14.303s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/motor_status__rosidl_typesupport_fastrtps_c.h
+[14.310s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/qrdetection__rosidl_typesupport_fastrtps_c.h
+[14.316s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/state_machine__rosidl_typesupport_fastrtps_c.h
+[14.324s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/task__rosidl_typesupport_fastrtps_c.h
+[14.331s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[14.338s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/build_map__rosidl_typesupport_fastrtps_c.h
+[14.344s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/get_waypoints__rosidl_typesupport_fastrtps_c.h
+[14.351s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/manual_manipulator_control__rosidl_typesupport_fastrtps_c.h
+[14.358s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/slam_mode__rosidl_typesupport_fastrtps_c.h
+[14.365s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/task_command__rosidl_typesupport_fastrtps_c.h
+[14.372s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/marker_docking__rosidl_typesupport_introspection_c.h
+[14.378s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/set_state__rosidl_typesupport_introspection_c.h
+[14.385s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/task_command_action__rosidl_typesupport_introspection_c.h
+[14.391s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/battery_status__rosidl_typesupport_introspection_c.h
+[14.397s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/behavior__rosidl_typesupport_introspection_c.h
+[14.403s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/emergency__rosidl_typesupport_introspection_c.h
+[14.410s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/motor_status__rosidl_typesupport_introspection_c.h
+[14.416s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/qrdetection__rosidl_typesupport_introspection_c.h
+[14.423s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/state_machine__rosidl_typesupport_introspection_c.h
+[14.430s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/task__rosidl_typesupport_introspection_c.h
+[14.437s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[14.444s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/build_map__rosidl_typesupport_introspection_c.h
+[14.450s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/get_waypoints__rosidl_typesupport_introspection_c.h
+[14.457s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/manual_manipulator_control__rosidl_typesupport_introspection_c.h
+[14.464s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/slam_mode__rosidl_typesupport_introspection_c.h
+[14.471s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/task_command__rosidl_typesupport_introspection_c.h
+[14.478s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/marker_docking__builder.hpp
+[14.485s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/marker_docking__struct.hpp
+[14.492s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/marker_docking__traits.hpp
+[14.498s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/marker_docking__type_support.hpp
+[14.504s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/set_state__builder.hpp
+[14.510s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/set_state__struct.hpp
+[14.517s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/set_state__traits.hpp
+[14.523s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/set_state__type_support.hpp
+[14.529s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/task_command_action__builder.hpp
+[14.537s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/task_command_action__struct.hpp
+[14.544s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/task_command_action__traits.hpp
+[14.550s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/task_command_action__type_support.hpp
+[14.557s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/marker_docking.hpp
+[14.564s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/set_state.hpp
+[14.571s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/task_command_action.hpp
+[14.578s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/battery_status.hpp
+[14.584s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/behavior.hpp
+[14.590s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/battery_status__builder.hpp
+[14.596s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/battery_status__struct.hpp
+[14.602s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/battery_status__traits.hpp
+[14.608s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/battery_status__type_support.hpp
+[14.614s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/behavior__builder.hpp
+[14.621s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/behavior__struct.hpp
+[14.627s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/behavior__traits.hpp
+[14.633s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/behavior__type_support.hpp
+[14.639s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/emergency__builder.hpp
+[14.647s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/emergency__struct.hpp
+[14.653s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/emergency__traits.hpp
+[14.660s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/emergency__type_support.hpp
+[14.668s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/motor_status__builder.hpp
+[14.675s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/motor_status__struct.hpp
+[14.682s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/motor_status__traits.hpp
+[14.689s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/motor_status__type_support.hpp
+[14.695s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/qrdetection__builder.hpp
+[14.702s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/qrdetection__struct.hpp
+[14.709s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/qrdetection__traits.hpp
+[14.716s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/qrdetection__type_support.hpp
+[14.722s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/state_machine__builder.hpp
+[14.728s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/state_machine__struct.hpp
+[14.733s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/state_machine__traits.hpp
+[14.739s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/state_machine__type_support.hpp
+[14.745s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/task__builder.hpp
+[14.750s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/task__struct.hpp
+[14.757s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/task__traits.hpp
+[14.765s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/task__type_support.hpp
+[14.772s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/emergency.hpp
+[14.779s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/motor_status.hpp
+[14.786s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/qrdetection.hpp
+[14.793s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[14.799s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/state_machine.hpp
+[14.805s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/task.hpp
+[14.812s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/build_map.hpp
+[14.819s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/build_map__builder.hpp
+[14.825s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/build_map__struct.hpp
+[14.831s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/build_map__traits.hpp
+[14.837s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/build_map__type_support.hpp
+[14.842s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/get_waypoints__builder.hpp
+[14.848s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/get_waypoints__struct.hpp
+[14.854s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/get_waypoints__traits.hpp
+[14.860s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/get_waypoints__type_support.hpp
+[14.869s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/manual_manipulator_control__builder.hpp
+[14.876s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/manual_manipulator_control__struct.hpp
+[14.883s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/manual_manipulator_control__traits.hpp
+[14.890s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/manual_manipulator_control__type_support.hpp
+[14.897s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/slam_mode__builder.hpp
+[14.904s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/slam_mode__struct.hpp
+[14.910s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/slam_mode__traits.hpp
+[14.917s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/slam_mode__type_support.hpp
+[14.923s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/task_command__builder.hpp
+[14.930s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/task_command__struct.hpp
+[14.936s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/task_command__traits.hpp
+[14.942s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/task_command__type_support.hpp
+[14.948s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/get_waypoints.hpp
+[14.954s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/manual_manipulator_control.hpp
+[14.960s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/slam_mode.hpp
+[14.967s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/task_command.hpp
+[14.976s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/marker_docking__rosidl_typesupport_fastrtps_cpp.hpp
+[14.982s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/set_state__rosidl_typesupport_fastrtps_cpp.hpp
+[14.989s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/task_command_action__rosidl_typesupport_fastrtps_cpp.hpp
+[14.996s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/battery_status__rosidl_typesupport_fastrtps_cpp.hpp
+[15.003s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/behavior__rosidl_typesupport_fastrtps_cpp.hpp
+[15.009s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/emergency__rosidl_typesupport_fastrtps_cpp.hpp
+[15.015s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/motor_status__rosidl_typesupport_fastrtps_cpp.hpp
+[15.022s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/qrdetection__rosidl_typesupport_fastrtps_cpp.hpp
+[15.028s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/state_machine__rosidl_typesupport_fastrtps_cpp.hpp
+[15.034s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/task__rosidl_typesupport_fastrtps_cpp.hpp
+[15.040s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[15.045s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/build_map__rosidl_typesupport_fastrtps_cpp.hpp
+[15.051s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/get_waypoints__rosidl_typesupport_fastrtps_cpp.hpp
+[15.057s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/manual_manipulator_control__rosidl_typesupport_fastrtps_cpp.hpp
+[15.064s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/slam_mode__rosidl_typesupport_fastrtps_cpp.hpp
+[15.072s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/task_command__rosidl_typesupport_fastrtps_cpp.hpp
+[15.079s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/marker_docking__rosidl_typesupport_introspection_cpp.hpp
+[15.086s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/set_state__rosidl_typesupport_introspection_cpp.hpp
+[15.093s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/action/detail/task_command_action__rosidl_typesupport_introspection_cpp.hpp
+[15.100s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/battery_status__rosidl_typesupport_introspection_cpp.hpp
+[15.108s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/behavior__rosidl_typesupport_introspection_cpp.hpp
+[15.115s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/emergency__rosidl_typesupport_introspection_cpp.hpp
+[15.122s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/motor_status__rosidl_typesupport_introspection_cpp.hpp
+[15.128s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/qrdetection__rosidl_typesupport_introspection_cpp.hpp
+[15.135s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/state_machine__rosidl_typesupport_introspection_cpp.hpp
+[15.141s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/msg/detail/task__rosidl_typesupport_introspection_cpp.hpp
+[15.147s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/build_map__rosidl_typesupport_introspection_cpp.hpp
+[15.153s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/get_waypoints__rosidl_typesupport_introspection_cpp.hpp
+[15.159s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/manual_manipulator_control__rosidl_typesupport_introspection_cpp.hpp
+[15.166s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/slam_mode__rosidl_typesupport_introspection_cpp.hpp
+[15.172s] -- Symlinking: /root/ros2_ws/install/san_msgs/include/san_msgs/san_msgs/srv/detail/task_command__rosidl_typesupport_introspection_cpp.hpp
+[15.179s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/environment/pythonpath.sh
+[15.186s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/environment/pythonpath.dsv
+[15.194s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs-0.0.0-py3.10.egg-info/PKG-INFO
+[15.201s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs-0.0.0-py3.10.egg-info/SOURCES.txt
+[15.209s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs-0.0.0-py3.10.egg-info/dependency_links.txt
+[15.217s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs-0.0.0-py3.10.egg-info/top_level.txt
+[15.224s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/__init__.py
+[15.230s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/_san_msgs_s.ep.rosidl_typesupport_c.c
+[15.236s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/_san_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[15.243s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/_san_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[15.249s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/action/__init__.py
+[15.254s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/action/_marker_docking.py
+[15.260s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/action/_marker_docking_s.c
+[15.267s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/action/_set_state.py
+[15.273s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/action/_set_state_s.c
+[15.280s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/action/_task_command_action.py
+[15.286s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/action/_task_command_action_s.c
+[15.293s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/libsan_msgs__rosidl_generator_py.so
+[15.299s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg/__init__.py
+[15.306s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg/_battery_status.py
+[15.313s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg/_battery_status_s.c
+[15.320s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg/_behavior.py
+[15.326s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg/_behavior_s.c
+[15.334s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg/_emergency.py
+[15.340s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg/_emergency_s.c
+[15.347s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg/_motor_status.py
+[15.353s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg/_motor_status_s.c
+[15.359s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg/_qrdetection.py
+[15.366s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg/_qrdetection_s.c
+[15.372s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg/_state_machine.py
+[15.379s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg/_state_machine_s.c
+[15.385s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg/_task.py
+[15.391s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg/_task_s.c
+[15.397s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/san_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[15.404s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/san_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[15.411s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/san_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[15.418s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/srv/__init__.py
+[15.426s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/srv/_build_map.py
+[15.432s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/srv/_build_map_s.c
+[15.439s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/srv/_get_waypoints.py
+[15.445s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/srv/_get_waypoints_s.c
+[15.451s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/srv/_manual_manipulator_control.py
+[15.457s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/srv/_manual_manipulator_control_s.c
+[15.463s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/srv/_slam_mode.py
+[15.470s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/srv/_slam_mode_s.c
+[15.477s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/srv/_task_command.py
+[15.483s] -- Symlinking: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/srv/_task_command_s.c
+[15.489s] -- Up-to-date symlink: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/san_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[15.490s] -- Up-to-date symlink: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/san_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[15.490s] -- Up-to-date symlink: /root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/san_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[15.490s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/msg/StateMachine.idl
+[15.497s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/msg/BatteryStatus.idl
+[15.503s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/msg/Emergency.idl
+[15.511s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/msg/Qrdetection.idl
+[15.519s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/msg/Behavior.idl
+[15.526s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/msg/Task.idl
+[15.532s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/msg/MotorStatus.idl
+[15.539s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/srv/TaskCommand.idl
+[15.545s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/srv/SlamMode.idl
+[15.552s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/srv/BuildMap.idl
+[15.558s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/srv/ManualManipulatorControl.idl
+[15.565s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/srv/GetWaypoints.idl
+[15.572s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/action/SetState.idl
+[15.579s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/action/MarkerDocking.idl
+[15.585s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/action/TaskCommandAction.idl
+[15.591s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/msg/StateMachine.msg
+[15.597s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/msg/BatteryStatus.msg
+[15.603s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/msg/Emergency.msg
+[15.610s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/msg/Qrdetection.msg
+[15.618s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/msg/Behavior.msg
+[15.625s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/msg/Task.msg
+[15.633s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/msg/MotorStatus.msg
+[15.640s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/srv/TaskCommand.srv
+[15.647s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/srv/TaskCommand_Request.msg
+[15.653s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/srv/TaskCommand_Response.msg
+[15.660s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/srv/SlamMode.srv
+[15.668s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/srv/SlamMode_Request.msg
+[15.674s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/srv/SlamMode_Response.msg
+[15.681s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/srv/BuildMap.srv
+[15.687s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/srv/BuildMap_Request.msg
+[15.693s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/srv/BuildMap_Response.msg
+[15.699s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/srv/ManualManipulatorControl.srv
+[15.705s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/srv/ManualManipulatorControl_Request.msg
+[15.712s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/srv/ManualManipulatorControl_Response.msg
+[15.719s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/srv/GetWaypoints.srv
+[15.727s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/srv/GetWaypoints_Request.msg
+[15.734s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/srv/GetWaypoints_Response.msg
+[15.740s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/action/SetState.action
+[15.747s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/action/MarkerDocking.action
+[15.753s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/action/TaskCommandAction.action
+[15.760s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/ament_index/resource_index/package_run_dependencies/san_msgs
+[15.768s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/ament_index/resource_index/parent_prefix_path/san_msgs
+[15.775s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/environment/ament_prefix_path.sh
+[15.781s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/environment/ament_prefix_path.dsv
+[15.788s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/environment/path.sh
+[15.794s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/environment/path.dsv
+[15.800s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/local_setup.bash
+[15.806s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/local_setup.sh
+[15.812s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/local_setup.zsh
+[15.819s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/local_setup.dsv
+[15.825s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/package.dsv
+[15.832s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/ament_index/resource_index/packages/san_msgs
+[15.839s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/rosidl_cmake-extras.cmake
+[15.845s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[15.851s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[15.857s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[15.864s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[15.872s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[15.879s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[15.887s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/san_msgsConfig.cmake
+[15.894s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/san_msgsConfig-version.cmake
+[15.901s] -- Symlinking: /root/ros2_ws/install/san_msgs/share/san_msgs/package.xml
+[15.908s] -- Installing: /root/ros2_ws/install/san_msgs/lib/libsan_msgs__rosidl_generator_c.so
+[15.908s] -- Set runtime path of "/root/ros2_ws/install/san_msgs/lib/libsan_msgs__rosidl_generator_c.so" to ""
+[15.909s] -- Installing: /root/ros2_ws/install/san_msgs/lib/libsan_msgs__rosidl_typesupport_fastrtps_c.so
+[15.909s] -- Set runtime path of "/root/ros2_ws/install/san_msgs/lib/libsan_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+[15.910s] -- Installing: /root/ros2_ws/install/san_msgs/lib/libsan_msgs__rosidl_typesupport_introspection_c.so
+[15.910s] -- Set runtime path of "/root/ros2_ws/install/san_msgs/lib/libsan_msgs__rosidl_typesupport_introspection_c.so" to ""
+[15.910s] -- Installing: /root/ros2_ws/install/san_msgs/lib/libsan_msgs__rosidl_typesupport_c.so
+[15.910s] -- Set runtime path of "/root/ros2_ws/install/san_msgs/lib/libsan_msgs__rosidl_typesupport_c.so" to ""
+[15.910s] -- Installing: /root/ros2_ws/install/san_msgs/lib/libsan_msgs__rosidl_typesupport_fastrtps_cpp.so
+[15.911s] -- Set runtime path of "/root/ros2_ws/install/san_msgs/lib/libsan_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+[15.911s] -- Installing: /root/ros2_ws/install/san_msgs/lib/libsan_msgs__rosidl_typesupport_introspection_cpp.so
+[15.911s] -- Set runtime path of "/root/ros2_ws/install/san_msgs/lib/libsan_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[15.911s] -- Installing: /root/ros2_ws/install/san_msgs/lib/libsan_msgs__rosidl_typesupport_cpp.so
+[15.912s] -- Set runtime path of "/root/ros2_ws/install/san_msgs/lib/libsan_msgs__rosidl_typesupport_cpp.so" to ""
+[15.978s] Listing '/root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs'...
+[15.978s] Compiling '/root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/__init__.py'...
+[15.978s] Listing '/root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/action'...
+[15.978s] Compiling '/root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/action/__init__.py'...
+[15.978s] Compiling '/root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/action/_marker_docking.py'...
+[15.978s] Compiling '/root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/action/_set_state.py'...
+[15.978s] Compiling '/root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/action/_task_command_action.py'...
+[15.978s] Listing '/root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg'...
+[15.978s] Compiling '/root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg/__init__.py'...
+[15.978s] Compiling '/root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg/_battery_status.py'...
+[15.978s] Compiling '/root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg/_behavior.py'...
+[15.978s] Compiling '/root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg/_emergency.py'...
+[15.978s] Compiling '/root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg/_motor_status.py'...
+[15.978s] Compiling '/root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg/_qrdetection.py'...
+[15.978s] Compiling '/root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg/_state_machine.py'...
+[15.978s] Compiling '/root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/msg/_task.py'...
+[15.978s] Listing '/root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/srv'...
+[15.978s] Compiling '/root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/srv/__init__.py'...
+[15.979s] Compiling '/root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/srv/_build_map.py'...
+[15.979s] Compiling '/root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/srv/_get_waypoints.py'...
+[15.979s] Compiling '/root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/srv/_manual_manipulator_control.py'...
+[15.979s] Compiling '/root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/srv/_slam_mode.py'...
+[15.979s] Compiling '/root/ros2_ws/install/san_msgs/local/lib/python3.10/dist-packages/san_msgs/srv/_task_command.py'...
+[15.981s] -- Installing: /root/ros2_ws/install/san_msgs/lib/libsan_msgs__rosidl_generator_py.so
+[15.982s] -- Set runtime path of "/root/ros2_ws/install/san_msgs/lib/libsan_msgs__rosidl_generator_py.so" to ""
+[15.982s] -- Installing: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/export_san_msgs__rosidl_generator_cExport.cmake
+[15.982s] -- Installing: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/export_san_msgs__rosidl_generator_cExport-noconfig.cmake
+[15.983s] -- Installing: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/export_san_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[15.983s] -- Installing: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/export_san_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[15.983s] -- Installing: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/san_msgs__rosidl_typesupport_introspection_cExport.cmake
+[15.983s] -- Installing: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/san_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[15.983s] -- Installing: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/san_msgs__rosidl_typesupport_cExport.cmake
+[15.983s] -- Installing: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/san_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[15.983s] -- Installing: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/export_san_msgs__rosidl_generator_cppExport.cmake
+[15.984s] -- Installing: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/export_san_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[15.984s] -- Installing: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/export_san_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[15.984s] -- Installing: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/san_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[15.984s] -- Installing: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/san_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[15.984s] -- Installing: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/san_msgs__rosidl_typesupport_cppExport.cmake
+[15.985s] -- Installing: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/san_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[15.985s] -- Installing: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/export_san_msgs__rosidl_generator_pyExport.cmake
+[15.985s] -- Installing: /root/ros2_ws/install/san_msgs/share/san_msgs/cmake/export_san_msgs__rosidl_generator_pyExport-noconfig.cmake
+[15.987s] Invoked command in '/root/ros2_ws/build/san_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --install /root/ros2_ws/build/san_msgs

@@ -1,0 +1,156 @@
+# type : (home,0) (main,1) (path,2) (coverage,3)
+node:
+  - name: "작업실_child1"
+    type: 3
+    index: 1001
+    connection: []
+    child: []
+    data: 2
+    position:
+      x: 3
+      y: 4
+      yaw: 0
+
+  - name: "작업실_child2"
+    type: 3
+    index: 1002
+    connection: []
+    child: []
+    data: 2
+    position:
+      x: 6.5
+      y: 4
+      yaw: 0
+
+  - name: "작업실_child3"
+    type: 3
+    index: 1003
+    connection: []
+    child: []
+    data: 2
+    position:
+      x: 6.5
+      y: 1
+      yaw: 0
+
+  - name: "작업실_child4"
+    type: 3
+    index: 1004
+    connection: []
+    child: []
+    data: 2
+    position:
+      x: 4
+      y: 1
+      yaw: 0
+
+  - name: "path1"
+    type: 2
+    index: 1
+    connection: [2, 777]
+    child: []
+    data: 0
+    position:
+      x: -1
+      y: 4
+      yaw: 0
+
+  - name: "path2"
+    type: 2
+    index: 2
+    connection: [1, 3]
+    child: []
+    data: 0
+    position:
+      x: -1
+      y: 0.4
+      yaw: 0
+
+  - name: "path3"
+    type: 2
+    index: 3
+    connection: [2, 101]
+    child: []
+    data: 0
+    position:
+      x: 3
+      y: 0.4
+      yaw: 0
+
+  - name: "작업실"
+    type: 1
+    index: 101
+    connection: [3]
+    child: [1001, 1002, 1003, 1004]
+    data: 0
+    position:
+      x: 3
+      y: 2
+      yaw: 0
+
+  - name: "home"
+    type: 0
+    index: 777
+    connection: [1]
+    child: []
+    data: 0
+    position:
+      x: -3
+      y: 4
+      yaw: 0
+
+  - name: "Node 1005"
+    type: 2
+    index: 1005
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: 4.699080731692533
+      y: 0.5296209259641707
+      yaw: 9999
+
+  - name: "Node 1006"
+    type: 2
+    index: 1006
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: 6.149085368626899
+      y: -1.3647399706758865
+      yaw: 9999
+
+  - name: "Node 1007"
+    type: 2
+    index: 1007
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: 5.541018907977001
+      y: -3.1187778379351965
+      yaw: 9999
+
+  - name: "Node 1008"
+    type: 2
+    index: 1008
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: -4.398529006492431
+      y: 0.7167182984718323
+      yaw: 9999
+
+  - name: "Node 1009"
+    type: 2
+    index: 1009
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: -6.26950273156903
+      y: -0.4994146228279597
+      yaw: 9999
+

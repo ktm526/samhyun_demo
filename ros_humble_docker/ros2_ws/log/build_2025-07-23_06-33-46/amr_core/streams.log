@@ -1,0 +1,156 @@
+[0.018s] Invoking command in '/root/ros2_ws/build/amr_core': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/amr_core
+[0.060s] -- The C compiler identification is GNU 11.4.0
+[0.114s] -- The CXX compiler identification is GNU 11.4.0
+[0.122s] -- Detecting C compiler ABI info
+[0.181s] -- Detecting C compiler ABI info - done
+[0.187s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.188s] -- Detecting C compile features
+[0.188s] -- Detecting C compile features - done
+[0.191s] -- Detecting CXX compiler ABI info
+[0.252s] -- Detecting CXX compiler ABI info - done
+[0.259s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.259s] -- Detecting CXX compile features
+[0.260s] -- Detecting CXX compile features - done
+[0.263s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.403s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.471s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.518s] -- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)
+[0.581s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.590s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.601s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.615s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.637s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.691s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.695s] -- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+[0.719s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[0.731s] -- Looking for pthread.h
+[0.794s] -- Looking for pthread.h - found
+[0.794s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.855s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.856s] -- Found Threads: TRUE  
+[0.918s] -- Found nav_msgs: 4.9.0 (/opt/ros/humble/share/nav_msgs/cmake)
+[0.951s] -- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[0.970s] -- Found tf2: 0.25.13 (/opt/ros/humble/share/tf2/cmake)
+[0.985s] -- Found tf2_ros: 0.25.13 (/opt/ros/humble/share/tf2_ros/cmake)
+[1.091s] -- Found tf2_geometry_msgs: 0.25.13 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+[1.112s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[1.114s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[1.114s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.118s] -- Found diagnostic_msgs: 4.9.0 (/opt/ros/humble/share/diagnostic_msgs/cmake)
+[1.145s] -- Found can_msgs: 2.0.0 (/opt/ros/humble/share/can_msgs/cmake)
+[1.186s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread 
+[1.190s] -- Found std_srvs: 4.9.0 (/opt/ros/humble/share/std_srvs/cmake)
+[1.198s] -- Found san_msgs: 0.0.0 (/root/ros2_ws/install/san_msgs/share/san_msgs/cmake)
+[1.289s] -- Configuring done
+[1.314s] -- Generating done
+[1.323s] -- Build files have been written to: /root/ros2_ws/build/amr_core
+[1.331s] Invoked command in '/root/ros2_ws/build/amr_core' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/amr_core
+[1.332s] Invoking command in '/root/ros2_ws/build/amr_core': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /root/ros2_ws/build/amr_core -- -j16 -l16
+[1.371s] [ 30%] [32mBuilding CXX object CMakeFiles/amr_core_lib.dir/src/amr_core.cpp.o[0m
+[1.372s] [ 30%] [32mBuilding CXX object CMakeFiles/amr_core_lib.dir/src/velocity_profile.cpp.o[0m
+[1.372s] [ 30%] [32mBuilding CXX object CMakeFiles/amr_core_lib.dir/src/ekf_odometry.cpp.o[0m
+[1.375s] [ 40%] [32mBuilding CXX object CMakeFiles/amr_core_lib.dir/src/main.cpp.o[0m
+[2.061s] In file included from [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/velocity_profile.cpp:1[m[K:
+[2.061s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/include/amr_core/velocity_profile.h:[m[K In constructor ‘[01m[KAMR::VelocityProfile::VelocityProfile(geometry_msgs::msg::Twist, double)[m[K’:
+[2.061s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/include/amr_core/velocity_profile.h:15:29:[m[K [01;35m[Kwarning: [m[K‘[01m[KAMR::VelocityProfile::acc[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.061s]    15 |   geometry_msgs::msg::Twist [01;35m[Kacc[m[K;
+[2.061s]       |                             [01;35m[K^~~[m[K
+[2.063s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/include/amr_core/velocity_profile.h:14:10:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kdouble AMR::VelocityProfile::control_hz[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.063s]    14 |   double [01;35m[Kcontrol_hz[m[K;
+[2.063s]       |          [01;35m[K^~~~~~~~~~[m[K
+[2.063s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/velocity_profile.cpp:5:1:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.064s]     5 | [01;35m[KVelocityProfile[m[K::VelocityProfile(geometry_msgs::msg::Twist acc, double control_hz)
+[2.064s]       | [01;35m[K^~~~~~~~~~~~~~~[m[K
+[2.064s] In file included from [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/velocity_profile.cpp:1[m[K:
+[2.064s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/include/amr_core/velocity_profile.h:14:10:[m[K [01;35m[Kwarning: [m[K‘[01m[KAMR::VelocityProfile::control_hz[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.064s]    14 |   double [01;35m[Kcontrol_hz[m[K;
+[2.064s]       |          [01;35m[K^~~~~~~~~~[m[K
+[2.064s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/include/amr_core/velocity_profile.h:12:46:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kstd::shared_ptr<geometry_msgs::msg::Twist_<std::allocator<void> > > AMR::VelocityProfile::target_speed[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.064s]    12 |   std::shared_ptr<geometry_msgs::msg::Twist> [01;35m[Ktarget_speed[m[K;
+[2.064s]       |                                              [01;35m[K^~~~~~~~~~~~[m[K
+[2.064s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/velocity_profile.cpp:5:1:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.064s]     5 | [01;35m[KVelocityProfile[m[K::VelocityProfile(geometry_msgs::msg::Twist acc, double control_hz)
+[2.064s]       | [01;35m[K^~~~~~~~~~~~~~~[m[K
+[7.965s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:[m[K In member function ‘[01m[Kvoid AMR::Core::setParam()[m[K’:
+[7.965s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:116:24:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::Motor::enc_r[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+[7.965s]   116 |     motor = new Motor{0[01;35m[K}[m[K;
+[7.965s]       |                        [01;35m[K^[m[K
+[7.965s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:117:24:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::Error::left[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+[7.966s]   117 |     error = new Error{0[01;35m[K}[m[K;
+[7.966s]       |                        [01;35m[K^[m[K
+[7.966s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:118:35:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::RobotState::y[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+[7.966s]   118 |     robot_state = new RobotState{0[01;35m[K}[m[K;
+[7.966s]       |                                   [01;35m[K^[m[K
+[7.966s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:118:35:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::RobotState::z[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+[7.966s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:118:35:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::RobotState::roll[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+[7.966s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:118:35:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::RobotState::pitch[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+[7.966s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:118:35:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::RobotState::yaw[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+[16.884s] [ 50%] [32m[1mLinking CXX shared library libamr_core_lib.so[0m
+[17.660s] [ 50%] Built target amr_core_lib
+[17.678s] [ 80%] [32mBuilding CXX object CMakeFiles/amr_core_node.dir/src/amr_core.cpp.o[0m
+[17.678s] [ 80%] [32mBuilding CXX object CMakeFiles/teleop_keyboard.dir/src/teleop_keyboard.cpp.o[0m
+[17.678s] [ 80%] [32mBuilding CXX object CMakeFiles/amr_core_node.dir/src/main.cpp.o[0m
+[19.798s] In file included from [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/teleop_keyboard.cpp:1[m[K:
+[19.798s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/include/teleop_keyboard/teleop_keyboard.h:[m[K In constructor ‘[01m[KTeleopKeyboard::TeleopKeyboard()[m[K’:
+[19.798s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/include/teleop_keyboard/teleop_keyboard.h:42:10:[m[K [01;35m[Kwarning: [m[K‘[01m[KTeleopKeyboard::key_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[19.798s]    42 |     char [01;35m[Kkey_[m[K;
+[19.798s]       |          [01;35m[K^~~~[m[K
+[19.798s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/include/teleop_keyboard/teleop_keyboard.h:41:12:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kdouble TeleopKeyboard::x_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[19.798s]    41 |     double [01;35m[Kx_[m[K, y_, z_, th_;
+[19.799s]       |            [01;35m[K^~[m[K
+[19.799s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/teleop_keyboard.cpp:49:1:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[19.799s]    49 | [01;35m[KTeleopKeyboard[m[K::TeleopKeyboard()
+[19.799s]       | [01;35m[K^~~~~~~~~~~~~~[m[K
+[21.423s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:[m[K In member function ‘[01m[Kvoid AMR::Core::setParam()[m[K’:
+[21.423s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:116:24:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::Motor::enc_r[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+[21.423s]   116 |     motor = new Motor{0[01;35m[K}[m[K;
+[21.424s]       |                        [01;35m[K^[m[K
+[21.424s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:117:24:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::Error::left[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+[21.424s]   117 |     error = new Error{0[01;35m[K}[m[K;
+[21.424s]       |                        [01;35m[K^[m[K
+[21.424s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:118:35:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::RobotState::y[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+[21.424s]   118 |     robot_state = new RobotState{0[01;35m[K}[m[K;
+[21.424s]       |                                   [01;35m[K^[m[K
+[21.424s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:118:35:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::RobotState::z[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+[21.424s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:118:35:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::RobotState::roll[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+[21.424s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:118:35:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::RobotState::pitch[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+[21.425s] [01m[K/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core/src/amr_core.cpp:118:35:[m[K [01;35m[Kwarning: [m[Kmissing initializer for member ‘[01m[KAMR::RobotState::yaw[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Wmissing-field-initializers]8;;[m[K]
+[21.594s] [ 90%] [32m[1mLinking CXX executable teleop_keyboard[0m
+[21.814s] [ 90%] Built target teleop_keyboard
+[29.178s] [100%] [32m[1mLinking CXX executable amr_core_node[0m
+[29.832s] [100%] Built target amr_core_node
+[29.842s] Invoked command in '/root/ros2_ws/build/amr_core' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /root/ros2_ws/build/amr_core -- -j16 -l16
+[29.843s] Invoking command in '/root/ros2_ws/build/amr_core': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /root/ros2_ws/build/amr_core
+[29.848s] -- Install configuration: ""
+[29.849s] -- Execute custom install script
+[29.850s] -- Symlinking: /root/ros2_ws/install/amr_core/lib/amr_core/amr_core_node
+[29.856s] -- Symlinking: /root/ros2_ws/install/amr_core/lib/amr_core/teleop_keyboard
+[29.862s] -- Symlinking: /root/ros2_ws/install/amr_core/lib/amr_core/libamr_core_lib.so
+[29.869s] -- Symlinking: /root/ros2_ws/install/amr_core/include/amr_core/amr_core.h
+[29.876s] -- Symlinking: /root/ros2_ws/install/amr_core/include/amr_core/can.hpp
+[29.883s] -- Symlinking: /root/ros2_ws/install/amr_core/include/amr_core/ekf_odometry.h
+[29.891s] -- Symlinking: /root/ros2_ws/install/amr_core/include/amr_core/velocity_profile.h
+[29.898s] -- Symlinking: /root/ros2_ws/install/amr_core/include/teleop_keyboard/teleop_keyboard.h
+[29.906s] -- Symlinking: /root/ros2_ws/install/amr_core/share/amr_core/param/ammr_param.yaml
+[29.913s] -- Symlinking: /root/ros2_ws/install/amr_core/share/amr_core/param/laser_base_exclude_filter.yaml
+[29.919s] -- Symlinking: /root/ros2_ws/install/amr_core/share/amr_core/param/laser_filter.yaml
+[29.927s] -- Symlinking: /root/ros2_ws/install/amr_core/share/amr_core/param/param.yaml
+[29.933s] -- Symlinking: /root/ros2_ws/install/amr_core/share/amr_core/param/param_backup.yaml
+[29.940s] -- Symlinking: /root/ros2_ws/install/amr_core/share/amr_core/param/ydlidar.yaml
+[29.946s] -- Symlinking: /root/ros2_ws/install/amr_core/share/amr_core/launch/simulator_bringup.launch.py
+[29.952s] -- Symlinking: /root/ros2_ws/install/amr_core/share/ament_index/resource_index/package_run_dependencies/amr_core
+[29.959s] -- Symlinking: /root/ros2_ws/install/amr_core/share/ament_index/resource_index/parent_prefix_path/amr_core
+[29.965s] -- Symlinking: /root/ros2_ws/install/amr_core/share/amr_core/environment/ament_prefix_path.sh
+[29.971s] -- Symlinking: /root/ros2_ws/install/amr_core/share/amr_core/environment/ament_prefix_path.dsv
+[29.977s] -- Symlinking: /root/ros2_ws/install/amr_core/share/amr_core/environment/path.sh
+[29.984s] -- Symlinking: /root/ros2_ws/install/amr_core/share/amr_core/environment/path.dsv
+[29.992s] -- Symlinking: /root/ros2_ws/install/amr_core/share/amr_core/local_setup.bash
+[29.998s] -- Symlinking: /root/ros2_ws/install/amr_core/share/amr_core/local_setup.sh
+[30.006s] -- Symlinking: /root/ros2_ws/install/amr_core/share/amr_core/local_setup.zsh
+[30.014s] -- Symlinking: /root/ros2_ws/install/amr_core/share/amr_core/local_setup.dsv
+[30.022s] -- Symlinking: /root/ros2_ws/install/amr_core/share/amr_core/package.dsv
+[30.031s] -- Symlinking: /root/ros2_ws/install/amr_core/share/ament_index/resource_index/packages/amr_core
+[30.040s] -- Symlinking: /root/ros2_ws/install/amr_core/share/amr_core/cmake/amr_coreConfig.cmake
+[30.049s] -- Symlinking: /root/ros2_ws/install/amr_core/share/amr_core/cmake/amr_coreConfig-version.cmake
+[30.056s] -- Symlinking: /root/ros2_ws/install/amr_core/share/amr_core/package.xml
+[30.066s] Invoked command in '/root/ros2_ws/build/amr_core' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /root/ros2_ws/build/amr_core

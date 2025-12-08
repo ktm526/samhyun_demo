@@ -1,0 +1,52 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from san_msgs/msg/BatteryStatus.msg
+// generated code does not contain a copyright notice
+
+
+module san_msgs {
+  module msg {
+    struct BatteryStatus {
+      @verbatim (language="comment", text=
+        "TOP Battery Voltage (V)")
+      float voltage_top;
+
+      @verbatim (language="comment", text=
+        "TOP Battery Current (A)")
+      float current_top;
+
+      @verbatim (language="comment", text=
+        "TOP Battery State of Charge")
+      float soc_top;
+
+      @verbatim (language="comment", text=
+        "TOP Battery State of Health")
+      float soh_top;
+
+      @verbatim (language="comment", text=
+        "Voltage (V)")
+      float voltage;
+
+      @verbatim (language="comment", text=
+        "Current (A)")
+      float current;
+
+      @verbatim (language="comment", text=
+        "State of Charge")
+      float soc;
+
+      @verbatim (language="comment", text=
+        "State of Health")
+      float soh;
+
+      @verbatim (language="comment", text=
+        "Charge Relay")
+      boolean charge_relay;
+
+      @verbatim (language="comment", text=
+        "Charging Jack State (True: Other position, False: Home position)")
+      boolean charging_jack_state;
+
+      boolean charging_state;
+    };
+  };
+};

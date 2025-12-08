@@ -1,0 +1,27 @@
+running develop
+running egg_info
+creating waypoint_node_manager.egg-info
+writing waypoint_node_manager.egg-info/PKG-INFO
+writing dependency_links to waypoint_node_manager.egg-info/dependency_links.txt
+writing entry points to waypoint_node_manager.egg-info/entry_points.txt
+writing requirements to waypoint_node_manager.egg-info/requires.txt
+writing top-level names to waypoint_node_manager.egg-info/top_level.txt
+writing manifest file 'waypoint_node_manager.egg-info/SOURCES.txt'
+reading manifest file 'waypoint_node_manager.egg-info/SOURCES.txt'
+writing manifest file 'waypoint_node_manager.egg-info/SOURCES.txt'
+running build_ext
+Creating /root/ros2_ws/install/waypoint_node_manager/lib/python3.10/site-packages/waypoint-node-manager.egg-link (link to .)
+Installing waypoint_node_manager script to /root/ros2_ws/install/waypoint_node_manager/lib/waypoint_node_manager
+
+Installed /root/ros2_ws/build/waypoint_node_manager
+running symlink_data
+creating /root/ros2_ws/install/waypoint_node_manager/share/ament_index
+creating /root/ros2_ws/install/waypoint_node_manager/share/ament_index/resource_index
+creating /root/ros2_ws/install/waypoint_node_manager/share/ament_index/resource_index/packages
+symbolically linking /root/ros2_ws/build/waypoint_node_manager/resource/waypoint_node_manager -> /root/ros2_ws/install/waypoint_node_manager/share/ament_index/resource_index/packages
+symbolically linking /root/ros2_ws/build/waypoint_node_manager/package.xml -> /root/ros2_ws/install/waypoint_node_manager/share/waypoint_node_manager
+creating /root/ros2_ws/install/waypoint_node_manager/share/waypoint_node_manager/launch
+symbolically linking /root/ros2_ws/build/waypoint_node_manager/launch/waypoint_node_manager.launch.py -> /root/ros2_ws/install/waypoint_node_manager/share/waypoint_node_manager/launch
+creating /root/ros2_ws/install/waypoint_node_manager/share/waypoint_node_manager/maps
+creating /root/ros2_ws/install/waypoint_node_manager/share/waypoint_node_manager/rviz
+symbolically linking /root/ros2_ws/build/waypoint_node_manager/rviz/node_visualize.rviz -> /root/ros2_ws/install/waypoint_node_manager/share/waypoint_node_manager/rviz

@@ -1,0 +1,1 @@
+/root/ros2_ws/build/caselab_rviz_plugin/ament_cmake_core/caselab_rviz_pluginConfig-version.cmake

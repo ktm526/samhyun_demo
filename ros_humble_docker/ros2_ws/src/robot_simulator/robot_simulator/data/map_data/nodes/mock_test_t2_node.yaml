@@ -1,0 +1,123 @@
+# type : (home,0) (main,1) (path,2) (coverage,3)
+node:
+  - name: "Node 1"
+    type: 2
+    index: 1
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: -9975.293113748254
+      y: -82.84836432885491
+      yaw: 9999
+
+  - name: "Node 2"
+    type: 2
+    index: 2
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: -9977.267599537112
+      y: -83.08342216086196
+      yaw: 9999
+
+  - name: "Node 3"
+    type: 2
+    index: 3
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: -9994.138457011532
+      y: -95.7599941768469
+      yaw: 9999
+
+  - name: "Node 4"
+    type: 2
+    index: 4
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: -9994.116407013214
+      y: -91.52639449984493
+      yaw: 9999
+
+  - name: "Node 5"
+    type: 2
+    index: 5
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: -9991.13965724032
+      y: -91.10744453180828
+      yaw: 9999
+
+  - name: "Node 6"
+    type: 2
+    index: 6
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: -9986.398907602012
+      y: -93.55499434507504
+      yaw: 9999
+
+  - name: "Node 7"
+    type: 2
+    index: 7
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: -9989.816657341258
+      y: -93.0257943854498
+      yaw: 9999
+
+  - name: "Node 8"
+    type: 2
+    index: 8
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: -9995.076723586732
+      y: -92.39700808861542
+      yaw: 9999
+
+  - name: "Node 9"
+    type: 2
+    index: 9
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: -9992.62255877397
+      y: -92.8369055550539
+      yaw: 9999
+
+  - name: "Node 10"
+    type: 2
+    index: 10
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: -9984.095557777744
+      y: -86.66999963226321
+      yaw: 9999
+
+  - name: "Node 11"
+    type: 2
+    index: 11
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: -9988.015557478671
+      y: -86.0099996826172
+      yaw: 9999
+

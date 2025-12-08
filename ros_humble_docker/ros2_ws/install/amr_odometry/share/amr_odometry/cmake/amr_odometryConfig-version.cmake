@@ -1,0 +1,1 @@
+/root/ros2_ws/build/amr_odometry/ament_cmake_core/amr_odometryConfig-version.cmake

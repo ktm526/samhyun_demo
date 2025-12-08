@@ -1,0 +1,50 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from san_msgs/msg/Behavior.msg
+// generated code does not contain a copyright notice
+
+
+module san_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "bool behavior_load_started" "\n"
+      "bool behavior_unload_started")
+    struct Behavior {
+      boolean behavior_auto_started;
+
+      boolean behavior_slam_started;
+
+      boolean behavior_charge_started;
+
+      boolean behavior_docking_started;
+
+      boolean behavior_undocking_started;
+
+      @verbatim (language="comment", text=
+        "bool behavior_load_completed" "\n"
+        "bool behavior_unload_completed")
+      boolean behavior_auto_completed;
+
+      boolean behavior_slam_completed;
+
+      boolean behavior_charge_completed;
+
+      boolean behavior_docking_completed;
+
+      boolean behavior_undocking_completed;
+
+      boolean behavior_auto_canceled;
+
+      boolean behavior_docking_canceled;
+
+      boolean behavior_manipulation_redocking_triggered;
+
+      boolean behavior_charging_redocking_triggered;
+
+      boolean behavior_manipulator_completed;
+
+      boolean behavior_manipulator_emergency_triggered;
+
+      boolean behavior_manual_mode_triggered;
+    };
+  };
+};

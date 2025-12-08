@@ -1,0 +1,27 @@
+{
+    "headerId": 0, 
+    "robot_id": "robot_01",
+    "robot_name": "testbot",
+    "robot_model": "hmmr",
+    "timestamp": "2025-07-17T02:00:00Z",
+    "hw_version": "1.0.0",
+    "sw_version": "1.0.0",
+    "driving_status": 0,
+    "driving_mode": 0,
+    "position_x": 0.0,
+    "position_y": 0.0,
+    "position_theta": 0.0,
+    "velocity_x": 0.0,
+    "velocity_y": 0.0,
+    "velocity_theta": 0.0,
+    "connection_status": false,
+    "order_status": 0,
+    "path_status": [],
+    "battery_soc": 0.0,
+    "battery_voltage": 0.0,
+    "battery_soh": 0.0,
+    "charging_status": false,
+    "error_code": 0,
+    "error_msg": ""
+  }
+  

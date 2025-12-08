@@ -1,0 +1,20 @@
+{
+  "package_name": "san_msgs",
+  "non_idl_tuples": [
+    "/root/ros2_ws/src/robot_simulator/dependency_pkgs/san_msgs:msg/StateMachine.msg",
+    "/root/ros2_ws/src/robot_simulator/dependency_pkgs/san_msgs:msg/BatteryStatus.msg",
+    "/root/ros2_ws/src/robot_simulator/dependency_pkgs/san_msgs:msg/Emergency.msg",
+    "/root/ros2_ws/src/robot_simulator/dependency_pkgs/san_msgs:msg/Qrdetection.msg",
+    "/root/ros2_ws/src/robot_simulator/dependency_pkgs/san_msgs:msg/Behavior.msg",
+    "/root/ros2_ws/src/robot_simulator/dependency_pkgs/san_msgs:msg/Task.msg",
+    "/root/ros2_ws/src/robot_simulator/dependency_pkgs/san_msgs:msg/MotorStatus.msg",
+    "/root/ros2_ws/src/robot_simulator/dependency_pkgs/san_msgs:srv/TaskCommand.srv",
+    "/root/ros2_ws/src/robot_simulator/dependency_pkgs/san_msgs:srv/SlamMode.srv",
+    "/root/ros2_ws/src/robot_simulator/dependency_pkgs/san_msgs:srv/BuildMap.srv",
+    "/root/ros2_ws/src/robot_simulator/dependency_pkgs/san_msgs:srv/ManualManipulatorControl.srv",
+    "/root/ros2_ws/src/robot_simulator/dependency_pkgs/san_msgs:srv/GetWaypoints.srv",
+    "/root/ros2_ws/src/robot_simulator/dependency_pkgs/san_msgs:action/SetState.action",
+    "/root/ros2_ws/src/robot_simulator/dependency_pkgs/san_msgs:action/MarkerDocking.action",
+    "/root/ros2_ws/src/robot_simulator/dependency_pkgs/san_msgs:action/TaskCommandAction.action"
+  ]
+}

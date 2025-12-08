@@ -1,0 +1,46 @@
+# type : (home,0) (main,1) (path,2) (coverage,3)
+node:
+  - name: "Node 1"
+    type: 2
+    index: 1
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: -0.32348401323042886
+      y: 2.1285556780595414
+      yaw: 9999
+
+  - name: "Node 2"
+    type: 2
+    index: 2
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: -0.041234840132304384
+      y: 1.952149944873213
+      yaw: 9999
+
+  - name: "Node 3"
+    type: 2
+    index: 3
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: -4.204410143329657
+      y: 3.29283351708931
+      yaw: 9999
+
+  - name: "Node 4"
+    type: 2
+    index: 4
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: -3.251819184123484
+      y: 2.904740904079386
+      yaw: 9999
+

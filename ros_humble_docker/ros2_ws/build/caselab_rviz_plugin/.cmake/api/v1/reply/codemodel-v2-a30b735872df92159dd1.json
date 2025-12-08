@@ -1,0 +1,88 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-5bc9b44dd3790fee1a80.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "caselab_rviz_plugin",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "caselab_rviz_plugin::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-caselab_rviz_plugin-021d06e12efe0dd6f2b0.json",
+					"name" : "caselab_rviz_plugin",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "caselab_rviz_plugin_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-caselab_rviz_plugin_autogen-e90f27cb4d89f5332023.json",
+					"name" : "caselab_rviz_plugin_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "caselab_rviz_plugin_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-caselab_rviz_plugin_uninstall-3fcf1148ee6d073e1519.json",
+					"name" : "caselab_rviz_plugin_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-9bd46f9147478c8f010a.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/root/ros2_ws/build/caselab_rviz_plugin",
+		"source" : "/root/ros2_ws/src/robot_simulator/dependency_pkgs/caselab_rviz2_plugin"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

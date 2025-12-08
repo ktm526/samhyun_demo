@@ -1,0 +1,925 @@
+[0.134s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[0.134s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=16, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7ca9f7282500>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7ca9f73774f0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7ca9f73774f0>>, mixin_verb=('build',))
+[0.293s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.294s] INFO:colcon.colcon_metadata.package_discovery.colcon_meta:Using configuration from '/root/.colcon/metadata/default/Gazebo.meta'
+[0.294s] INFO:colcon.colcon_metadata.package_discovery.colcon_meta:Using configuration from '/root/.colcon/metadata/default/fastdds.meta'
+[0.295s] INFO:colcon.colcon_metadata.package_discovery.colcon_meta:Using configuration from '/root/.colcon/metadata/default/fastrtps.meta'
+[0.295s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.295s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.295s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.295s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.295s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.295s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/root/ros2_ws'
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator) by extensions ['ignore', 'ignore_ament_install']
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator) by extension 'ignore'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator) by extension 'ignore_ament_install'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator) by extensions ['colcon_pkg']
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator) by extension 'colcon_pkg'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator) by extensions ['colcon_meta']
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator) by extension 'colcon_meta'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator) by extensions ['ros']
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator) by extension 'ros'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator) by extensions ['cmake', 'python']
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator) by extension 'cmake'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator) by extension 'python'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator) by extensions ['python_setup_py']
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator) by extension 'python_setup_py'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs) by extensions ['ignore', 'ignore_ament_install']
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs) by extension 'ignore'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs) by extension 'ignore_ament_install'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs) by extensions ['colcon_pkg']
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs) by extension 'colcon_pkg'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs) by extensions ['colcon_meta']
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs) by extension 'colcon_meta'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs) by extensions ['ros']
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs) by extension 'ros'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs) by extensions ['cmake', 'python']
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs) by extension 'cmake'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs) by extension 'python'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs) by extensions ['python_setup_py']
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs) by extension 'python_setup_py'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC) by extensions ['ignore', 'ignore_ament_install']
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC) by extension 'ignore'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC) by extension 'ignore_ament_install'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC) by extensions ['colcon_pkg']
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC) by extension 'colcon_pkg'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC) by extensions ['colcon_meta']
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC) by extension 'colcon_meta'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC) by extensions ['ros']
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC) by extension 'ros'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC) by extensions ['cmake', 'python']
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC) by extension 'cmake'
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC) by extension 'python'
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC) by extensions ['python_setup_py']
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC) by extension 'python_setup_py'
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr) by extensions ['ignore', 'ignore_ament_install']
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr) by extension 'ignore'
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr) by extension 'ignore_ament_install'
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr) by extensions ['colcon_pkg']
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr) by extension 'colcon_pkg'
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr) by extensions ['colcon_meta']
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr) by extension 'colcon_meta'
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr) by extensions ['ros']
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr) by extension 'ros'
+[0.310s] DEBUG:colcon.colcon_core.package_identification:Package 'src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr' with type 'ros.catkin' and name 'amr'
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_cartographer) by extensions ['ignore', 'ignore_ament_install']
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_cartographer) by extension 'ignore'
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_cartographer) by extension 'ignore_ament_install'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_cartographer) by extensions ['colcon_pkg']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_cartographer) by extension 'colcon_pkg'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_cartographer) by extensions ['colcon_meta']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_cartographer) by extension 'colcon_meta'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_cartographer) by extensions ['ros']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_cartographer) by extension 'ros'
+[0.311s] DEBUG:colcon.colcon_core.package_identification:Package 'src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_cartographer' with type 'ros.ament_cmake' and name 'amr_cartographer'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core) by extensions ['ignore', 'ignore_ament_install']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core) by extension 'ignore'
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core) by extension 'ignore_ament_install'
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core) by extensions ['colcon_pkg']
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core) by extension 'colcon_pkg'
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core) by extensions ['colcon_meta']
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core) by extension 'colcon_meta'
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core) by extensions ['ros']
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core) by extension 'ros'
+[0.314s] DEBUG:colcon.colcon_core.package_identification:Package 'src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core' with type 'ros.ament_cmake' and name 'amr_core'
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_description) by extensions ['ignore', 'ignore_ament_install']
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_description) by extension 'ignore'
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_description) by extension 'ignore_ament_install'
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_description) by extensions ['colcon_pkg']
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_description) by extension 'colcon_pkg'
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_description) by extensions ['colcon_meta']
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_description) by extension 'colcon_meta'
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_description) by extensions ['ros']
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_description) by extension 'ros'
+[0.315s] DEBUG:colcon.colcon_core.package_identification:Package 'src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_description' with type 'ros.ament_cmake' and name 'amr_description'
+[0.315s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface) by extensions ['ignore', 'ignore_ament_install']
+[0.315s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface) by extension 'ignore'
+[0.315s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface) by extension 'ignore_ament_install'
+[0.316s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface) by extensions ['colcon_pkg']
+[0.316s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface) by extension 'colcon_pkg'
+[0.316s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface) by extensions ['colcon_meta']
+[0.316s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface) by extension 'colcon_meta'
+[0.316s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface) by extensions ['ros']
+[0.316s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface) by extension 'ros'
+[0.317s] DEBUG:colcon.colcon_core.package_identification:Package 'src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface' with type 'ros.ament_cmake' and name 'amr_interface'
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_navigation) by extensions ['ignore', 'ignore_ament_install']
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_navigation) by extension 'ignore'
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_navigation) by extension 'ignore_ament_install'
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_navigation) by extensions ['colcon_pkg']
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_navigation) by extension 'colcon_pkg'
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_navigation) by extensions ['colcon_meta']
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_navigation) by extension 'colcon_meta'
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_navigation) by extensions ['ros']
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_navigation) by extension 'ros'
+[0.319s] DEBUG:colcon.colcon_core.package_identification:Package 'src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_navigation' with type 'ros.ament_cmake' and name 'amr_navigation'
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_odometry) by extensions ['ignore', 'ignore_ament_install']
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_odometry) by extension 'ignore'
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_odometry) by extension 'ignore_ament_install'
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_odometry) by extensions ['colcon_pkg']
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_odometry) by extension 'colcon_pkg'
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_odometry) by extensions ['colcon_meta']
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_odometry) by extension 'colcon_meta'
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_odometry) by extensions ['ros']
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_odometry) by extension 'ros'
+[0.320s] DEBUG:colcon.colcon_core.package_identification:Package 'src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_odometry' with type 'ros.ament_cmake' and name 'amr_odometry'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/caselab_rviz2_plugin) by extensions ['ignore', 'ignore_ament_install']
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/caselab_rviz2_plugin) by extension 'ignore'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/caselab_rviz2_plugin) by extension 'ignore_ament_install'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/caselab_rviz2_plugin) by extensions ['colcon_pkg']
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/caselab_rviz2_plugin) by extension 'colcon_pkg'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/caselab_rviz2_plugin) by extensions ['colcon_meta']
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/caselab_rviz2_plugin) by extension 'colcon_meta'
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/caselab_rviz2_plugin) by extensions ['ros']
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/caselab_rviz2_plugin) by extension 'ros'
+[0.321s] DEBUG:colcon.colcon_core.package_identification:Package 'src/robot_simulator/dependency_pkgs/caselab_rviz2_plugin' with type 'ros.ament_cmake' and name 'caselab_rviz_plugin'
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/san_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/san_msgs) by extension 'ignore'
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/san_msgs) by extension 'ignore_ament_install'
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/san_msgs) by extensions ['colcon_pkg']
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/san_msgs) by extension 'colcon_pkg'
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/san_msgs) by extensions ['colcon_meta']
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/san_msgs) by extension 'colcon_meta'
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/san_msgs) by extensions ['ros']
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/san_msgs) by extension 'ros'
+[0.323s] DEBUG:colcon.colcon_core.package_identification:Package 'src/robot_simulator/dependency_pkgs/san_msgs' with type 'ros.ament_cmake' and name 'san_msgs'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/waypoint_node_manager) by extensions ['ignore', 'ignore_ament_install']
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/waypoint_node_manager) by extension 'ignore'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/waypoint_node_manager) by extension 'ignore_ament_install'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/waypoint_node_manager) by extensions ['colcon_pkg']
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/waypoint_node_manager) by extension 'colcon_pkg'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/waypoint_node_manager) by extensions ['colcon_meta']
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/waypoint_node_manager) by extension 'colcon_meta'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/waypoint_node_manager) by extensions ['ros']
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/waypoint_node_manager) by extension 'ros'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/waypoint_node_manager) by extensions ['cmake', 'python']
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/waypoint_node_manager) by extension 'cmake'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/waypoint_node_manager) by extension 'python'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/waypoint_node_manager) by extensions ['python_setup_py']
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/waypoint_node_manager) by extension 'python_setup_py'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/waypoint_node_manager/waypoint_node_manager) by extensions ['ignore', 'ignore_ament_install']
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/waypoint_node_manager/waypoint_node_manager) by extension 'ignore'
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/waypoint_node_manager/waypoint_node_manager) by extension 'ignore_ament_install'
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/waypoint_node_manager/waypoint_node_manager) by extensions ['colcon_pkg']
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/waypoint_node_manager/waypoint_node_manager) by extension 'colcon_pkg'
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/waypoint_node_manager/waypoint_node_manager) by extensions ['colcon_meta']
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/waypoint_node_manager/waypoint_node_manager) by extension 'colcon_meta'
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/waypoint_node_manager/waypoint_node_manager) by extensions ['ros']
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/waypoint_node_manager/waypoint_node_manager) by extension 'ros'
+[0.325s] DEBUG:colcon.colcon_core.package_identification:Package 'src/robot_simulator/dependency_pkgs/waypoint_node_manager/waypoint_node_manager' with type 'ros.ament_python' and name 'waypoint_node_manager'
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/webserver_interface_ros2) by extensions ['ignore', 'ignore_ament_install']
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/webserver_interface_ros2) by extension 'ignore'
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/webserver_interface_ros2) by extension 'ignore_ament_install'
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/webserver_interface_ros2) by extensions ['colcon_pkg']
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/webserver_interface_ros2) by extension 'colcon_pkg'
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/webserver_interface_ros2) by extensions ['colcon_meta']
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/webserver_interface_ros2) by extension 'colcon_meta'
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/webserver_interface_ros2) by extensions ['ros']
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/dependency_pkgs/webserver_interface_ros2) by extension 'ros'
+[0.326s] DEBUG:colcon.colcon_core.package_identification:Package 'src/robot_simulator/dependency_pkgs/webserver_interface_ros2' with type 'ros.ament_python' and name 'webserver_interface_ros2'
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/robot_simulator) by extensions ['ignore', 'ignore_ament_install']
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/robot_simulator) by extension 'ignore'
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/robot_simulator) by extension 'ignore_ament_install'
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/robot_simulator) by extensions ['colcon_pkg']
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/robot_simulator) by extension 'colcon_pkg'
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/robot_simulator) by extensions ['colcon_meta']
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/robot_simulator) by extension 'colcon_meta'
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/robot_simulator) by extensions ['ros']
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(src/robot_simulator/robot_simulator) by extension 'ros'
+[0.327s] DEBUG:colcon.colcon_core.package_identification:Package 'src/robot_simulator/robot_simulator' with type 'ros.ament_cmake' and name 'robot_simulator'
+[0.327s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.327s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.327s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.327s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.327s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.354s] Level 5:colcon.colcon_core.verb:set package 'amr_cartographer' build argument 'cmake_args' from command line to 'None'
+[0.354s] Level 5:colcon.colcon_core.verb:set package 'amr_cartographer' build argument 'cmake_target' from command line to 'None'
+[0.354s] Level 5:colcon.colcon_core.verb:set package 'amr_cartographer' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.354s] Level 5:colcon.colcon_core.verb:set package 'amr_cartographer' build argument 'cmake_clean_cache' from command line to 'False'
+[0.354s] Level 5:colcon.colcon_core.verb:set package 'amr_cartographer' build argument 'cmake_clean_first' from command line to 'False'
+[0.354s] Level 5:colcon.colcon_core.verb:set package 'amr_cartographer' build argument 'cmake_force_configure' from command line to 'False'
+[0.354s] Level 5:colcon.colcon_core.verb:set package 'amr_cartographer' build argument 'ament_cmake_args' from command line to 'None'
+[0.354s] Level 5:colcon.colcon_core.verb:set package 'amr_cartographer' build argument 'catkin_cmake_args' from command line to 'None'
+[0.354s] Level 5:colcon.colcon_core.verb:set package 'amr_cartographer' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.354s] DEBUG:colcon.colcon_core.verb:Building package 'amr_cartographer' with the following arguments: {'ament_cmake_args': None, 'build_base': '/root/ros2_ws/build/amr_cartographer', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/root/ros2_ws/install/amr_cartographer', 'merge_install': False, 'path': '/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_cartographer', 'symlink_install': True, 'test_result_base': None}
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'amr_description' build argument 'cmake_args' from command line to 'None'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'amr_description' build argument 'cmake_target' from command line to 'None'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'amr_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'amr_description' build argument 'cmake_clean_cache' from command line to 'False'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'amr_description' build argument 'cmake_clean_first' from command line to 'False'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'amr_description' build argument 'cmake_force_configure' from command line to 'False'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'amr_description' build argument 'ament_cmake_args' from command line to 'None'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'amr_description' build argument 'catkin_cmake_args' from command line to 'None'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'amr_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.355s] DEBUG:colcon.colcon_core.verb:Building package 'amr_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/root/ros2_ws/build/amr_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/root/ros2_ws/install/amr_description', 'merge_install': False, 'path': '/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_description', 'symlink_install': True, 'test_result_base': None}
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'amr_navigation' build argument 'cmake_args' from command line to 'None'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'amr_navigation' build argument 'cmake_target' from command line to 'None'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'amr_navigation' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'amr_navigation' build argument 'cmake_clean_cache' from command line to 'False'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'amr_navigation' build argument 'cmake_clean_first' from command line to 'False'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'amr_navigation' build argument 'cmake_force_configure' from command line to 'False'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'amr_navigation' build argument 'ament_cmake_args' from command line to 'None'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'amr_navigation' build argument 'catkin_cmake_args' from command line to 'None'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'amr_navigation' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.355s] DEBUG:colcon.colcon_core.verb:Building package 'amr_navigation' with the following arguments: {'ament_cmake_args': None, 'build_base': '/root/ros2_ws/build/amr_navigation', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/root/ros2_ws/install/amr_navigation', 'merge_install': False, 'path': '/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_navigation', 'symlink_install': True, 'test_result_base': None}
+[0.356s] Level 5:colcon.colcon_core.verb:set package 'amr_odometry' build argument 'cmake_args' from command line to 'None'
+[0.356s] Level 5:colcon.colcon_core.verb:set package 'amr_odometry' build argument 'cmake_target' from command line to 'None'
+[0.356s] Level 5:colcon.colcon_core.verb:set package 'amr_odometry' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.356s] Level 5:colcon.colcon_core.verb:set package 'amr_odometry' build argument 'cmake_clean_cache' from command line to 'False'
+[0.356s] Level 5:colcon.colcon_core.verb:set package 'amr_odometry' build argument 'cmake_clean_first' from command line to 'False'
+[0.356s] Level 5:colcon.colcon_core.verb:set package 'amr_odometry' build argument 'cmake_force_configure' from command line to 'False'
+[0.356s] Level 5:colcon.colcon_core.verb:set package 'amr_odometry' build argument 'ament_cmake_args' from command line to 'None'
+[0.356s] Level 5:colcon.colcon_core.verb:set package 'amr_odometry' build argument 'catkin_cmake_args' from command line to 'None'
+[0.356s] Level 5:colcon.colcon_core.verb:set package 'amr_odometry' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.356s] DEBUG:colcon.colcon_core.verb:Building package 'amr_odometry' with the following arguments: {'ament_cmake_args': None, 'build_base': '/root/ros2_ws/build/amr_odometry', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/root/ros2_ws/install/amr_odometry', 'merge_install': False, 'path': '/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_odometry', 'symlink_install': True, 'test_result_base': None}
+[0.356s] Level 5:colcon.colcon_core.verb:set package 'robot_simulator' build argument 'cmake_args' from command line to 'None'
+[0.356s] Level 5:colcon.colcon_core.verb:set package 'robot_simulator' build argument 'cmake_target' from command line to 'None'
+[0.356s] Level 5:colcon.colcon_core.verb:set package 'robot_simulator' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.356s] Level 5:colcon.colcon_core.verb:set package 'robot_simulator' build argument 'cmake_clean_cache' from command line to 'False'
+[0.356s] Level 5:colcon.colcon_core.verb:set package 'robot_simulator' build argument 'cmake_clean_first' from command line to 'False'
+[0.356s] Level 5:colcon.colcon_core.verb:set package 'robot_simulator' build argument 'cmake_force_configure' from command line to 'False'
+[0.356s] Level 5:colcon.colcon_core.verb:set package 'robot_simulator' build argument 'ament_cmake_args' from command line to 'None'
+[0.356s] Level 5:colcon.colcon_core.verb:set package 'robot_simulator' build argument 'catkin_cmake_args' from command line to 'None'
+[0.356s] Level 5:colcon.colcon_core.verb:set package 'robot_simulator' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.356s] DEBUG:colcon.colcon_core.verb:Building package 'robot_simulator' with the following arguments: {'ament_cmake_args': None, 'build_base': '/root/ros2_ws/build/robot_simulator', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/root/ros2_ws/install/robot_simulator', 'merge_install': False, 'path': '/root/ros2_ws/src/robot_simulator/robot_simulator', 'symlink_install': True, 'test_result_base': None}
+[0.356s] Level 5:colcon.colcon_core.verb:set package 'san_msgs' build argument 'cmake_args' from command line to 'None'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'san_msgs' build argument 'cmake_target' from command line to 'None'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'san_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'san_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'san_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'san_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'san_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'san_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'san_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.357s] DEBUG:colcon.colcon_core.verb:Building package 'san_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/root/ros2_ws/build/san_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/root/ros2_ws/install/san_msgs', 'merge_install': False, 'path': '/root/ros2_ws/src/robot_simulator/dependency_pkgs/san_msgs', 'symlink_install': True, 'test_result_base': None}
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'waypoint_node_manager' build argument 'cmake_args' from command line to 'None'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'waypoint_node_manager' build argument 'cmake_target' from command line to 'None'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'waypoint_node_manager' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'waypoint_node_manager' build argument 'cmake_clean_cache' from command line to 'False'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'waypoint_node_manager' build argument 'cmake_clean_first' from command line to 'False'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'waypoint_node_manager' build argument 'cmake_force_configure' from command line to 'False'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'waypoint_node_manager' build argument 'ament_cmake_args' from command line to 'None'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'waypoint_node_manager' build argument 'catkin_cmake_args' from command line to 'None'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'waypoint_node_manager' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.357s] DEBUG:colcon.colcon_core.verb:Building package 'waypoint_node_manager' with the following arguments: {'ament_cmake_args': None, 'build_base': '/root/ros2_ws/build/waypoint_node_manager', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/root/ros2_ws/install/waypoint_node_manager', 'merge_install': False, 'path': '/root/ros2_ws/src/robot_simulator/dependency_pkgs/waypoint_node_manager/waypoint_node_manager', 'symlink_install': True, 'test_result_base': None}
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'webserver_interface_ros2' build argument 'cmake_args' from command line to 'None'
+[0.357s] Level 5:colcon.colcon_core.verb:set package 'webserver_interface_ros2' build argument 'cmake_target' from command line to 'None'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'webserver_interface_ros2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'webserver_interface_ros2' build argument 'cmake_clean_cache' from command line to 'False'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'webserver_interface_ros2' build argument 'cmake_clean_first' from command line to 'False'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'webserver_interface_ros2' build argument 'cmake_force_configure' from command line to 'False'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'webserver_interface_ros2' build argument 'ament_cmake_args' from command line to 'None'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'webserver_interface_ros2' build argument 'catkin_cmake_args' from command line to 'None'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'webserver_interface_ros2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.358s] DEBUG:colcon.colcon_core.verb:Building package 'webserver_interface_ros2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/root/ros2_ws/build/webserver_interface_ros2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/root/ros2_ws/install/webserver_interface_ros2', 'merge_install': False, 'path': '/root/ros2_ws/src/robot_simulator/dependency_pkgs/webserver_interface_ros2', 'symlink_install': True, 'test_result_base': None}
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'amr_core' build argument 'cmake_args' from command line to 'None'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'amr_core' build argument 'cmake_target' from command line to 'None'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'amr_core' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'amr_core' build argument 'cmake_clean_cache' from command line to 'False'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'amr_core' build argument 'cmake_clean_first' from command line to 'False'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'amr_core' build argument 'cmake_force_configure' from command line to 'False'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'amr_core' build argument 'ament_cmake_args' from command line to 'None'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'amr_core' build argument 'catkin_cmake_args' from command line to 'None'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'amr_core' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.358s] DEBUG:colcon.colcon_core.verb:Building package 'amr_core' with the following arguments: {'ament_cmake_args': None, 'build_base': '/root/ros2_ws/build/amr_core', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/root/ros2_ws/install/amr_core', 'merge_install': False, 'path': '/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core', 'symlink_install': True, 'test_result_base': None}
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'amr_interface' build argument 'cmake_args' from command line to 'None'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'amr_interface' build argument 'cmake_target' from command line to 'None'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'amr_interface' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.358s] Level 5:colcon.colcon_core.verb:set package 'amr_interface' build argument 'cmake_clean_cache' from command line to 'False'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'amr_interface' build argument 'cmake_clean_first' from command line to 'False'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'amr_interface' build argument 'cmake_force_configure' from command line to 'False'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'amr_interface' build argument 'ament_cmake_args' from command line to 'None'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'amr_interface' build argument 'catkin_cmake_args' from command line to 'None'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'amr_interface' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.359s] DEBUG:colcon.colcon_core.verb:Building package 'amr_interface' with the following arguments: {'ament_cmake_args': None, 'build_base': '/root/ros2_ws/build/amr_interface', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/root/ros2_ws/install/amr_interface', 'merge_install': False, 'path': '/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface', 'symlink_install': True, 'test_result_base': None}
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'caselab_rviz_plugin' build argument 'cmake_args' from command line to 'None'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'caselab_rviz_plugin' build argument 'cmake_target' from command line to 'None'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'caselab_rviz_plugin' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'caselab_rviz_plugin' build argument 'cmake_clean_cache' from command line to 'False'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'caselab_rviz_plugin' build argument 'cmake_clean_first' from command line to 'False'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'caselab_rviz_plugin' build argument 'cmake_force_configure' from command line to 'False'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'caselab_rviz_plugin' build argument 'ament_cmake_args' from command line to 'None'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'caselab_rviz_plugin' build argument 'catkin_cmake_args' from command line to 'None'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'caselab_rviz_plugin' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.359s] DEBUG:colcon.colcon_core.verb:Building package 'caselab_rviz_plugin' with the following arguments: {'ament_cmake_args': None, 'build_base': '/root/ros2_ws/build/caselab_rviz_plugin', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/root/ros2_ws/install/caselab_rviz_plugin', 'merge_install': False, 'path': '/root/ros2_ws/src/robot_simulator/dependency_pkgs/caselab_rviz2_plugin', 'symlink_install': True, 'test_result_base': None}
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'amr' build argument 'cmake_args' from command line to 'None'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'amr' build argument 'cmake_target' from command line to 'None'
+[0.359s] Level 5:colcon.colcon_core.verb:set package 'amr' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'amr' build argument 'cmake_clean_cache' from command line to 'False'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'amr' build argument 'cmake_clean_first' from command line to 'False'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'amr' build argument 'cmake_force_configure' from command line to 'False'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'amr' build argument 'ament_cmake_args' from command line to 'None'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'amr' build argument 'catkin_cmake_args' from command line to 'None'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'amr' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.360s] DEBUG:colcon.colcon_core.verb:Building package 'amr' with the following arguments: {'ament_cmake_args': None, 'build_base': '/root/ros2_ws/build/amr', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/root/ros2_ws/install/amr', 'merge_install': False, 'path': '/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr', 'symlink_install': True, 'test_result_base': None}
+[0.360s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.361s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.361s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/root/ros2_ws/src/robot_simulator/dependency_pkgs/san_msgs' with build type 'ament_cmake'
+[0.361s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/root/ros2_ws/src/robot_simulator/dependency_pkgs/san_msgs'
+[0.364s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.364s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.364s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.366s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/root/ros2_ws/install/webserver_interface_ros2' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.366s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/root/ros2_ws/install/waypoint_node_manager' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.366s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/root/ros2_ws/install/caselab_rviz_plugin' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.366s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/root/ros2_ws/install/amr_interface' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.366s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/root/ros2_ws/install/amr_core' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.366s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/root/ros2_ws/install/san_msgs' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.366s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/root/ros2_ws/install/robot_simulator' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.366s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/root/ros2_ws/install/amr_odometry' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.366s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/root/ros2_ws/install/amr_navigation' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.366s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/root/ros2_ws/install/amr_description' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.366s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/root/ros2_ws/install/amr_cartographer' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.366s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/root/ros2_ws/install/caselab_rviz_plugin' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.366s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/root/ros2_ws/install/amr_interface' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.366s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/root/ros2_ws/install/amr' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.366s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/root/ros2_ws/install/amr_core' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.367s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/root/ros2_ws/install/san_msgs' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.367s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/root/ros2_ws/install/robot_simulator' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.367s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/root/ros2_ws/install/amr_odometry' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.367s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/root/ros2_ws/install/amr_navigation' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.367s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/root/ros2_ws/install/amr_description' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.367s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/root/ros2_ws/install/amr_cartographer' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.371s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_description' with build type 'ament_cmake'
+[0.371s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_description'
+[0.371s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.371s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.375s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_navigation' with build type 'ament_cmake'
+[0.375s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_navigation'
+[0.375s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.375s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.378s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_odometry' with build type 'ament_cmake'
+[0.378s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_odometry'
+[0.378s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.379s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.381s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_cartographer' with build type 'ament_cmake'
+[0.382s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_cartographer'
+[0.382s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.382s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.385s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/root/ros2_ws/src/robot_simulator/robot_simulator' with build type 'ament_cmake'
+[0.385s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/root/ros2_ws/src/robot_simulator/robot_simulator'
+[0.385s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.385s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.388s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/root/ros2_ws/src/robot_simulator/dependency_pkgs/waypoint_node_manager/waypoint_node_manager' with build type 'ament_python'
+[0.388s] Level 1:colcon.colcon_core.shell:create_environment_hook('waypoint_node_manager', 'ament_prefix_path')
+[0.389s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/waypoint_node_manager/share/waypoint_node_manager/hook/ament_prefix_path.ps1'
+[0.389s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/waypoint_node_manager/share/waypoint_node_manager/hook/ament_prefix_path.dsv'
+[0.390s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/waypoint_node_manager/share/waypoint_node_manager/hook/ament_prefix_path.sh'
+[0.390s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.390s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.393s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/root/ros2_ws/src/robot_simulator/dependency_pkgs/webserver_interface_ros2' with build type 'ament_python'
+[0.393s] Level 1:colcon.colcon_core.shell:create_environment_hook('webserver_interface_ros2', 'ament_prefix_path')
+[0.393s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/hook/ament_prefix_path.ps1'
+[0.394s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/hook/ament_prefix_path.dsv'
+[0.394s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/hook/ament_prefix_path.sh'
+[0.395s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.395s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.401s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/san_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/san_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/san_msgs
+[0.404s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/amr_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/amr_description
+[0.405s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/amr_navigation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_navigation -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/amr_navigation
+[0.407s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/amr_odometry': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_odometry -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/amr_odometry
+[0.410s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/amr_cartographer': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_cartographer -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/amr_cartographer
+[0.413s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/robot_simulator': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/robot_simulator/robot_simulator -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/robot_simulator
+[0.726s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/root/ros2_ws/src/robot_simulator/dependency_pkgs/waypoint_node_manager/waypoint_node_manager'
+[0.727s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.727s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.024s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/root/ros2_ws/src/robot_simulator/dependency_pkgs/webserver_interface_ros2'
+[1.024s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.024s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.054s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/robot_simulator' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/robot_simulator/robot_simulator -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/robot_simulator
+[1.056s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/robot_simulator': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --build /root/ros2_ws/build/robot_simulator -- -j16 -l16
+[1.073s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/amr_cartographer' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_cartographer -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/amr_cartographer
+[1.075s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/amr_cartographer': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --build /root/ros2_ws/build/amr_cartographer -- -j16 -l16
+[1.097s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/robot_simulator' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --build /root/ros2_ws/build/robot_simulator -- -j16 -l16
+[1.109s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/robot_simulator': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --install /root/ros2_ws/build/robot_simulator
+[1.110s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/amr_cartographer' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --build /root/ros2_ws/build/amr_cartographer -- -j16 -l16
+[1.112s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/amr_cartographer': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --install /root/ros2_ws/build/amr_cartographer
+[1.283s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(amr_cartographer)
+[1.284s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/amr_cartographer' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --install /root/ros2_ws/build/amr_cartographer
+[1.288s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_cartographer' for CMake module files
+[1.289s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_cartographer' for CMake config files
+[1.289s] Level 1:colcon.colcon_core.shell:create_environment_hook('amr_cartographer', 'cmake_prefix_path')
+[1.290s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_cartographer/share/amr_cartographer/hook/cmake_prefix_path.ps1'
+[1.290s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/amr_cartographer/share/amr_cartographer/hook/cmake_prefix_path.dsv'
+[1.291s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_cartographer/share/amr_cartographer/hook/cmake_prefix_path.sh'
+[1.292s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_cartographer/bin'
+[1.292s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_cartographer/lib/pkgconfig/amr_cartographer.pc'
+[1.292s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_cartographer/lib/python3.10/site-packages'
+[1.292s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_cartographer/bin'
+[1.293s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_cartographer/share/amr_cartographer/package.ps1'
+[1.294s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/amr_cartographer/share/amr_cartographer/package.dsv'
+[1.295s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_cartographer/share/amr_cartographer/package.sh'
+[1.296s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_cartographer/share/amr_cartographer/package.bash'
+[1.297s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_cartographer/share/amr_cartographer/package.zsh'
+[1.298s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/amr_cartographer/share/colcon-core/packages/amr_cartographer)
+[1.299s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(amr_cartographer)
+[1.299s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_cartographer' for CMake module files
+[1.300s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_cartographer' for CMake config files
+[1.300s] Level 1:colcon.colcon_core.shell:create_environment_hook('amr_cartographer', 'cmake_prefix_path')
+[1.301s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_cartographer/share/amr_cartographer/hook/cmake_prefix_path.ps1'
+[1.301s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/amr_cartographer/share/amr_cartographer/hook/cmake_prefix_path.dsv'
+[1.302s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_cartographer/share/amr_cartographer/hook/cmake_prefix_path.sh'
+[1.302s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_cartographer/bin'
+[1.302s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_cartographer/lib/pkgconfig/amr_cartographer.pc'
+[1.302s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_cartographer/lib/python3.10/site-packages'
+[1.302s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_cartographer/bin'
+[1.303s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_cartographer/share/amr_cartographer/package.ps1'
+[1.303s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/amr_cartographer/share/amr_cartographer/package.dsv'
+[1.304s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_cartographer/share/amr_cartographer/package.sh'
+[1.304s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_cartographer/share/amr_cartographer/package.bash'
+[1.305s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_cartographer/share/amr_cartographer/package.zsh'
+[1.305s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/amr_cartographer/share/colcon-core/packages/amr_cartographer)
+[1.326s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/amr_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/amr_description
+[1.328s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/amr_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --build /root/ros2_ws/build/amr_description -- -j16 -l16
+[1.358s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/amr_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --build /root/ros2_ws/build/amr_description -- -j16 -l16
+[1.360s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/amr_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --install /root/ros2_ws/build/amr_description
+[1.517s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/waypoint_node_manager': PYTHONPATH=/root/ros2_ws/build/waypoint_node_manager/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_ws/install/waypoint_node_manager/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /root/ros2_ws/build/waypoint_node_manager/build --no-deps symlink_data
+[1.523s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/webserver_interface_ros2': PYTHONPATH=/root/ros2_ws/build/webserver_interface_ros2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_ws/install/webserver_interface_ros2/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /root/ros2_ws/build/webserver_interface_ros2/build --no-deps symlink_data
+[1.621s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(amr_description)
+[1.622s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_description' for CMake module files
+[1.622s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/amr_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --install /root/ros2_ws/build/amr_description
+[1.623s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_description' for CMake config files
+[1.623s] Level 1:colcon.colcon_core.shell:create_environment_hook('amr_description', 'cmake_prefix_path')
+[1.623s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_description/share/amr_description/hook/cmake_prefix_path.ps1'
+[1.624s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/amr_description/share/amr_description/hook/cmake_prefix_path.dsv'
+[1.624s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_description/share/amr_description/hook/cmake_prefix_path.sh'
+[1.625s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_description/bin'
+[1.625s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_description/lib/pkgconfig/amr_description.pc'
+[1.625s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_description/lib/python3.10/site-packages'
+[1.625s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_description/bin'
+[1.625s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_description/share/amr_description/package.ps1'
+[1.626s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/amr_description/share/amr_description/package.dsv'
+[1.626s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_description/share/amr_description/package.sh'
+[1.627s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_description/share/amr_description/package.bash'
+[1.627s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_description/share/amr_description/package.zsh'
+[1.627s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/amr_description/share/colcon-core/packages/amr_description)
+[1.628s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(amr_description)
+[1.628s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_description' for CMake module files
+[1.628s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_description' for CMake config files
+[1.628s] Level 1:colcon.colcon_core.shell:create_environment_hook('amr_description', 'cmake_prefix_path')
+[1.629s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_description/share/amr_description/hook/cmake_prefix_path.ps1'
+[1.629s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/amr_description/share/amr_description/hook/cmake_prefix_path.dsv'
+[1.629s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_description/share/amr_description/hook/cmake_prefix_path.sh'
+[1.630s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_description/bin'
+[1.630s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_description/lib/pkgconfig/amr_description.pc'
+[1.630s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_description/lib/python3.10/site-packages'
+[1.630s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_description/bin'
+[1.631s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_description/share/amr_description/package.ps1'
+[1.631s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/amr_description/share/amr_description/package.dsv'
+[1.631s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_description/share/amr_description/package.sh'
+[1.632s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_description/share/amr_description/package.bash'
+[1.632s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_description/share/amr_description/package.zsh'
+[1.632s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/amr_description/share/colcon-core/packages/amr_description)
+[1.771s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/amr_odometry' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_odometry -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/amr_odometry
+[1.773s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/amr_odometry': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --build /root/ros2_ws/build/amr_odometry -- -j16 -l16
+[1.785s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/amr_navigation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_navigation -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/amr_navigation
+[1.786s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/amr_navigation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --build /root/ros2_ws/build/amr_navigation -- -j16 -l16
+[1.975s] Level 1:colcon.colcon_core.shell:create_environment_hook('webserver_interface_ros2', 'pythonpath_develop')
+[1.975s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/build/webserver_interface_ros2/share/webserver_interface_ros2/hook/pythonpath_develop.ps1'
+[1.975s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/webserver_interface_ros2' returned '0': PYTHONPATH=/root/ros2_ws/build/webserver_interface_ros2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_ws/install/webserver_interface_ros2/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /root/ros2_ws/build/webserver_interface_ros2/build --no-deps symlink_data
+[1.977s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/build/webserver_interface_ros2/share/webserver_interface_ros2/hook/pythonpath_develop.dsv'
+[1.978s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/build/webserver_interface_ros2/share/webserver_interface_ros2/hook/pythonpath_develop.sh'
+[1.979s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/webserver_interface_ros2' for CMake module files
+[1.980s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/webserver_interface_ros2' for CMake config files
+[1.982s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/webserver_interface_ros2/lib'
+[1.982s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/webserver_interface_ros2/bin'
+[1.982s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/webserver_interface_ros2/lib/pkgconfig/webserver_interface_ros2.pc'
+[1.983s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/webserver_interface_ros2/lib/python3.10/site-packages'
+[1.983s] Level 1:colcon.colcon_core.shell:create_environment_hook('webserver_interface_ros2', 'pythonpath')
+[1.983s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/hook/pythonpath.ps1'
+[1.984s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/hook/pythonpath.dsv'
+[1.984s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/hook/pythonpath.sh'
+[1.985s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/webserver_interface_ros2/bin'
+[1.985s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(webserver_interface_ros2)
+[1.986s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/package.ps1'
+[1.986s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/package.dsv'
+[1.987s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/package.sh'
+[1.987s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/package.bash'
+[1.988s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/package.zsh'
+[1.988s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/webserver_interface_ros2/share/colcon-core/packages/webserver_interface_ros2)
+[2.005s] Level 1:colcon.colcon_core.shell:create_environment_hook('waypoint_node_manager', 'pythonpath_develop')
+[2.005s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/build/waypoint_node_manager/share/waypoint_node_manager/hook/pythonpath_develop.ps1'
+[2.006s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/waypoint_node_manager' returned '0': PYTHONPATH=/root/ros2_ws/build/waypoint_node_manager/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_ws/install/waypoint_node_manager/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /root/ros2_ws/build/waypoint_node_manager/build --no-deps symlink_data
+[2.006s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/build/waypoint_node_manager/share/waypoint_node_manager/hook/pythonpath_develop.dsv'
+[2.007s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/build/waypoint_node_manager/share/waypoint_node_manager/hook/pythonpath_develop.sh'
+[2.007s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/waypoint_node_manager' for CMake module files
+[2.008s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/waypoint_node_manager' for CMake config files
+[2.008s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/waypoint_node_manager/lib'
+[2.008s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/waypoint_node_manager/bin'
+[2.008s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/waypoint_node_manager/lib/pkgconfig/waypoint_node_manager.pc'
+[2.008s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/waypoint_node_manager/lib/python3.10/site-packages'
+[2.008s] Level 1:colcon.colcon_core.shell:create_environment_hook('waypoint_node_manager', 'pythonpath')
+[2.009s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/waypoint_node_manager/share/waypoint_node_manager/hook/pythonpath.ps1'
+[2.009s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/waypoint_node_manager/share/waypoint_node_manager/hook/pythonpath.dsv'
+[2.009s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/waypoint_node_manager/share/waypoint_node_manager/hook/pythonpath.sh'
+[2.010s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/waypoint_node_manager/bin'
+[2.010s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(waypoint_node_manager)
+[2.010s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/waypoint_node_manager/share/waypoint_node_manager/package.ps1'
+[2.011s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/waypoint_node_manager/share/waypoint_node_manager/package.dsv'
+[2.011s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/waypoint_node_manager/share/waypoint_node_manager/package.sh'
+[2.012s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/waypoint_node_manager/share/waypoint_node_manager/package.bash'
+[2.012s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/waypoint_node_manager/share/waypoint_node_manager/package.zsh'
+[2.012s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/waypoint_node_manager/share/colcon-core/packages/waypoint_node_manager)
+[2.894s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/san_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/san_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/san_msgs
+[2.897s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/san_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --build /root/ros2_ws/build/san_msgs -- -j16 -l16
+[10.022s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/amr_navigation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --build /root/ros2_ws/build/amr_navigation -- -j16 -l16
+[10.023s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/amr_navigation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --install /root/ros2_ws/build/amr_navigation
+[10.315s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(amr_navigation)
+[10.315s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_navigation' for CMake module files
+[10.316s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/amr_navigation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --install /root/ros2_ws/build/amr_navigation
+[10.316s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_navigation' for CMake config files
+[10.316s] Level 1:colcon.colcon_core.shell:create_environment_hook('amr_navigation', 'cmake_prefix_path')
+[10.317s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_navigation/share/amr_navigation/hook/cmake_prefix_path.ps1'
+[10.317s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/amr_navigation/share/amr_navigation/hook/cmake_prefix_path.dsv'
+[10.317s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_navigation/share/amr_navigation/hook/cmake_prefix_path.sh'
+[10.318s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_navigation/lib'
+[10.318s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_navigation/bin'
+[10.318s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_navigation/lib/pkgconfig/amr_navigation.pc'
+[10.318s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_navigation/lib/python3.10/site-packages'
+[10.318s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_navigation/bin'
+[10.319s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_navigation/share/amr_navigation/package.ps1'
+[10.319s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/amr_navigation/share/amr_navigation/package.dsv'
+[10.320s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_navigation/share/amr_navigation/package.sh'
+[10.320s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_navigation/share/amr_navigation/package.bash'
+[10.321s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_navigation/share/amr_navigation/package.zsh'
+[10.321s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/amr_navigation/share/colcon-core/packages/amr_navigation)
+[10.322s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(amr_navigation)
+[10.322s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_navigation' for CMake module files
+[10.322s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_navigation' for CMake config files
+[10.322s] Level 1:colcon.colcon_core.shell:create_environment_hook('amr_navigation', 'cmake_prefix_path')
+[10.323s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_navigation/share/amr_navigation/hook/cmake_prefix_path.ps1'
+[10.323s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/amr_navigation/share/amr_navigation/hook/cmake_prefix_path.dsv'
+[10.323s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_navigation/share/amr_navigation/hook/cmake_prefix_path.sh'
+[10.324s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_navigation/lib'
+[10.324s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_navigation/bin'
+[10.324s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_navigation/lib/pkgconfig/amr_navigation.pc'
+[10.324s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_navigation/lib/python3.10/site-packages'
+[10.324s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_navigation/bin'
+[10.324s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_navigation/share/amr_navigation/package.ps1'
+[10.325s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/amr_navigation/share/amr_navigation/package.dsv'
+[10.325s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_navigation/share/amr_navigation/package.sh'
+[10.326s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_navigation/share/amr_navigation/package.bash'
+[10.326s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_navigation/share/amr_navigation/package.zsh'
+[10.326s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/amr_navigation/share/colcon-core/packages/amr_navigation)
+[11.851s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(robot_simulator)
+[11.852s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/robot_simulator' for CMake module files
+[11.852s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/robot_simulator' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --install /root/ros2_ws/build/robot_simulator
+[11.852s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/robot_simulator' for CMake config files
+[11.863s] Level 1:colcon.colcon_core.shell:create_environment_hook('robot_simulator', 'cmake_prefix_path')
+[11.863s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/robot_simulator/share/robot_simulator/hook/cmake_prefix_path.ps1'
+[11.863s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/robot_simulator/share/robot_simulator/hook/cmake_prefix_path.dsv'
+[11.864s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/robot_simulator/share/robot_simulator/hook/cmake_prefix_path.sh'
+[11.864s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/robot_simulator/bin'
+[11.864s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/robot_simulator/lib/pkgconfig/robot_simulator.pc'
+[11.864s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/robot_simulator/lib/python3.10/site-packages'
+[11.864s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/robot_simulator/bin'
+[11.865s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/robot_simulator/share/robot_simulator/package.ps1'
+[11.865s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/robot_simulator/share/robot_simulator/package.dsv'
+[11.865s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/robot_simulator/share/robot_simulator/package.sh'
+[11.866s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/robot_simulator/share/robot_simulator/package.bash'
+[11.866s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/robot_simulator/share/robot_simulator/package.zsh'
+[11.866s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/robot_simulator/share/colcon-core/packages/robot_simulator)
+[11.867s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(robot_simulator)
+[11.867s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/robot_simulator' for CMake module files
+[11.868s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/robot_simulator' for CMake config files
+[11.877s] Level 1:colcon.colcon_core.shell:create_environment_hook('robot_simulator', 'cmake_prefix_path')
+[11.877s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/robot_simulator/share/robot_simulator/hook/cmake_prefix_path.ps1'
+[11.877s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/robot_simulator/share/robot_simulator/hook/cmake_prefix_path.dsv'
+[11.878s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/robot_simulator/share/robot_simulator/hook/cmake_prefix_path.sh'
+[11.878s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/robot_simulator/bin'
+[11.878s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/robot_simulator/lib/pkgconfig/robot_simulator.pc'
+[11.879s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/robot_simulator/lib/python3.10/site-packages'
+[11.879s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/robot_simulator/bin'
+[11.879s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/robot_simulator/share/robot_simulator/package.ps1'
+[11.880s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/robot_simulator/share/robot_simulator/package.dsv'
+[11.880s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/robot_simulator/share/robot_simulator/package.sh'
+[11.880s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/robot_simulator/share/robot_simulator/package.bash'
+[11.881s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/robot_simulator/share/robot_simulator/package.zsh'
+[11.881s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/robot_simulator/share/colcon-core/packages/robot_simulator)
+[14.185s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/san_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --build /root/ros2_ws/build/san_msgs -- -j16 -l16
+[14.186s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/san_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --install /root/ros2_ws/build/san_msgs
+[16.348s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(san_msgs)
+[16.348s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/san_msgs' for CMake module files
+[16.349s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/san_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --install /root/ros2_ws/build/san_msgs
+[16.349s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/san_msgs' for CMake config files
+[16.350s] Level 1:colcon.colcon_core.shell:create_environment_hook('san_msgs', 'cmake_prefix_path')
+[16.350s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/san_msgs/share/san_msgs/hook/cmake_prefix_path.ps1'
+[16.350s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/san_msgs/share/san_msgs/hook/cmake_prefix_path.dsv'
+[16.350s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/san_msgs/share/san_msgs/hook/cmake_prefix_path.sh'
+[16.351s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/san_msgs/lib'
+[16.351s] Level 1:colcon.colcon_core.shell:create_environment_hook('san_msgs', 'ld_library_path_lib')
+[16.351s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/san_msgs/share/san_msgs/hook/ld_library_path_lib.ps1'
+[16.351s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/san_msgs/share/san_msgs/hook/ld_library_path_lib.dsv'
+[16.352s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/san_msgs/share/san_msgs/hook/ld_library_path_lib.sh'
+[16.352s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/san_msgs/bin'
+[16.352s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/san_msgs/lib/pkgconfig/san_msgs.pc'
+[16.352s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/san_msgs/lib/python3.10/site-packages'
+[16.352s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/san_msgs/bin'
+[16.353s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/san_msgs/share/san_msgs/package.ps1'
+[16.353s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/san_msgs/share/san_msgs/package.dsv'
+[16.353s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/san_msgs/share/san_msgs/package.sh'
+[16.354s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/san_msgs/share/san_msgs/package.bash'
+[16.354s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/san_msgs/share/san_msgs/package.zsh'
+[16.354s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/san_msgs/share/colcon-core/packages/san_msgs)
+[16.355s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(san_msgs)
+[16.355s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/san_msgs' for CMake module files
+[16.356s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/san_msgs' for CMake config files
+[16.356s] Level 1:colcon.colcon_core.shell:create_environment_hook('san_msgs', 'cmake_prefix_path')
+[16.356s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/san_msgs/share/san_msgs/hook/cmake_prefix_path.ps1'
+[16.357s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/san_msgs/share/san_msgs/hook/cmake_prefix_path.dsv'
+[16.357s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/san_msgs/share/san_msgs/hook/cmake_prefix_path.sh'
+[16.357s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/san_msgs/lib'
+[16.357s] Level 1:colcon.colcon_core.shell:create_environment_hook('san_msgs', 'ld_library_path_lib')
+[16.358s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/san_msgs/share/san_msgs/hook/ld_library_path_lib.ps1'
+[16.358s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/san_msgs/share/san_msgs/hook/ld_library_path_lib.dsv'
+[16.358s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/san_msgs/share/san_msgs/hook/ld_library_path_lib.sh'
+[16.359s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/san_msgs/bin'
+[16.359s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/san_msgs/lib/pkgconfig/san_msgs.pc'
+[16.359s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/san_msgs/lib/python3.10/site-packages'
+[16.359s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/san_msgs/bin'
+[16.359s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/san_msgs/share/san_msgs/package.ps1'
+[16.360s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/san_msgs/share/san_msgs/package.dsv'
+[16.360s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/san_msgs/share/san_msgs/package.sh'
+[16.361s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/san_msgs/share/san_msgs/package.bash'
+[16.361s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/san_msgs/share/san_msgs/package.zsh'
+[16.361s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/san_msgs/share/colcon-core/packages/san_msgs)
+[16.362s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core' with build type 'ament_cmake'
+[16.362s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core'
+[16.362s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[16.362s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[16.368s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface' with build type 'ament_cmake'
+[16.368s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface'
+[16.369s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[16.369s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[16.373s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/root/ros2_ws/src/robot_simulator/dependency_pkgs/caselab_rviz2_plugin' with build type 'ament_cmake'
+[16.373s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/root/ros2_ws/src/robot_simulator/dependency_pkgs/caselab_rviz2_plugin'
+[16.373s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[16.374s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[16.381s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/amr_core': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/amr_core
+[16.383s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/amr_interface': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/amr_interface
+[16.384s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/caselab_rviz_plugin': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/caselab_rviz2_plugin -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/caselab_rviz_plugin
+[17.694s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/amr_core' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_core -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/amr_core
+[17.695s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/amr_core': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /root/ros2_ws/build/amr_core -- -j16 -l16
+[17.715s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/amr_interface' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_interface -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/amr_interface
+[17.716s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/amr_interface': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /root/ros2_ws/build/amr_interface -- -j16 -l16
+[18.418s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/caselab_rviz_plugin' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/caselab_rviz2_plugin -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/caselab_rviz_plugin
+[18.419s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/caselab_rviz_plugin': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /root/ros2_ws/build/caselab_rviz_plugin -- -j16 -l16
+[31.888s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/caselab_rviz_plugin' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /root/ros2_ws/build/caselab_rviz_plugin -- -j16 -l16
+[31.889s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/caselab_rviz_plugin': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /root/ros2_ws/build/caselab_rviz_plugin
+[32.093s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(caselab_rviz_plugin)
+[32.093s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/caselab_rviz_plugin' for CMake module files
+[32.094s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/caselab_rviz_plugin' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /root/ros2_ws/build/caselab_rviz_plugin
+[32.094s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/caselab_rviz_plugin' for CMake config files
+[32.094s] Level 1:colcon.colcon_core.shell:create_environment_hook('caselab_rviz_plugin', 'cmake_prefix_path')
+[32.094s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/hook/cmake_prefix_path.ps1'
+[32.095s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/hook/cmake_prefix_path.dsv'
+[32.095s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/hook/cmake_prefix_path.sh'
+[32.096s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/caselab_rviz_plugin/lib'
+[32.096s] Level 1:colcon.colcon_core.shell:create_environment_hook('caselab_rviz_plugin', 'ld_library_path_lib')
+[32.096s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/hook/ld_library_path_lib.ps1'
+[32.097s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/hook/ld_library_path_lib.dsv'
+[32.097s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/hook/ld_library_path_lib.sh'
+[32.097s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/caselab_rviz_plugin/bin'
+[32.097s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/caselab_rviz_plugin/lib/pkgconfig/caselab_rviz_plugin.pc'
+[32.098s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/caselab_rviz_plugin/lib/python3.10/site-packages'
+[32.098s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/caselab_rviz_plugin/bin'
+[32.098s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/package.ps1'
+[32.098s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/package.dsv'
+[32.099s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/package.sh'
+[32.099s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/package.bash'
+[32.100s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/package.zsh'
+[32.100s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/caselab_rviz_plugin/share/colcon-core/packages/caselab_rviz_plugin)
+[32.101s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(caselab_rviz_plugin)
+[32.101s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/caselab_rviz_plugin' for CMake module files
+[32.102s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/caselab_rviz_plugin' for CMake config files
+[32.102s] Level 1:colcon.colcon_core.shell:create_environment_hook('caselab_rviz_plugin', 'cmake_prefix_path')
+[32.102s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/hook/cmake_prefix_path.ps1'
+[32.103s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/hook/cmake_prefix_path.dsv'
+[32.103s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/hook/cmake_prefix_path.sh'
+[32.103s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/caselab_rviz_plugin/lib'
+[32.103s] Level 1:colcon.colcon_core.shell:create_environment_hook('caselab_rviz_plugin', 'ld_library_path_lib')
+[32.104s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/hook/ld_library_path_lib.ps1'
+[32.104s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/hook/ld_library_path_lib.dsv'
+[32.104s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/hook/ld_library_path_lib.sh'
+[32.105s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/caselab_rviz_plugin/bin'
+[32.105s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/caselab_rviz_plugin/lib/pkgconfig/caselab_rviz_plugin.pc'
+[32.105s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/caselab_rviz_plugin/lib/python3.10/site-packages'
+[32.105s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/caselab_rviz_plugin/bin'
+[32.105s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/package.ps1'
+[32.106s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/package.dsv'
+[32.107s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/package.sh'
+[32.107s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/package.bash'
+[32.107s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/caselab_rviz_plugin/share/caselab_rviz_plugin/package.zsh'
+[32.108s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/caselab_rviz_plugin/share/colcon-core/packages/caselab_rviz_plugin)
+[34.302s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/amr_odometry' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --build /root/ros2_ws/build/amr_odometry -- -j16 -l16
+[34.303s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/amr_odometry': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --install /root/ros2_ws/build/amr_odometry
+[34.474s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(amr_odometry)
+[34.475s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_odometry' for CMake module files
+[34.475s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/amr_odometry' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble /usr/bin/cmake --install /root/ros2_ws/build/amr_odometry
+[34.475s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_odometry' for CMake config files
+[34.476s] Level 1:colcon.colcon_core.shell:create_environment_hook('amr_odometry', 'cmake_prefix_path')
+[34.476s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_odometry/share/amr_odometry/hook/cmake_prefix_path.ps1'
+[34.476s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/amr_odometry/share/amr_odometry/hook/cmake_prefix_path.dsv'
+[34.477s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_odometry/share/amr_odometry/hook/cmake_prefix_path.sh'
+[34.477s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_odometry/lib'
+[34.477s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_odometry/bin'
+[34.477s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_odometry/lib/pkgconfig/amr_odometry.pc'
+[34.477s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_odometry/lib/python3.10/site-packages'
+[34.478s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_odometry/bin'
+[34.478s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_odometry/share/amr_odometry/package.ps1'
+[34.478s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/amr_odometry/share/amr_odometry/package.dsv'
+[34.479s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_odometry/share/amr_odometry/package.sh'
+[34.479s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_odometry/share/amr_odometry/package.bash'
+[34.479s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_odometry/share/amr_odometry/package.zsh'
+[34.479s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/amr_odometry/share/colcon-core/packages/amr_odometry)
+[34.480s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(amr_odometry)
+[34.480s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_odometry' for CMake module files
+[34.481s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_odometry' for CMake config files
+[34.481s] Level 1:colcon.colcon_core.shell:create_environment_hook('amr_odometry', 'cmake_prefix_path')
+[34.481s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_odometry/share/amr_odometry/hook/cmake_prefix_path.ps1'
+[34.481s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/amr_odometry/share/amr_odometry/hook/cmake_prefix_path.dsv'
+[34.482s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_odometry/share/amr_odometry/hook/cmake_prefix_path.sh'
+[34.482s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_odometry/lib'
+[34.482s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_odometry/bin'
+[34.482s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_odometry/lib/pkgconfig/amr_odometry.pc'
+[34.483s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_odometry/lib/python3.10/site-packages'
+[34.483s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_odometry/bin'
+[34.483s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_odometry/share/amr_odometry/package.ps1'
+[34.483s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/amr_odometry/share/amr_odometry/package.dsv'
+[34.484s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_odometry/share/amr_odometry/package.sh'
+[34.484s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_odometry/share/amr_odometry/package.bash'
+[34.485s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_odometry/share/amr_odometry/package.zsh'
+[34.485s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/amr_odometry/share/colcon-core/packages/amr_odometry)
+[46.205s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/amr_core' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /root/ros2_ws/build/amr_core -- -j16 -l16
+[46.206s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/amr_core': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /root/ros2_ws/build/amr_core
+[46.429s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(amr_core)
+[46.429s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_core' for CMake module files
+[46.430s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/amr_core' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /root/ros2_ws/build/amr_core
+[46.430s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_core' for CMake config files
+[46.430s] Level 1:colcon.colcon_core.shell:create_environment_hook('amr_core', 'cmake_prefix_path')
+[46.431s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_core/share/amr_core/hook/cmake_prefix_path.ps1'
+[46.431s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/amr_core/share/amr_core/hook/cmake_prefix_path.dsv'
+[46.431s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_core/share/amr_core/hook/cmake_prefix_path.sh'
+[46.432s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_core/lib'
+[46.432s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_core/bin'
+[46.432s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_core/lib/pkgconfig/amr_core.pc'
+[46.432s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_core/lib/python3.10/site-packages'
+[46.433s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_core/bin'
+[46.433s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_core/share/amr_core/package.ps1'
+[46.433s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/amr_core/share/amr_core/package.dsv'
+[46.434s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_core/share/amr_core/package.sh'
+[46.434s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_core/share/amr_core/package.bash'
+[46.434s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_core/share/amr_core/package.zsh'
+[46.434s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/amr_core/share/colcon-core/packages/amr_core)
+[46.435s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(amr_core)
+[46.435s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_core' for CMake module files
+[46.436s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_core' for CMake config files
+[46.436s] Level 1:colcon.colcon_core.shell:create_environment_hook('amr_core', 'cmake_prefix_path')
+[46.436s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_core/share/amr_core/hook/cmake_prefix_path.ps1'
+[46.437s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/amr_core/share/amr_core/hook/cmake_prefix_path.dsv'
+[46.437s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_core/share/amr_core/hook/cmake_prefix_path.sh'
+[46.437s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_core/lib'
+[46.437s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_core/bin'
+[46.437s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_core/lib/pkgconfig/amr_core.pc'
+[46.438s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_core/lib/python3.10/site-packages'
+[46.438s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_core/bin'
+[46.438s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_core/share/amr_core/package.ps1'
+[46.439s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/amr_core/share/amr_core/package.dsv'
+[46.439s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_core/share/amr_core/package.sh'
+[46.440s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_core/share/amr_core/package.bash'
+[46.440s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_core/share/amr_core/package.zsh'
+[46.440s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/amr_core/share/colcon-core/packages/amr_core)
+[46.441s] INFO:colcon.colcon_ros.task.catkin.build:Building ROS package in '/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr' with build type 'catkin'
+[46.441s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr'
+[46.441s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[46.441s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[46.466s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/amr': CMAKE_PREFIX_PATH=/root/ros2_ws/install/amr_core:/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_cartographer LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCATKIN_SYMLINK_INSTALL=ON -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/amr
+[47.091s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/amr' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/amr_core:/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_cartographer LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCATKIN_SYMLINK_INSTALL=ON -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/amr
+[47.092s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/amr': CMAKE_PREFIX_PATH=/root/ros2_ws/install/amr_core:/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_cartographer LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /root/ros2_ws/build/amr -- -j16 -l16
+[47.122s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/amr' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/amr_core:/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_cartographer LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /root/ros2_ws/build/amr -- -j16 -l16
+[47.123s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/amr': CMAKE_PREFIX_PATH=/root/ros2_ws/install/amr_core:/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_cartographer LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /root/ros2_ws/build/amr
+[47.132s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/amr' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/amr_core:/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_cartographer LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /root/ros2_ws/build/amr
+[47.132s] Level 1:colcon.colcon_core.shell:create_environment_hook('amr', 'ros_package_path')
+[47.133s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr/share/amr/hook/ros_package_path.ps1'
+[47.133s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/amr/share/amr/hook/ros_package_path.dsv'
+[47.133s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr/share/amr/hook/ros_package_path.sh'
+[47.134s] Level 1:colcon.colcon_core.shell:create_environment_hook('amr', 'pkg_config_path')
+[47.134s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr/share/amr/hook/pkg_config_path.ps1'
+[47.134s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/amr/share/amr/hook/pkg_config_path.dsv'
+[47.135s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr/share/amr/hook/pkg_config_path.sh'
+[47.138s] Level 1:colcon.colcon_core.shell:create_environment_hook('amr', 'pkg_config_path_multiarch')
+[47.139s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr/share/amr/hook/pkg_config_path_multiarch.ps1'
+[47.139s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/amr/share/amr/hook/pkg_config_path_multiarch.dsv'
+[47.140s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr/share/amr/hook/pkg_config_path_multiarch.sh'
+[47.141s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(amr)
+[47.141s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr' for CMake module files
+[47.141s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr' for CMake config files
+[47.141s] Level 1:colcon.colcon_core.shell:create_environment_hook('amr', 'cmake_prefix_path')
+[47.142s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr/share/amr/hook/cmake_prefix_path.ps1'
+[47.142s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/amr/share/amr/hook/cmake_prefix_path.dsv'
+[47.142s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr/share/amr/hook/cmake_prefix_path.sh'
+[47.143s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr/bin'
+[47.143s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr/lib/pkgconfig/amr.pc'
+[47.143s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr/lib/python3.10/site-packages'
+[47.143s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr/bin'
+[47.143s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr/share/amr/package.ps1'
+[47.144s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/amr/share/amr/package.dsv'
+[47.144s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr/share/amr/package.sh'
+[47.145s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr/share/amr/package.bash'
+[47.145s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr/share/amr/package.zsh'
+[47.145s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/amr/share/colcon-core/packages/amr)
+[63.762s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/amr_interface' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /root/ros2_ws/build/amr_interface -- -j16 -l16
+[63.763s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/amr_interface': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /root/ros2_ws/build/amr_interface
+[63.950s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(amr_interface)
+[63.950s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_interface' for CMake module files
+[63.950s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/amr_interface' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/amr_core:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/amr_cartographer:/root/ros2_ws/install/webserver_interface_ros2:/root/ros2_ws/install/waypoint_node_manager:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /root/ros2_ws/build/amr_interface
+[63.951s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_interface' for CMake config files
+[63.951s] Level 1:colcon.colcon_core.shell:create_environment_hook('amr_interface', 'cmake_prefix_path')
+[63.951s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_interface/share/amr_interface/hook/cmake_prefix_path.ps1'
+[63.951s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/amr_interface/share/amr_interface/hook/cmake_prefix_path.dsv'
+[63.952s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_interface/share/amr_interface/hook/cmake_prefix_path.sh'
+[63.952s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_interface/lib'
+[63.952s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_interface/bin'
+[63.952s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_interface/lib/pkgconfig/amr_interface.pc'
+[63.952s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_interface/lib/python3.10/site-packages'
+[63.952s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_interface/bin'
+[63.953s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_interface/share/amr_interface/package.ps1'
+[63.953s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/amr_interface/share/amr_interface/package.dsv'
+[63.953s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_interface/share/amr_interface/package.sh'
+[63.954s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_interface/share/amr_interface/package.bash'
+[63.954s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_interface/share/amr_interface/package.zsh'
+[63.954s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/amr_interface/share/colcon-core/packages/amr_interface)
+[63.955s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(amr_interface)
+[63.955s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_interface' for CMake module files
+[63.955s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_interface' for CMake config files
+[63.955s] Level 1:colcon.colcon_core.shell:create_environment_hook('amr_interface', 'cmake_prefix_path')
+[63.956s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_interface/share/amr_interface/hook/cmake_prefix_path.ps1'
+[63.956s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/amr_interface/share/amr_interface/hook/cmake_prefix_path.dsv'
+[63.956s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/amr_interface/share/amr_interface/hook/cmake_prefix_path.sh'
+[63.957s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_interface/lib'
+[63.957s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_interface/bin'
+[63.957s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_interface/lib/pkgconfig/amr_interface.pc'
+[63.957s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_interface/lib/python3.10/site-packages'
+[63.957s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/amr_interface/bin'
+[63.957s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_interface/share/amr_interface/package.ps1'
+[63.958s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/amr_interface/share/amr_interface/package.dsv'
+[63.958s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_interface/share/amr_interface/package.sh'
+[63.958s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_interface/share/amr_interface/package.bash'
+[63.959s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/amr_interface/share/amr_interface/package.zsh'
+[63.959s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/amr_interface/share/colcon-core/packages/amr_interface)
+[63.959s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[63.959s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[63.960s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[63.960s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[63.968s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[63.968s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[63.968s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[63.968s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[63.970s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.Spawn.ExecFailed: /usr/bin/dbus-launch terminated abnormally without any error message
+[63.971s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[63.971s] INFO:colcon.colcon_core.shell:Creating prefix script '/root/ros2_ws/install/local_setup.ps1'
+[63.972s] INFO:colcon.colcon_core.shell:Creating prefix util module '/root/ros2_ws/install/_local_setup_util_ps1.py'
+[63.974s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/root/ros2_ws/install/setup.ps1'
+[63.975s] INFO:colcon.colcon_core.shell:Creating prefix script '/root/ros2_ws/install/local_setup.sh'
+[63.976s] INFO:colcon.colcon_core.shell:Creating prefix util module '/root/ros2_ws/install/_local_setup_util_sh.py'
+[63.976s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/root/ros2_ws/install/setup.sh'
+[63.978s] INFO:colcon.colcon_core.shell:Creating prefix script '/root/ros2_ws/install/local_setup.bash'
+[63.979s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/root/ros2_ws/install/setup.bash'
+[63.980s] INFO:colcon.colcon_core.shell:Creating prefix script '/root/ros2_ws/install/local_setup.zsh'
+[63.981s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/root/ros2_ws/install/setup.zsh'

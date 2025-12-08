@@ -1,0 +1,24 @@
+# type : (home,0) (main,1) (path,2) (coverage,3)
+node:
+  - name: "Node 1"
+    type: 2
+    index: 1
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: -2.4200140046821694
+      y: 2.1726357729208026
+      yaw: 9999
+
+  - name: "Node 2"
+    type: 2
+    index: 2
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: 3.180154876743188
+      y: 2.4284810517676476
+      yaw: 9999
+

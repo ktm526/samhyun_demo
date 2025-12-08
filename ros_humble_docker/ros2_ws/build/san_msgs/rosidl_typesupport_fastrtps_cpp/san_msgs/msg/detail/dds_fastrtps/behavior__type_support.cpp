@@ -1,0 +1,580 @@
+// generated from rosidl_typesupport_fastrtps_cpp/resource/idl__type_support.cpp.em
+// with input from san_msgs:msg/Behavior.idl
+// generated code does not contain a copyright notice
+#include "san_msgs/msg/detail/behavior__rosidl_typesupport_fastrtps_cpp.hpp"
+#include "san_msgs/msg/detail/behavior__struct.hpp"
+
+#include <limits>
+#include <stdexcept>
+#include <string>
+#include "rosidl_typesupport_cpp/message_type_support.hpp"
+#include "rosidl_typesupport_fastrtps_cpp/identifier.hpp"
+#include "rosidl_typesupport_fastrtps_cpp/message_type_support.h"
+#include "rosidl_typesupport_fastrtps_cpp/message_type_support_decl.hpp"
+#include "rosidl_typesupport_fastrtps_cpp/wstring_conversion.hpp"
+#include "fastcdr/Cdr.h"
+
+
+// forward declaration of message dependencies and their conversion functions
+
+namespace san_msgs
+{
+
+namespace msg
+{
+
+namespace typesupport_fastrtps_cpp
+{
+
+bool
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_san_msgs
+cdr_serialize(
+  const san_msgs::msg::Behavior & ros_message,
+  eprosima::fastcdr::Cdr & cdr)
+{
+  // Member: behavior_auto_started
+  cdr << (ros_message.behavior_auto_started ? true : false);
+  // Member: behavior_slam_started
+  cdr << (ros_message.behavior_slam_started ? true : false);
+  // Member: behavior_charge_started
+  cdr << (ros_message.behavior_charge_started ? true : false);
+  // Member: behavior_docking_started
+  cdr << (ros_message.behavior_docking_started ? true : false);
+  // Member: behavior_undocking_started
+  cdr << (ros_message.behavior_undocking_started ? true : false);
+  // Member: behavior_auto_completed
+  cdr << (ros_message.behavior_auto_completed ? true : false);
+  // Member: behavior_slam_completed
+  cdr << (ros_message.behavior_slam_completed ? true : false);
+  // Member: behavior_charge_completed
+  cdr << (ros_message.behavior_charge_completed ? true : false);
+  // Member: behavior_docking_completed
+  cdr << (ros_message.behavior_docking_completed ? true : false);
+  // Member: behavior_undocking_completed
+  cdr << (ros_message.behavior_undocking_completed ? true : false);
+  // Member: behavior_auto_canceled
+  cdr << (ros_message.behavior_auto_canceled ? true : false);
+  // Member: behavior_docking_canceled
+  cdr << (ros_message.behavior_docking_canceled ? true : false);
+  // Member: behavior_manipulation_redocking_triggered
+  cdr << (ros_message.behavior_manipulation_redocking_triggered ? true : false);
+  // Member: behavior_charging_redocking_triggered
+  cdr << (ros_message.behavior_charging_redocking_triggered ? true : false);
+  // Member: behavior_manipulator_completed
+  cdr << (ros_message.behavior_manipulator_completed ? true : false);
+  // Member: behavior_manipulator_emergency_triggered
+  cdr << (ros_message.behavior_manipulator_emergency_triggered ? true : false);
+  // Member: behavior_manual_mode_triggered
+  cdr << (ros_message.behavior_manual_mode_triggered ? true : false);
+  return true;
+}
+
+bool
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_san_msgs
+cdr_deserialize(
+  eprosima::fastcdr::Cdr & cdr,
+  san_msgs::msg::Behavior & ros_message)
+{
+  // Member: behavior_auto_started
+  {
+    uint8_t tmp;
+    cdr >> tmp;
+    ros_message.behavior_auto_started = tmp ? true : false;
+  }
+
+  // Member: behavior_slam_started
+  {
+    uint8_t tmp;
+    cdr >> tmp;
+    ros_message.behavior_slam_started = tmp ? true : false;
+  }
+
+  // Member: behavior_charge_started
+  {
+    uint8_t tmp;
+    cdr >> tmp;
+    ros_message.behavior_charge_started = tmp ? true : false;
+  }
+
+  // Member: behavior_docking_started
+  {
+    uint8_t tmp;
+    cdr >> tmp;
+    ros_message.behavior_docking_started = tmp ? true : false;
+  }
+
+  // Member: behavior_undocking_started
+  {
+    uint8_t tmp;
+    cdr >> tmp;
+    ros_message.behavior_undocking_started = tmp ? true : false;
+  }
+
+  // Member: behavior_auto_completed
+  {
+    uint8_t tmp;
+    cdr >> tmp;
+    ros_message.behavior_auto_completed = tmp ? true : false;
+  }
+
+  // Member: behavior_slam_completed
+  {
+    uint8_t tmp;
+    cdr >> tmp;
+    ros_message.behavior_slam_completed = tmp ? true : false;
+  }
+
+  // Member: behavior_charge_completed
+  {
+    uint8_t tmp;
+    cdr >> tmp;
+    ros_message.behavior_charge_completed = tmp ? true : false;
+  }
+
+  // Member: behavior_docking_completed
+  {
+    uint8_t tmp;
+    cdr >> tmp;
+    ros_message.behavior_docking_completed = tmp ? true : false;
+  }
+
+  // Member: behavior_undocking_completed
+  {
+    uint8_t tmp;
+    cdr >> tmp;
+    ros_message.behavior_undocking_completed = tmp ? true : false;
+  }
+
+  // Member: behavior_auto_canceled
+  {
+    uint8_t tmp;
+    cdr >> tmp;
+    ros_message.behavior_auto_canceled = tmp ? true : false;
+  }
+
+  // Member: behavior_docking_canceled
+  {
+    uint8_t tmp;
+    cdr >> tmp;
+    ros_message.behavior_docking_canceled = tmp ? true : false;
+  }
+
+  // Member: behavior_manipulation_redocking_triggered
+  {
+    uint8_t tmp;
+    cdr >> tmp;
+    ros_message.behavior_manipulation_redocking_triggered = tmp ? true : false;
+  }
+
+  // Member: behavior_charging_redocking_triggered
+  {
+    uint8_t tmp;
+    cdr >> tmp;
+    ros_message.behavior_charging_redocking_triggered = tmp ? true : false;
+  }
+
+  // Member: behavior_manipulator_completed
+  {
+    uint8_t tmp;
+    cdr >> tmp;
+    ros_message.behavior_manipulator_completed = tmp ? true : false;
+  }
+
+  // Member: behavior_manipulator_emergency_triggered
+  {
+    uint8_t tmp;
+    cdr >> tmp;
+    ros_message.behavior_manipulator_emergency_triggered = tmp ? true : false;
+  }
+
+  // Member: behavior_manual_mode_triggered
+  {
+    uint8_t tmp;
+    cdr >> tmp;
+    ros_message.behavior_manual_mode_triggered = tmp ? true : false;
+  }
+
+  return true;
+}
+
+size_t
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_san_msgs
+get_serialized_size(
+  const san_msgs::msg::Behavior & ros_message,
+  size_t current_alignment)
+{
+  size_t initial_alignment = current_alignment;
+
+  const size_t padding = 4;
+  const size_t wchar_size = 4;
+  (void)padding;
+  (void)wchar_size;
+
+  // Member: behavior_auto_started
+  {
+    size_t item_size = sizeof(ros_message.behavior_auto_started);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: behavior_slam_started
+  {
+    size_t item_size = sizeof(ros_message.behavior_slam_started);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: behavior_charge_started
+  {
+    size_t item_size = sizeof(ros_message.behavior_charge_started);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: behavior_docking_started
+  {
+    size_t item_size = sizeof(ros_message.behavior_docking_started);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: behavior_undocking_started
+  {
+    size_t item_size = sizeof(ros_message.behavior_undocking_started);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: behavior_auto_completed
+  {
+    size_t item_size = sizeof(ros_message.behavior_auto_completed);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: behavior_slam_completed
+  {
+    size_t item_size = sizeof(ros_message.behavior_slam_completed);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: behavior_charge_completed
+  {
+    size_t item_size = sizeof(ros_message.behavior_charge_completed);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: behavior_docking_completed
+  {
+    size_t item_size = sizeof(ros_message.behavior_docking_completed);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: behavior_undocking_completed
+  {
+    size_t item_size = sizeof(ros_message.behavior_undocking_completed);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: behavior_auto_canceled
+  {
+    size_t item_size = sizeof(ros_message.behavior_auto_canceled);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: behavior_docking_canceled
+  {
+    size_t item_size = sizeof(ros_message.behavior_docking_canceled);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: behavior_manipulation_redocking_triggered
+  {
+    size_t item_size = sizeof(ros_message.behavior_manipulation_redocking_triggered);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: behavior_charging_redocking_triggered
+  {
+    size_t item_size = sizeof(ros_message.behavior_charging_redocking_triggered);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: behavior_manipulator_completed
+  {
+    size_t item_size = sizeof(ros_message.behavior_manipulator_completed);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: behavior_manipulator_emergency_triggered
+  {
+    size_t item_size = sizeof(ros_message.behavior_manipulator_emergency_triggered);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: behavior_manual_mode_triggered
+  {
+    size_t item_size = sizeof(ros_message.behavior_manual_mode_triggered);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+
+  return current_alignment - initial_alignment;
+}
+
+size_t
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_san_msgs
+max_serialized_size_Behavior(
+  bool & full_bounded,
+  bool & is_plain,
+  size_t current_alignment)
+{
+  size_t initial_alignment = current_alignment;
+
+  const size_t padding = 4;
+  const size_t wchar_size = 4;
+  size_t last_member_size = 0;
+  (void)last_member_size;
+  (void)padding;
+  (void)wchar_size;
+
+  full_bounded = true;
+  is_plain = true;
+
+
+  // Member: behavior_auto_started
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Member: behavior_slam_started
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Member: behavior_charge_started
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Member: behavior_docking_started
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Member: behavior_undocking_started
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Member: behavior_auto_completed
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Member: behavior_slam_completed
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Member: behavior_charge_completed
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Member: behavior_docking_completed
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Member: behavior_undocking_completed
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Member: behavior_auto_canceled
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Member: behavior_docking_canceled
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Member: behavior_manipulation_redocking_triggered
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Member: behavior_charging_redocking_triggered
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Member: behavior_manipulator_completed
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Member: behavior_manipulator_emergency_triggered
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Member: behavior_manual_mode_triggered
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  size_t ret_val = current_alignment - initial_alignment;
+  if (is_plain) {
+    // All members are plain, and type is not empty.
+    // We still need to check that the in-memory alignment
+    // is the same as the CDR mandated alignment.
+    using DataType = san_msgs::msg::Behavior;
+    is_plain =
+      (
+      offsetof(DataType, behavior_manual_mode_triggered) +
+      last_member_size
+      ) == ret_val;
+  }
+
+  return ret_val;
+}
+
+static bool _Behavior__cdr_serialize(
+  const void * untyped_ros_message,
+  eprosima::fastcdr::Cdr & cdr)
+{
+  auto typed_message =
+    static_cast<const san_msgs::msg::Behavior *>(
+    untyped_ros_message);
+  return cdr_serialize(*typed_message, cdr);
+}
+
+static bool _Behavior__cdr_deserialize(
+  eprosima::fastcdr::Cdr & cdr,
+  void * untyped_ros_message)
+{
+  auto typed_message =
+    static_cast<san_msgs::msg::Behavior *>(
+    untyped_ros_message);
+  return cdr_deserialize(cdr, *typed_message);
+}
+
+static uint32_t _Behavior__get_serialized_size(
+  const void * untyped_ros_message)
+{
+  auto typed_message =
+    static_cast<const san_msgs::msg::Behavior *>(
+    untyped_ros_message);
+  return static_cast<uint32_t>(get_serialized_size(*typed_message, 0));
+}
+
+static size_t _Behavior__max_serialized_size(char & bounds_info)
+{
+  bool full_bounded;
+  bool is_plain;
+  size_t ret_val;
+
+  ret_val = max_serialized_size_Behavior(full_bounded, is_plain, 0);
+
+  bounds_info =
+    is_plain ? ROSIDL_TYPESUPPORT_FASTRTPS_PLAIN_TYPE :
+    full_bounded ? ROSIDL_TYPESUPPORT_FASTRTPS_BOUNDED_TYPE : ROSIDL_TYPESUPPORT_FASTRTPS_UNBOUNDED_TYPE;
+  return ret_val;
+}
+
+static message_type_support_callbacks_t _Behavior__callbacks = {
+  "san_msgs::msg",
+  "Behavior",
+  _Behavior__cdr_serialize,
+  _Behavior__cdr_deserialize,
+  _Behavior__get_serialized_size,
+  _Behavior__max_serialized_size
+};
+
+static rosidl_message_type_support_t _Behavior__handle = {
+  rosidl_typesupport_fastrtps_cpp::typesupport_identifier,
+  &_Behavior__callbacks,
+  get_message_typesupport_handle_function,
+};
+
+}  // namespace typesupport_fastrtps_cpp
+
+}  // namespace msg
+
+}  // namespace san_msgs
+
+namespace rosidl_typesupport_fastrtps_cpp
+{
+
+template<>
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_EXPORT_san_msgs
+const rosidl_message_type_support_t *
+get_message_type_support_handle<san_msgs::msg::Behavior>()
+{
+  return &san_msgs::msg::typesupport_fastrtps_cpp::_Behavior__handle;
+}
+
+}  // namespace rosidl_typesupport_fastrtps_cpp
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+const rosidl_message_type_support_t *
+ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_fastrtps_cpp, san_msgs, msg, Behavior)() {
+  return &san_msgs::msg::typesupport_fastrtps_cpp::_Behavior__handle;
+}
+
+#ifdef __cplusplus
+}
+#endif

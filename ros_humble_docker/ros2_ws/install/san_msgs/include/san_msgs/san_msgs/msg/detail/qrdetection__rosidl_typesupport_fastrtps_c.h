@@ -1,0 +1,1 @@
+/root/ros2_ws/build/san_msgs/rosidl_typesupport_fastrtps_c/san_msgs/msg/detail/qrdetection__rosidl_typesupport_fastrtps_c.h

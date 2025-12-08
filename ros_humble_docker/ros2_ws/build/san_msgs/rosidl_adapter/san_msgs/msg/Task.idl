@@ -1,0 +1,30 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from san_msgs/msg/Task.msg
+// generated code does not contain a copyright notice
+
+
+module san_msgs {
+  module msg {
+    struct Task {
+      boolean task_load_started;
+
+      boolean task_unload_started;
+
+      boolean task_move_started;
+
+      boolean task_home_started;
+
+      boolean task_cancel_started;
+
+      boolean task_load_completed;
+
+      boolean task_unload_completed;
+
+      boolean task_move_completed;
+
+      boolean task_home_completed;
+
+      boolean task_cancel_completed;
+    };
+  };
+};

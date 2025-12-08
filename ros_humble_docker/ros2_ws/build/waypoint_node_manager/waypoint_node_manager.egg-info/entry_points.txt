@@ -1,0 +1,3 @@
+[console_scripts]
+waypoint_node_manager = waypoint_node_manager.waypoint_node_manager:main
+

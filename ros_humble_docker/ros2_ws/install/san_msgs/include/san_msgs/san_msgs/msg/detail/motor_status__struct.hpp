@@ -1,0 +1,1 @@
+/root/ros2_ws/build/san_msgs/rosidl_generator_cpp/san_msgs/msg/detail/motor_status__struct.hpp

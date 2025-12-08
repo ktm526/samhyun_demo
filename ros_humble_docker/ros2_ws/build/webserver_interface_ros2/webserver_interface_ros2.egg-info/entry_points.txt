@@ -1,0 +1,9 @@
+[console_scripts]
+instantaction_test = webserver_interface_ros2.instantaction_test:main
+node_manager = webserver_interface_ros2.node_manager:main
+ros_handler = webserver_interface_ros2.ros_handler:main
+server = webserver_interface_ros2.server:main
+service_test = webserver_interface_ros2.service_test:main
+test = webserver_interface_ros2.test:main
+webserver_interface = webserver_interface_ros2.webserver_interface:main
+

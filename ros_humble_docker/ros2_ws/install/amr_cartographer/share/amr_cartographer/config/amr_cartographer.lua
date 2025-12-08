@@ -1,0 +1,1 @@
+/root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr_cartographer/config/amr_cartographer.lua

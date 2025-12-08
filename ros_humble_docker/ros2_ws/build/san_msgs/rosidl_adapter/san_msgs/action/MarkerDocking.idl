@@ -1,0 +1,22 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from san_msgs/action/MarkerDocking.action
+// generated code does not contain a copyright notice
+
+
+module san_msgs {
+  module action {
+    struct MarkerDocking_Goal {
+      string camera_mode;
+
+      float marker_gap;
+
+      int32 marker_id;
+    };
+    struct MarkerDocking_Result {
+      boolean success;
+    };
+    struct MarkerDocking_Feedback {
+      int8 step;
+    };
+  };
+};

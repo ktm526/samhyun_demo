@@ -1,0 +1,1 @@
+/root/ros2_ws/build/san_msgs/rosidl_generator_cpp/san_msgs/action/detail/task_command_action__type_support.hpp

@@ -1,0 +1,1 @@
+/root/ros2_ws/build/san_msgs/rosidl_generator_py/san_msgs/msg/_motor_status_s.c

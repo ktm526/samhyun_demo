@@ -1,0 +1,1 @@
+/root/ros2_ws/build/amr_interface/ament_cmake_core/amr_interfaceConfig.cmake

@@ -1,0 +1,1 @@
+/root/ros2_ws/build/amr_core/ament_cmake_core/amr_coreConfig-version.cmake

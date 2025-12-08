@@ -1,0 +1,60 @@
+[1.129s] Invoking command in '/root/ros2_ws/build/webserver_interface_ros2': PYTHONPATH=/root/ros2_ws/build/webserver_interface_ros2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_ws/install/webserver_interface_ros2/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /root/ros2_ws/build/webserver_interface_ros2/build --no-deps symlink_data
+[1.382s] running develop
+[1.549s] running egg_info
+[1.549s] creating webserver_interface_ros2.egg-info
+[1.549s] writing webserver_interface_ros2.egg-info/PKG-INFO
+[1.549s] writing dependency_links to webserver_interface_ros2.egg-info/dependency_links.txt
+[1.550s] writing entry points to webserver_interface_ros2.egg-info/entry_points.txt
+[1.550s] writing requirements to webserver_interface_ros2.egg-info/requires.txt
+[1.550s] writing top-level names to webserver_interface_ros2.egg-info/top_level.txt
+[1.550s] writing manifest file 'webserver_interface_ros2.egg-info/SOURCES.txt'
+[1.552s] reading manifest file 'webserver_interface_ros2.egg-info/SOURCES.txt'
+[1.552s] writing manifest file 'webserver_interface_ros2.egg-info/SOURCES.txt'
+[1.554s] running build_ext
+[1.554s] Creating /root/ros2_ws/install/webserver_interface_ros2/lib/python3.10/site-packages/webserver-interface-ros2.egg-link (link to .)
+[1.554s] Installing instantaction_test script to /root/ros2_ws/install/webserver_interface_ros2/lib/webserver_interface_ros2
+[1.555s] Installing node_manager script to /root/ros2_ws/install/webserver_interface_ros2/lib/webserver_interface_ros2
+[1.555s] Installing ros_handler script to /root/ros2_ws/install/webserver_interface_ros2/lib/webserver_interface_ros2
+[1.555s] Installing server script to /root/ros2_ws/install/webserver_interface_ros2/lib/webserver_interface_ros2
+[1.555s] Installing service_test script to /root/ros2_ws/install/webserver_interface_ros2/lib/webserver_interface_ros2
+[1.555s] Installing test script to /root/ros2_ws/install/webserver_interface_ros2/lib/webserver_interface_ros2
+[1.555s] Installing webserver_interface script to /root/ros2_ws/install/webserver_interface_ros2/lib/webserver_interface_ros2
+[1.555s] 
+[1.555s] Installed /root/ros2_ws/build/webserver_interface_ros2
+[1.556s] running symlink_data
+[1.556s] creating /root/ros2_ws/install/webserver_interface_ros2/share/ament_index
+[1.556s] creating /root/ros2_ws/install/webserver_interface_ros2/share/ament_index/resource_index
+[1.556s] creating /root/ros2_ws/install/webserver_interface_ros2/share/ament_index/resource_index/packages
+[1.556s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/resource/webserver_interface_ros2 -> /root/ros2_ws/install/webserver_interface_ros2/share/ament_index/resource_index/packages
+[1.556s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/package.xml -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2
+[1.556s] creating /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/json_schemas
+[1.556s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/json_schemas/connection.json -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/json_schemas
+[1.556s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/json_schemas/instantActions.schema -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/json_schemas
+[1.557s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/json_schemas/visualization.schema -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/json_schemas
+[1.557s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/json_schemas/visualization.json -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/json_schemas
+[1.557s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/json_schemas/order.schema -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/json_schemas
+[1.557s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/json_schemas/instantActions.json -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/json_schemas
+[1.557s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/json_schemas/order.json -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/json_schemas
+[1.557s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/json_schemas/state.schema -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/json_schemas
+[1.557s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/json_schemas/amrState.schema -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/json_schemas
+[1.557s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/json_schemas/manipulatorState.json -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/json_schemas
+[1.557s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/json_schemas/state.json -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/json_schemas
+[1.557s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/json_schemas/manipulatorState.schema -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/json_schemas
+[1.558s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/json_schemas/amrStatus.schema -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/json_schemas
+[1.558s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/json_schemas/factsheet.json -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/json_schemas
+[1.558s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/json_schemas/factsheet.schema -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/json_schemas
+[1.558s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/json_schemas/amrState.json -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/json_schemas
+[1.558s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/json_schemas/amrStatus.json -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/json_schemas
+[1.558s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/json_schemas/connection.schema -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/json_schemas
+[1.558s] creating /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/config
+[1.558s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/config/robot_param.yaml -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/config
+[1.558s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/config/api_send_config.yaml -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/config
+[1.558s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/config/data_dir.yaml -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/config
+[1.558s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/config/robot_spec.yaml -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/config
+[1.558s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/config/api_receive_config.yaml -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/config
+[1.559s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/config/topic_list.yaml -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/config
+[1.559s] creating /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/nodes
+[1.559s] creating /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/maps
+[1.559s] creating /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/launch
+[1.559s] symbolically linking /root/ros2_ws/build/webserver_interface_ros2/launch/webserver_interface_launch.py -> /root/ros2_ws/install/webserver_interface_ros2/share/webserver_interface_ros2/launch
+[1.581s] Invoked command in '/root/ros2_ws/build/webserver_interface_ros2' returned '0': PYTHONPATH=/root/ros2_ws/build/webserver_interface_ros2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_ws/install/webserver_interface_ros2/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /root/ros2_ws/build/webserver_interface_ros2/build --no-deps symlink_data

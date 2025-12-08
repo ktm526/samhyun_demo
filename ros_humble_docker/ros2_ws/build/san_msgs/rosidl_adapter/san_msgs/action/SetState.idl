@@ -1,0 +1,22 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from san_msgs/action/SetState.action
+// generated code does not contain a copyright notice
+
+
+module san_msgs {
+  module action {
+    struct SetState_Goal {
+      uint8 state;
+
+      uint8 status;
+    };
+    struct SetState_Result {
+      boolean success;
+
+      string message;
+    };
+    struct SetState_Feedback {
+      uint8 structure_needs_at_least_one_member;
+    };
+  };
+};

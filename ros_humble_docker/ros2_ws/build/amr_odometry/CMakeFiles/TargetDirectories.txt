@@ -1,0 +1,11 @@
+/root/ros2_ws/build/amr_odometry/CMakeFiles/uninstall.dir
+/root/ros2_ws/build/amr_odometry/CMakeFiles/amr_odometry_uninstall.dir
+/root/ros2_ws/build/amr_odometry/CMakeFiles/amr_odometry_lib.dir
+/root/ros2_ws/build/amr_odometry/CMakeFiles/amr_odometry.dir
+/root/ros2_ws/build/amr_odometry/CMakeFiles/test.dir
+/root/ros2_ws/build/amr_odometry/CMakeFiles/edit_cache.dir
+/root/ros2_ws/build/amr_odometry/CMakeFiles/rebuild_cache.dir
+/root/ros2_ws/build/amr_odometry/CMakeFiles/list_install_components.dir
+/root/ros2_ws/build/amr_odometry/CMakeFiles/install.dir
+/root/ros2_ws/build/amr_odometry/CMakeFiles/install/local.dir
+/root/ros2_ws/build/amr_odometry/CMakeFiles/install/strip.dir

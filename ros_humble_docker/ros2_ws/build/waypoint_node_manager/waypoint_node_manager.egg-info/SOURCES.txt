@@ -1,0 +1,15 @@
+package.xml
+setup.cfg
+setup.py
+launch/waypoint_node_manager.launch.py
+resource/waypoint_node_manager
+rviz/node_visualize.rviz
+waypoint_node_manager/__init__.py
+waypoint_node_manager/waypoint_node_manager.py
+waypoint_node_manager.egg-info/PKG-INFO
+waypoint_node_manager.egg-info/SOURCES.txt
+waypoint_node_manager.egg-info/dependency_links.txt
+waypoint_node_manager.egg-info/entry_points.txt
+waypoint_node_manager.egg-info/requires.txt
+waypoint_node_manager.egg-info/top_level.txt
+waypoint_node_manager.egg-info/zip-safe

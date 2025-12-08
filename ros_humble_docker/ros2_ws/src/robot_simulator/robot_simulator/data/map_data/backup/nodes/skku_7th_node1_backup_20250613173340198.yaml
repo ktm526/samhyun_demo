@@ -1,0 +1,101 @@
+# type : (home,0) (main,1) (path,2) (coverage,3)
+node:
+  - name: "path1"
+    type: 2
+    index: 1
+    connection: [777, 2, 3, 4, 5]
+    child: []
+    data: 0
+    position:
+      x: 0
+      y: 3
+      yaw: 0
+
+  - name: "elevator1"
+    type: 2
+    index: 2
+    connection: [1]
+    child: []
+    data: 0
+    position:
+      x: 0
+      y: -2
+      yaw: 0
+
+  - name: "elevator2"
+    type: 2
+    index: 3
+    connection: [1]
+    child: []
+    data: 0
+    position:
+      x: -1
+      y: -2
+      yaw: 0
+
+  - name: "elevator3"
+    type: 2
+    index: 4
+    connection: [1]
+    child: []
+    data: 0
+    position:
+      x: 0
+      y: -0.5
+      yaw: 0
+
+  - name: "elevator4"
+    type: 2
+    index: 5
+    connection: [1]
+    child: []
+    data: 0
+    position:
+      x: -1
+      y: -0.5
+      yaw: 0
+
+  - name: "home"
+    type: 0
+    index: 777
+    connection: [1]
+    child: []
+    data: 0
+    position:
+      x: 30
+      y: 4
+      yaw: 0
+
+  - name: "Node 778"
+    type: 2
+    index: 778
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: -1.001083210032924
+      y: -3.0307978760977505
+      yaw: 9999
+
+  - name: "Node 779"
+    type: 2
+    index: 779
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: 0.2199541517618684
+      y: -3.9624602189382756
+      yaw: 9999
+
+  - name: "Node 780"
+    type: 2
+    index: 780
+    connection: []
+    child: []
+    data: 0
+    position:
+      x: 1.3859175785023083
+      y: -6.082393722102722
+      yaw: 9999
+

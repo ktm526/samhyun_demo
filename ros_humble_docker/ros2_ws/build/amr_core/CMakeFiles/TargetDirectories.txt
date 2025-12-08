@@ -1,0 +1,12 @@
+/root/ros2_ws/build/amr_core/CMakeFiles/uninstall.dir
+/root/ros2_ws/build/amr_core/CMakeFiles/amr_core_uninstall.dir
+/root/ros2_ws/build/amr_core/CMakeFiles/amr_core_lib.dir
+/root/ros2_ws/build/amr_core/CMakeFiles/amr_core_node.dir
+/root/ros2_ws/build/amr_core/CMakeFiles/teleop_keyboard.dir
+/root/ros2_ws/build/amr_core/CMakeFiles/test.dir
+/root/ros2_ws/build/amr_core/CMakeFiles/edit_cache.dir
+/root/ros2_ws/build/amr_core/CMakeFiles/rebuild_cache.dir
+/root/ros2_ws/build/amr_core/CMakeFiles/list_install_components.dir
+/root/ros2_ws/build/amr_core/CMakeFiles/install.dir
+/root/ros2_ws/build/amr_core/CMakeFiles/install/local.dir
+/root/ros2_ws/build/amr_core/CMakeFiles/install/strip.dir

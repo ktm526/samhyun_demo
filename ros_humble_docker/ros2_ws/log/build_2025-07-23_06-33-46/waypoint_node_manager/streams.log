@@ -1,0 +1,29 @@
+[1.128s] Invoking command in '/root/ros2_ws/build/waypoint_node_manager': PYTHONPATH=/root/ros2_ws/build/waypoint_node_manager/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_ws/install/waypoint_node_manager/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /root/ros2_ws/build/waypoint_node_manager/build --no-deps symlink_data
+[1.392s] running develop
+[1.587s] running egg_info
+[1.587s] creating waypoint_node_manager.egg-info
+[1.588s] writing waypoint_node_manager.egg-info/PKG-INFO
+[1.588s] writing dependency_links to waypoint_node_manager.egg-info/dependency_links.txt
+[1.588s] writing entry points to waypoint_node_manager.egg-info/entry_points.txt
+[1.588s] writing requirements to waypoint_node_manager.egg-info/requires.txt
+[1.588s] writing top-level names to waypoint_node_manager.egg-info/top_level.txt
+[1.588s] writing manifest file 'waypoint_node_manager.egg-info/SOURCES.txt'
+[1.589s] reading manifest file 'waypoint_node_manager.egg-info/SOURCES.txt'
+[1.589s] writing manifest file 'waypoint_node_manager.egg-info/SOURCES.txt'
+[1.589s] running build_ext
+[1.590s] Creating /root/ros2_ws/install/waypoint_node_manager/lib/python3.10/site-packages/waypoint-node-manager.egg-link (link to .)
+[1.590s] Installing waypoint_node_manager script to /root/ros2_ws/install/waypoint_node_manager/lib/waypoint_node_manager
+[1.591s] 
+[1.591s] Installed /root/ros2_ws/build/waypoint_node_manager
+[1.591s] running symlink_data
+[1.591s] creating /root/ros2_ws/install/waypoint_node_manager/share/ament_index
+[1.591s] creating /root/ros2_ws/install/waypoint_node_manager/share/ament_index/resource_index
+[1.592s] creating /root/ros2_ws/install/waypoint_node_manager/share/ament_index/resource_index/packages
+[1.592s] symbolically linking /root/ros2_ws/build/waypoint_node_manager/resource/waypoint_node_manager -> /root/ros2_ws/install/waypoint_node_manager/share/ament_index/resource_index/packages
+[1.592s] symbolically linking /root/ros2_ws/build/waypoint_node_manager/package.xml -> /root/ros2_ws/install/waypoint_node_manager/share/waypoint_node_manager
+[1.592s] creating /root/ros2_ws/install/waypoint_node_manager/share/waypoint_node_manager/launch
+[1.592s] symbolically linking /root/ros2_ws/build/waypoint_node_manager/launch/waypoint_node_manager.launch.py -> /root/ros2_ws/install/waypoint_node_manager/share/waypoint_node_manager/launch
+[1.592s] creating /root/ros2_ws/install/waypoint_node_manager/share/waypoint_node_manager/maps
+[1.592s] creating /root/ros2_ws/install/waypoint_node_manager/share/waypoint_node_manager/rviz
+[1.592s] symbolically linking /root/ros2_ws/build/waypoint_node_manager/rviz/node_visualize.rviz -> /root/ros2_ws/install/waypoint_node_manager/share/waypoint_node_manager/rviz
+[1.617s] Invoked command in '/root/ros2_ws/build/waypoint_node_manager' returned '0': PYTHONPATH=/root/ros2_ws/build/waypoint_node_manager/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_ws/install/waypoint_node_manager/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /root/ros2_ws/build/waypoint_node_manager/build --no-deps symlink_data

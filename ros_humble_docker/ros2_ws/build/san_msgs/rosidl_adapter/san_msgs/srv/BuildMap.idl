@@ -1,0 +1,31 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from san_msgs/srv/BuildMap.srv
+// generated code does not contain a copyright notice
+
+
+module san_msgs {
+  module srv {
+    module BuildMap_Request_Constants {
+      const uint8 BUILD_MAP_UNKNOWN = 0;
+      const uint8 BUILD_MAP_START = 1;
+      const uint8 BUILD_MAP_CANCEL = 2;
+      const uint8 BUIDL_MAP_FINISH = 3;
+    };
+    @verbatim (language="comment", text=
+      "build map command")
+    struct BuildMap_Request {
+      @verbatim (language="comment", text=
+        "Request")
+      uint8 command;
+
+      string map_name;
+    };
+    @verbatim (language="comment", text=
+      "Response")
+    struct BuildMap_Response {
+      boolean success;
+
+      string message;
+    };
+  };
+};

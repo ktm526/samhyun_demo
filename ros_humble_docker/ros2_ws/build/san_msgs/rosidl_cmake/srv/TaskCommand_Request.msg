@@ -1,0 +1,7 @@
+# Request
+string mission          # ex: "load", "unload", "move", "home"
+uint16 start_node
+uint16 goal_node
+geometry_msgs/PoseArray waypoint_lists
+geometry_msgs/PoseStamped target_goal  # Nav2
+

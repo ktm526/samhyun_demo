@@ -1,0 +1,48 @@
+[0.024s] Invoking command in '/root/ros2_ws/build/amr': CMAKE_PREFIX_PATH=/root/ros2_ws/install/amr_core:/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_cartographer LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCATKIN_SYMLINK_INSTALL=ON -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/amr
+[0.102s] -- The C compiler identification is GNU 11.4.0
+[0.149s] -- The CXX compiler identification is GNU 11.4.0
+[0.163s] -- Detecting C compiler ABI info
+[0.225s] -- Detecting C compiler ABI info - done
+[0.232s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.232s] -- Detecting C compile features
+[0.233s] -- Detecting C compile features - done
+[0.236s] -- Detecting CXX compiler ABI info
+[0.296s] -- Detecting CXX compiler ABI info - done
+[0.303s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.304s] -- Detecting CXX compile features
+[0.304s] -- Detecting CXX compile features - done
+[0.315s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.464s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.630s] WARNING: Metapackage "amr" must buildtool_depend on catkin.
+[0.630s] WARNING: Metapackage "amr" should not have other dependencies besides a buildtool_depend on catkin and exec_depends.
+[0.642s] -- Configuring done
+[0.645s] -- Generating done
+[0.645s] [33mCMake Warning:
+[0.645s]   Manually-specified variables were not used by the project:
+[0.645s] 
+[0.645s]     CATKIN_INSTALL_INTO_PREFIX_ROOT
+[0.645s]     CATKIN_SYMLINK_INSTALL
+[0.645s] 
+[0.645s] [0m
+[0.645s] -- Build files have been written to: /root/ros2_ws/build/amr
+[0.649s] Invoked command in '/root/ros2_ws/build/amr' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/amr_core:/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_cartographer LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake /root/ros2_ws/src/robot_simulator/dependency_pkgs/MOBILE_ROBOT_BASIC/amr -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCATKIN_SYMLINK_INSTALL=ON -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/amr
+[0.650s] Invoking command in '/root/ros2_ws/build/amr': CMAKE_PREFIX_PATH=/root/ros2_ws/install/amr_core:/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_cartographer LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /root/ros2_ws/build/amr -- -j16 -l16
+[0.680s] Invoked command in '/root/ros2_ws/build/amr' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/amr_core:/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_cartographer LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /root/ros2_ws/build/amr -- -j16 -l16
+[0.681s] Invoking command in '/root/ros2_ws/build/amr': CMAKE_PREFIX_PATH=/root/ros2_ws/install/amr_core:/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_cartographer LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /root/ros2_ws/build/amr
+[0.687s] -- Install configuration: ""
+[0.688s] -- Installing: /root/ros2_ws/install/amr/share/ament_index/resource_index/package_run_dependencies/amr
+[0.688s] -- Installing: /root/ros2_ws/install/amr/share/ament_index/resource_index/parent_prefix_path/amr
+[0.688s] -- Installing: /root/ros2_ws/install/amr/share/amr/environment/ament_prefix_path.sh
+[0.688s] -- Installing: /root/ros2_ws/install/amr/share/amr/environment/ament_prefix_path.dsv
+[0.688s] -- Installing: /root/ros2_ws/install/amr/share/amr/environment/path.sh
+[0.688s] -- Installing: /root/ros2_ws/install/amr/share/amr/environment/path.dsv
+[0.688s] -- Installing: /root/ros2_ws/install/amr/share/amr/local_setup.bash
+[0.688s] -- Installing: /root/ros2_ws/install/amr/share/amr/local_setup.sh
+[0.689s] -- Installing: /root/ros2_ws/install/amr/share/amr/local_setup.zsh
+[0.689s] -- Installing: /root/ros2_ws/install/amr/share/amr/local_setup.dsv
+[0.689s] -- Installing: /root/ros2_ws/install/amr/share/amr/package.dsv
+[0.689s] -- Installing: /root/ros2_ws/install/amr/share/ament_index/resource_index/packages/amr
+[0.689s] -- Installing: /root/ros2_ws/install/amr/share/amr/cmake/amrConfig.cmake
+[0.689s] -- Installing: /root/ros2_ws/install/amr/share/amr/cmake/amrConfig-version.cmake
+[0.689s] -- Installing: /root/ros2_ws/install/amr/share/amr/package.xml
+[0.690s] Invoked command in '/root/ros2_ws/build/amr' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/amr_core:/root/ros2_ws/install/san_msgs:/root/ros2_ws/install/amr_odometry:/root/ros2_ws/install/amr_navigation:/root/ros2_ws/install/amr_description:/root/ros2_ws/install/caselab_rviz_plugin:/root/ros2_ws/install/amr_interface:/root/ros2_ws/install/amr:/root/ros2_ws/install/robot_simulator:/root/ros2_ws/install/amr_cartographer LD_LIBRARY_PATH=/root/ros2_ws/install/san_msgs/lib:/root/ros2_ws/install/caselab_rviz_plugin/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /root/ros2_ws/build/amr
