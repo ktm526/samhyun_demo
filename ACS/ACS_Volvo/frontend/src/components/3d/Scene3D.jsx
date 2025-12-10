@@ -299,7 +299,15 @@ function Robot({ robot, colors, isSelected = false, onHover, onHoverEnd, theme, 
 
   const robotDirection = calculateDirection();
 
-  const stlRotationDeg = stlSettings?.stlRotationDeg ?? 90;
+  // STL 스케일
+  const stlScale = stlSettings?.stlScale ?? 1;
+  const stlScaleX = stlSettings?.stlScaleX ?? 1;
+  const stlScaleY = stlSettings?.stlScaleY ?? 1;
+  const stlScaleZ = stlSettings?.stlScaleZ ?? 1;
+  // STL 3축 회전 (기존 stlRotationDeg와 호환성 유지)
+  const stlRotationX = stlSettings?.stlRotationX ?? 0;
+  const stlRotationY = stlSettings?.stlRotationY ?? 0;
+  const stlRotationZ = stlSettings?.stlRotationZ ?? (stlSettings?.stlRotationDeg ?? 90); // 기존 값 호환
   const stlPosX = stlSettings?.stlPosX ?? 0;
   const stlPosY = stlSettings?.stlPosY ?? 0; // 수직 오프셋
   const stlPosZ = stlSettings?.stlPosZ ?? (stlSettings?.stlPosY ?? 0); // 과거 Y를 Z로 호환
@@ -320,9 +328,18 @@ function Robot({ robot, colors, isSelected = false, onHover, onHoverEnd, theme, 
 
   const finalIndicatorOffsetZ = baseIndicatorOffsetZ + arrowPosZ;
 
-  const stlRotationRad = useMemo(
-    () => (typeof stlRotationDeg === 'number' ? (stlRotationDeg * Math.PI) / 180 : Math.PI / 2),
-    [stlRotationDeg]
+  // 3축 회전 라디안 변환
+  const stlRotationRadX = useMemo(
+    () => (typeof stlRotationX === 'number' ? (stlRotationX * Math.PI) / 180 : 0),
+    [stlRotationX]
+  );
+  const stlRotationRadY = useMemo(
+    () => (typeof stlRotationY === 'number' ? (stlRotationY * Math.PI) / 180 : 0),
+    [stlRotationY]
+  );
+  const stlRotationRadZ = useMemo(
+    () => (typeof stlRotationZ === 'number' ? (stlRotationZ * Math.PI) / 180 : Math.PI / 2),
+    [stlRotationZ]
   );
 
   const arrowRotationRad = useMemo(
@@ -501,7 +518,8 @@ function Robot({ robot, colors, isSelected = false, onHover, onHoverEnd, theme, 
             <mesh
               geometry={stlModel.geometry}
               position={[stlPosX, 0.15 + stlPosY, stlPosZ]}
-              rotation={[0, 0, stlRotationRad]}
+              rotation={[stlRotationRadX, stlRotationRadY, stlRotationRadZ]}
+              scale={[stlScale * stlScaleX, stlScale * stlScaleY, stlScale * stlScaleZ]}
             >
               <meshStandardMaterial
                 color="#ffffff"

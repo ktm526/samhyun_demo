@@ -224,15 +224,28 @@ const Header = () => {
             borderRadius: 0,
             boxShadow: 'none'
           }}>
-          <LogoSvg 
-            fill={state.ui.theme === 'dark' ? '#ffffff' : '#303A86'}
-            style={{
-              width: '120px',
-              height: '40px',
-              objectFit: 'contain',
-              margin: '0 auto'
-            }}
-          />
+          {state.ui.customLogo ? (
+            <img 
+              src={state.ui.customLogo} 
+              alt="Logo" 
+              style={{
+                maxWidth: '140px',
+                maxHeight: '45px',
+                objectFit: 'contain',
+                margin: '0 auto'
+              }}
+            />
+          ) : (
+            <LogoSvg 
+              fill={state.ui.theme === 'dark' ? '#ffffff' : '#303A86'}
+              style={{
+                width: '120px',
+                height: '40px',
+                objectFit: 'contain',
+                margin: '0 auto'
+              }}
+            />
+          )}
           </div>
           <div>
             {/* <h1>ACS Control</h1>
@@ -257,8 +270,8 @@ const Header = () => {
           border: isMobile ? 'none' : '1px solid var(--primary-color)',
           borderColor: isMobile ? 'transparent' : (navHovered ? 'var(--accent-color)' : 'var(--primary-color)'),
           boxShadow: isMobile ? 'none' : (navHovered 
-            ? '0 0 20px var(--primary-color), 0 0 35px rgba(0, 212, 255, 0.2)' 
-            : '0 0 15px var(--primary-color), 0 0 25px rgba(0, 212, 255, 0.15)'),
+            ? `0 0 20px var(--primary-color), 0 0 35px var(--border-accent)` 
+            : `0 0 15px var(--primary-color), 0 0 25px var(--border-accent)`),
           transition: 'all 0.3s ease',
           // 컴팩트 모드에서는 더 작게
           padding: isCompact ? '0.5rem' : undefined,
@@ -278,14 +291,14 @@ const Header = () => {
               left: activeMenuStyle.left,
               width: activeMenuStyle.width,
               height: 'calc(100% - 8px)',
-              background: 'linear-gradient(135deg, rgba(0, 212, 255, 0.25), rgba(0, 212, 255, 0.15))',
+              background: `linear-gradient(135deg, var(--border-accent), transparent)`,
               borderRadius: '50px',
               transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
               opacity: activeMenuStyle.opacity,
-              boxShadow: '0 0 20px rgba(0, 212, 255, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+              boxShadow: `0 0 20px var(--border-accent), inset 0 1px 0 rgba(255, 255, 255, 0.15)`,
               zIndex: 1,
               pointerEvents: 'none',
-              border: '1px solid rgba(0, 212, 255, 0.4)'
+              border: `1px solid var(--border-accent)`
             }}
           />
         )}
@@ -319,9 +332,9 @@ const Header = () => {
               <i 
                 className={menuIcons[item.id]}
                 style={{
-                  color: isActive ? '#00d4ff' : 'inherit',
+                  color: isActive ? 'var(--primary-color)' : 'inherit',
                   // 모바일에서는 텍스트 그림자 제거
-                  textShadow: isMobile ? 'none' : (isActive ? '0 0 8px rgba(0, 212, 255, 0.6)' : 'none'),
+                  textShadow: isMobile ? 'none' : (isActive ? '0 0 8px var(--border-accent)' : 'none'),
                   transition: 'all 0.3s ease'
                 }}
               ></i>

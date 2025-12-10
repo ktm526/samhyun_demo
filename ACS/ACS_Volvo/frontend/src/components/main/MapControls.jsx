@@ -175,7 +175,7 @@ const MapControls = ({
             }}
             onMouseEnter={(e) => {
               e.target.style.color = 'var(--primary-color)';
-              e.target.style.background = 'rgba(0, 212, 255, 0.1)';
+              e.target.style.background = 'rgba(232, 46, 1, 0.1)';
             }}
             onMouseLeave={(e) => {
               e.target.style.color = 'var(--text-secondary)';
@@ -231,7 +231,7 @@ const MapControls = ({
                   if (!mapLoading) {
                     e.target.style.background = 'linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary))';
                     e.target.style.transform = 'translateY(-1px)';
-                    e.target.style.boxShadow = '0 4px 12px rgba(0, 212, 255, 0.2)';
+                    e.target.style.boxShadow = '0 4px 12px rgba(232, 46, 1, 0.2)';
                   }
                 }}
                 onMouseLeave={(e) => {
@@ -370,7 +370,7 @@ const MapControls = ({
                 onMouseEnter={(e) => {
                   e.target.style.background = 'linear-gradient(135deg, var(--primary-color)30, var(--primary-color)15)';
                   e.target.style.transform = 'translateY(-1px)';
-                  e.target.style.boxShadow = '0 4px 12px rgba(0, 212, 255, 0.3)';
+                  e.target.style.boxShadow = '0 4px 12px rgba(232, 46, 1, 0.3)';
                 }}
                 onMouseLeave={(e) => {
                   e.target.style.background = 'linear-gradient(135deg, var(--primary-color)20, var(--primary-color)10)';
@@ -734,7 +734,7 @@ const MapControls = ({
                       left: '1px',
                       right: '1px',
                       height: '2px',
-                      backgroundColor: 'rgba(0, 212, 255, 0.2)',
+                      backgroundColor: 'rgba(232, 46, 1, 0.2)',
                       borderRadius: '0 0 5px 5px',
                       overflow: 'hidden'
                     }}>
@@ -796,12 +796,98 @@ const MapControls = ({
                     flexDirection: 'column',
                     gap: '3px'
                   }}>
-                    {/* STL 위치/각도 */}
+                    {/* STL 스케일 */}
                     <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      <span style={{ fontSize: '9px', color: 'var(--text-tertiary)', minWidth: '24px' }}>메쉬</span>
+                      <span style={{ fontSize: '9px', color: 'var(--text-tertiary)', minWidth: '24px' }}>크기</span>
                       <div style={{ display: 'flex', gap: '2px', flex: 1 }}>
                         {[
-                          { key: 'stlRotationDeg', label: '°', val: stlSettings?.stlRotationDeg ?? 90, step: 1 },
+                          { key: 'stlScale', label: 'S', val: stlSettings?.stlScale ?? 1, step: 0.1 },
+                          { key: 'stlScaleX', label: 'X', val: stlSettings?.stlScaleX ?? 1, step: 0.1 },
+                          { key: 'stlScaleY', label: 'Y', val: stlSettings?.stlScaleY ?? 1, step: 0.1 },
+                          { key: 'stlScaleZ', label: 'Z', val: stlSettings?.stlScaleZ ?? 1, step: 0.1 }
+                        ].map(({ key, label, val, step }) => (
+                          <div key={key} style={{ display: 'flex', alignItems: 'center', gap: '1px' }}>
+                            <span style={{ fontSize: '8px', color: 'var(--text-quaternary)', width: '10px' }}>{label}</span>
+                            <div className="compact-number-input">
+                              <input
+                                type="number"
+                                step={step}
+                                value={val}
+                                onChange={(e) => onStlSettingsChange?.({ [key]: Number(e.target.value) })}
+                                style={{
+                                  width: '40px',
+                                  fontSize: '9px',
+                                  padding: '2px 14px 2px 3px',
+                                  borderRadius: 'var(--radius-sm)',
+                                  border: '1px solid var(--border-secondary)',
+                                  background: 'var(--bg-tertiary)',
+                                  color: 'var(--text-primary)',
+                                  textAlign: 'center'
+                                }}
+                              />
+                              <div className="number-controls">
+                                <button 
+                                  type="button"
+                                  onClick={() => onStlSettingsChange?.({ [key]: Math.round((val + step) * 1000) / 1000 })}
+                                >▲</button>
+                                <button 
+                                  type="button"
+                                  onClick={() => onStlSettingsChange?.({ [key]: Math.round((val - step) * 1000) / 1000 })}
+                                >▼</button>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    {/* STL 회전 (3축) */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <span style={{ fontSize: '9px', color: 'var(--text-tertiary)', minWidth: '24px' }}>회전</span>
+                      <div style={{ display: 'flex', gap: '2px', flex: 1 }}>
+                        {[
+                          { key: 'stlRotationX', label: 'X', val: stlSettings?.stlRotationX ?? 0, step: 1 },
+                          { key: 'stlRotationY', label: 'Y', val: stlSettings?.stlRotationY ?? 0, step: 1 },
+                          { key: 'stlRotationZ', label: 'Z', val: stlSettings?.stlRotationZ ?? 90, step: 1 }
+                        ].map(({ key, label, val, step }) => (
+                          <div key={key} style={{ display: 'flex', alignItems: 'center', gap: '1px' }}>
+                            <span style={{ fontSize: '8px', color: 'var(--text-quaternary)', width: '10px' }}>{label}</span>
+                            <div className="compact-number-input">
+                              <input
+                                type="number"
+                                step={step}
+                                value={val}
+                                onChange={(e) => onStlSettingsChange?.({ [key]: Number(e.target.value) })}
+                                style={{
+                                  width: '40px',
+                                  fontSize: '9px',
+                                  padding: '2px 14px 2px 3px',
+                                  borderRadius: 'var(--radius-sm)',
+                                  border: '1px solid var(--border-secondary)',
+                                  background: 'var(--bg-tertiary)',
+                                  color: 'var(--text-primary)',
+                                  textAlign: 'center'
+                                }}
+                              />
+                              <div className="number-controls">
+                                <button 
+                                  type="button"
+                                  onClick={() => onStlSettingsChange?.({ [key]: Math.round((val + step) * 1000) / 1000 })}
+                                >▲</button>
+                                <button 
+                                  type="button"
+                                  onClick={() => onStlSettingsChange?.({ [key]: Math.round((val - step) * 1000) / 1000 })}
+                                >▼</button>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    {/* STL 위치 */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <span style={{ fontSize: '9px', color: 'var(--text-tertiary)', minWidth: '24px' }}>위치</span>
+                      <div style={{ display: 'flex', gap: '2px', flex: 1 }}>
+                        {[
                           { key: 'stlPosX', label: 'X', val: stlSettings?.stlPosX ?? 0, step: 0.05 },
                           { key: 'stlPosY', label: 'Y', val: stlSettings?.stlPosY ?? 0, step: 0.05 },
                           { key: 'stlPosZ', label: 'Z', val: stlSettings?.stlPosZ ?? 0, step: 0.05 }
@@ -1066,7 +1152,7 @@ const MapControls = ({
                   height: '8px',
                   borderRadius: '50%',
                   background: robot.status === 'moving' ? '#00ff88' :
-                             robot.status === 'working' ? '#00d4ff' :
+                             robot.status === 'working' ? 'var(--primary-color)' :
                              robot.status === 'idle' ? '#ffdd00' :
                              robot.status === 'charging' ? '#ff8040' : '#666',
                   flexShrink: 0,

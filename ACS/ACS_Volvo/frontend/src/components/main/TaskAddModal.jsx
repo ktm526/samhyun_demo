@@ -381,7 +381,7 @@ const TaskAddModal = ({ isOpen, onClose, onTaskCreated, robots = [], mapData = n
                 justifyContent: 'center',
                 gap: 'var(--space-sm)',
                 minWidth: '140px',
-                boxShadow: isSubmitting ? 'none' : '0 0 20px rgba(0, 212, 255, 0.3)',
+                boxShadow: isSubmitting ? 'none' : '0 0 20px rgba(232, 46, 1, 0.3)',
                 userSelect: 'none',
                 WebkitUserSelect: 'none',
                 MozUserSelect: 'none',
@@ -390,13 +390,13 @@ const TaskAddModal = ({ isOpen, onClose, onTaskCreated, robots = [], mapData = n
               onMouseEnter={(e) => {
                 if (!isSubmitting) {
                   e.target.style.backgroundColor = '#00b8e6';
-                  e.target.style.boxShadow = '0 0 30px rgba(0, 212, 255, 0.5)';
+                  e.target.style.boxShadow = '0 0 30px rgba(232, 46, 1, 0.5)';
                 }
               }}
               onMouseLeave={(e) => {
                 if (!isSubmitting) {
                   e.target.style.backgroundColor = 'var(--primary-color)';
-                  e.target.style.boxShadow = '0 0 20px rgba(0, 212, 255, 0.3)';
+                  e.target.style.boxShadow = '0 0 20px rgba(232, 46, 1, 0.3)';
                 }
               }}
             >

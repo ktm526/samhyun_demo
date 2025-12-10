@@ -172,10 +172,10 @@ const SettingsPage = () => {
           }
         }
         
-        /* 사이버 블루 테마 스크롤바 스타일 */
+        /* 테마 스크롤바 스타일 */
         .robot-maps-scroll {
           scrollbar-width: thin;
-          scrollbar-color: rgba(0, 212, 255, 0.3) transparent;
+          scrollbar-color: var(--border-accent) transparent;
         }
         
         .robot-maps-scroll::-webkit-scrollbar {
@@ -187,14 +187,14 @@ const SettingsPage = () => {
         }
         
         .robot-maps-scroll::-webkit-scrollbar-thumb {
-          background: rgba(0, 212, 255, 0.3);
+          background: var(--border-accent);
           border-radius: 3px;
           transition: all 0.3s ease;
         }
         
         .robot-maps-scroll::-webkit-scrollbar-thumb:hover {
-          background: rgba(0, 212, 255, 0.6);
-          box-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+          background: var(--primary-color);
+          box-shadow: var(--shadow-glow);
         }
       `;
       document.head.appendChild(style);
@@ -1329,7 +1329,7 @@ const SettingsPage = () => {
                                     animation: 'fadeInUp 0.3s ease-out forwards',
                                     animationDelay: `${0.05 * (index + 1)}s`,
                                     background: map.isActive 
-                                      ? 'linear-gradient(90deg, rgba(0, 212, 255, 0.08), rgba(0, 230, 255, 0.02))'
+                                      ? 'linear-gradient(90deg, rgba(var(--primary-rgb, 232, 46, 1), 0.08), rgba(var(--accent-rgb, 255, 87, 34), 0.02))'
                                       : 'transparent',
                                     transition: 'all 0.2s ease'
                                   }}
@@ -1474,6 +1474,300 @@ const SettingsPage = () => {
           onAddRobot={handleAddRobot}
           onDeleteRobot={handleDeleteRobot}
         />
+
+        {/* UI 설정 */}
+        <div className="card">
+          <div className="card-header">
+            <div className="card-title">
+              <i className="fas fa-palette"></i>
+              UI 설정
+            </div>
+          </div>
+          
+          <div className="card-content">
+            {/* 포인트 컬러 설정 */}
+            <div className="card-row" style={{ flexDirection: 'column', alignItems: 'stretch' }}>
+              <div style={{ marginBottom: 'var(--space-md)' }}>
+                <div className="card-label" style={{ fontSize: 'var(--font-size-base)', color: 'var(--text-primary)', marginBottom: 'var(--space-xs)' }}>포인트 컬러</div>
+                <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-tertiary)' }}>앱 전반에 적용되는 테마 포인트 컬러를 선택합니다</div>
+              </div>
+
+              {/* 컬러 프리셋 */}
+              <div style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: 'var(--space-sm)',
+                marginBottom: 'var(--space-md)'
+              }}>
+                {[
+                  { color: '#E82E01', name: '레드 오렌지' },
+                  { color: '#00d4ff', name: '사이버 블루' },
+                  { color: '#00ff88', name: '네온 그린' },
+                  { color: '#ff6b35', name: '오렌지' },
+                  { color: '#9b59b6', name: '퍼플' },
+                  { color: '#e74c3c', name: '레드' },
+                  { color: '#3498db', name: '블루' },
+                  { color: '#f39c12', name: '골드' },
+                  { color: '#1abc9c', name: '터콰이즈' },
+                  { color: '#e91e63', name: '핑크' }
+                ].map((preset) => (
+                  <button
+                    key={preset.color}
+                    onClick={() => actions.updateUISetting('primaryColor', preset.color)}
+                    style={{
+                      width: '40px',
+                      height: '40px',
+                      borderRadius: 'var(--radius-md)',
+                      backgroundColor: preset.color,
+                      border: state.ui.primaryColor === preset.color 
+                        ? '3px solid var(--text-primary)' 
+                        : '2px solid var(--border-primary)',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s ease',
+                      boxShadow: state.ui.primaryColor === preset.color 
+                        ? `0 0 15px ${preset.color}60`
+                        : 'none'
+                    }}
+                    title={preset.name}
+                    onMouseEnter={(e) => {
+                      e.target.style.transform = 'scale(1.1)';
+                      e.target.style.boxShadow = `0 0 15px ${preset.color}60`;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.transform = 'scale(1)';
+                      e.target.style.boxShadow = state.ui.primaryColor === preset.color 
+                        ? `0 0 15px ${preset.color}60` 
+                        : 'none';
+                    }}
+                  />
+                ))}
+              </div>
+
+              {/* 커스텀 컬러 선택 */}
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 'var(--space-md)',
+                padding: 'var(--space-md)',
+                backgroundColor: 'var(--bg-secondary)',
+                borderRadius: 'var(--radius-md)',
+                border: '1px solid var(--border-primary)'
+              }}>
+                <div style={{ 
+                  fontSize: 'var(--font-size-sm)', 
+                  color: 'var(--text-secondary)',
+                  minWidth: '80px'
+                }}>
+                  커스텀 컬러
+                </div>
+                <input
+                  type="color"
+                  value={state.ui.primaryColor}
+                  onChange={(e) => actions.updateUISetting('primaryColor', e.target.value)}
+                  style={{
+                    width: '50px',
+                    height: '35px',
+                    border: 'none',
+                    borderRadius: 'var(--radius-sm)',
+                    cursor: 'pointer',
+                    backgroundColor: 'transparent'
+                  }}
+                />
+                <input
+                  type="text"
+                  value={state.ui.primaryColor}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    if (/^#[0-9A-Fa-f]{6}$/.test(value)) {
+                      actions.updateUISetting('primaryColor', value);
+                    }
+                  }}
+                  placeholder="#E82E01"
+                  style={{
+                    flex: 1,
+                    padding: 'var(--space-sm)',
+                    backgroundColor: 'var(--bg-tertiary)',
+                    border: '1px solid var(--border-primary)',
+                    borderRadius: 'var(--radius-sm)',
+                    color: 'var(--text-primary)',
+                    fontSize: 'var(--font-size-sm)',
+                    fontFamily: 'monospace'
+                  }}
+                />
+                <div style={{
+                  width: '30px',
+                  height: '30px',
+                  borderRadius: 'var(--radius-sm)',
+                  backgroundColor: state.ui.primaryColor,
+                  border: '1px solid var(--border-primary)'
+                }} />
+              </div>
+            </div>
+
+            {/* 로고 설정 */}
+            <div className="card-row" style={{ flexDirection: 'column', alignItems: 'stretch', marginTop: 'var(--space-lg)' }}>
+              <div style={{ marginBottom: 'var(--space-md)' }}>
+                <div className="card-label" style={{ fontSize: 'var(--font-size-base)', color: 'var(--text-primary)', marginBottom: 'var(--space-xs)' }}>로고 설정</div>
+                <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-tertiary)' }}>헤더에 표시되는 로고 이미지를 변경합니다</div>
+              </div>
+
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 'var(--space-md)',
+                padding: 'var(--space-md)',
+                backgroundColor: 'var(--bg-secondary)',
+                borderRadius: 'var(--radius-md)',
+                border: '1px solid var(--border-primary)'
+              }}>
+                {/* 현재 로고 미리보기 */}
+                <div style={{
+                  width: '120px',
+                  height: '50px',
+                  borderRadius: 'var(--radius-sm)',
+                  backgroundColor: state.ui.theme === 'dark' ? '#1a1a1a' : '#f0f0f0',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  border: '1px solid var(--border-primary)',
+                  overflow: 'hidden'
+                }}>
+                  {state.ui.customLogo ? (
+                    <img 
+                      src={state.ui.customLogo} 
+                      alt="Custom Logo" 
+                      style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+                    />
+                  ) : (
+                    <span style={{ 
+                      fontSize: 'var(--font-size-xs)', 
+                      color: 'var(--text-tertiary)',
+                      textAlign: 'center'
+                    }}>
+                      기본 로고
+                    </span>
+                  )}
+                </div>
+
+                {/* 로고 업로드 버튼 */}
+                <label style={{
+                  padding: 'var(--space-sm) var(--space-md)',
+                  backgroundColor: 'var(--bg-tertiary)',
+                  border: '1px solid var(--border-primary)',
+                  borderRadius: 'var(--radius-sm)',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 'var(--space-sm)',
+                  fontSize: 'var(--font-size-sm)',
+                  color: 'var(--text-secondary)',
+                  transition: 'all 0.2s ease'
+                }}>
+                  <i className="fas fa-upload"></i>
+                  로고 업로드
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => {
+                      const file = e.target.files[0];
+                      if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (event) => {
+                          actions.updateUISetting('customLogo', event.target.result);
+                          actions.addNotification({
+                            type: 'success',
+                            message: '로고가 변경되었습니다.'
+                          });
+                        };
+                        reader.readAsDataURL(file);
+                      }
+                    }}
+                    style={{ display: 'none' }}
+                  />
+                </label>
+
+                {/* 기본 로고로 복원 버튼 */}
+                {state.ui.customLogo && (
+                  <button
+                    onClick={() => {
+                      actions.updateUISetting('customLogo', null);
+                      actions.addNotification({
+                        type: 'success',
+                        message: '기본 로고로 복원되었습니다.'
+                      });
+                    }}
+                    className="control-btn"
+                    style={{
+                      fontSize: 'var(--font-size-sm)',
+                      padding: 'var(--space-sm) var(--space-md)'
+                    }}
+                  >
+                    <i className="fas fa-undo"></i>
+                    기본 로고
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* 테마 설정 */}
+            <div className="card-row" style={{ flexDirection: 'column', alignItems: 'stretch', marginTop: 'var(--space-lg)' }}>
+              <div style={{ marginBottom: 'var(--space-md)' }}>
+                <div className="card-label" style={{ fontSize: 'var(--font-size-base)', color: 'var(--text-primary)', marginBottom: 'var(--space-xs)' }}>테마 모드</div>
+                <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-tertiary)' }}>다크 모드 또는 라이트 모드를 선택합니다</div>
+              </div>
+
+              <div style={{
+                display: 'flex',
+                gap: 'var(--space-md)'
+              }}>
+                <button
+                  onClick={() => actions.updateUISetting('theme', 'dark')}
+                  style={{
+                    flex: 1,
+                    padding: 'var(--space-md)',
+                    backgroundColor: state.ui.theme === 'dark' ? 'var(--primary-color)' : 'var(--bg-tertiary)',
+                    border: state.ui.theme === 'dark' ? '2px solid var(--primary-color)' : '1px solid var(--border-primary)',
+                    borderRadius: 'var(--radius-md)',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: 'var(--space-sm)',
+                    color: state.ui.theme === 'dark' ? '#ffffff' : 'var(--text-secondary)',
+                    fontSize: 'var(--font-size-sm)',
+                    fontWeight: state.ui.theme === 'dark' ? '600' : '400',
+                    transition: 'all 0.2s ease'
+                  }}
+                >
+                  <i className="fas fa-moon"></i>
+                  다크 모드
+                </button>
+                <button
+                  onClick={() => actions.updateUISetting('theme', 'light')}
+                  style={{
+                    flex: 1,
+                    padding: 'var(--space-md)',
+                    backgroundColor: state.ui.theme === 'light' ? 'var(--primary-color)' : 'var(--bg-tertiary)',
+                    border: state.ui.theme === 'light' ? '2px solid var(--primary-color)' : '1px solid var(--border-primary)',
+                    borderRadius: 'var(--radius-md)',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: 'var(--space-sm)',
+                    color: state.ui.theme === 'light' ? '#ffffff' : 'var(--text-secondary)',
+                    fontSize: 'var(--font-size-sm)',
+                    fontWeight: state.ui.theme === 'light' ? '600' : '400',
+                    transition: 'all 0.2s ease'
+                  }}
+                >
+                  <i className="fas fa-sun"></i>
+                  라이트 모드
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* 버튼 영역 */}
         <div style={{

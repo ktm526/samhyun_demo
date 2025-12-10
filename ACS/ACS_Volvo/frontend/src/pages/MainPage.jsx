@@ -415,7 +415,7 @@ const MainPage = () => {
         50% { 
           opacity: 0.7;
           transform: translate(-50%, -50%) scale(1.2);
-          box-shadow: 0 0 50px var(--primary-color), 0 0 80px rgba(0, 212, 255, 0.3);
+          box-shadow: 0 0 50px var(--primary-color), 0 0 80px var(--border-accent);
         }
       }
       
@@ -875,7 +875,7 @@ const MainPage = () => {
                   borderRight: '3px solid var(--accent-color)',
                   borderRadius: '50%',
                   animation: 'cyberspin 2s linear infinite',
-                  boxShadow: '0 0 20px var(--primary-color), inset 0 0 20px rgba(0, 212, 255, 0.1)'
+                  boxShadow: '0 0 20px var(--primary-color), inset 0 0 20px var(--border-accent)'
                 }}></div>
                 
                 {/* 중간 링 */}

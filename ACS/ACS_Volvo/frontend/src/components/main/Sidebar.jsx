@@ -211,7 +211,7 @@ const Sidebar = ({
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: 'linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent)',
+                    background: 'linear-gradient(90deg, transparent, rgba(232, 46, 1, 0.1), transparent)',
                     animation: 'loading-shimmer 2s infinite'
                   }}></div>
                 )}
@@ -259,7 +259,7 @@ const Sidebar = ({
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: 'linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent)',
+                    background: 'linear-gradient(90deg, transparent, rgba(232, 46, 1, 0.1), transparent)',
                     animation: 'loading-shimmer 2s infinite 0.5s'
                   }}></div>
                 )}
@@ -297,7 +297,7 @@ const Sidebar = ({
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: 'linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent)',
+                    background: 'linear-gradient(90deg, transparent, rgba(232, 46, 1, 0.1), transparent)',
                     animation: 'loading-shimmer 2s infinite'
                   }}></div>
                 )}
@@ -333,7 +333,7 @@ const Sidebar = ({
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: 'linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent)',
+                    background: 'linear-gradient(90deg, transparent, rgba(232, 46, 1, 0.1), transparent)',
                     animation: 'loading-shimmer 2s infinite 0.5s'
                   }}></div>
                 )}
@@ -380,7 +380,7 @@ const Sidebar = ({
                   left: 0,
                   right: 0,
                   bottom: 0,
-                  background: 'linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent)',
+                  background: 'linear-gradient(90deg, transparent, rgba(232, 46, 1, 0.1), transparent)',
                   animation: 'loading-shimmer 2s infinite'
                 }}></div>
               )}
@@ -416,7 +416,7 @@ const Sidebar = ({
                   left: 0,
                   right: 0,
                   bottom: 0,
-                  background: 'linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent)',
+                  background: 'linear-gradient(90deg, transparent, rgba(232, 46, 1, 0.1), transparent)',
                   animation: 'loading-shimmer 2s infinite 0.5s'
                 }}></div>
               )}
@@ -471,7 +471,7 @@ const Sidebar = ({
                   left: 0,
                   right: 0,
                   bottom: 0,
-                  background: 'linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent)',
+                  background: 'linear-gradient(90deg, transparent, rgba(232, 46, 1, 0.1), transparent)',
                   animation: `loading-shimmer 2s infinite ${index * 0.3}s`
                 }}></div>
                 
@@ -580,21 +580,21 @@ const Sidebar = ({
               alignItems: 'center',
               justifyContent: 'center',
               gap: 'var(--space-sm)',
-              boxShadow: '0 4px 20px rgba(0, 212, 255, 0.4), 0 0 40px rgba(0, 212, 255, 0.2)',
+              boxShadow: 'var(--shadow-glow-strong)',
               userSelect: 'none',
               WebkitUserSelect: 'none',
               MozUserSelect: 'none',
               msUserSelect: 'none'
             }}
             onMouseEnter={(e) => {
-              e.target.style.backgroundColor = '#00b8e6';
+              e.target.style.backgroundColor = 'var(--accent-color)';
               e.target.style.transform = 'translateY(-2px)';
-              e.target.style.boxShadow = '0 6px 30px rgba(0, 212, 255, 0.6), 0 0 60px rgba(0, 212, 255, 0.3)';
+              e.target.style.boxShadow = '0 6px 30px var(--primary-color), 0 0 60px var(--border-accent)';
             }}
             onMouseLeave={(e) => {
               e.target.style.backgroundColor = 'var(--primary-color)';
               e.target.style.transform = 'translateY(0)';
-              e.target.style.boxShadow = '0 4px 20px rgba(0, 212, 255, 0.4), 0 0 40px rgba(0, 212, 255, 0.2)';
+              e.target.style.boxShadow = 'var(--shadow-glow-strong)';
             }}
           >
             <i className="fas fa-plus" style={{

@@ -9,12 +9,12 @@
 }
 
 :root {
-  /* Tesla Cybertruck inspired color palette - Dark Mode */
-  --primary-color: #00d4ff;
-  --primary-glow: #00d4ff;
+  /* Custom color palette - Dark Mode */
+  --primary-color: #E82E01;
+  --primary-glow: #E82E01;
   --secondary-color: #0a0a0a;
-  --accent-color: #00e6ff;
-  --accent-secondary: #00b8d4;
+  --accent-color: #FF5722;
+  --accent-secondary: #C42500;
   
   /* Background hierarchy - Dark Mode */
   --bg-primary: #000000;
@@ -32,21 +32,21 @@
   /* Borders and dividers - Dark Mode */
   --border-primary: rgba(255, 255, 255, 0.12);
   --border-secondary: rgba(255, 255, 255, 0.08);
-  --border-accent: rgba(0, 212, 255, 0.3);
+  --border-accent: rgba(232, 46, 1, 0.3);
   
   /* Status colors */
   --status-success: #00ff88;
   --status-warning: #ffaa00;
   --status-error: #ff4444;
-  --status-info: #00d4ff;
+  --status-info: #E82E01;
   --status-idle: #888888;
   
   /* Effects */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 20px rgba(0, 212, 255, 0.2);
-  --shadow-glow-strong: 0 0 30px rgba(0, 212, 255, 0.4);
+  --shadow-glow: 0 0 20px rgba(232, 46, 1, 0.2);
+  --shadow-glow-strong: 0 0 30px rgba(232, 46, 1, 0.4);
   --shadow-modal: 0 25px 50px rgba(0, 0, 0, 0.3);
   
   /* Modal overlay */
@@ -91,12 +91,8 @@
 
 /* Light Mode Variables */
 .app.light {
-  /* Primary colors remain the same for consistency */
-  --primary-color: #0088cc;
-  --primary-glow: #0088cc;
+  /* Primary colors are set dynamically via JavaScript */
   --secondary-color: #f5f5f5;
-  --accent-color: #0099dd;
-  --accent-secondary: #0077bb;
   
   /* Background hierarchy - Light Mode */
   --bg-primary: #ffffff;
@@ -114,21 +110,20 @@
   /* Borders and dividers - Light Mode */
   --border-primary: rgba(0, 0, 0, 0.12);
   --border-secondary: rgba(0, 0, 0, 0.08);
-  --border-accent: rgba(0, 136, 204, 0.3);
+  /* --border-accent is set dynamically */
   
   /* Status colors - adjusted for light mode */
   --status-success: #28a745;
   --status-warning: #ffc107;
   --status-error: #dc3545;
-  --status-info: #17a2b8;
+  /* --status-info is set dynamically */
   --status-idle: #6c757d;
   
   /* Effects - Light Mode */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
   --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
-  --shadow-glow: 0 0 20px rgba(0, 136, 204, 0.15);
-  --shadow-glow-strong: 0 0 30px rgba(0, 136, 204, 0.25);
+  /* --shadow-glow and --shadow-glow-strong are set dynamically */
   --shadow-modal: 0 25px 50px rgba(0, 0, 0, 0.15);
   
   /* Modal overlay - Light Mode */

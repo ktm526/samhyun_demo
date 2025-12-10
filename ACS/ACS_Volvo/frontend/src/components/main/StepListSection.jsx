@@ -460,7 +460,7 @@ const StepListSection = ({
                   transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
                   transform: `translateY(${translateY}px) ${isHighlighted ? 'scale(1.02)' : 'scale(1)'}`,
                   boxShadow: isHighlighted ? 
-                    '0 8px 25px rgba(0, 212, 255, 0.3), 0 0 20px rgba(0, 212, 255, 0.2)' : 
+                    '0 8px 25px rgba(232, 46, 1, 0.3), 0 0 20px rgba(232, 46, 1, 0.2)' : 
                     'none',
                   borderColor: isHighlighted ? 'var(--primary-color)' : 'var(--border-primary)',
                   zIndex: isAnimating ? (isHighlighted ? 20 : 15) : 1,
@@ -471,7 +471,7 @@ const StepListSection = ({
                   width: '32px',
                   height: '32px',
                   borderRadius: '50%',
-                  backgroundColor: isHighlighted ? '#00d4ff' : 'var(--primary-color)',
+                  backgroundColor: isHighlighted ? '#E82E01' : 'var(--primary-color)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -480,7 +480,7 @@ const StepListSection = ({
                   fontWeight: '700',
                   transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
                   transform: isHighlighted ? 'scale(1.15) rotate(5deg)' : 'scale(1) rotate(0deg)',
-                  boxShadow: isHighlighted ? '0 0 20px rgba(0, 212, 255, 0.6)' : 'none'
+                  boxShadow: isHighlighted ? '0 0 20px rgba(232, 46, 1, 0.6)' : 'none'
                 }}>
                   {index + 1}
                 </div>

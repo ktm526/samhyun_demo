@@ -23,6 +23,76 @@ const saveThemeToStorage = (theme) => {
   }
 };
 
+// localStorage에서 포인트 컬러 설정 로드
+const loadPrimaryColorFromStorage = () => {
+  try {
+    const savedColor = localStorage.getItem('primaryColor');
+    return savedColor || '#E82E01';
+  } catch (error) {
+    console.error('Failed to load primaryColor from localStorage:', error);
+    return '#E82E01';
+  }
+};
+
+// localStorage에 포인트 컬러 설정 저장
+const savePrimaryColorToStorage = (color) => {
+  try {
+    localStorage.setItem('primaryColor', color);
+  } catch (error) {
+    console.error('Failed to save primaryColor to localStorage:', error);
+  }
+};
+
+// localStorage에서 로고 설정 로드
+const loadLogoFromStorage = () => {
+  try {
+    const savedLogo = localStorage.getItem('customLogo');
+    return savedLogo || null;
+  } catch (error) {
+    console.error('Failed to load customLogo from localStorage:', error);
+    return null;
+  }
+};
+
+// localStorage에 로고 설정 저장
+const saveLogoToStorage = (logo) => {
+  try {
+    if (logo) {
+      localStorage.setItem('customLogo', logo);
+    } else {
+      localStorage.removeItem('customLogo');
+    }
+  } catch (error) {
+    console.error('Failed to save customLogo to localStorage:', error);
+  }
+};
+
+// 포인트 컬러에서 관련 색상 생성
+const generateColorPalette = (primaryColor) => {
+  // HEX를 RGB로 변환
+  const hex = primaryColor.replace('#', '');
+  const r = parseInt(hex.substr(0, 2), 16);
+  const g = parseInt(hex.substr(2, 2), 16);
+  const b = parseInt(hex.substr(4, 2), 16);
+  
+  // 밝은 버전 (accent)
+  const lighterR = Math.min(255, r + 30);
+  const lighterG = Math.min(255, g + 30);
+  const lighterB = Math.min(255, b + 30);
+  
+  // 어두운 버전 (secondary)
+  const darkerR = Math.max(0, r - 30);
+  const darkerG = Math.max(0, g - 15);
+  const darkerB = Math.max(0, b - 1);
+  
+  return {
+    primary: primaryColor,
+    accent: `#${lighterR.toString(16).padStart(2, '0')}${lighterG.toString(16).padStart(2, '0')}${lighterB.toString(16).padStart(2, '0')}`,
+    secondary: `#${darkerR.toString(16).padStart(2, '0')}${darkerG.toString(16).padStart(2, '0')}${darkerB.toString(16).padStart(2, '0')}`,
+    rgb: `${r}, ${g}, ${b}`
+  };
+};
+
 // 초기 상태
 const initialState = {
   currentPage: 'main',
@@ -39,7 +109,10 @@ const initialState = {
   ui: {
     showTooltips: true,
     theme: loadThemeFromStorage(),
-    language: 'ko'
+    language: 'ko',
+    primaryColor: loadPrimaryColorFromStorage(),
+    colorPalette: generateColorPalette(loadPrimaryColorFromStorage()),
+    customLogo: loadLogoFromStorage()
   }
 };
 
@@ -137,6 +210,24 @@ const appReducer = (state, action) => {
       // 테마가 변경될 때 localStorage에 저장
       if (action.payload.setting === 'theme') {
         saveThemeToStorage(action.payload.value);
+      }
+      
+      // 포인트 컬러가 변경될 때 localStorage에 저장 및 팔레트 생성
+      if (action.payload.setting === 'primaryColor') {
+        savePrimaryColorToStorage(action.payload.value);
+        return {
+          ...state,
+          ui: {
+            ...state.ui,
+            primaryColor: action.payload.value,
+            colorPalette: generateColorPalette(action.payload.value)
+          }
+        };
+      }
+      
+      // 로고가 변경될 때 localStorage에 저장
+      if (action.payload.setting === 'customLogo') {
+        saveLogoToStorage(action.payload.value);
       }
       
       return {

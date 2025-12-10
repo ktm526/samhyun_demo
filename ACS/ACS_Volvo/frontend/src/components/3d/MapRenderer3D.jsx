@@ -323,8 +323,8 @@ function MapNode({ node, mapInfo, theme = 'dark', isSelected = false, onHover, o
     textPrimary: theme === 'dark' ? '#ffffff' : '#2c3e50',
     textSecondary: theme === 'dark' ? '#cccccc' : '#6c757d',
     border: theme === 'dark' ? '#333333' : '#e0e0e0',
-    buttonPrimary: '#00d4ff',
-    buttonHover: '#00c3ff',
+    buttonPrimary: '#E82E01',
+    buttonHover: '#FF5722',
     robotItem: theme === 'dark' ? '#2a2a2a' : '#f8f9fa',
     robotItemHover: theme === 'dark' ? '#363636' : '#e9ecef',
     robotItemDisabled: theme === 'dark' ? '#1a1a1a' : '#f0f0f0'
@@ -884,7 +884,7 @@ function StlModelRenderer({ stlModel, visible = true, theme = 'dark' }) {
               color: '#e2e8f0',
               padding: '12px 16px',
               borderRadius: '10px',
-              border: '1px solid rgba(0,212,255,0.4)',
+              border: '1px solid rgba(232,46,1,0.4)',
               fontSize: '12px',
               minWidth: '220px'
             }}
