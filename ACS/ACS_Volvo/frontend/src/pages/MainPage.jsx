@@ -558,6 +558,32 @@ const MainPage = () => {
 
   const [stlSettings, setStlSettings] = useState(loadStlSettingsV2());
 
+  // 배경 이미지 오프셋 초기값 로드
+  const loadMapOffsetSettings = () => {
+    const defaults = {
+      rotationDeg: 0,
+      offsetX: 0,
+      offsetY: 0,
+      scale: 1
+    };
+    try {
+      const saved = localStorage.getItem('mapOffsetSettings');
+      if (!saved) return defaults;
+      const parsed = JSON.parse(saved);
+      return {
+        rotationDeg: typeof parsed.rotationDeg === 'number' ? parsed.rotationDeg : defaults.rotationDeg,
+        offsetX: typeof parsed.offsetX === 'number' ? parsed.offsetX : defaults.offsetX,
+        offsetY: typeof parsed.offsetY === 'number' ? parsed.offsetY : defaults.offsetY,
+        scale: typeof parsed.scale === 'number' ? parsed.scale : defaults.scale
+      };
+    } catch (error) {
+      console.error('맵 오프셋 설정 로드 실패:', error);
+      return defaults;
+    }
+  };
+
+  const [mapOffsetSettings, setMapOffsetSettings] = useState(loadMapOffsetSettings());
+
   // STL 파일 업로드 핸들러 (로컬 파싱)
   const handleStlUpload = async (file) => {
     const previousGeometry = stlModel?.geometry || null;
@@ -662,6 +688,11 @@ const MainPage = () => {
     setStlSettings(prev => ({ ...prev, ...patch }));
   };
 
+  // 배경 이미지 오프셋 변경 헬퍼
+  const updateMapOffsetSettings = (patch) => {
+    setMapOffsetSettings(prev => ({ ...prev, ...patch }));
+  };
+
   // STL 설정 저장 (각도, 위치, 세모 크기/위치/방향)
   useEffect(() => {
     try {
@@ -670,6 +701,15 @@ const MainPage = () => {
       console.error('STL 설정 저장 실패:', error);
     }
   }, [stlSettings]);
+
+  // 배경 이미지 오프셋 설정 저장
+  useEffect(() => {
+    try {
+      localStorage.setItem('mapOffsetSettings', JSON.stringify(mapOffsetSettings));
+    } catch (error) {
+      console.error('맵 오프셋 설정 저장 실패:', error);
+    }
+  }, [mapOffsetSettings]);
 
   // 새로고침 이후 STL 메쉬 복원
   useEffect(() => {
@@ -956,6 +996,7 @@ const MainPage = () => {
                 stlModel={stlModel}
                 showStlModel={showStlModel}
                 stlSettings={stlSettings}
+                mapOffsetSettings={mapOffsetSettings}
               />
               <MainViewOverlay stats={stats} />
               <MapControls
@@ -978,6 +1019,8 @@ const MainPage = () => {
                 stlMetadata={stlMetadata}
                 stlSettings={stlSettings}
                 onStlSettingsChange={updateStlSettings}
+                mapOffsetSettings={mapOffsetSettings}
+                onMapOffsetChange={updateMapOffsetSettings}
               />
             </>
           )}

@@ -317,6 +317,8 @@ const TaskAddModal = ({ isOpen, onClose, onTaskCreated, robots = [], mapData = n
               highlightedItem={highlightedItem}
               tempPositions={tempPositions}
               setWaypoints={setWaypoints}
+              formData={formData}
+              setFormData={setFormData}
             />
           </div>
 

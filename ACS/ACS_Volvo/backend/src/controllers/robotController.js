@@ -576,6 +576,244 @@ const robotController = {
         details: error.message
       });
     }
+  },
+
+  // === AMR 맵 다운로드 및 저장 ===
+
+  // AMR에서 맵을 가져와서 서버에 저장
+  async downloadAndSaveMap(req, res) {
+    const fs = require('fs');
+    const path = require('path');
+    const yaml = require('js-yaml');
+    const { mapController } = require('./mapController');
+
+    try {
+      const robotId = parseInt(req.params.robotId);
+      const mapId = req.params.mapId;
+      
+      if (isNaN(robotId)) {
+        return res.status(400).json({ 
+          success: false,
+          error: '유효하지 않은 로봇 ID입니다.' 
+        });
+      }
+
+      // 로봇 존재 여부 확인
+      const robot = await Robot.findById(robotId);
+      if (!robot) {
+        return res.status(404).json({
+          success: false,
+          error: '로봇을 찾을 수 없습니다.'
+        });
+      }
+
+      // 로봇 IP 주소 확인
+      if (!robot.ip_address) {
+        return res.status(400).json({
+          success: false,
+          error: '로봇 IP 주소가 설정되지 않았습니다.'
+        });
+      }
+
+      console.log(`🗺️  AMR에서 맵 다운로드 시작:`, {
+        robotId,
+        robotName: robot.name,
+        robotIP: robot.ip_address,
+        robotPort: robot.port || 80,
+        mapId
+      });
+
+      // AMR에서 맵 상세 정보 가져오기
+      const port = robot.port || 80;
+      const mapDetailUrl = `http://${robot.ip_address}:${port}/api/v1/amr/map_detail/${mapId}`;
+      
+      console.log(`📡 AMR에 맵 상세 정보 요청: ${mapDetailUrl}`);
+
+      const response = await axios.get(mapDetailUrl, {
+        timeout: 30000, // 30초 타임아웃 (이미지가 클 수 있음)
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      console.log(`✅ AMR 맵 데이터 수신 성공:`, {
+        mapId: response.data.map_id,
+        hasImage: !!response.data.map_image,
+        hasMetadata: !!response.data.map_metadata,
+        hasNodeFile: !!response.data.node_file,
+        imageSize: response.data.map_image ? response.data.map_image.length : 0
+      });
+
+      const { map_id, map_image, map_metadata, node_file } = response.data;
+
+      // uploads 폴더 확인/생성
+      const uploadPath = path.join(__dirname, '../../uploads');
+      if (!fs.existsSync(uploadPath)) {
+        fs.mkdirSync(uploadPath, { recursive: true });
+      }
+
+      const timestamp = Date.now();
+
+      // 1. 이미지 파일 저장 (Base64 디코딩)
+      const imagePath = path.join(uploadPath, `${map_id}_${timestamp}.pgm`);
+      const imageBuffer = Buffer.from(map_image, 'base64');
+      fs.writeFileSync(imagePath, imageBuffer);
+      console.log(`📁 이미지 파일 저장 완료: ${imagePath}`);
+
+      // 2. 메타데이터 파일 저장 (YAML)
+      const metadataPath = path.join(uploadPath, `${map_id}_${timestamp}_metadata.yaml`);
+      const metadataYaml = yaml.dump(map_metadata);
+      fs.writeFileSync(metadataPath, metadataYaml, 'utf8');
+      console.log(`📁 메타데이터 파일 저장 완료: ${metadataPath}`);
+
+      // 3. 노드 파일 저장 (YAML) - 있는 경우에만
+      let nodesPath = null;
+      if (node_file && node_file.node) {
+        nodesPath = path.join(uploadPath, `${map_id}_${timestamp}_nodes.yaml`);
+        const nodesYaml = yaml.dump(node_file);
+        fs.writeFileSync(nodesPath, nodesYaml, 'utf8');
+        console.log(`📁 노드 파일 저장 완료: ${nodesPath}`);
+      }
+
+      // 4. 기존 createMap 로직과 동일하게 처리
+      // multer의 파일 객체 형식으로 변환
+      req.files = {
+        image: [{ path: imagePath, originalname: `${map_id}.pgm` }],
+        metadata: [{ path: metadataPath, originalname: `${map_id}_metadata.yaml` }]
+      };
+      
+      if (nodesPath) {
+        req.files.nodes = [{ path: nodesPath, originalname: `${map_id}_nodes.yaml` }];
+      }
+
+      // createMap 메서드 재사용
+      await mapController.createMap(req, res);
+
+    } catch (amrError) {
+      console.error(`❌ AMR 맵 다운로드 실패:`, amrError.message);
+
+      if (amrError.code === 'ECONNREFUSED') {
+        return res.status(503).json({
+          success: false,
+          error: 'AMR과 통신할 수 없습니다.',
+          message: `로봇에 연결할 수 없습니다.`
+        });
+      }
+
+      return res.status(500).json({
+        success: false,
+        error: 'AMR 맵 다운로드에 실패했습니다.',
+        message: amrError.message
+      });
+    }
+  },
+
+  // === AMR 맵 목록 조회 ===
+
+  // 특정 로봇의 맵 목록 조회
+  async getRobotMaps(req, res) {
+    try {
+      const id = parseInt(req.params.robotId);
+      
+      if (isNaN(id)) {
+        return res.status(400).json({ 
+          success: false,
+          error: '유효하지 않은 로봇 ID입니다.' 
+        });
+      }
+
+      // 로봇 존재 여부 확인
+      const robot = await Robot.findById(id);
+      if (!robot) {
+        return res.status(404).json({
+          success: false,
+          error: '로봇을 찾을 수 없습니다.',
+          message: `ID ${id}인 로봇이 존재하지 않습니다.`
+        });
+      }
+
+      // 로봇 IP 주소 확인
+      if (!robot.ip_address) {
+        return res.status(400).json({
+          success: false,
+          error: '로봇 IP 주소가 설정되지 않았습니다.',
+          message: `로봇 ${robot.name}의 IP 주소가 설정되지 않았습니다.`
+        });
+      }
+
+      console.log(`🗺️  AMR 맵 목록 조회 요청:`, {
+        robotId: id,
+        robotName: robot.name,
+        robotIP: robot.ip_address,
+        robotPort: robot.port || 80
+      });
+
+      // AMR에 맵 목록 요청
+      try {
+        const port = robot.port || 80;
+        const mapsUrl = `http://${robot.ip_address}:${port}/api/v1/amr/maps`;
+        
+        console.log(`📡 AMR에 맵 목록 요청: ${mapsUrl}`);
+
+        const response = await axios.get(mapsUrl, {
+          timeout: 10000, // 10초 타임아웃
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        console.log(`✅ AMR 맵 목록 응답 성공:`, response.data);
+
+        // AMR 응답 형식: { current_map_id, current_map_name, map_list }
+        const { current_map_id, current_map_name, map_list } = response.data;
+
+        // Frontend에서 사용하기 쉬운 형식으로 변환
+        const formattedMaps = map_list.map(mapId => ({
+          id: mapId,
+          name: mapId, // map_list에는 ID만 있으므로 name도 같은 값 사용
+          isActive: mapId === current_map_id
+        }));
+
+        // 성공 응답
+        res.json({
+          success: true,
+          data: {
+            currentMapId: current_map_id,
+            currentMapName: current_map_name,
+            maps: formattedMaps,
+            robotId: robot.id,
+            robotName: robot.name
+          }
+        });
+
+        console.log(`🎯 AMR 맵 목록 조회 완료: 로봇 ${robot.name} (ID: ${robot.id}) - 현재 맵: ${current_map_name}`);
+
+      } catch (amrError) {
+        // AMR 통신 실패
+        console.error(`❌ AMR 통신 실패 (${robot.ip_address}:${robot.port || 80}):`, amrError.message);
+
+        // 로봇 상태는 유지하되 맵 목록 조회 실패를 알림
+        return res.status(503).json({
+          success: false,
+          error: 'AMR과 통신할 수 없습니다.',
+          message: `로봇 ${robot.name}에서 맵 목록을 가져오는데 실패했습니다: ${amrError.message}`,
+          details: {
+            robotIP: robot.ip_address,
+            robotPort: robot.port || 80,
+            errorType: amrError.code || 'UNKNOWN_ERROR',
+            robotStatus: robot.status
+          }
+        });
+      }
+
+    } catch (error) {
+      console.error('❌ getRobotMaps 오류:', error);
+      res.status(500).json({
+        success: false,
+        error: '맵 목록 조회 중 오류가 발생했습니다.',
+        message: error.message
+      });
+    }
   }
 };
 

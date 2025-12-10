@@ -855,7 +855,8 @@ const Scene3D = ({
   onMoveRequest = null,
   stlModel = null,
   showStlModel = false,
-  stlSettings = null
+  stlSettings = null,
+  mapOffsetSettings = null
 }) => {
   const { state } = useAppContext();
   
@@ -936,6 +937,7 @@ const Scene3D = ({
             onNodeHoverEnd={null}
             robots={activeRobots}
             onMoveRequest={handleMoveRequest}
+            mapOffsetSettings={mapOffsetSettings}
           />
         )}
 

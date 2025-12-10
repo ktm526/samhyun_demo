@@ -98,13 +98,6 @@ class RobotStatusService {
       });
 
       if (response.status === 200 && response.data) {
-        // 로봇이 보낸 전체 JSON 응답 출력
-        console.log(`\n🤖 [상태수집] 로봇 ID: ${robot.id} | 이름: ${robot.name}`);
-        console.log(`URL: ${url}`);
-        console.log(`시간: ${new Date().toISOString()}`);
-        console.log('=== 로봇이 보낸 전체 JSON 응답 ===');
-        console.log(JSON.stringify(response.data, null, 2));
-        
         // order_status를 기반으로 status 매핑
         let mappedStatus = response.data.status; // 기본값은 로봇이 보낸 status
         
@@ -126,11 +119,7 @@ class RobotStatusService {
               mappedStatus = response.data.status || 'unknown';
               break;
           }
-          
-          console.log(`Order Status 매핑: ${response.data.order_status} → "${mappedStatus}"`);
         }
-        
-        console.log(`원본 Status: "${response.data.status}" | 매핑된 Status: "${mappedStatus}"`);
         
         // 연결 성공 - 상태 정보 업데이트 (매핑된 status 사용)
         const updateData = {
@@ -140,15 +129,6 @@ class RobotStatusService {
           error_code: 0,
           error_msg: null
         };
-        
-        console.log(`🔄 [상태수집] DB 업데이트 데이터:`, {
-          robot_id: robot.id,
-          robot_name: robot.name,
-          old_status: robot.status,
-          new_status: mappedStatus,
-          order_status: response.data.order_status
-        });
-        console.log('─────────────────────────────────────\n');
         
         await robot.updateAmrStatus(updateData);
         

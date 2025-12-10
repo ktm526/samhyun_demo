@@ -21,7 +21,9 @@ const MapControls = ({
   stlProgress = 0,
   stlMetadata = null,
   stlSettings = null,
-  onStlSettingsChange
+  onStlSettingsChange,
+  mapOffsetSettings = null,
+  onMapOffsetChange
 }) => {
   const { state } = useAppContext();
   const [isExpanded, setIsExpanded] = useState(false);
@@ -488,6 +490,184 @@ const MapControls = ({
                 </button>
               </div>
             </div>
+
+            {/* 배경 이미지 오프셋 조절 */}
+            {selectedMap && (
+              <div style={{
+                display: 'flex',
+                alignItems: 'flex-start',
+                gap: 'var(--space-sm)',
+                marginBottom: 'var(--space-sm)',
+                padding: '8px 0',
+                borderBottom: '1px solid var(--border-primary)'
+              }}>
+                <div style={{
+                  fontSize: '11px',
+                  color: 'var(--text-secondary)',
+                  fontWeight: '600',
+                  minWidth: '40px',
+                  paddingTop: '4px'
+                }}>
+                  맵:
+                </div>
+                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '3px' }}>
+                  {/* 회전 */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <span style={{ fontSize: '9px', color: 'var(--text-tertiary)', minWidth: '24px' }}>회전</span>
+                    <div style={{ display: 'flex', gap: '2px', flex: 1 }}>
+                      {[
+                        { key: 'rotationDeg', label: '°', val: mapOffsetSettings?.rotationDeg ?? 0, step: 1 }
+                      ].map(({ key, label, val, step }) => (
+                        <div key={key} style={{ display: 'flex', alignItems: 'center', gap: '1px' }}>
+                          <span style={{ fontSize: '8px', color: 'var(--text-quaternary)', width: '10px' }}>{label}</span>
+                          <div className="compact-number-input">
+                            <input
+                              type="number"
+                              step={step}
+                              value={val}
+                              onChange={(e) => {
+                                const value = e.target.value;
+                                if (value === '' || value === '-') return; // 빈 값이나 마이너스 입력 중에는 업데이트 안함
+                                onMapOffsetChange?.({ [key]: Number(value) });
+                              }}
+                              onBlur={(e) => {
+                                // 포커스 벗어날 때 빈 값이면 0으로 설정
+                                if (e.target.value === '' || e.target.value === '-') {
+                                  onMapOffsetChange?.({ [key]: 0 });
+                                }
+                              }}
+                              style={{
+                                width: '50px',
+                                fontSize: '9px',
+                                padding: '2px 14px 2px 3px',
+                                borderRadius: 'var(--radius-sm)',
+                                border: '1px solid var(--border-secondary)',
+                                background: 'var(--bg-tertiary)',
+                                color: 'var(--text-primary)',
+                                textAlign: 'center'
+                              }}
+                            />
+                            <div className="number-controls">
+                              <button 
+                                type="button"
+                                onClick={() => onMapOffsetChange?.({ [key]: Math.round((val + step) * 1000) / 1000 })}
+                              >▲</button>
+                              <button 
+                                type="button"
+                                onClick={() => onMapOffsetChange?.({ [key]: Math.round((val - step) * 1000) / 1000 })}
+                              >▼</button>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  {/* 이동 */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <span style={{ fontSize: '9px', color: 'var(--text-tertiary)', minWidth: '24px' }}>이동</span>
+                    <div style={{ display: 'flex', gap: '2px', flex: 1 }}>
+                      {[
+                        { key: 'offsetX', label: 'X', val: mapOffsetSettings?.offsetX ?? 0, step: 1 },
+                        { key: 'offsetY', label: 'Y', val: mapOffsetSettings?.offsetY ?? 0, step: 1 }
+                      ].map(({ key, label, val, step }) => (
+                        <div key={key} style={{ display: 'flex', alignItems: 'center', gap: '1px' }}>
+                          <span style={{ fontSize: '8px', color: 'var(--text-quaternary)', width: '10px' }}>{label}</span>
+                          <div className="compact-number-input">
+                            <input
+                              type="number"
+                              step={step}
+                              value={val}
+                              onChange={(e) => {
+                                const value = e.target.value;
+                                if (value === '' || value === '-') return; // 빈 값이나 마이너스 입력 중에는 업데이트 안함
+                                onMapOffsetChange?.({ [key]: Number(value) });
+                              }}
+                              onBlur={(e) => {
+                                // 포커스 벗어날 때 빈 값이면 0으로 설정
+                                if (e.target.value === '' || e.target.value === '-') {
+                                  onMapOffsetChange?.({ [key]: 0 });
+                                }
+                              }}
+                              style={{
+                                width: '50px',
+                                fontSize: '9px',
+                                padding: '2px 14px 2px 3px',
+                                borderRadius: 'var(--radius-sm)',
+                                border: '1px solid var(--border-secondary)',
+                                background: 'var(--bg-tertiary)',
+                                color: 'var(--text-primary)',
+                                textAlign: 'center'
+                              }}
+                            />
+                            <div className="number-controls">
+                              <button 
+                                type="button"
+                                onClick={() => onMapOffsetChange?.({ [key]: Math.round((val + step) * 1000) / 1000 })}
+                              >▲</button>
+                              <button 
+                                type="button"
+                                onClick={() => onMapOffsetChange?.({ [key]: Math.round((val - step) * 1000) / 1000 })}
+                              >▼</button>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  {/* 확대/축소 */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <span style={{ fontSize: '9px', color: 'var(--text-tertiary)', minWidth: '24px' }}>크기</span>
+                    <div style={{ display: 'flex', gap: '2px', flex: 1 }}>
+                      {[
+                        { key: 'scale', label: 'S', val: mapOffsetSettings?.scale ?? 1, step: 0.01 }
+                      ].map(({ key, label, val, step }) => (
+                        <div key={key} style={{ display: 'flex', alignItems: 'center', gap: '1px' }}>
+                          <span style={{ fontSize: '8px', color: 'var(--text-quaternary)', width: '10px' }}>{label}</span>
+                          <div className="compact-number-input">
+                            <input
+                              type="number"
+                              step={step}
+                              value={val}
+                              onChange={(e) => {
+                                const value = e.target.value;
+                                if (value === '' || value === '-') return; // 빈 값이나 마이너스 입력 중에는 업데이트 안함
+                                onMapOffsetChange?.({ [key]: Number(value) });
+                              }}
+                              onBlur={(e) => {
+                                // 포커스 벗어날 때 빈 값이면 1로 설정
+                                if (e.target.value === '' || e.target.value === '-') {
+                                  onMapOffsetChange?.({ [key]: 1 });
+                                }
+                              }}
+                              style={{
+                                width: '50px',
+                                fontSize: '9px',
+                                padding: '2px 14px 2px 3px',
+                                borderRadius: 'var(--radius-sm)',
+                                border: '1px solid var(--border-secondary)',
+                                background: 'var(--bg-tertiary)',
+                                color: 'var(--text-primary)',
+                                textAlign: 'center'
+                              }}
+                            />
+                            <div className="number-controls">
+                              <button 
+                                type="button"
+                                onClick={() => onMapOffsetChange?.({ [key]: Math.round((val + step) * 1000) / 1000 })}
+                              >▲</button>
+                              <button 
+                                type="button"
+                                onClick={() => onMapOffsetChange?.({ [key]: Math.max(0.01, Math.round((val - step) * 1000) / 1000) })}
+                              >▼</button>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
 
             {/* STL 모델 컨트롤 */}
             <div style={{

@@ -49,7 +49,7 @@ if (typeof document !== 'undefined' && !document.getElementById('tesla-style')) 
 }
 
 // 맵 이미지 텍스처 렌더링 컴포넌트
-function MapTexture({ mapInfo, visible = true }) {
+function MapTexture({ mapInfo, visible = true, mapOffsetSettings = null }) {
   const meshRef = useRef();
   const [texture, setTexture] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -179,18 +179,29 @@ function MapTexture({ mapInfo, visible = true }) {
   const mapCenterX = (mapInfo.origin_x || 0) + mapWidth / 2;
   const mapCenterY = (mapInfo.origin_y || 0) + mapHeight / 2;
   
+  // 오프셋 적용 (사용자 지정 이동, 회전, 확대/축소)
+  const offsetX = mapOffsetSettings?.offsetX ?? 0;
+  const offsetY = mapOffsetSettings?.offsetY ?? 0;
+  const rotationDeg = mapOffsetSettings?.rotationDeg ?? 0;
+  const scale = mapOffsetSettings?.scale ?? 1;
+  const rotationRad = (rotationDeg * Math.PI) / 180;
+  
   // console.log('MapTexture: 렌더링', { 
   //   mapWidth, 
   //   mapHeight, 
   //   origin: { x: mapInfo.origin_x || 0, y: mapInfo.origin_y || 0 },
-  //   center: { x: mapCenterX, y: mapCenterY }
+  //   center: { x: mapCenterX, y: mapCenterY },
+  //   offset: { x: offsetX, y: offsetY },
+  //   rotation: rotationDeg,
+  //   scale: scale
   // });
   
   return (
     <mesh 
       ref={meshRef} 
-      position={[mapCenterX, 0.01, -mapCenterY]}
-      rotation={[Math.PI/2, 0, 0]} // 90도 회전하여 바닥에 수평으로 놓기 (이미지 방향 수정)
+      position={[mapCenterX + offsetX, 0.01, -(mapCenterY + offsetY)]}
+      rotation={[Math.PI/2, 0, rotationRad]} // 90도 회전하여 바닥에 수평으로 놓기 + 사용자 회전 추가
+      scale={[scale, scale, 1]} // XY 평면에서 확대/축소
     >
       <planeGeometry args={[mapWidth, mapHeight]} />
       <meshBasicMaterial 
@@ -899,15 +910,16 @@ function StlModelRenderer({ stlModel, visible = true, theme = 'dark' }) {
 
 // 메인 맵 렌더러 컴포넌트
 const MapRenderer3D = ({ 
-  mapData, 
-  showTexture = true, 
-  showNodes = true, 
+  mapData,
+  showTexture = true,
+  showNodes = true,
   showConnections = true,
   selectedNode = null,
   onNodeHover,
   onNodeHoverEnd,
   robots = [],
-  onMoveRequest
+  onMoveRequest,
+  mapOffsetSettings = null
 }) => {
   const { state } = useAppContext();
   const theme = state.ui.theme;
@@ -941,6 +953,7 @@ const MapRenderer3D = ({
         <MapTexture 
           mapInfo={map}
           visible={showTexture}
+          mapOffsetSettings={mapOffsetSettings}
         />
       )}
       

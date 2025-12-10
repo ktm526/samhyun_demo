@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useAppContext } from '../../contexts/AppContext.jsx';
-import { useRobots } from '../../hooks/useRobots';
-import { useSimulatedData } from '../../hooks/useSimulatedData';
 import { MENU_ITEMS } from '../../constants';
+import { BASE_URL } from '../../services/api';
 
 // SVG 로고 컴포넌트
 const LogoSvg = ({ fill = "currentColor", ...props }) => (
@@ -53,8 +52,6 @@ const LogoSvg = ({ fill = "currentColor", ...props }) => (
 
 const Header = () => {
   const { state, actions } = useAppContext();
-  const { robots, loading: robotsLoading } = useRobots();
-  const { simulatedRobots } = useSimulatedData(true); // 시뮬레이션 데이터 사용
   
   const [currentTime, setCurrentTime] = useState(new Date());
   const [isHovered, setIsHovered] = useState(false);
@@ -64,6 +61,7 @@ const Header = () => {
   const [appStartTime] = useState(new Date()); // 앱 시작 시간
   const [runtime, setRuntime] = useState(0); // 실행 시간 (초)
   const [isCompact, setIsCompact] = useState(false); // 컴팩트 모드 여부
+  const [showServerInfo, setShowServerInfo] = useState(false); // 서버 정보 표시 여부
   
   // 애니메이션 배경을 위한 ref들
   const menuRefs = useRef({});
@@ -74,8 +72,8 @@ const Header = () => {
     opacity: 0
   });
 
-  // 실제 데이터 또는 시뮬레이션 데이터 사용 (MainPage와 동일한 방식)
-  const activeRobots = simulatedRobots || robots || [];
+  // AppContext에서 로봇 데이터 가져오기 (MainPage에서 저장한 데이터)
+  const activeRobots = state.robots || [];
 
   // 활성 메뉴 배경 위치 계산 함수
   const updateActiveMenuPosition = () => {
@@ -151,6 +149,22 @@ const Header = () => {
     setShowRealTime(!showRealTime);
   };
 
+  // 네트워크 토글 핸들러
+  const handleNetworkClick = () => {
+    setShowServerInfo(!showServerInfo);
+  };
+
+  // 서버 정보 가져오기 (실제 API 요청을 보내는 주소)
+  const getServerInfo = () => {
+    try {
+      const url = new URL(BASE_URL);
+      return `${url.hostname}:${url.port || (url.protocol === 'https:' ? '443' : '80')}`;
+    } catch (error) {
+      // URL 파싱 실패 시 그대로 반환
+      return BASE_URL.replace(/^https?:\/\//, '');
+    }
+  };
+
   // 테마 토글 핸들러
   const handleThemeToggle = () => {
     const newTheme = state.ui.theme === 'dark' ? 'light' : 'dark';
@@ -165,19 +179,21 @@ const Header = () => {
     return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
 
-  // 실제 AMR 연결 대수 계산
+  // 실제 AMR 연결 대수 계산 (connection_status 기반)
   const getConnectedAmrCount = () => {
     if (!activeRobots || activeRobots.length === 0) return 0;
     
-    // 연결된 로봇의 수를 반환 (상태가 'connected' 또는 활성 상태인 로봇들)
+    // connection_status가 true 또는 1인 로봇만 카운트
     const connectedRobots = activeRobots.filter(robot => 
-      robot.status === 'moving' || 
-      robot.status === 'idle' || 
-      robot.status === 'working' ||
-      robot.status === 'charging'
+      robot.connection_status === true || robot.connection_status === 1
     );
     
     return connectedRobots.length;
+  };
+
+  // 전체 AMR 대수 (DB에 저장된 로봇 목록)
+  const getTotalAmrCount = () => {
+    return activeRobots ? activeRobots.length : 0;
   };
 
   // 메뉴 아이콘 매핑
@@ -376,22 +392,40 @@ const Header = () => {
 
             </div>
             
-            {/* 2. 네트워크 상태 */}
-            <div className="status-indicator">
+            {/* 2. 네트워크 상태 (클릭 가능) */}
+            <div 
+              className="status-indicator"
+              onClick={handleNetworkClick}
+              style={{
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                position: 'relative',
+                minWidth: showServerInfo ? '150px' : 'auto'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+              title={showServerInfo ? '네트워크 상태 보기' : '서버 정보 보기'}
+            >
               <i className="fas fa-wifi"></i>
-              <span>Network OK</span>
+              <span style={{
+                fontVariantNumeric: 'tabular-nums',
+                display: 'inline-block',
+                transition: 'all 0.3s ease'
+              }}>
+                {showServerInfo ? getServerInfo() : 'Network OK'}
+              </span>
             </div>
           </>
         )}
         
-        {/* 3. AMR 연결 상태 - 항상 표시 */}
-        <div className={`status-indicator ${state.connectionStatus === 'connected' ? 'connected' : 'disconnected'}`}>
+        {/* 3. AMR 연결 상태 - 항상 표시 (실제 연결된 AMR 수 사용) */}
+        <div 
+          className={`status-indicator ${getConnectedAmrCount() > 0 ? 'connected' : 'disconnected'}`}
+          title={`연결된 AMR: ${getConnectedAmrCount()}대 / 전체 등록된 AMR: ${getTotalAmrCount()}대`}
+        >
           <div className="status-dot"></div>
           <span>
-            {state.connectionStatus === 'connected' 
-              ? `AMR : ${getConnectedAmrCount()}대`
-              : 'Disconnected'
-            }
+            AMR : {getConnectedAmrCount()}/{getTotalAmrCount()}대
           </span>
         </div>
 

@@ -8,7 +8,9 @@ const StepListSection = ({
   animatingItems, 
   highlightedItem, 
   tempPositions,
-  setWaypoints
+  setWaypoints,
+  formData,
+  setFormData
 }) => {
   const [showPresetDropdown, setShowPresetDropdown] = useState(false);
   const [presets, setPresets] = useState(getPresets());
@@ -119,6 +121,15 @@ const StepListSection = ({
     const result = loadPreset(preset.id);
     if (result.success) {
       setWaypoints(result.steps);
+      
+      // 프리셋 이름을 작업 이름으로 자동 설정
+      if (setFormData) {
+        setFormData(prev => ({
+          ...prev,
+          name: preset.name
+        }));
+      }
+      
       alert(`'${preset.name}' 프리셋을 불러왔습니다.`);
       setShowPresetDropdown(false);
     } else {

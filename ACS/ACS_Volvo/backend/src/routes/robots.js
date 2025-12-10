@@ -31,7 +31,13 @@ router.get('/', robotController.getAllRobots);
 // 새 로봇 생성
 router.post('/', robotController.createRobot);
 
-// 특정 로봇 조회 (가장 마지막에 배치)
+// 특정 로봇의 맵 목록 조회 (더 구체적인 경로를 먼저 배치)
+router.get('/:robotId/maps', robotController.getRobotMaps);
+
+// AMR에서 맵 다운로드 및 서버에 저장
+router.post('/:robotId/maps/:mapId/download', robotController.downloadAndSaveMap);
+
+// 특정 로봇 조회
 router.get('/:id', robotController.getRobotById);
 
 // 로봇 정보 업데이트

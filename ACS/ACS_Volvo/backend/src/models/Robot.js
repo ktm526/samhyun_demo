@@ -173,7 +173,6 @@ class Robot {
       // 상태 정보 업데이트 (robotStatusService에서 이미 매핑된 status 사용)
       if (statusData.status !== undefined) {
         amrStatusData.status = statusData.status;
-        console.log(`💾 [DB 업데이트] 로봇 ID: ${this.id} | 상태 변경: ${this.status} → ${statusData.status}`);
       }
 
       // 충전 상태 확인

@@ -10,12 +10,18 @@ export const savePreset = (name, steps) => {
       name: name,
       steps: steps.map(step => ({
         id: step.id,
+        stepType: step.stepType,
+        order: step.order,
+        // 이동 스텝 관련 필드
+        stationId: step.stationId,
+        stationName: step.stationName,
         x: step.x,
         y: step.y,
-        order: step.order,
-        stepType: step.stepType,
-        nodeName: step.nodeName,
+        type: step.type,
+        // 대기 스텝 관련 필드
         waitTime: step.waitTime,
+        waitCondition: step.waitCondition,
+        // 작업 스텝 관련 필드
         workDescription: step.workDescription
       })),
       createdAt: new Date().toISOString(),
@@ -51,11 +57,20 @@ export const loadPreset = (presetId) => {
       return { success: false, error: '프리셋을 찾을 수 없습니다.' };
     }
     
-    // 새로운 ID로 스텝들을 복사
-    const steps = preset.steps.map(step => ({
-      ...step,
-      id: Date.now() + Math.random() // 고유 ID 생성
-    }));
+    // 새로운 ID로 스텝들을 복사 및 이전 버전 호환성 처리
+    const steps = preset.steps.map(step => {
+      const newStep = {
+        ...step,
+        id: Date.now() + Math.random() // 고유 ID 생성
+      };
+      
+      // 이전 버전 호환성: nodeName이 있으면 stationName으로 변환
+      if (step.nodeName && !step.stationName) {
+        newStep.stationName = step.nodeName;
+      }
+      
+      return newStep;
+    });
     
     return { success: true, steps, preset };
   } catch (error) {

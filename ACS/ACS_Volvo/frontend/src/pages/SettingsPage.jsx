@@ -20,8 +20,11 @@ const SettingsPage = () => {
   const [loading, setLoading] = useState({
     maps: false,
     robots: false,
-    robotMaps: {} // 로봇별 맵 로딩 상태
+    robotMaps: {}, // 로봇별 맵 로딩 상태
+    downloadingMaps: {} // 맵 다운로드 중 상태 {robotId-mapId: true/false}
   });
+
+  const [downloadedMaps, setDownloadedMaps] = useState({}); // 다운로드 완료 상태 {robotId-mapId: true/false}
 
   // API URL 설정
   const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
@@ -152,7 +155,7 @@ const SettingsPage = () => {
     fetchServerMaps();
     loadRobots();
     
-    // 애니메이션 CSS 추가
+    // 애니메이션 및 스크롤바 CSS 추가
     const styleId = 'robot-maps-animations';
     if (!document.getElementById(styleId)) {
       const style = document.createElement('style');
@@ -167,6 +170,31 @@ const SettingsPage = () => {
             opacity: 1;
             transform: translateY(0);
           }
+        }
+        
+        /* 사이버 블루 테마 스크롤바 스타일 */
+        .robot-maps-scroll {
+          scrollbar-width: thin;
+          scrollbar-color: rgba(0, 212, 255, 0.3) transparent;
+        }
+        
+        .robot-maps-scroll::-webkit-scrollbar {
+          width: 6px;
+        }
+        
+        .robot-maps-scroll::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        
+        .robot-maps-scroll::-webkit-scrollbar-thumb {
+          background: rgba(0, 212, 255, 0.3);
+          border-radius: 3px;
+          transition: all 0.3s ease;
+        }
+        
+        .robot-maps-scroll::-webkit-scrollbar-thumb:hover {
+          background: rgba(0, 212, 255, 0.6);
+          box-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
         }
       `;
       document.head.appendChild(style);
@@ -400,18 +428,34 @@ const SettingsPage = () => {
       }));
       
       try {
-        // 실제 API 호출로 해당 로봇의 맵 목록을 가져올 것
+        // AMR에서 실제 맵 목록 가져오기
         const response = await fetch(`${API_URL}/api/robots/${robotId}/maps`);
-        let robotMaps;
+        let robotMaps = [];
         
         if (response.ok) {
-          robotMaps = await response.json();
+          const result = await response.json();
+          
+          // Backend 응답 형식: { success, data: { maps, currentMapId, currentMapName } }
+          if (result.success && result.data && result.data.maps) {
+            // 활성화된 맵을 제일 위로 정렬
+            robotMaps = result.data.maps.sort((a, b) => {
+              if (a.isActive && !b.isActive) return -1;
+              if (!a.isActive && b.isActive) return 1;
+              return 0;
+            });
+            
+            const robot = robots.find(r => r.id === robotId);
+            actions.addNotification({
+              type: 'success',
+              message: `${robot?.name || '로봇'}의 맵 목록을 조회했습니다. (현재 맵: ${result.data.currentMapName || result.data.currentMapId})`
+            });
+          } else {
+            throw new Error('맵 데이터 형식이 올바르지 않습니다.');
+          }
         } else {
-          // API 실패 시 임시 데이터 사용
-          robotMaps = [
-            { id: 'map001', name: '1층 작업공간', isActive: true },
-            { id: 'map002', name: '2층 작업공간', isActive: false }
-          ];
+          // API 실패 시 에러 메시지 표시
+          const errorData = await response.json().catch(() => ({}));
+          throw new Error(errorData.message || errorData.error || '맵 목록 조회 실패');
         }
         
         setLocalSettings(prev => ({
@@ -422,16 +466,13 @@ const SettingsPage = () => {
           }
         }));
 
-        const robot = robots.find(r => r.id === robotId);
-        actions.addNotification({
-          type: 'info',
-          message: `${robot?.name || '로봇'}의 맵 목록을 조회했습니다.`
-        });
       } catch (error) {
         console.error('로봇 맵 목록 가져오기 실패:', error);
+        
+        const robot = robots.find(r => r.id === robotId);
         actions.addNotification({
           type: 'error',
-          message: '로봇 맵 목록을 가져오는데 실패했습니다.'
+          message: `${robot?.name || '로봇'}의 맵 목록을 가져오는데 실패했습니다: ${error.message}`
         });
         
         // 오류 발생 시 확장 상태 되돌리기
@@ -549,38 +590,80 @@ const SettingsPage = () => {
     }
   };
 
-  // 로봇 맵 다운로드 함수
+  // AMR에서 맵을 가져와 서버에 저장하는 함수
   const handleRobotMapDownload = async (robotId, mapId, mapName) => {
+    const downloadKey = `${robotId}-${mapId}`;
+    
     try {
-      const response = await fetch(`${API_URL}/api/robots/${robotId}/maps/${mapId}/download`);
+      // 로딩 상태 시작
+      setLoading(prev => ({
+        ...prev,
+        downloadingMaps: {
+          ...prev.downloadingMaps,
+          [downloadKey]: true
+        }
+      }));
+
+      // 로딩 알림 표시
+      actions.addNotification({
+        type: 'info',
+        message: `${mapName} 맵을 AMR에서 가져오는 중입니다...`
+      });
+
+      const response = await fetch(`${API_URL}/api/robots/${robotId}/maps/${mapId}/download`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
       
       if (response.ok) {
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `${mapName}_${robotId}.zip`;
-        document.body.appendChild(a);
-        a.click();
-        window.URL.revokeObjectURL(url);
-        document.body.removeChild(a);
+        const result = await response.json();
+        
+        // 성공 상태 표시
+        setDownloadedMaps(prev => ({
+          ...prev,
+          [downloadKey]: true
+        }));
         
         actions.addNotification({
           type: 'success',
-          message: `${mapName} 맵이 성공적으로 다운로드되었습니다.`
+          message: `${mapName} 맵이 서버에 성공적으로 저장되었습니다! (노드: ${result.nodeCount || 0}개)`
         });
+
+        // 맵 목록 새로고침
+        fetchServerMaps();
+
+        // 3초 후 성공 아이콘 제거
+        setTimeout(() => {
+          setDownloadedMaps(prev => {
+            const newState = { ...prev };
+            delete newState[downloadKey];
+            return newState;
+          });
+        }, 3000);
       } else {
+        const errorData = await response.json().catch(() => ({}));
         actions.addNotification({
           type: 'error',
-          message: '맵 다운로드에 실패했습니다.'
+          message: errorData.message || errorData.error || '맵 저장에 실패했습니다.'
         });
       }
     } catch (error) {
-      console.error('맵 다운로드 에러:', error);
+      console.error('맵 저장 에러:', error);
       actions.addNotification({
         type: 'error',
-        message: '맵 다운로드 중 오류가 발생했습니다.'
+        message: `맵 저장 중 오류가 발생했습니다: ${error.message}`
       });
+    } finally {
+      // 로딩 상태 종료
+      setLoading(prev => ({
+        ...prev,
+        downloadingMaps: {
+          ...prev.downloadingMaps,
+          [downloadKey]: false
+        }
+      }));
     }
   };
 
@@ -1181,20 +1264,31 @@ const SettingsPage = () => {
                         <div style={{
                           overflow: 'hidden',
                           transition: 'max-height 0.3s ease-out',
-                          maxHeight: localSettings.expandedRobots[robot.id] ? '500px' : '0px'
+                          maxHeight: localSettings.expandedRobots[robot.id] ? '400px' : '0px'
                         }}>
                           {localSettings.expandedRobots[robot.id] && (
                             <div style={{
-                              padding: 'var(--space-sm) var(--space-md)',
-                              borderTop: '1px solid var(--border-tertiary)'
+                              padding: 'var(--space-md)',
+                              borderTop: '1px solid var(--border-primary)',
+                              maxHeight: '400px',
+                              display: 'flex',
+                              flexDirection: 'column',
+                              background: 'linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%)'
                             }}>
                               <div style={{ 
-                                fontSize: 'var(--font-size-xs)', 
-                                color: 'var(--text-tertiary)', 
-                                marginBottom: 'var(--space-sm)',
-                                fontWeight: '500'
+                                fontSize: 'var(--font-size-sm)', 
+                                color: 'var(--text-secondary)', 
+                                marginBottom: 'var(--space-md)',
+                                fontWeight: '600',
+                                flexShrink: 0,
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: 'var(--space-sm)',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.05em'
                               }}>
-                                {robot.name}의 맵 목록:
+                                <i className="fas fa-layer-group" style={{ color: 'var(--primary-color)' }}></i>
+                                {robot.name}의 맵 목록
                               </div>
                               {loading.robotMaps[robot.id] ? (
                                 <div style={{
@@ -1209,55 +1303,131 @@ const SettingsPage = () => {
                                   맵 목록을 불러오는 중...
                                 </div>
                               ) : localSettings.selectedRobotMaps[robot.id] ? (
-                                localSettings.selectedRobotMaps[robot.id].map((map, index) => (
+                                <div 
+                                  className="robot-maps-scroll"
+                                  style={{
+                                    overflowY: 'auto',
+                                    maxHeight: '320px',
+                                    padding: 'var(--space-xs) var(--space-xs) 0 0',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    gap: '0'
+                                  }}
+                                >
+                                  {                                localSettings.selectedRobotMaps[robot.id].map((map, index) => (
                                   <div key={map.id} style={{
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'space-between',
-                                    padding: 'var(--space-xs) 0',
+                                    gap: 'var(--space-lg)',
+                                    padding: 'var(--space-xs) var(--space-sm)',
                                     fontSize: 'var(--font-size-xs)',
-                                    borderBottom: index < localSettings.selectedRobotMaps[robot.id].length - 1 ? '1px solid var(--border-tertiary)' : 'none',
+                                    borderBottom: index < localSettings.selectedRobotMaps[robot.id].length - 1 
+                                      ? '1px solid var(--border-secondary)' 
+                                      : 'none',
                                     opacity: 0,
                                     animation: 'fadeInUp 0.3s ease-out forwards',
-                                    animationDelay: `${0.1 * (index + 1)}s`
-                                  }}>
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-sm)' }}>
-                                      <span>{map.name}</span>
+                                    animationDelay: `${0.05 * (index + 1)}s`,
+                                    background: map.isActive 
+                                      ? 'linear-gradient(90deg, rgba(0, 212, 255, 0.08), rgba(0, 230, 255, 0.02))'
+                                      : 'transparent',
+                                    transition: 'all 0.2s ease'
+                                  }}
+                                  onMouseEnter={(e) => {
+                                    if (!map.isActive) {
+                                      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
+                                    }
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    if (!map.isActive) {
+                                      e.currentTarget.style.background = 'transparent';
+                                    }
+                                  }}
+                                  >
+                                    <div style={{ 
+                                      display: 'flex', 
+                                      alignItems: 'center', 
+                                      gap: 'var(--space-sm)', 
+                                      flex: 1,
+                                      minWidth: 0
+                                    }}>
                                       <span style={{ 
-                                        color: map.isActive ? 'var(--success-color)' : 'var(--text-tertiary)',
-                                        fontSize: 'var(--font-size-xs)'
+                                        fontWeight: map.isActive ? '600' : '400',
+                                        color: map.isActive ? 'var(--primary-color)' : 'var(--text-secondary)',
+                                        flex: 1,
+                                        whiteSpace: 'nowrap',
+                                        overflow: 'hidden',
+                                        textOverflow: 'ellipsis'
                                       }}>
-                                        {map.isActive ? '활성' : '비활성'}
+                                        {map.name}
                                       </span>
+                                      {map.isActive && (
+                                        <span style={{ 
+                                          fontSize: 'var(--font-size-xs)',
+                                          color: 'var(--primary-color)',
+                                          fontWeight: '700',
+                                          textTransform: 'uppercase',
+                                          letterSpacing: '0.05em',
+                                          flexShrink: 0
+                                        }}>
+                                          ACTIVE
+                                        </span>
+                                      )}
                                     </div>
                                     <button
                                       onClick={() => handleRobotMapDownload(robot.id, map.id, map.name)}
+                                      disabled={loading.downloadingMaps[`${robot.id}-${map.id}`]}
                                       className="control-btn"
                                       style={{
                                         fontSize: 'var(--font-size-xs)',
                                         padding: '2px 6px',
                                         minWidth: 'auto',
-                                        backgroundColor: 'transparent',
-                                        border: '1px solid var(--border-primary)',
-                                        color: 'var(--text-secondary)',
-                                        transition: 'all 0.2s ease'
+                                        backgroundColor: downloadedMaps[`${robot.id}-${map.id}`] 
+                                          ? 'var(--status-success)' 
+                                          : 'transparent',
+                                        border: downloadedMaps[`${robot.id}-${map.id}`]
+                                          ? '1px solid var(--status-success)'
+                                          : '1px solid var(--border-primary)',
+                                        color: downloadedMaps[`${robot.id}-${map.id}`]
+                                          ? 'var(--bg-primary)'
+                                          : 'var(--text-secondary)',
+                                        transition: 'all 0.3s ease',
+                                        opacity: loading.downloadingMaps[`${robot.id}-${map.id}`] ? 0.6 : 1,
+                                        cursor: loading.downloadingMaps[`${robot.id}-${map.id}`] ? 'not-allowed' : 'pointer'
                                       }}
                                       onMouseOver={(e) => {
-                                        e.target.style.backgroundColor = 'var(--primary-color)';
-                                        e.target.style.color = 'white';
-                                        e.target.style.borderColor = 'var(--primary-color)';
+                                        if (!loading.downloadingMaps[`${robot.id}-${map.id}`] && !downloadedMaps[`${robot.id}-${map.id}`]) {
+                                          e.target.style.backgroundColor = 'var(--primary-color)';
+                                          e.target.style.color = 'white';
+                                          e.target.style.borderColor = 'var(--primary-color)';
+                                        }
                                       }}
                                       onMouseOut={(e) => {
-                                        e.target.style.backgroundColor = 'transparent';
-                                        e.target.style.color = 'var(--text-secondary)';
-                                        e.target.style.borderColor = 'var(--border-primary)';
+                                        if (!downloadedMaps[`${robot.id}-${map.id}`]) {
+                                          e.target.style.backgroundColor = 'transparent';
+                                          e.target.style.color = 'var(--text-secondary)';
+                                          e.target.style.borderColor = 'var(--border-primary)';
+                                        }
                                       }}
-                                      title={`${map.name} 맵 다운로드`}
+                                      title={
+                                        downloadedMaps[`${robot.id}-${map.id}`]
+                                          ? '서버에 저장 완료'
+                                          : loading.downloadingMaps[`${robot.id}-${map.id}`]
+                                          ? '다운로드 중...'
+                                          : `${map.name} 맵을 서버에 저장`
+                                      }
                                     >
-                                      <i className="fas fa-download"></i>
+                                      {loading.downloadingMaps[`${robot.id}-${map.id}`] ? (
+                                        <i className="fas fa-spinner fa-spin"></i>
+                                      ) : downloadedMaps[`${robot.id}-${map.id}`] ? (
+                                        <i className="fas fa-check"></i>
+                                      ) : (
+                                        <i className="fas fa-download"></i>
+                                      )}
                                     </button>
                                   </div>
-                                ))
+                                  ))}
+                                </div>
                               ) : (
                                 <div style={{
                                   display: 'flex',

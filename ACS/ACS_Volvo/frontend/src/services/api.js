@@ -3,6 +3,9 @@ import { API_ENDPOINTS } from '../constants';
 
 const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
+// BASE_URL을 다른 곳에서도 사용할 수 있도록 export
+export { BASE_URL };
+
 // axios 인스턴스 생성
 const apiClient = axios.create({
   baseURL: BASE_URL,
@@ -96,6 +99,17 @@ export const robotsAPI = {
       console.error('AMR 이동 요청 API 에러:', error);
       throw new Error(error.response?.data?.message || 'AMR 이동 요청에 실패했습니다.');
     }
+  },
+
+  // 로봇의 맵 목록 조회
+  getMaps: async (robotId) => {
+    try {
+      const response = await apiClient.get(`${API_ENDPOINTS.ROBOTS}/${robotId}/maps`);
+      return response.data;
+    } catch (error) {
+      console.error('로봇 맵 목록 조회 API 에러:', error);
+      throw new Error(error.response?.data?.message || '로봇 맵 목록 조회에 실패했습니다.');
+    }
   }
 };
 
@@ -161,7 +175,8 @@ export const api = {
   updateMissionStatus: (id, status) => missionsAPI.updateStatus(id, status),
   deleteMission: (id) => missionsAPI.delete(id),
   updateRobotStatus: (id, status) => robotsAPI.updateStatus(id, status),
-  updateRobotLocation: (id, location) => robotsAPI.updateLocation(id, location)
+  updateRobotLocation: (id, location) => robotsAPI.updateLocation(id, location),
+  getRobotMaps: (robotId) => robotsAPI.getMaps(robotId)
 };
 
 export const mockData = {
