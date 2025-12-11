@@ -22,6 +22,7 @@ import asyncio
 import argparse
 import json
 import logging
+from fractions import Fraction
 import cv2
 import numpy as np
 from datetime import datetime
@@ -38,15 +39,29 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger('broadcaster')
 
 
+def _blank_frame(width=640, height=480, text='N/A'):
+    frame = np.zeros((height, width, 3), dtype=np.uint8)
+    cv2.putText(frame, text, (30, 50), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 0, 255), 3)
+    return frame
+
+
+def _put_label(frame, label):
+    cv2.rectangle(frame, (0, 0), (200, 40), (0, 0, 0), thickness=-1)
+    cv2.putText(frame, label, (10, 28), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+    return frame
+
+
 class WebcamVideoTrack(VideoStreamTrack):
-    """웹캠에서 프레임을 읽어오는 VideoStreamTrack"""
+    """웹캠에서 프레임을 읽어오는 VideoStreamTrack (단일 채널)"""
     
-    def __init__(self, source=0):
+    def __init__(self, source=0, label='CAM'):
         super().__init__()
         self.source = source
+        self.label = label
         self.cap = None
         self._start_time = None
         self._frame_count = 0
+        self._opened = False
         
     async def recv(self):
         if self.cap is None:
@@ -55,40 +70,38 @@ class WebcamVideoTrack(VideoStreamTrack):
             self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
             self.cap.set(cv2.CAP_PROP_FPS, 30)
             self._start_time = asyncio.get_event_loop().time()
+            self._opened = self.cap.isOpened()
+            if not self._opened:
+                logger.warning(f'카메라 {self.label} (source={self.source}) 열기 실패')
         
         # 타이밍 조절 (30fps)
         pts = self._frame_count
         self._frame_count += 1
         
-        # 다음 프레임 시간까지 대기
         target_time = self._start_time + (pts / 30)
         current_time = asyncio.get_event_loop().time()
         if target_time > current_time:
             await asyncio.sleep(target_time - current_time)
         
-        # 프레임 읽기
-        ret, frame = self.cap.read()
+        ret, frame = self.cap.read() if self.cap else (False, None)
         if not ret:
-            # 웹캠 재연결 시도
-            self.cap.release()
+            if self.cap:
+                self.cap.release()
             self.cap = cv2.VideoCapture(self.source)
+            self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+            self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+            self.cap.set(cv2.CAP_PROP_FPS, 30)
             ret, frame = self.cap.read()
-            if not ret:
-                # 검은 화면 반환
-                frame = np.zeros((480, 640, 3), dtype=np.uint8)
         
-        # BGR -> RGB 변환
-        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        if not ret:
+            frame = _blank_frame(text=f'{self.label}: N/A')
+        else:
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            frame = _put_label(frame, self.label)
         
-        # 타임스탬프 오버레이 (선택사항)
-        # timestamp = datetime.now().strftime('%H:%M:%S')
-        # cv2.putText(frame, timestamp, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
-        
-        # VideoFrame 생성
         video_frame = VideoFrame.from_ndarray(frame, format='rgb24')
         video_frame.pts = pts
-        video_frame.time_base = '1/30'
-        
+        video_frame.time_base = Fraction(1, 30)
         return video_frame
     
     def stop(self):
@@ -147,19 +160,96 @@ class TestPatternTrack(VideoStreamTrack):
         
         video_frame = VideoFrame.from_ndarray(frame, format='rgb24')
         video_frame.pts = pts
-        video_frame.time_base = '1/30'
+        video_frame.time_base = Fraction(1, 30)
         
         return video_frame
 
 
+class CompositeQuadTrack(VideoStreamTrack):
+    """4개 소스를 2x2 그리드로 합성"""
+    
+    def __init__(self, sources):
+        """
+        sources: [(label, source_idx_or_path), ...] 길이 최대 4
+        """
+        super().__init__()
+        self.sources = sources
+        self.caps = {}
+        self._start_time = None
+        self._frame_count = 0
+    
+    def _get_frame(self, label, source):
+        cap = self.caps.get(source)
+        if cap is None:
+            cap = cv2.VideoCapture(source)
+            cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+            cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+            cap.set(cv2.CAP_PROP_FPS, 30)
+            self.caps[source] = cap
+            if not cap.isOpened():
+                logger.warning(f'합성용 카메라 {label} (source={source}) 열기 실패')
+        
+        ret, frame = cap.read() if cap else (False, None)
+        if not ret:
+            if cap:
+                cap.release()
+            self.caps[source] = cv2.VideoCapture(source)
+            self.caps[source].set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+            self.caps[source].set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+            self.caps[source].set(cv2.CAP_PROP_FPS, 30)
+            ret, frame = self.caps[source].read()
+        
+        if not ret:
+            frame = _blank_frame(text=f'{label}: N/A')
+        else:
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            frame = _put_label(frame, label)
+        return frame
+    
+    async def recv(self):
+        if self._start_time is None:
+            self._start_time = asyncio.get_event_loop().time()
+        
+        pts = self._frame_count
+        self._frame_count += 1
+        
+        target_time = self._start_time + (pts / 30)
+        current_time = asyncio.get_event_loop().time()
+        if target_time > current_time:
+            await asyncio.sleep(target_time - current_time)
+        
+        frames = []
+        for label, source in self.sources:
+            frames.append(self._get_frame(label, source))
+        
+        # 부족한 소스는 블랭크로 채움
+        while len(frames) < 4:
+            frames.append(_blank_frame(text='EMPTY'))
+        
+        top = np.concatenate(frames[:2], axis=1)
+        bottom = np.concatenate(frames[2:], axis=1)
+        grid = np.concatenate([top, bottom], axis=0)
+        
+        video_frame = VideoFrame.from_ndarray(grid, format='rgb24')
+        video_frame.pts = pts
+        video_frame.time_base = Fraction(1, 30)
+        return video_frame
+    
+    def stop(self):
+        for cap in self.caps.values():
+            if cap:
+                cap.release()
+        self.caps.clear()
+
+
 class WebRTCBroadcaster:
-    def __init__(self, server_url, room_id, source):
+    def __init__(self, server_url, room_id, source, video_track=None):
         self.server_url = server_url
         self.room_id = room_id
         self.source = source
         self.ws = None
         self.peer_connections = {}  # viewerId -> RTCPeerConnection
-        self.video_track = None
+        self.video_track = video_track
         self.running = False
         
     def create_video_track(self):
@@ -174,11 +264,11 @@ class WebRTCBroadcaster:
             try:
                 source_index = int(self.source)
                 logger.info(f'웹캠 {source_index} 사용')
-                return WebcamVideoTrack(source_index)
+                return WebcamVideoTrack(source_index, label=f'CAM{source_index}')
             except ValueError:
                 # 파일 경로
                 logger.info(f'비디오 파일 사용: {self.source}')
-                return WebcamVideoTrack(self.source)
+                return WebcamVideoTrack(self.source, label='FILE')
     
     async def connect(self):
         """시그널링 서버에 연결"""
@@ -196,7 +286,8 @@ class WebRTCBroadcaster:
             })
             
             self.running = True
-            self.video_track = self.create_video_track()
+            if self.video_track is None:
+                self.video_track = self.create_video_track()
             
             # 메시지 수신 루프
             async for msg in self.ws:
@@ -345,9 +436,15 @@ async def main():
     parser.add_argument('--server', default='ws://localhost:8083',
                        help='시그널링 서버 URL (기본: ws://localhost:8083)')
     parser.add_argument('--room', default='robot-front',
-                       help='방 ID (기본: robot-front)')
+                       help='단일 모드일 때 방 ID (기본: robot-front)')
     parser.add_argument('--source', default='0',
-                       help='비디오 소스: 웹캠 인덱스(0,1,2...), 파일경로, 또는 test (기본: 0)')
+                       help='단일 모드: 비디오 소스 (기본: 0)')
+    parser.add_argument('--mode', choices=['single', 'multi'], default='single',
+                       help='single: 기존 1채널, multi: 4채널+합성 5채널')
+    parser.add_argument('--devices', default='0,1,2,3',
+                       help='multi 모드에서 front,back,right,left 순서의 카메라 인덱스. 예) 0,1,2,3')
+    parser.add_argument('--combined-room', default='amr-all',
+                       help='합성 채널 방 이름 (기본: amr-all)')
     
     args = parser.parse_args()
     
@@ -357,20 +454,55 @@ async def main():
     print('=' * 50)
     print()
     print(f'  시그널링 서버: {args.server}')
-    print(f'  방 ID: {args.room}')
-    print(f'  비디오 소스: {args.source}')
+    if args.mode == 'single':
+        print(f'  방 ID: {args.room}')
+        print(f'  비디오 소스: {args.source}')
+    else:
+        print('  모드: multi (5채널 송출)')
+        print(f'  카메라 인덱스(front,back,right,left): {args.devices}')
+        print(f'  합성 방 이름: {args.combined_room}')
     print()
     print('  Ctrl+C로 종료')
     print()
     
-    broadcaster = WebRTCBroadcaster(args.server, args.room, args.source)
-    
     try:
-        await broadcaster.connect()
+        if args.mode == 'single':
+            broadcaster = WebRTCBroadcaster(args.server, args.room, args.source)
+            await broadcaster.connect()
+        else:
+            device_tokens = [t.strip() for t in args.devices.split(',') if t.strip() != '']
+            while len(device_tokens) < 4:
+                device_tokens.append(str(len(device_tokens)))
+            def _parse_source(token):
+                try:
+                    return int(token)
+                except ValueError:
+                    return token
+            device_indices = [_parse_source(tok) for tok in device_tokens[:4]]
+            
+            names = ['amr-front', 'amr-back', 'amr-right', 'amr-left']
+            tracks = []
+            broadcasters = []
+            
+            for name, dev in zip(names, device_indices):
+                track = WebcamVideoTrack(source=dev, label=name)
+                tracks.append(track)
+                broadcasters.append(WebRTCBroadcaster(args.server, name, dev, video_track=track))
+            
+            composite_track = CompositeQuadTrack(list(zip(names, device_indices)))
+            broadcasters.append(WebRTCBroadcaster(args.server, args.combined_room, 'composite', video_track=composite_track))
+            
+            await asyncio.gather(*[bc.connect() for bc in broadcasters])
     except KeyboardInterrupt:
         print('\n종료 요청됨...')
     finally:
-        await broadcaster.cleanup()
+        # 정리
+        if args.mode == 'single':
+            await broadcaster.cleanup()
+        else:
+            if 'broadcasters' in locals():
+                for bc in broadcasters:
+                    await bc.cleanup()
 
 
 if __name__ == '__main__':
