@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebRTC 영상 송출</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #e4e4e7;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .card-title {
+      font-size: 0.9rem;
+      color: #a1a1aa;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      align-items: flex-end;
+    }
+    
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    
+    label {
+      font-size: 0.75rem;
+      color: #71717a;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    input, select {
+      padding: 10px 15px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: #e4e4e7;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    
+    input:focus, select:focus {
+      border-color: #3b82f6;
+    }
+    
+    input::placeholder {
+      color: #52525b;
+    }
+    
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    }
+    
+    .btn-danger {
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+      color: white;
+    }
+    
+    .btn-danger:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+    }
+    
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #a1a1aa;
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+    
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    
+    .status-disconnected {
+      background: rgba(113, 113, 122, 0.2);
+      color: #71717a;
+    }
+    .status-disconnected .status-dot { background: #71717a; }
+    
+    .status-connecting {
+      background: rgba(245, 158, 11, 0.2);
+      color: #f59e0b;
+    }
+    .status-connecting .status-dot { 
+      background: #f59e0b;
+      animation: pulse 1s infinite;
+    }
+    
+    .status-connected {
+      background: rgba(34, 197, 94, 0.2);
+      color: #22c55e;
+    }
+    .status-connected .status-dot { 
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+    }
+    
+    .status-error {
+      background: rgba(239, 68, 68, 0.2);
+      color: #ef4444;
+    }
+    .status-error .status-dot { background: #ef4444; }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    
+    .info-box {
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 15px;
+    }
+    
+    .info-box h4 {
+      color: #3b82f6;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+    }
+    
+    .info-box p {
+      font-size: 0.8rem;
+      color: #a1a1aa;
+      line-height: 1.6;
+    }
+    
+    .info-box code {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      color: #f59e0b;
+    }
+    
+    .viewers {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: #a1a1aa;
+    }
+    
+    .viewers-count {
+      background: rgba(139, 92, 246, 0.2);
+      color: #8b5cf6;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+    
+    .log {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      padding: 15px;
+      max-height: 150px;
+      overflow-y: auto;
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: #71717a;
+    }
+    
+    .log-entry {
+      padding: 2px 0;
+    }
+    
+    .log-entry.info { color: #3b82f6; }
+    .log-entry.success { color: #22c55e; }
+    .log-entry.error { color: #ef4444; }
+    .log-entry.warning { color: #f59e0b; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📹 WebRTC 영상 송출</h1>
+    
+    <!-- 설정 카드 -->
+    <div class="card">
+      <div class="card-title">
+        <span>⚙️</span>
+        연결 설정
+      </div>
+      <div class="controls">
+        <div class="control-group">
+          <label>시그널링 서버</label>
+          <input type="text" id="serverUrl" value="ws://localhost:8083" placeholder="ws://서버주소:8083">
+        </div>
+        <div class="control-group">
+          <label>방 ID</label>
+          <input type="text" id="roomId" value="robot-front" placeholder="고유한 방 ID">
+        </div>
+        <div class="control-group">
+          <label>비디오 소스</label>
+          <select id="videoSource">
+            <option value="">로딩 중...</option>
+          </select>
+        </div>
+        <button id="startBtn" class="btn-primary" onclick="startBroadcast()">
+          <span>▶</span> 송출 시작
+        </button>
+        <button id="stopBtn" class="btn-danger" onclick="stopBroadcast()" disabled>
+          <span>⏹</span> 송출 중지
+        </button>
+      </div>
+      
+      <div class="info-box">
+        <h4>💡 사용 방법</h4>
+        <p>
+          1. <strong>시그널링 서버</strong>: ACS 백엔드 서버 주소 (예: <code>ws://192.168.0.10:8083</code>)<br>
+          2. <strong>방 ID</strong>: 시청자와 공유할 고유 ID (예: <code>robot-front</code>)<br>
+          3. <strong>비디오 소스</strong>: 웹캠 또는 화면 공유 선택<br>
+          4. "송출 시작" 클릭 후 ACS 영상 페이지에서 같은 방 ID로 연결
+        </p>
+      </div>
+    </div>
+    
+    <!-- 미리보기 카드 -->
+    <div class="card">
+      <div class="card-title" style="justify-content: space-between;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span>📺</span>
+          미리보기
+        </div>
+        <div style="display: flex; align-items: center; gap: 15px;">
+          <div class="viewers">
+            <span>👥 시청자:</span>
+            <span id="viewerCount" class="viewers-count">0</span>
+          </div>
+          <div id="status" class="status status-disconnected">
+            <div class="status-dot"></div>
+            <span>연결 안됨</span>
+          </div>
+        </div>
+      </div>
+      <div class="video-container">
+        <video id="localVideo" autoplay muted playsinline></video>
+      </div>
+    </div>
+    
+    <!-- 로그 카드 -->
+    <div class="card">
+      <div class="card-title">
+        <span>📋</span>
+        로그
+      </div>
+      <div id="log" class="log"></div>
+    </div>
+  </div>
+
+  <script>
+    let ws = null;
+    let localStream = null;
+    const peerConnections = new Map(); // viewerId -> RTCPeerConnection
+    let viewerCount = 0;
+
+    // 비디오 소스 목록 로드
+    async function loadVideoSources() {
+      const select = document.getElementById('videoSource');
+      select.innerHTML = '';
+      
+      try {
+        // 먼저 권한 요청
+        await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+        
+        const devices = await navigator.mediaDevices.enumerateDevices();
+        const videoDevices = devices.filter(d => d.kind === 'videoinput');
+        
+        videoDevices.forEach((device, index) => {
+          const option = document.createElement('option');
+          option.value = device.deviceId;
+          option.text = device.label || `카메라 ${index + 1}`;
+          select.appendChild(option);
+        });
+        
+        // 화면 공유 옵션 추가
+        const screenOption = document.createElement('option');
+        screenOption.value = 'screen';
+        screenOption.text = '🖥️ 화면 공유';
+        select.appendChild(screenOption);
+        
+      } catch (error) {
+        log('카메라 접근 오류: ' + error.message, 'error');
+        select.innerHTML = '<option value="">카메라를 찾을 수 없습니다</option>';
+      }
+    }
+
+    // 로그 출력
+    function log(message, type = 'info') {
+      const logDiv = document.getElementById('log');
+      const time = new Date().toLocaleTimeString();
+      const entry = document.createElement('div');
+      entry.className = `log-entry ${type}`;
+      entry.textContent = `[${time}] ${message}`;
+      logDiv.appendChild(entry);
+      logDiv.scrollTop = logDiv.scrollHeight;
+      console.log(`[${type}] ${message}`);
+    }
+
+    // 상태 업데이트
+    function updateStatus(status, text) {
+      const statusDiv = document.getElementById('status');
+      statusDiv.className = `status status-${status}`;
+      statusDiv.innerHTML = `<div class="status-dot"></div><span>${text}</span>`;
+    }
+
+    // 시청자 수 업데이트
+    function updateViewerCount(count) {
+      viewerCount = count;
+      document.getElementById('viewerCount').textContent = count;
+    }
+
+    // 송출 시작
+    async function startBroadcast() {
+      const serverUrl = document.getElementById('serverUrl').value;
+      const roomId = document.getElementById('roomId').value;
+      const videoSourceId = document.getElementById('videoSource').value;
+      
+      if (!serverUrl || !roomId) {
+        log('서버 URL과 방 ID를 입력하세요.', 'error');
+        return;
+      }
+
+      try {
+        updateStatus('connecting', '연결 중...');
+        log('미디어 스트림 획득 중...');
+
+        // 미디어 스트림 획득
+        if (videoSourceId === 'screen') {
+          localStream = await navigator.mediaDevices.getDisplayMedia({
+            video: { cursor: 'always' },
+            audio: false
+          });
+        } else {
+          localStream = await navigator.mediaDevices.getUserMedia({
+            video: videoSourceId ? { deviceId: { exact: videoSourceId } } : true,
+            audio: false
+          });
+        }
+
+        document.getElementById('localVideo').srcObject = localStream;
+        log('미디어 스트림 획득 완료', 'success');
+
+        // WebSocket 연결
+        log(`시그널링 서버 연결: ${serverUrl}`);
+        ws = new WebSocket(serverUrl);
+
+        ws.onopen = () => {
+          log('시그널링 서버 연결 성공', 'success');
+          ws.send(JSON.stringify({
+            type: 'join-as-broadcaster',
+            roomId
+          }));
+        };
+
+        ws.onmessage = async (event) => {
+          const data = JSON.parse(event.data);
+          await handleSignalingMessage(data);
+        };
+
+        ws.onerror = (error) => {
+          log('WebSocket 오류', 'error');
+          updateStatus('error', '연결 오류');
+        };
+
+        ws.onclose = () => {
+          log('WebSocket 연결 종료', 'warning');
+          updateStatus('disconnected', '연결 안됨');
+        };
+
+        document.getElementById('startBtn').disabled = true;
+        document.getElementById('stopBtn').disabled = false;
+
+      } catch (error) {
+        log('송출 시작 오류: ' + error.message, 'error');
+        updateStatus('error', '오류');
+      }
+    }
+
+    // 시그널링 메시지 처리
+    async function handleSignalingMessage(data) {
+      switch (data.type) {
+        case 'joined':
+          log(`방 참가 완료: ${data.roomId}`, 'success');
+          updateStatus('connected', '송출 중');
+          break;
+
+        case 'viewer-joined':
+          log(`새 시청자 연결: ${data.viewerId}`);
+          await createPeerConnection(data.viewerId);
+          updateViewerCount(viewerCount + 1);
+          break;
+
+        case 'viewer-left':
+          log(`시청자 퇴장: ${data.viewerId}`);
+          closePeerConnection(data.viewerId);
+          updateViewerCount(Math.max(0, viewerCount - 1));
+          break;
+
+        case 'answer':
+          await handleAnswer(data.viewerId, data.answer);
+          break;
+
+        case 'ice-candidate':
+          await handleIceCandidate(data.viewerId, data.candidate);
+          break;
+
+        case 'error':
+          log('오류: ' + data.message, 'error');
+          break;
+      }
+    }
+
+    // PeerConnection 생성 및 Offer 전송
+    async function createPeerConnection(viewerId) {
+      try {
+        const pc = new RTCPeerConnection({
+          iceServers: [
+            { urls: 'stun:stun.l.google.com:19302' },
+            { urls: 'stun:stun1.l.google.com:19302' }
+          ]
+        });
+
+        peerConnections.set(viewerId, pc);
+
+        // 로컬 스트림 추가
+        localStream.getTracks().forEach(track => {
+          pc.addTrack(track, localStream);
+        });
+
+        // ICE Candidate 전송
+        pc.onicecandidate = (event) => {
+          if (event.candidate && ws?.readyState === WebSocket.OPEN) {
+            ws.send(JSON.stringify({
+              type: 'ice-candidate',
+              viewerId,
+              candidate: event.candidate
+            }));
+          }
+        };
+
+        // 연결 상태 모니터링
+        pc.onconnectionstatechange = () => {
+          log(`${viewerId} 연결 상태: ${pc.connectionState}`);
+        };
+
+        // Offer 생성 및 전송
+        const offer = await pc.createOffer();
+        await pc.setLocalDescription(offer);
+
+        if (ws?.readyState === WebSocket.OPEN) {
+          ws.send(JSON.stringify({
+            type: 'offer',
+            viewerId,
+            offer: pc.localDescription
+          }));
+        }
+
+        log(`${viewerId}에게 Offer 전송`, 'info');
+
+      } catch (error) {
+        log(`PeerConnection 생성 오류: ${error.message}`, 'error');
+      }
+    }
+
+    // Answer 처리
+    async function handleAnswer(viewerId, answer) {
+      const pc = peerConnections.get(viewerId);
+      if (pc) {
+        await pc.setRemoteDescription(new RTCSessionDescription(answer));
+        log(`${viewerId}로부터 Answer 수신`, 'success');
+      }
+    }
+
+    // ICE Candidate 처리
+    async function handleIceCandidate(viewerId, candidate) {
+      const pc = peerConnections.get(viewerId);
+      if (pc && candidate) {
+        await pc.addIceCandidate(new RTCIceCandidate(candidate));
+      }
+    }
+
+    // PeerConnection 종료
+    function closePeerConnection(viewerId) {
+      const pc = peerConnections.get(viewerId);
+      if (pc) {
+        pc.close();
+        peerConnections.delete(viewerId);
+      }
+    }
+
+    // 송출 중지
+    function stopBroadcast() {
+      // WebSocket 종료
+      if (ws) {
+        ws.close();
+        ws = null;
+      }
+
+      // 모든 PeerConnection 종료
+      peerConnections.forEach((pc, viewerId) => {
+        pc.close();
+      });
+      peerConnections.clear();
+
+      // 미디어 스트림 종료
+      if (localStream) {
+        localStream.getTracks().forEach(track => track.stop());
+        localStream = null;
+      }
+
+      document.getElementById('localVideo').srcObject = null;
+      document.getElementById('startBtn').disabled = false;
+      document.getElementById('stopBtn').disabled = true;
+      
+      updateStatus('disconnected', '연결 안됨');
+      updateViewerCount(0);
+      log('송출 중지', 'warning');
+    }
+
+    // 페이지 로드 시 비디오 소스 목록 로드
+    window.onload = loadVideoSources;
+    
+    // 페이지 종료 시 정리
+    window.onbeforeunload = stopBroadcast;
+  </script>
+</body>
+</html>
+

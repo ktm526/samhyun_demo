@@ -1,92 +1,62 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 const VideoPage = () => {
-  const [robots, setRobots] = useState([]);
-  const [selectedRobot, setSelectedRobot] = useState('');
-  const [selectedView, setSelectedView] = useState('front');
-  const [loading, setLoading] = useState(true);
-  const [streamStatus, setStreamStatus] = useState('disconnected'); // disconnected, connecting, connected, error
+  const [rooms, setRooms] = useState([]);
+  const [selectedRoom, setSelectedRoom] = useState('');
+  const [customRoom, setCustomRoom] = useState('');
+  const [useCustomRoom, setUseCustomRoom] = useState(false);
+  const [connectionStatus, setConnectionStatus] = useState('disconnected'); // disconnected, connecting, connected, error
   const [errorMessage, setErrorMessage] = useState('');
-  const [customRtspUrl, setCustomRtspUrl] = useState('');
-  const [useCustomUrl, setUseCustomUrl] = useState(false);
-  const [wsPort, setWsPort] = useState(8082);
-  const [streamMode, setStreamMode] = useState('mjpeg'); // rtsp, mjpeg
+  const [signalingUrl, setSignalingUrl] = useState('');
   
-  const canvasRef = useRef(null);
-  const imgRef = useRef(null);
+  const videoRef = useRef(null);
   const wsRef = useRef(null);
-  const playerRef = useRef(null);
+  const pcRef = useRef(null);
+  const viewerIdRef = useRef(null);
 
   // API URL 설정
   const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
-  // 카메라 방향 정의 
-  const cameras = [
-    { id: 'front', label: '전방', icon: 'fas fa-arrow-up' },
-    { id: 'back', label: '후방', icon: 'fas fa-arrow-down' },
-    { id: 'left', label: '좌측', icon: 'fas fa-arrow-left' },
-    { id: 'right', label: '우측', icon: 'fas fa-arrow-right' }
-  ];
-
-  // 로봇 목록 로드
-  const loadRobots = async () => {
-    try {
-      setLoading(true);
-      const response = await fetch(`${API_URL}/api/robots`);
-      const data = await response.json();
-      
-      if (response.ok) {
-        const robotsArray = data.data || [];
-        setRobots(robotsArray);
-        
-        if (robotsArray.length > 0) {
-          setSelectedRobot(robotsArray[0].id);
-        }
-      } else {
-        console.error('로봇 목록 로드 실패:', data.error);
-        setRobots([]);
-      }
-    } catch (error) {
-      console.error('로봇 목록 가져오기 실패:', error);
-      setRobots([]);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // 비디오 설정 로드
-  const loadVideoConfig = async () => {
+  // WebRTC 설정 로드
+  const loadConfig = async () => {
     try {
       const response = await fetch(`${API_URL}/api/video/config`);
       const data = await response.json();
       if (data.success) {
-        setWsPort(data.wsPort);
+        // 현재 호스트 기반으로 시그널링 URL 생성
+        const wsHost = window.location.hostname;
+        setSignalingUrl(`ws://${wsHost}:${data.signalingPort}`);
       }
     } catch (error) {
       console.error('비디오 설정 로드 실패:', error);
     }
   };
 
-  useEffect(() => {
-    loadRobots();
-    loadVideoConfig();
-  }, []);
-
-  // 상태 색상 가져오기
-  const getStatusColor = (status) => {
-    switch (status?.toLowerCase()) {
-      case 'moving': return '#3B82F6';
-      case 'idle': return '#22C55E';
-      case 'charging': return '#F59E0B';
-      case 'working': return '#F59E0B';
-      case 'error': return '#EF4444';
-      default: return '#6B7280';
+  // 활성 방 목록 로드
+  const loadRooms = async () => {
+    try {
+      const response = await fetch(`${API_URL}/api/video/rooms`);
+      const data = await response.json();
+      if (data.success) {
+        setRooms(data.data || []);
+      }
+    } catch (error) {
+      console.error('방 목록 로드 실패:', error);
     }
   };
 
+  useEffect(() => {
+    loadConfig();
+    loadRooms();
+    
+    // 주기적으로 방 목록 갱신
+    const interval = setInterval(loadRooms, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   // 스트림 상태 색상
-  const getStreamStatusColor = () => {
-    switch (streamStatus) {
+  const getStatusColor = () => {
+    switch (connectionStatus) {
       case 'connected': return 'var(--status-success)';
       case 'connecting': return 'var(--status-warning)';
       case 'error': return 'var(--status-error)';
@@ -95,8 +65,8 @@ const VideoPage = () => {
   };
 
   // 스트림 상태 텍스트
-  const getStreamStatusText = () => {
-    switch (streamStatus) {
+  const getStatusText = () => {
+    switch (connectionStatus) {
       case 'connected': return '연결됨';
       case 'connecting': return '연결 중...';
       case 'error': return '오류';
@@ -104,208 +74,223 @@ const VideoPage = () => {
     }
   };
 
-  // RTSP URL 생성
-  const getRtspUrl = useCallback(() => {
-    if (useCustomUrl && customRtspUrl) {
-      return customRtspUrl;
+  // 현재 방 ID
+  const getCurrentRoomId = useCallback(() => {
+    if (useCustomRoom && customRoom) {
+      return customRoom;
     }
-    
-    const robot = robots.find(r => r.id == selectedRobot);
-    if (!robot || !robot.ip_address) {
-      return null;
-    }
-    
-    // 기본 RTSP URL 형식 (실제 환경에 맞게 수정)
-    return `rtsp://${robot.ip_address}:8554/${selectedView}`;
-  }, [useCustomUrl, customRtspUrl, robots, selectedRobot, selectedView]);
+    return selectedRoom;
+  }, [useCustomRoom, customRoom, selectedRoom]);
 
-  // 스트림 연결
-  const connectStream = useCallback(() => {
-    const streamUrl = getRtspUrl();
+  // WebRTC 연결 시작
+  const connect = useCallback(async () => {
+    const roomId = getCurrentRoomId();
     
-    if (!streamUrl) {
-      setErrorMessage('스트림 URL을 생성할 수 없습니다. 로봇 IP를 확인하세요.');
-      setStreamStatus('error');
+    if (!roomId) {
+      setErrorMessage('방 ID를 입력하거나 선택하세요.');
+      setConnectionStatus('error');
+      return;
+    }
+
+    if (!signalingUrl) {
+      setErrorMessage('시그널링 서버 URL을 확인할 수 없습니다.');
+      setConnectionStatus('error');
       return;
     }
 
     // 기존 연결 정리
-    disconnectStream();
+    disconnect();
 
-    setStreamStatus('connecting');
+    setConnectionStatus('connecting');
     setErrorMessage('');
 
-    // MJPEG 모드
-    if (streamMode === 'mjpeg') {
-      console.log('[Video] MJPEG 스트림 연결:', streamUrl);
-      
-      if (imgRef.current) {
-        imgRef.current.src = streamUrl;
-        imgRef.current.onload = () => {
-          console.log('[Video] MJPEG 스트림 로드됨');
-          setStreamStatus('connected');
-        };
-        imgRef.current.onerror = () => {
-          console.error('[Video] MJPEG 스트림 오류');
-          setStreamStatus('error');
-          setErrorMessage('MJPEG 스트림 연결 실패. URL을 확인하세요.');
-        };
-      }
-      return;
-    }
-
-    // RTSP 모드 (WebSocket + JSMpeg)
     try {
       // WebSocket 연결
-      const wsUrl = `ws://localhost:${wsPort}`;
-      const ws = new WebSocket(wsUrl);
+      const ws = new WebSocket(signalingUrl);
       wsRef.current = ws;
 
-      ws.binaryType = 'arraybuffer';
-
       ws.onopen = () => {
-        console.log('[Video] WebSocket 연결됨');
-        
-        // 스트림 구독 요청
-        const streamId = `${selectedRobot}-${selectedView}`;
+        console.log('[WebRTC] 시그널링 서버 연결됨');
+        // 시청자로 방 참가
         ws.send(JSON.stringify({
-          action: 'subscribe',
-          streamId,
-          rtspUrl: streamUrl
+          type: 'join-as-viewer',
+          roomId
         }));
       };
 
-      ws.onmessage = (event) => {
-        // JSON 메시지 처리
-        if (typeof event.data === 'string') {
-          try {
-            const message = JSON.parse(event.data);
-            handleStreamMessage(message);
-          } catch (e) {
-            // JSON이 아닌 문자열 무시
-          }
-          return;
-        }
-
-        // 바이너리 데이터 (비디오 프레임)
-        if (event.data instanceof ArrayBuffer) {
-          if (playerRef.current) {
-            playerRef.current.write(new Uint8Array(event.data));
-          }
-        }
+      ws.onmessage = async (event) => {
+        const data = JSON.parse(event.data);
+        await handleSignalingMessage(data);
       };
 
       ws.onerror = (error) => {
-        console.error('[Video] WebSocket 오류:', error);
-        setStreamStatus('error');
-        setErrorMessage('WebSocket 연결 오류');
+        console.error('[WebRTC] WebSocket 오류:', error);
+        setConnectionStatus('error');
+        setErrorMessage('시그널링 서버 연결 오류');
       };
 
       ws.onclose = () => {
-        console.log('[Video] WebSocket 연결 종료');
-        if (streamStatus !== 'error') {
-          setStreamStatus('disconnected');
+        console.log('[WebRTC] WebSocket 연결 종료');
+        if (connectionStatus !== 'error') {
+          setConnectionStatus('disconnected');
         }
       };
 
-      // JSMpeg 플레이어 초기화
-      if (canvasRef.current && window.JSMpeg) {
-        playerRef.current = new window.JSMpeg.VideoElement(canvasRef.current, null, {
-          canvas: canvasRef.current,
-          autoplay: true,
-          audio: false,
-          loop: false,
-          disableGl: false
-        });
-      }
-
     } catch (error) {
-      console.error('[Video] 스트림 연결 오류:', error);
-      setStreamStatus('error');
+      console.error('[WebRTC] 연결 오류:', error);
+      setConnectionStatus('error');
       setErrorMessage(`연결 오류: ${error.message}`);
     }
-  }, [getRtspUrl, wsPort, selectedRobot, selectedView, streamStatus, streamMode]);
+  }, [getCurrentRoomId, signalingUrl, connectionStatus]);
 
-  // 스트림 메시지 처리
-  const handleStreamMessage = (message) => {
-    switch (message.type) {
-      case 'subscribed':
-        console.log('[Video] 스트림 구독 성공:', message.streamId);
-        setStreamStatus('connected');
+  // 시그널링 메시지 처리
+  const handleSignalingMessage = async (data) => {
+    console.log('[WebRTC] 메시지 수신:', data.type);
+
+    switch (data.type) {
+      case 'joined':
+        viewerIdRef.current = data.viewerId;
+        if (data.broadcasterReady) {
+          console.log('[WebRTC] 송출자 대기 중, offer 요청');
+        } else {
+          setConnectionStatus('connecting');
+          setErrorMessage('송출자 대기 중...');
+        }
         break;
+
+      case 'broadcaster-ready':
+        console.log('[WebRTC] 송출자 준비됨');
+        setErrorMessage('');
+        break;
+
+      case 'offer':
+        await handleOffer(data.offer);
+        break;
+
+      case 'ice-candidate':
+        await handleIceCandidate(data.candidate);
+        break;
+
+      case 'broadcaster-left':
+        console.log('[WebRTC] 송출자 퇴장');
+        setConnectionStatus('error');
+        setErrorMessage('송출자가 연결을 종료했습니다.');
+        cleanupPeerConnection();
+        break;
+
       case 'error':
-        console.error('[Video] 스트림 오류:', message.message);
-        setStreamStatus('error');
-        setErrorMessage(message.message);
-        break;
-      case 'closed':
-        console.log('[Video] 스트림 종료');
-        setStreamStatus('disconnected');
-        break;
-      default:
+        setConnectionStatus('error');
+        setErrorMessage(data.message);
         break;
     }
   };
 
-  // 스트림 연결 해제
-  const disconnectStream = useCallback(() => {
-    // MJPEG 모드
-    if (imgRef.current) {
-      imgRef.current.src = '';
-    }
+  // Offer 처리 및 Answer 생성
+  const handleOffer = async (offer) => {
+    try {
+      // PeerConnection 생성
+      const pc = new RTCPeerConnection({
+        iceServers: [
+          { urls: 'stun:stun.l.google.com:19302' },
+          { urls: 'stun:stun1.l.google.com:19302' }
+        ]
+      });
+      pcRef.current = pc;
 
-    // RTSP 모드
+      // 원격 스트림 수신
+      pc.ontrack = (event) => {
+        console.log('[WebRTC] 트랙 수신:', event.track.kind);
+        if (videoRef.current && event.streams[0]) {
+          videoRef.current.srcObject = event.streams[0];
+          setConnectionStatus('connected');
+          setErrorMessage('');
+        }
+      };
+
+      // ICE Candidate 전송
+      pc.onicecandidate = (event) => {
+        if (event.candidate && wsRef.current?.readyState === WebSocket.OPEN) {
+          wsRef.current.send(JSON.stringify({
+            type: 'ice-candidate',
+            candidate: event.candidate
+          }));
+        }
+      };
+
+      // 연결 상태 모니터링
+      pc.onconnectionstatechange = () => {
+        console.log('[WebRTC] 연결 상태:', pc.connectionState);
+        if (pc.connectionState === 'connected') {
+          setConnectionStatus('connected');
+        } else if (pc.connectionState === 'failed' || pc.connectionState === 'disconnected') {
+          setConnectionStatus('error');
+          setErrorMessage('WebRTC 연결이 끊어졌습니다.');
+        }
+      };
+
+      // Offer 설정
+      await pc.setRemoteDescription(new RTCSessionDescription(offer));
+
+      // Answer 생성 및 전송
+      const answer = await pc.createAnswer();
+      await pc.setLocalDescription(answer);
+
+      if (wsRef.current?.readyState === WebSocket.OPEN) {
+        wsRef.current.send(JSON.stringify({
+          type: 'answer',
+          answer: pc.localDescription
+        }));
+      }
+
+    } catch (error) {
+      console.error('[WebRTC] Offer 처리 오류:', error);
+      setConnectionStatus('error');
+      setErrorMessage(`연결 오류: ${error.message}`);
+    }
+  };
+
+  // ICE Candidate 처리
+  const handleIceCandidate = async (candidate) => {
+    try {
+      if (pcRef.current && candidate) {
+        await pcRef.current.addIceCandidate(new RTCIceCandidate(candidate));
+      }
+    } catch (error) {
+      console.error('[WebRTC] ICE Candidate 오류:', error);
+    }
+  };
+
+  // PeerConnection 정리
+  const cleanupPeerConnection = () => {
+    if (pcRef.current) {
+      pcRef.current.close();
+      pcRef.current = null;
+    }
+    if (videoRef.current) {
+      videoRef.current.srcObject = null;
+    }
+  };
+
+  // 연결 해제
+  const disconnect = useCallback(() => {
     if (wsRef.current) {
       if (wsRef.current.readyState === WebSocket.OPEN) {
-        const streamId = `${selectedRobot}-${selectedView}`;
-        wsRef.current.send(JSON.stringify({
-          action: 'unsubscribe',
-          streamId
-        }));
+        wsRef.current.send(JSON.stringify({ type: 'leave' }));
       }
       wsRef.current.close();
       wsRef.current = null;
     }
 
-    if (playerRef.current) {
-      playerRef.current = null;
-    }
-
-    setStreamStatus('disconnected');
-  }, [selectedRobot, selectedView]);
+    cleanupPeerConnection();
+    setConnectionStatus('disconnected');
+  }, []);
 
   // 컴포넌트 언마운트 시 정리
   useEffect(() => {
     return () => {
-      disconnectStream();
+      disconnect();
     };
-  }, []);
-
-  // 로봇 또는 카메라 변경 시 재연결
-  useEffect(() => {
-    if (streamStatus === 'connected') {
-      connectStream();
-    }
-  }, [selectedRobot, selectedView]);
-
-  if (loading) {
-    return (
-      <div style={{
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'var(--bg-primary)',
-        color: 'var(--text-primary)'
-      }}>
-        <div style={{ textAlign: 'center' }}>
-          <i className="fas fa-spinner fa-spin" style={{ fontSize: '2rem', marginBottom: '1rem' }}></i>
-          <div>로봇 정보를 불러오는 중...</div>
-        </div>
-      </div>
-    );
-  }
+  }, [disconnect]);
 
   return (
     <div style={{
@@ -317,7 +302,7 @@ const VideoPage = () => {
       fontFamily: 'Pretendard, sans-serif',
       overflow: 'auto'
     }}>
-      {/* 컨트롤 섹션 - 컴팩트 디자인 */}
+      {/* 컨트롤 섹션 */}
       <div style={{ 
         marginBottom: 'var(--space-md)',
         backgroundColor: 'var(--bg-secondary)',
@@ -331,12 +316,12 @@ const VideoPage = () => {
           flexWrap: 'wrap',
           gap: 'var(--space-md)'
         }}>
-          {/* 로봇 선택 */}
-          <div style={{ display: 'flex', alignItems: 'center' }}>
+          {/* 방 선택 */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-sm)' }}>
             <select
-              value={selectedRobot}
-              onChange={(e) => setSelectedRobot(e.target.value)}
-              disabled={useCustomUrl}
+              value={selectedRoom}
+              onChange={(e) => setSelectedRoom(e.target.value)}
+              disabled={useCustomRoom}
               style={{
                 padding: '6px 12px',
                 fontSize: 'var(--font-size-sm)',
@@ -344,100 +329,41 @@ const VideoPage = () => {
                 border: '1px solid var(--border-primary)',
                 borderRadius: 'var(--radius-sm)',
                 color: 'var(--text-primary)',
-                cursor: useCustomUrl ? 'not-allowed' : 'pointer',
-                opacity: useCustomUrl ? 0.5 : 1,
-                minWidth: '160px'
+                cursor: useCustomRoom ? 'not-allowed' : 'pointer',
+                opacity: useCustomRoom ? 0.5 : 1,
+                minWidth: '180px'
               }}
             >
-              {robots.length === 0 ? (
-                <option value="">로봇 없음</option>
-              ) : (
-                robots.map(robot => (
-                  <option key={robot.id} value={robot.id}>
-                    {robot.name || robot.id}
-                  </option>
-                ))
-              )}
+              <option value="">활성 스트림 선택...</option>
+              {rooms.map(room => (
+                <option key={room.roomId} value={room.roomId}>
+                  {room.roomId} ({room.viewerCount}명 시청)
+                </option>
+              ))}
             </select>
+            <button
+              onClick={loadRooms}
+              style={{
+                padding: '6px 10px',
+                backgroundColor: 'var(--bg-primary)',
+                border: '1px solid var(--border-primary)',
+                borderRadius: 'var(--radius-sm)',
+                color: 'var(--text-secondary)',
+                cursor: 'pointer',
+                fontSize: 'var(--font-size-xs)'
+              }}
+              title="새로고침"
+            >
+              <i className="fas fa-sync-alt"></i>
+            </button>
           </div>
 
           {/* 구분선 */}
           <div style={{ width: '1px', height: '24px', backgroundColor: 'var(--border-primary)' }} />
 
-          {/* 카메라 방향 */}
-          <div style={{ 
-            display: 'flex', 
-            gap: '2px',
-            backgroundColor: 'var(--bg-primary)',
-            padding: '3px',
-            borderRadius: 'var(--radius-sm)',
-            opacity: useCustomUrl ? 0.5 : 1
-          }}>
-            {cameras.map(camera => (
-              <button
-                key={camera.id}
-                onClick={() => setSelectedView(camera.id)}
-                disabled={useCustomUrl}
-                title={camera.label}
-                style={{
-                  padding: '6px 10px',
-                  backgroundColor: selectedView === camera.id ? 'var(--primary-color)' : 'transparent',
-                  border: 'none',
-                  borderRadius: 'var(--radius-xs)',
-                  color: selectedView === camera.id ? 'white' : 'var(--text-tertiary)',
-                  cursor: useCustomUrl ? 'not-allowed' : 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '4px',
-                  fontSize: 'var(--font-size-xs)',
-                  transition: 'all 0.15s ease'
-                }}
-              >
-                <i className={camera.icon} style={{ fontSize: '11px' }}></i>
-                <span>{camera.label}</span>
-              </button>
-            ))}
-          </div>
-
-          {/* 구분선 */}
-          <div style={{ width: '1px', height: '24px', backgroundColor: 'var(--border-primary)' }} />
-
-          {/* 스트림 모드 */}
-          <div style={{ 
-            display: 'flex', 
-            gap: '2px',
-            backgroundColor: 'var(--bg-primary)',
-            padding: '3px',
-            borderRadius: 'var(--radius-sm)'
-          }}>
-            {['mjpeg', 'rtsp'].map(mode => (
-              <button
-                key={mode}
-                onClick={() => setStreamMode(mode)}
-                style={{
-                  padding: '6px 12px',
-                  backgroundColor: streamMode === mode ? 'var(--primary-color)' : 'transparent',
-                  border: 'none',
-                  borderRadius: 'var(--radius-xs)',
-                  color: streamMode === mode ? 'white' : 'var(--text-tertiary)',
-                  cursor: 'pointer',
-                  fontSize: 'var(--font-size-xs)',
-                  fontWeight: '500',
-                  transition: 'all 0.15s ease',
-                  textTransform: 'uppercase'
-                }}
-              >
-                {mode}
-              </button>
-            ))}
-          </div>
-
-          {/* 구분선 */}
-          <div style={{ width: '1px', height: '24px', backgroundColor: 'var(--border-primary)' }} />
-
-          {/* 커스텀 URL 토글 */}
+          {/* 커스텀 방 토글 */}
           <div 
-            onClick={() => setUseCustomUrl(!useCustomUrl)}
+            onClick={() => setUseCustomRoom(!useCustomRoom)}
             style={{ 
               display: 'flex', 
               alignItems: 'center', 
@@ -445,13 +371,13 @@ const VideoPage = () => {
               cursor: 'pointer',
               padding: '4px 8px',
               borderRadius: 'var(--radius-sm)',
-              backgroundColor: useCustomUrl ? 'rgba(var(--primary-rgb), 0.1)' : 'transparent'
+              backgroundColor: useCustomRoom ? 'rgba(var(--primary-rgb), 0.1)' : 'transparent'
             }}
           >
             <div style={{
               width: '32px',
               height: '18px',
-              backgroundColor: useCustomUrl ? 'var(--primary-color)' : 'var(--bg-tertiary)',
+              backgroundColor: useCustomRoom ? 'var(--primary-color)' : 'var(--bg-tertiary)',
               borderRadius: '9px',
               position: 'relative',
               transition: 'all 0.2s ease'
@@ -459,7 +385,7 @@ const VideoPage = () => {
               <div style={{
                 position: 'absolute',
                 top: '2px',
-                left: useCustomUrl ? '16px' : '2px',
+                left: useCustomRoom ? '16px' : '2px',
                 width: '14px',
                 height: '14px',
                 backgroundColor: 'white',
@@ -470,14 +396,14 @@ const VideoPage = () => {
             </div>
             <span style={{ 
               fontSize: 'var(--font-size-xs)', 
-              color: useCustomUrl ? 'var(--primary-color)' : 'var(--text-tertiary)'
+              color: useCustomRoom ? 'var(--primary-color)' : 'var(--text-tertiary)'
             }}>
-              커스텀
+              직접 입력
             </span>
           </div>
 
-          {/* 커스텀 URL 입력 */}
-          {useCustomUrl && (
+          {/* 커스텀 방 입력 */}
+          {useCustomRoom && (
             <div style={{
               flex: 1,
               minWidth: '200px',
@@ -489,12 +415,12 @@ const VideoPage = () => {
               borderRadius: 'var(--radius-sm)',
               border: '1px solid var(--primary-color)'
             }}>
-              <i className="fas fa-link" style={{ color: 'var(--text-tertiary)', fontSize: '11px' }} />
+              <i className="fas fa-broadcast-tower" style={{ color: 'var(--text-tertiary)', fontSize: '11px' }} />
               <input
                 type="text"
-                value={customRtspUrl}
-                onChange={(e) => setCustomRtspUrl(e.target.value)}
-                placeholder={streamMode === 'mjpeg' ? 'http://...' : 'rtsp://...'}
+                value={customRoom}
+                onChange={(e) => setCustomRoom(e.target.value)}
+                placeholder="방 ID 입력 (예: robot-front)"
                 style={{
                   flex: 1,
                   padding: '4px 0',
@@ -517,50 +443,50 @@ const VideoPage = () => {
               gap: '6px',
               padding: '4px 10px',
               borderRadius: '12px',
-              backgroundColor: `${getStreamStatusColor()}15`
+              backgroundColor: `${getStatusColor()}15`
             }}>
               <div style={{
                 width: '6px',
                 height: '6px',
                 borderRadius: '50%',
-                backgroundColor: getStreamStatusColor(),
-                boxShadow: streamStatus === 'connected' ? `0 0 6px ${getStreamStatusColor()}` : 'none',
-                animation: streamStatus === 'connecting' ? 'pulse 0.8s infinite' : 'none'
+                backgroundColor: getStatusColor(),
+                boxShadow: connectionStatus === 'connected' ? `0 0 6px ${getStatusColor()}` : 'none',
+                animation: connectionStatus === 'connecting' ? 'pulse 0.8s infinite' : 'none'
               }} />
-              <span style={{ fontSize: '11px', color: getStreamStatusColor(), fontWeight: '500' }}>
-                {getStreamStatusText()}
+              <span style={{ fontSize: '11px', color: getStatusColor(), fontWeight: '500' }}>
+                {getStatusText()}
               </span>
             </div>
 
             {/* 연결 버튼 */}
             <button
-              onClick={connectStream}
-              disabled={streamStatus === 'connecting'}
+              onClick={connect}
+              disabled={connectionStatus === 'connecting'}
               style={{
                 padding: '6px 16px',
-                backgroundColor: streamStatus === 'connected' ? '#F59E0B' : 'var(--primary-color)',
+                backgroundColor: connectionStatus === 'connected' ? '#F59E0B' : 'var(--primary-color)',
                 border: 'none',
                 borderRadius: 'var(--radius-sm)',
                 color: 'white',
-                cursor: streamStatus === 'connecting' ? 'not-allowed' : 'pointer',
+                cursor: connectionStatus === 'connecting' ? 'not-allowed' : 'pointer',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '6px',
                 fontSize: 'var(--font-size-xs)',
                 fontWeight: '600',
                 transition: 'all 0.2s ease',
-                opacity: streamStatus === 'connecting' ? 0.7 : 1
+                opacity: connectionStatus === 'connecting' ? 0.7 : 1
               }}
             >
-              <i className={streamStatus === 'connecting' ? 'fas fa-spinner fa-spin' : 
-                           streamStatus === 'connected' ? 'fas fa-sync-alt' : 'fas fa-play'} 
+              <i className={connectionStatus === 'connecting' ? 'fas fa-spinner fa-spin' : 
+                           connectionStatus === 'connected' ? 'fas fa-sync-alt' : 'fas fa-play'} 
                  style={{ fontSize: '10px' }}></i>
-              {streamStatus === 'connecting' ? '연결 중' : streamStatus === 'connected' ? '재연결' : '연결'}
+              {connectionStatus === 'connecting' ? '연결 중' : connectionStatus === 'connected' ? '재연결' : '연결'}
             </button>
             
-            {streamStatus === 'connected' && (
+            {connectionStatus === 'connected' && (
               <button
-                onClick={disconnectStream}
+                onClick={disconnect}
                 style={{
                   padding: '6px 12px',
                   backgroundColor: '#EF4444',
@@ -593,13 +519,9 @@ const VideoPage = () => {
             width: '100%'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: 'var(--font-size-sm)', color: 'var(--text-primary)' }}>
-              <i className="fas fa-camera" style={{ fontSize: '12px', color: 'var(--text-secondary)' }}></i>
+              <i className="fas fa-video" style={{ fontSize: '12px', color: 'var(--text-secondary)' }}></i>
               <span style={{ fontWeight: '500' }}>
-                {useCustomUrl ? '커스텀 스트림' : (
-                  <>
-                    {robots.find(r => r.id == selectedRobot)?.name || selectedRobot} - {cameras.find(c => c.id === selectedView)?.label}
-                  </>
-                )}
+                {getCurrentRoomId() || '스트림 선택 안됨'}
               </span>
               
               {/* 스트림 상태 */}
@@ -608,7 +530,7 @@ const VideoPage = () => {
                 alignItems: 'center',
                 gap: '4px',
                 padding: '2px 8px',
-                backgroundColor: `${getStreamStatusColor()}20`,
+                backgroundColor: `${getStatusColor()}20`,
                 borderRadius: 'var(--radius-sm)',
                 fontSize: '11px',
                 marginLeft: '4px'
@@ -617,10 +539,10 @@ const VideoPage = () => {
                   width: '6px',
                   height: '6px',
                   borderRadius: '50%',
-                  backgroundColor: getStreamStatusColor(),
-                  animation: streamStatus === 'connected' ? 'pulse 2s infinite' : 'none'
+                  backgroundColor: getStatusColor(),
+                  animation: connectionStatus === 'connected' ? 'pulse 2s infinite' : 'none'
                 }} />
-                <span style={{ color: getStreamStatusColor() }}>{getStreamStatusText()}</span>
+                <span style={{ color: getStatusColor() }}>{getStatusText()}</span>
               </div>
             </div>
             
@@ -628,7 +550,7 @@ const VideoPage = () => {
               fontSize: 'var(--font-size-xs)',
               color: 'var(--text-tertiary)'
             }}>
-              {getRtspUrl() || 'URL 없음'}
+              WebRTC
             </div>
           </div>
         </div>
@@ -636,45 +558,30 @@ const VideoPage = () => {
           <div style={{
             position: 'relative',
             width: '100%',
-            paddingTop: '56.25%', // 16:9 비율
+            paddingTop: '56.25%',
             backgroundColor: '#000',
             borderRadius: 'var(--radius-md)',
             overflow: 'hidden'
           }}>
-            {/* MJPEG 이미지 */}
-            {streamMode === 'mjpeg' && (
-              <img
-                ref={imgRef}
-                alt="MJPEG Stream"
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'contain',
-                  display: streamStatus === 'connected' ? 'block' : 'none'
-                }}
-              />
-            )}
-
-            {/* RTSP 비디오 캔버스 */}
-            {streamMode === 'rtsp' && (
-              <canvas
-                ref={canvasRef}
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                  display: streamStatus === 'connected' ? 'block' : 'none'
-                }}
-              />
-            )}
+            {/* 비디오 */}
+            <video
+              ref={videoRef}
+              autoPlay
+              playsInline
+              muted
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+                display: connectionStatus === 'connected' ? 'block' : 'none'
+              }}
+            />
 
             {/* 플레이스홀더 */}
-            {streamStatus !== 'connected' && (
+            {connectionStatus !== 'connected' && (
               <div style={{
                 position: 'absolute',
                 top: 0,
@@ -687,23 +594,23 @@ const VideoPage = () => {
                 justifyContent: 'center',
                 color: 'var(--text-tertiary)'
               }}>
-                {streamStatus === 'connecting' ? (
+                {connectionStatus === 'connecting' ? (
                   <>
                     <i className="fas fa-spinner fa-spin" style={{ fontSize: '3rem', marginBottom: 'var(--space-md)' }}></i>
-                    <div style={{ fontSize: 'var(--font-size-lg)' }}>스트림 연결 중...</div>
+                    <div style={{ fontSize: 'var(--font-size-lg)' }}>연결 중...</div>
                     <div style={{ fontSize: 'var(--font-size-sm)', marginTop: 'var(--space-xs)', opacity: 0.7 }}>
-                      {getRtspUrl()}
+                      {errorMessage || '송출자를 기다리는 중입니다'}
                     </div>
                   </>
-                ) : streamStatus === 'error' ? (
+                ) : connectionStatus === 'error' ? (
                   <>
                     <i className="fas fa-exclamation-triangle" style={{ fontSize: '3rem', marginBottom: 'var(--space-md)', color: 'var(--status-error)' }}></i>
                     <div style={{ fontSize: 'var(--font-size-lg)', color: 'var(--status-error)' }}>연결 오류</div>
                     <div style={{ fontSize: 'var(--font-size-sm)', marginTop: 'var(--space-xs)', opacity: 0.7, maxWidth: '400px', textAlign: 'center' }}>
-                      {errorMessage || 'RTSP 스트림에 연결할 수 없습니다.'}
+                      {errorMessage || '스트림에 연결할 수 없습니다.'}
                     </div>
                     <button
-                      onClick={connectStream}
+                      onClick={connect}
                       style={{
                         marginTop: 'var(--space-md)',
                         padding: 'var(--space-sm) var(--space-lg)',
@@ -721,9 +628,9 @@ const VideoPage = () => {
                 ) : (
                   <>
                     <i className="fas fa-video" style={{ fontSize: '3rem', marginBottom: 'var(--space-md)', opacity: 0.3 }}></i>
-                    <div style={{ fontSize: 'var(--font-size-lg)' }}>카메라 대기 중</div>
+                    <div style={{ fontSize: 'var(--font-size-lg)' }}>스트림 대기 중</div>
                     <div style={{ fontSize: 'var(--font-size-sm)', marginTop: 'var(--space-xs)', opacity: 0.7 }}>
-                      '연결' 버튼을 눌러 스트림을 시작하세요
+                      활성 스트림을 선택하거나 방 ID를 입력하세요
                     </div>
                   </>
                 )}
@@ -732,7 +639,6 @@ const VideoPage = () => {
           </div>
         </div>
       </div>
-
 
       {/* pulse 애니메이션 */}
       <style>{`
