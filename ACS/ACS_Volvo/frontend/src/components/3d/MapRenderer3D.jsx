@@ -74,7 +74,8 @@ function MapTexture({ mapInfo, visible = true, mapOffsetSettings = null }) {
         //console.log('MapTexture: 이미지 로드 시작', `/api/maps/${mapInfo.id}/download/image`);
         
         // 이미지 파일 로드 (백엔드 서버 URL 사용)
-        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+        const DEFAULT_API_URL = import.meta.env.DEV ? 'http://localhost:3000' : '';
+        const API_URL = import.meta.env.VITE_API_URL || DEFAULT_API_URL;
         const imageUrl = `${API_URL}/api/maps/${mapInfo.id}/download/image`;
         //console.log('MapTexture: fetch URL:', imageUrl);
         

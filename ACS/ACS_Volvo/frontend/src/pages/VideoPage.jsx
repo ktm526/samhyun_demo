@@ -3,8 +3,6 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 const VideoPage = () => {
   const [rooms, setRooms] = useState([]);
   const [selectedRoom, setSelectedRoom] = useState('');
-  const [customRoom, setCustomRoom] = useState('');
-  const [useCustomRoom, setUseCustomRoom] = useState(false);
   const [connectionStatus, setConnectionStatus] = useState('disconnected'); // disconnected, connecting, connected, error
   const [errorMessage, setErrorMessage] = useState('');
   const [signalingUrl, setSignalingUrl] = useState('');
@@ -15,7 +13,8 @@ const VideoPage = () => {
   const viewerIdRef = useRef(null);
 
   // API URL 설정
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+  const DEFAULT_API_URL = import.meta.env.DEV ? 'http://localhost:3000' : '';
+  const API_URL = import.meta.env.VITE_API_URL || DEFAULT_API_URL;
 
   // WebRTC 설정 로드
   const loadConfig = async () => {
@@ -25,7 +24,8 @@ const VideoPage = () => {
       if (data.success) {
         // 현재 호스트 기반으로 시그널링 URL 생성
         const wsHost = window.location.hostname;
-        setSignalingUrl(`ws://${wsHost}:${data.signalingPort}`);
+        const wsScheme = window.location.protocol === 'https:' ? 'wss' : 'ws';
+        setSignalingUrl(`${wsScheme}://${wsHost}:${data.signalingPort}`);
       }
     } catch (error) {
       console.error('비디오 설정 로드 실패:', error);
@@ -76,18 +76,15 @@ const VideoPage = () => {
 
   // 현재 방 ID
   const getCurrentRoomId = useCallback(() => {
-    if (useCustomRoom && customRoom) {
-      return customRoom;
-    }
     return selectedRoom;
-  }, [useCustomRoom, customRoom, selectedRoom]);
+  }, [selectedRoom]);
 
   // WebRTC 연결 시작
   const connect = useCallback(async () => {
     const roomId = getCurrentRoomId();
     
     if (!roomId) {
-      setErrorMessage('방 ID를 입력하거나 선택하세요.');
+      setErrorMessage('카메라를 선택하세요.');
       setConnectionStatus('error');
       return;
     }
@@ -308,203 +305,122 @@ const VideoPage = () => {
         backgroundColor: 'var(--bg-secondary)',
         borderRadius: 'var(--radius-md)',
         border: '1px solid var(--border-primary)',
-        padding: 'var(--space-md) var(--space-lg)'
+        padding: 'var(--space-sm) var(--space-lg)'
       }}>
         <div style={{
           display: 'flex',
           alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: 'var(--space-md)'
+          gap: 'var(--space-sm)'
         }}>
-          {/* 방 선택 */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-sm)' }}>
-            <select
-              value={selectedRoom}
-              onChange={(e) => setSelectedRoom(e.target.value)}
-              disabled={useCustomRoom}
-              style={{
-                padding: '6px 12px',
-                fontSize: 'var(--font-size-sm)',
-                backgroundColor: 'var(--bg-primary)',
-                border: '1px solid var(--border-primary)',
-                borderRadius: 'var(--radius-sm)',
-                color: 'var(--text-primary)',
-                cursor: useCustomRoom ? 'not-allowed' : 'pointer',
-                opacity: useCustomRoom ? 0.5 : 1,
-                minWidth: '180px'
-              }}
-            >
-              <option value="">활성 스트림 선택...</option>
-              {rooms.map(room => (
-                <option key={room.roomId} value={room.roomId}>
-                  {room.roomId} ({room.viewerCount}명 시청)
-                </option>
-              ))}
-            </select>
-            <button
-              onClick={loadRooms}
-              style={{
-                padding: '6px 10px',
-                backgroundColor: 'var(--bg-primary)',
-                border: '1px solid var(--border-primary)',
-                borderRadius: 'var(--radius-sm)',
-                color: 'var(--text-secondary)',
-                cursor: 'pointer',
-                fontSize: 'var(--font-size-xs)'
-              }}
-              title="새로고침"
-            >
-              <i className="fas fa-sync-alt"></i>
-            </button>
-          </div>
-
-          {/* 구분선 */}
-          <div style={{ width: '1px', height: '24px', backgroundColor: 'var(--border-primary)' }} />
-
-          {/* 커스텀 방 토글 */}
-          <div 
-            onClick={() => setUseCustomRoom(!useCustomRoom)}
-            style={{ 
-              display: 'flex', 
-              alignItems: 'center', 
-              gap: '8px',
-              cursor: 'pointer',
-              padding: '4px 8px',
+          {/* 카메라 선택 */}
+          <select
+            value={selectedRoom}
+            onChange={(e) => setSelectedRoom(e.target.value)}
+            style={{
+              padding: '6px 12px',
+              fontSize: 'var(--font-size-sm)',
+              backgroundColor: 'var(--bg-primary)',
+              border: '1px solid var(--border-primary)',
               borderRadius: 'var(--radius-sm)',
-              backgroundColor: useCustomRoom ? 'rgba(var(--primary-rgb), 0.1)' : 'transparent'
+              color: 'var(--text-primary)',
+              cursor: 'pointer',
+              minWidth: '180px'
             }}
           >
-            <div style={{
-              width: '32px',
-              height: '18px',
-              backgroundColor: useCustomRoom ? 'var(--primary-color)' : 'var(--bg-tertiary)',
-              borderRadius: '9px',
-              position: 'relative',
-              transition: 'all 0.2s ease'
-            }}>
-              <div style={{
-                position: 'absolute',
-                top: '2px',
-                left: useCustomRoom ? '16px' : '2px',
-                width: '14px',
-                height: '14px',
-                backgroundColor: 'white',
-                borderRadius: '50%',
-                transition: 'all 0.2s ease',
-                boxShadow: '0 1px 3px rgba(0,0,0,0.2)'
-              }} />
-            </div>
-            <span style={{ 
-              fontSize: 'var(--font-size-xs)', 
-              color: useCustomRoom ? 'var(--primary-color)' : 'var(--text-tertiary)'
-            }}>
-              직접 입력
-            </span>
-          </div>
+            <option value="">활성 카메라 선택...</option>
+            {rooms.map(room => (
+              <option key={room.roomId} value={room.roomId}>
+                {room.roomId}
+              </option>
+            ))}
+          </select>
 
-          {/* 커스텀 방 입력 */}
-          {useCustomRoom && (
-            <div style={{
-              flex: 1,
-              minWidth: '200px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '4px 12px',
+          {/* 새로고침 */}
+          <button
+            onClick={loadRooms}
+            style={{
+              padding: '6px 8px',
               backgroundColor: 'var(--bg-primary)',
+              border: '1px solid var(--border-primary)',
               borderRadius: 'var(--radius-sm)',
-              border: '1px solid var(--primary-color)'
-            }}>
-              <i className="fas fa-broadcast-tower" style={{ color: 'var(--text-tertiary)', fontSize: '11px' }} />
-              <input
-                type="text"
-                value={customRoom}
-                onChange={(e) => setCustomRoom(e.target.value)}
-                placeholder="방 ID 입력 (예: robot-front)"
-                style={{
-                  flex: 1,
-                  padding: '4px 0',
-                  fontSize: 'var(--font-size-sm)',
-                  backgroundColor: 'transparent',
-                  border: 'none',
-                  color: 'var(--text-primary)',
-                  outline: 'none'
-                }}
-              />
-            </div>
-          )}
+              color: 'var(--text-secondary)',
+              cursor: 'pointer',
+              fontSize: 'var(--font-size-xs)'
+            }}
+            title="새로고침"
+          >
+            <i className="fas fa-sync-alt"></i>
+          </button>
 
-          {/* 연결 상태 + 버튼 */}
-          <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 'var(--space-sm)' }}>
-            {/* 상태 표시 */}
-            <div style={{
+          {/* 연결 버튼 */}
+          <button
+            onClick={connect}
+            disabled={connectionStatus === 'connecting' || !selectedRoom}
+            style={{
+              padding: '6px 14px',
+              backgroundColor: connectionStatus === 'connected' ? '#F59E0B' : 'var(--primary-color)',
+              border: 'none',
+              borderRadius: 'var(--radius-sm)',
+              color: 'white',
+              cursor: (connectionStatus === 'connecting' || !selectedRoom) ? 'not-allowed' : 'pointer',
               display: 'flex',
               alignItems: 'center',
-              gap: '6px',
-              padding: '4px 10px',
-              borderRadius: '12px',
-              backgroundColor: `${getStatusColor()}15`
-            }}>
-              <div style={{
-                width: '6px',
-                height: '6px',
-                borderRadius: '50%',
-                backgroundColor: getStatusColor(),
-                boxShadow: connectionStatus === 'connected' ? `0 0 6px ${getStatusColor()}` : 'none',
-                animation: connectionStatus === 'connecting' ? 'pulse 0.8s infinite' : 'none'
-              }} />
-              <span style={{ fontSize: '11px', color: getStatusColor(), fontWeight: '500' }}>
-                {getStatusText()}
-              </span>
-            </div>
-
-            {/* 연결 버튼 */}
+              gap: '5px',
+              fontSize: 'var(--font-size-xs)',
+              fontWeight: '600',
+              transition: 'all 0.2s ease',
+              opacity: (connectionStatus === 'connecting' || !selectedRoom) ? 0.6 : 1
+            }}
+          >
+            <i className={connectionStatus === 'connecting' ? 'fas fa-spinner fa-spin' : 
+                         connectionStatus === 'connected' ? 'fas fa-sync-alt' : 'fas fa-play'} 
+               style={{ fontSize: '10px' }}></i>
+            {connectionStatus === 'connecting' ? '연결 중' : connectionStatus === 'connected' ? '재연결' : '연결'}
+          </button>
+          
+          {connectionStatus === 'connected' && (
             <button
-              onClick={connect}
-              disabled={connectionStatus === 'connecting'}
+              onClick={disconnect}
               style={{
-                padding: '6px 16px',
-                backgroundColor: connectionStatus === 'connected' ? '#F59E0B' : 'var(--primary-color)',
+                padding: '6px 10px',
+                backgroundColor: '#EF4444',
                 border: 'none',
                 borderRadius: 'var(--radius-sm)',
                 color: 'white',
-                cursor: connectionStatus === 'connecting' ? 'not-allowed' : 'pointer',
+                cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '6px',
+                gap: '4px',
                 fontSize: 'var(--font-size-xs)',
-                fontWeight: '600',
-                transition: 'all 0.2s ease',
-                opacity: connectionStatus === 'connecting' ? 0.7 : 1
+                fontWeight: '600'
               }}
             >
-              <i className={connectionStatus === 'connecting' ? 'fas fa-spinner fa-spin' : 
-                           connectionStatus === 'connected' ? 'fas fa-sync-alt' : 'fas fa-play'} 
-                 style={{ fontSize: '10px' }}></i>
-              {connectionStatus === 'connecting' ? '연결 중' : connectionStatus === 'connected' ? '재연결' : '연결'}
+              <i className="fas fa-stop" style={{ fontSize: '10px' }}></i>
+              중지
             </button>
-            
-            {connectionStatus === 'connected' && (
-              <button
-                onClick={disconnect}
-                style={{
-                  padding: '6px 12px',
-                  backgroundColor: '#EF4444',
-                  border: 'none',
-                  borderRadius: 'var(--radius-sm)',
-                  color: 'white',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '4px',
-                  fontSize: 'var(--font-size-xs)',
-                  fontWeight: '600'
-                }}
-              >
-                <i className="fas fa-stop" style={{ fontSize: '10px' }}></i>
-                중지
-              </button>
-            )}
+          )}
+
+          {/* 상태 표시 */}
+          <div style={{
+            marginLeft: 'auto',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px',
+            padding: '4px 10px',
+            borderRadius: '12px',
+            backgroundColor: `${getStatusColor()}15`
+          }}>
+            <div style={{
+              width: '6px',
+              height: '6px',
+              borderRadius: '50%',
+              backgroundColor: getStatusColor(),
+              boxShadow: connectionStatus === 'connected' ? `0 0 6px ${getStatusColor()}` : 'none',
+              animation: connectionStatus === 'connecting' ? 'pulse 0.8s infinite' : 'none'
+            }} />
+            <span style={{ fontSize: '11px', color: getStatusColor(), fontWeight: '500' }}>
+              {getStatusText()}
+            </span>
           </div>
         </div>
       </div>
@@ -521,7 +437,7 @@ const VideoPage = () => {
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: 'var(--font-size-sm)', color: 'var(--text-primary)' }}>
               <i className="fas fa-video" style={{ fontSize: '12px', color: 'var(--text-secondary)' }}></i>
               <span style={{ fontWeight: '500' }}>
-                {getCurrentRoomId() || '스트림 선택 안됨'}
+                {getCurrentRoomId() || '카메라 선택 안됨'}
               </span>
               
               {/* 스트림 상태 */}
@@ -607,7 +523,7 @@ const VideoPage = () => {
                     <i className="fas fa-exclamation-triangle" style={{ fontSize: '3rem', marginBottom: 'var(--space-md)', color: 'var(--status-error)' }}></i>
                     <div style={{ fontSize: 'var(--font-size-lg)', color: 'var(--status-error)' }}>연결 오류</div>
                     <div style={{ fontSize: 'var(--font-size-sm)', marginTop: 'var(--space-xs)', opacity: 0.7, maxWidth: '400px', textAlign: 'center' }}>
-                      {errorMessage || '스트림에 연결할 수 없습니다.'}
+                      {errorMessage || '카메라에 연결할 수 없습니다.'}
                     </div>
                     <button
                       onClick={connect}
@@ -628,9 +544,9 @@ const VideoPage = () => {
                 ) : (
                   <>
                     <i className="fas fa-video" style={{ fontSize: '3rem', marginBottom: 'var(--space-md)', opacity: 0.3 }}></i>
-                    <div style={{ fontSize: 'var(--font-size-lg)' }}>스트림 대기 중</div>
+                    <div style={{ fontSize: 'var(--font-size-lg)' }}>카메라 대기 중</div>
                     <div style={{ fontSize: 'var(--font-size-sm)', marginTop: 'var(--space-xs)', opacity: 0.7 }}>
-                      활성 스트림을 선택하거나 방 ID를 입력하세요
+                      활성 카메라를 선택하고 연결하세요
                     </div>
                   </>
                 )}

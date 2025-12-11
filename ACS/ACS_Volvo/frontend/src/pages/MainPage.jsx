@@ -143,7 +143,8 @@ const MainPage = () => {
   const stats = calculateStats(activeRobots);
 
   // API URL 설정
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+  const DEFAULT_API_URL = import.meta.env.DEV ? 'http://localhost:3000' : '';
+  const API_URL = import.meta.env.VITE_API_URL || DEFAULT_API_URL;
 
   // 로봇 목록 로드
   const loadRobots = async () => {

@@ -27,7 +27,8 @@ const SettingsPage = () => {
   const [downloadedMaps, setDownloadedMaps] = useState({}); // 다운로드 완료 상태 {robotId-mapId: true/false}
 
   // API URL 설정
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+  const DEFAULT_API_URL = import.meta.env.DEV ? 'http://localhost:3000' : '';
+  const API_URL = import.meta.env.VITE_API_URL || DEFAULT_API_URL;
 
   // 서버에서 맵 목록 가져오기
   const fetchServerMaps = async () => {

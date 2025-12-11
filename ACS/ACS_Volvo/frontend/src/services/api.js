@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { API_ENDPOINTS } from '../constants';
 
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+// DEV(Vite)에서는 백엔드가 보통 3000, PROD(백엔드에서 프론트 서빙)는 현재 origin(상대경로)
+const DEFAULT_API_URL = import.meta.env.DEV ? 'http://localhost:3000' : '';
+const BASE_URL = import.meta.env.VITE_API_URL || DEFAULT_API_URL;
 
 // BASE_URL을 다른 곳에서도 사용할 수 있도록 export
 export { BASE_URL };
