@@ -166,6 +166,96 @@ export const missionsAPI = {
   }
 };
 
+// 로그 관련 API
+export const logsAPI = {
+  // 모든 로그 조회 (필터링 포함)
+  getAll: async (filters = {}) => {
+    try {
+      const params = new URLSearchParams();
+      if (filters.level && filters.level !== 'all') params.append('level', filters.level);
+      if (filters.category && filters.category !== 'all') params.append('category', filters.category);
+      if (filters.event_type && filters.event_type !== 'all') params.append('event_type', filters.event_type);
+      if (filters.robot && filters.robot !== 'all') params.append('robot', filters.robot);
+      if (filters.mission_id) params.append('mission_id', filters.mission_id);
+      if (filters.dateFrom) params.append('dateFrom', filters.dateFrom);
+      if (filters.dateTo) params.append('dateTo', filters.dateTo);
+      if (filters.limit) params.append('limit', filters.limit);
+      if (filters.offset) params.append('offset', filters.offset);
+
+      const queryString = params.toString();
+      const url = queryString ? `${API_ENDPOINTS.LOGS}?${queryString}` : API_ENDPOINTS.LOGS;
+      const response = await apiClient.get(url);
+      return response.data;
+    } catch (error) {
+      throw new Error('로그 데이터를 불러오는데 실패했습니다.');
+    }
+  },
+
+  // 특정 로그 조회
+  getById: async (id) => {
+    try {
+      const response = await apiClient.get(`${API_ENDPOINTS.LOGS}/${id}`);
+      return response.data;
+    } catch (error) {
+      throw new Error('로그 정보를 불러오는데 실패했습니다.');
+    }
+  },
+
+  // 통계 조회
+  getStats: async (filters = {}) => {
+    try {
+      const params = new URLSearchParams();
+      if (filters.dateFrom) params.append('dateFrom', filters.dateFrom);
+      if (filters.dateTo) params.append('dateTo', filters.dateTo);
+      if (filters.robot_name) params.append('robot_name', filters.robot_name);
+
+      const queryString = params.toString();
+      const url = queryString ? `${API_ENDPOINTS.LOGS_STATS}?${queryString}` : API_ENDPOINTS.LOGS_STATS;
+      const response = await apiClient.get(url);
+      return response.data;
+    } catch (error) {
+      throw new Error('통계 데이터를 불러오는데 실패했습니다.');
+    }
+  },
+
+  // 고유 로봇 목록 조회
+  getUniqueRobots: async () => {
+    try {
+      const response = await apiClient.get(API_ENDPOINTS.LOGS_ROBOTS);
+      return response.data;
+    } catch (error) {
+      throw new Error('로봇 목록을 불러오는데 실패했습니다.');
+    }
+  },
+
+  // 로그 생성
+  create: async (logData) => {
+    try {
+      const response = await apiClient.post(API_ENDPOINTS.LOGS, logData);
+      return response.data;
+    } catch (error) {
+      throw new Error('로그 생성에 실패했습니다.');
+    }
+  },
+
+  // 미션 타임라인 조회 (로그 기반)
+  getTimeline: async (filters = {}) => {
+    try {
+      const params = new URLSearchParams();
+      if (filters.dateFrom) params.append('dateFrom', filters.dateFrom);
+      if (filters.dateTo) params.append('dateTo', filters.dateTo);
+      if (filters.robot_name) params.append('robot_name', filters.robot_name);
+
+      const queryString = params.toString();
+      const url = queryString ? `${API_ENDPOINTS.LOGS}/timeline?${queryString}` : `${API_ENDPOINTS.LOGS}/timeline`;
+      const response = await apiClient.get(url);
+      return response.data;
+    } catch (error) {
+      throw new Error('타임라인 데이터를 불러오는데 실패했습니다.');
+    }
+  }
+};
+
 // 테스트 데이터 (서버 연결 실패 시 사용)
 // 통합 API 객체 (Sidebar에서 사용)
 export const api = {
@@ -176,7 +266,12 @@ export const api = {
   deleteMission: (id) => missionsAPI.delete(id),
   updateRobotStatus: (id, status) => robotsAPI.updateStatus(id, status),
   updateRobotLocation: (id, location) => robotsAPI.updateLocation(id, location),
-  getRobotMaps: (robotId) => robotsAPI.getMaps(robotId)
+  getRobotMaps: (robotId) => robotsAPI.getMaps(robotId),
+  // 로그 API
+  getLogs: (filters) => logsAPI.getAll(filters),
+  getLogStats: (filters) => logsAPI.getStats(filters),
+  getLogUniqueRobots: () => logsAPI.getUniqueRobots(),
+  createLog: (data) => logsAPI.create(data)
 };
 
 export const mockData = {

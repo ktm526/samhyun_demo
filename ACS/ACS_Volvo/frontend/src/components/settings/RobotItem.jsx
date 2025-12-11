@@ -98,14 +98,14 @@ const RobotItem = ({ robot, onDelete }) => {
             transition: 'all 0.2s ease'
           }}
           onMouseOver={(e) => {
-            e.target.style.backgroundColor = '#ef4444';
-            e.target.style.color = 'white';
-            e.target.style.borderColor = '#ef4444';
+            e.currentTarget.style.backgroundColor = '#ef4444';
+            e.currentTarget.style.color = 'white';
+            e.currentTarget.style.borderColor = '#ef4444';
           }}
           onMouseOut={(e) => {
-            e.target.style.backgroundColor = 'transparent';
-            e.target.style.color = 'var(--text-secondary)';
-            e.target.style.borderColor = 'var(--border-primary)';
+            e.currentTarget.style.backgroundColor = 'transparent';
+            e.currentTarget.style.color = 'var(--text-secondary)';
+            e.currentTarget.style.borderColor = 'var(--border-primary)';
           }}
         >
           <i className="fas fa-trash"></i>

@@ -232,14 +232,14 @@ const RobotCard = ({ robot, isTracked, onShowDetail, onTrackToggle, isMobile = f
               zIndex: 10
             }}
             onMouseEnter={(e) => {
-              e.target.style.color = isTracked ? statusColor : 'var(--primary-color)';
-              e.target.style.textShadow = `0 0 15px ${isTracked ? statusColor : 'var(--primary-color)'}`;
-              e.target.style.transform = 'scale(1.1)';
+              e.currentTarget.style.color = isTracked ? statusColor : 'var(--primary-color)';
+              e.currentTarget.style.textShadow = `0 0 15px ${isTracked ? statusColor : 'var(--primary-color)'}`;
+              e.currentTarget.style.transform = 'scale(1.1)';
             }}
             onMouseLeave={(e) => {
-              e.target.style.color = isTracked ? statusColor : 'var(--text-secondary)';
-              e.target.style.textShadow = isTracked ? `0 0 10px ${statusColor}80` : 'none';
-              e.target.style.transform = 'scale(1)';
+              e.currentTarget.style.color = isTracked ? statusColor : 'var(--text-secondary)';
+              e.currentTarget.style.textShadow = isTracked ? `0 0 10px ${statusColor}80` : 'none';
+              e.currentTarget.style.transform = 'scale(1)';
             }}
             title={isTracked ? '추적 해제' : '추적 시작'}
           >

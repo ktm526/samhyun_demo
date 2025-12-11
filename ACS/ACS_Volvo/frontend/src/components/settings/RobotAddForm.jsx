@@ -102,10 +102,10 @@ const RobotAddForm = ({ onSubmit, onCancel }) => {
               transition: 'border-color 0.2s'
             }}
             onFocus={(e) => {
-              e.target.style.borderColor = 'var(--primary-color)';
+              e.currentTarget.style.borderColor = 'var(--primary-color)';
             }}
             onBlur={(e) => {
-              e.target.style.borderColor = errors.name ? 'var(--status-error)' : 'var(--border-primary)';
+              e.currentTarget.style.borderColor = errors.name ? 'var(--status-error)' : 'var(--border-primary)';
             }}
           />
           {errors.name && (
@@ -144,10 +144,10 @@ const RobotAddForm = ({ onSubmit, onCancel }) => {
               transition: 'border-color 0.2s'
             }}
             onFocus={(e) => {
-              e.target.style.borderColor = 'var(--primary-color)';
+              e.currentTarget.style.borderColor = 'var(--primary-color)';
             }}
             onBlur={(e) => {
-              e.target.style.borderColor = errors.ip_address ? 'var(--status-error)' : 'var(--border-primary)';
+              e.currentTarget.style.borderColor = errors.ip_address ? 'var(--status-error)' : 'var(--border-primary)';
             }}
           />
           {errors.ip_address && (
@@ -188,10 +188,10 @@ const RobotAddForm = ({ onSubmit, onCancel }) => {
               transition: 'border-color 0.2s'
             }}
             onFocus={(e) => {
-              e.target.style.borderColor = 'var(--primary-color)';
+              e.currentTarget.style.borderColor = 'var(--primary-color)';
             }}
             onBlur={(e) => {
-              e.target.style.borderColor = errors.port ? 'var(--status-error)' : 'var(--border-primary)';
+              e.currentTarget.style.borderColor = errors.port ? 'var(--status-error)' : 'var(--border-primary)';
             }}
           />
           {errors.port && (

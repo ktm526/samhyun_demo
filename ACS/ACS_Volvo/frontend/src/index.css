@@ -63,17 +63,17 @@ input, textarea, select {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(232, 46, 1, 0.4);
+  background: rgba(56, 189, 248, 0.4);
 }
 
 /* Selection styling */
 ::selection {
-  background: rgba(232, 46, 1, 0.3);
+  background: rgba(56, 189, 248, 0.3);
   color: #ffffff;
 }
 
 ::-moz-selection {
-  background: rgba(232, 46, 1, 0.3);
+  background: rgba(56, 189, 248, 0.3);
   color: #ffffff;
 }
 
@@ -137,10 +137,10 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .number-controls button:hover {
-  background: rgba(232, 46, 1, 0.3);
-  color: #E82E01;
+  background: rgba(56, 189, 248, 0.3);
+  color: var(--primary-color, #38BDF8);
 }
 
 .number-controls button:active {
-  background: rgba(232, 46, 1, 0.5);
+  background: rgba(56, 189, 248, 0.5);
 }

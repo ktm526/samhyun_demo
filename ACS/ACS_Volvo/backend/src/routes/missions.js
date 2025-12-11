@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Mission = require('../models/Mission');
+const ActivityLogService = require('../services/activityLogService');
 
 // 모든 미션 조회
 router.get('/', async (req, res) => {
@@ -27,6 +28,8 @@ router.post('/', async (req, res) => {
     // 미션 생성
     const mission = await Mission.create(req.body);
     
+    // 미션 생성 로그 기록
+    await ActivityLogService.logMissionCreated(mission);
     
     res.status(201).json({ 
       message: '미션이 성공적으로 생성되었습니다.', 
@@ -70,13 +73,16 @@ router.patch('/:id/status', async (req, res) => {
       return res.status(404).json({ error: '미션을 찾을 수 없습니다.' });
     }
 
+    const oldStatus = mission.status;
+    let robot = null;
+
     // 미션 취소 시 해당 로봇에게 정지 명령 전송
     if (status === 'cancelled' && mission.robot_id) {
       try {
         const Robot = require('../models/Robot');
         const axios = require('axios');
         
-        const robot = await Robot.findById(mission.robot_id);
+        robot = await Robot.findById(mission.robot_id);
         if (robot) {
           
           
@@ -108,6 +114,17 @@ router.patch('/:id/status', async (req, res) => {
     }
     
     await mission.updateStatus(status);
+
+    // 상태 변경 로그 기록
+    if (status === 'in_progress' && oldStatus !== 'in_progress') {
+      await ActivityLogService.logMissionStarted(mission, robot);
+    } else if (status === 'completed') {
+      await ActivityLogService.logMissionCompleted(mission, robot);
+    } else if (status === 'failed') {
+      await ActivityLogService.logMissionFailed(mission, robot);
+    } else if (status === 'cancelled') {
+      await ActivityLogService.logMissionCancelled(mission, robot);
+    }
     
     res.json({ 
       message: '미션 상태가 업데이트되었습니다.',

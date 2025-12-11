@@ -1,5 +1,6 @@
 const axios = require('axios');
 const Robot = require('../models/Robot');
+const ActivityLogService = require('./activityLogService');
 
 class RobotStatusService {
   constructor() {
@@ -7,6 +8,11 @@ class RobotStatusService {
     this.isRunning = false;
     this.pollInterval = 500; // 1초마다 상태 수집 (1Hz)
     this.httpTimeout = 5000; // HTTP 요청 타임아웃 5초
+    
+    // 로봇 상태 추적 (로깅 중복 방지)
+    this.lastRobotStates = new Map();
+    this.connectionStates = new Map();
+    this.batteryWarningStates = new Map();
   }
 
   // 서비스 시작
@@ -84,6 +90,9 @@ class RobotStatusService {
       throw new Error(errorMsg);
     }
 
+    const previousConnectionState = this.connectionStates.get(robot.id);
+    const previousStatus = this.lastRobotStates.get(robot.id);
+
     try {
       const port = robot.port || 80;
       const url = `http://${robot.ip_address}:${port}/api/v1/amr/status`;
@@ -120,6 +129,11 @@ class RobotStatusService {
               break;
           }
         }
+
+        // 충전 상태 확인
+        if (response.data.charging_status === true) {
+          mappedStatus = 'charging';
+        }
         
         // 연결 성공 - 상태 정보 업데이트 (매핑된 status 사용)
         const updateData = {
@@ -131,6 +145,45 @@ class RobotStatusService {
         };
         
         await robot.updateAmrStatus(updateData);
+
+        // === 로깅 처리 ===
+        
+        // 연결 복구 로그 (이전에 끊어졌다가 다시 연결된 경우)
+        if (previousConnectionState === false) {
+          await ActivityLogService.logRobotConnected(robot);
+        }
+        this.connectionStates.set(robot.id, true);
+
+        // 상태 변경 로그
+        if (previousStatus && previousStatus !== mappedStatus) {
+          await ActivityLogService.logRobotStatusChanged(robot, previousStatus, mappedStatus);
+        }
+        this.lastRobotStates.set(robot.id, mappedStatus);
+
+        // 배터리 경고 로그 (20% 이하일 때 한번만)
+        const batteryLevel = response.data.battery_soc || 0;
+        const previousBatteryWarning = this.batteryWarningStates.get(robot.id);
+        if (batteryLevel <= 20 && !previousBatteryWarning) {
+          await ActivityLogService.logBatteryLow(robot, batteryLevel);
+          this.batteryWarningStates.set(robot.id, true);
+        } else if (batteryLevel > 30) {
+          this.batteryWarningStates.set(robot.id, false);
+        }
+
+        // 충전 시작 로그
+        if (previousStatus !== 'charging' && mappedStatus === 'charging') {
+          await ActivityLogService.logChargingStarted(robot, batteryLevel);
+        }
+
+        // 충전 완료 로그
+        if (previousStatus === 'charging' && mappedStatus !== 'charging' && batteryLevel >= 95) {
+          await ActivityLogService.logChargingCompleted(robot);
+        }
+
+        // 오류 로그
+        if (response.data.error_code && response.data.error_code !== 0) {
+          await ActivityLogService.logRobotError(robot, response.data.error_code, response.data.error_msg);
+        }
         
         return response.data;
       } else {
@@ -144,6 +197,13 @@ class RobotStatusService {
       // 연결 실패 - 상태 업데이트
       const errorMsg = `연결 실패: ${error.message}`;
       await robot.markAsDisconnected(errorMsg);
+
+      // 연결 끊김 로그 (처음 끊어졌을 때만)
+      if (previousConnectionState !== false) {
+        await ActivityLogService.logRobotDisconnected(robot, errorMsg);
+      }
+      this.connectionStates.set(robot.id, false);
+      this.lastRobotStates.set(robot.id, 'disconnected');
       
       throw error;
     }

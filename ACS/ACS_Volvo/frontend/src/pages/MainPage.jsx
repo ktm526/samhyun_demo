@@ -788,12 +788,12 @@ const MainPage = () => {
               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)'
             }}
             onMouseEnter={(e) => {
-              e.target.style.backgroundColor = 'var(--bg-tertiary)';
-              e.target.style.borderColor = 'var(--primary-color)';
+              e.currentTarget.style.backgroundColor = 'var(--bg-tertiary)';
+              e.currentTarget.style.borderColor = 'var(--primary-color)';
             }}
             onMouseLeave={(e) => {
-              e.target.style.backgroundColor = 'var(--bg-secondary)';
-              e.target.style.borderColor = 'var(--border-primary)';
+              e.currentTarget.style.backgroundColor = 'var(--bg-secondary)';
+              e.currentTarget.style.borderColor = 'var(--border-primary)';
             }}
           >
             <i className={sidebarOpen ? "fas fa-times" : "fas fa-bars"}></i>

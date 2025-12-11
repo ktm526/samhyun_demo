@@ -47,7 +47,7 @@ const TabComponent = ({ activeTab, setActiveTab, tabs }) => {
             backgroundColor: 'var(--primary-color)',
             borderRadius: '9999px', // 완전히 둥근 형태
             transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-            boxShadow: '0 2px 8px rgba(232, 46, 1, 0.3)',
+            boxShadow: '0 2px 8px rgba(56, 189, 248, 0.3)',
             zIndex: 1,
             ...indicatorStyle
           }}

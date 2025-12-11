@@ -27,10 +27,10 @@ const saveThemeToStorage = (theme) => {
 const loadPrimaryColorFromStorage = () => {
   try {
     const savedColor = localStorage.getItem('primaryColor');
-    return savedColor || '#E82E01';
+    return savedColor || '#38BDF8';
   } catch (error) {
     console.error('Failed to load primaryColor from localStorage:', error);
-    return '#E82E01';
+    return '#38BDF8';
   }
 };
 
@@ -67,6 +67,27 @@ const saveLogoToStorage = (logo) => {
   }
 };
 
+// localStorage에서 현재 페이지 로드
+const loadCurrentPageFromStorage = () => {
+  try {
+    const savedPage = localStorage.getItem('currentPage');
+    const validPages = ['main', 'video', 'log', 'settings'];
+    return validPages.includes(savedPage) ? savedPage : 'main';
+  } catch (error) {
+    console.error('Failed to load currentPage from localStorage:', error);
+    return 'main';
+  }
+};
+
+// localStorage에 현재 페이지 저장
+const saveCurrentPageToStorage = (page) => {
+  try {
+    localStorage.setItem('currentPage', page);
+  } catch (error) {
+    console.error('Failed to save currentPage to localStorage:', error);
+  }
+};
+
 // 포인트 컬러에서 관련 색상 생성
 const generateColorPalette = (primaryColor) => {
   // HEX를 RGB로 변환
@@ -95,7 +116,7 @@ const generateColorPalette = (primaryColor) => {
 
 // 초기 상태
 const initialState = {
-  currentPage: 'main',
+  currentPage: loadCurrentPageFromStorage(),
   selectedRobot: null,
   hoveredRobot: null,
   connectionStatus: 'connected', // connected, disconnected, connecting
@@ -135,6 +156,8 @@ const ACTION_TYPES = {
 const appReducer = (state, action) => {
   switch (action.type) {
     case ACTION_TYPES.SET_CURRENT_PAGE:
+      // 현재 페이지를 localStorage에 저장
+      saveCurrentPageToStorage(action.payload);
       return {
         ...state,
         currentPage: action.payload

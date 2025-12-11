@@ -716,8 +716,8 @@ const SettingsPage = () => {
             {/* 서버 맵 리스트 */}
             <div className="card-row" style={{ flexDirection: 'column', alignItems: 'stretch' }}>
               <div style={{ marginBottom: 'var(--space-md)' }}>
-                <div className="card-label" style={{ fontSize: 'var(--font-size-base)', color: 'var(--text-primary)', marginBottom: 'var(--space-xs)' }}>서버 맵 목록</div>
-                <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-tertiary)' }}>서버에 저장된 맵 파일들입니다</div>
+                <div className="card-label" style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-primary)', marginBottom: '2px' }}>서버 맵 목록</div>
+                <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--text-tertiary)' }}>서버에 저장된 맵 파일들입니다</div>
               </div>
 
               <div style={{
@@ -844,8 +844,8 @@ const SettingsPage = () => {
             {/* 맵 파일 업로드 */}
             <div className="card-row" style={{ flexDirection: 'column', alignItems: 'stretch' }}>
               <div style={{ marginBottom: 'var(--space-md)' }}>
-                <div className="card-label" style={{ fontSize: 'var(--font-size-base)', color: 'var(--text-primary)', marginBottom: 'var(--space-xs)' }}>맵 파일 업로드</div>
-                <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-tertiary)' }}>새로운 맵 파일을 업로드합니다</div>
+                <div className="card-label" style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-primary)', marginBottom: '2px' }}>맵 파일 업로드</div>
+                <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--text-tertiary)' }}>새로운 맵 파일을 업로드합니다</div>
               </div>
               
               {/* 추출된 맵 이름 표시 */}
@@ -1142,8 +1142,8 @@ const SettingsPage = () => {
                 marginBottom: 'var(--space-md)' 
               }}>
                 <div>
-                  <div className="card-label" style={{ fontSize: 'var(--font-size-base)', color: 'var(--text-primary)', marginBottom: 'var(--space-xs)' }}>서버 로봇 목록</div>
-                  <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-tertiary)' }}>서버에 등록된 로봇 목록입니다</div>
+                  <div className="card-label" style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-primary)', marginBottom: '2px' }}>서버 로봇 목록</div>
+                  <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--text-tertiary)' }}>서버에 등록된 로봇 목록입니다</div>
                 </div>
                 {robots && robots.length > 0 && (
                   <button
@@ -1397,16 +1397,16 @@ const SettingsPage = () => {
                                       }}
                                       onMouseOver={(e) => {
                                         if (!loading.downloadingMaps[`${robot.id}-${map.id}`] && !downloadedMaps[`${robot.id}-${map.id}`]) {
-                                          e.target.style.backgroundColor = 'var(--primary-color)';
-                                          e.target.style.color = 'white';
-                                          e.target.style.borderColor = 'var(--primary-color)';
+                                          e.currentTarget.style.backgroundColor = 'var(--primary-color)';
+                                          e.currentTarget.style.color = 'white';
+                                          e.currentTarget.style.borderColor = 'var(--primary-color)';
                                         }
                                       }}
                                       onMouseOut={(e) => {
                                         if (!downloadedMaps[`${robot.id}-${map.id}`]) {
-                                          e.target.style.backgroundColor = 'transparent';
-                                          e.target.style.color = 'var(--text-secondary)';
-                                          e.target.style.borderColor = 'var(--border-primary)';
+                                          e.currentTarget.style.backgroundColor = 'transparent';
+                                          e.currentTarget.style.color = 'var(--text-secondary)';
+                                          e.currentTarget.style.borderColor = 'var(--border-primary)';
                                         }
                                       }}
                                       title={
@@ -1488,8 +1488,8 @@ const SettingsPage = () => {
             {/* 포인트 컬러 설정 */}
             <div className="card-row" style={{ flexDirection: 'column', alignItems: 'stretch' }}>
               <div style={{ marginBottom: 'var(--space-md)' }}>
-                <div className="card-label" style={{ fontSize: 'var(--font-size-base)', color: 'var(--text-primary)', marginBottom: 'var(--space-xs)' }}>포인트 컬러</div>
-                <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-tertiary)' }}>앱 전반에 적용되는 테마 포인트 컬러를 선택합니다</div>
+                <div className="card-label" style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-primary)', marginBottom: '2px' }}>포인트 컬러</div>
+                <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--text-tertiary)' }}>앱 전반에 적용되는 테마 포인트 컬러를 선택합니다</div>
               </div>
 
               {/* 컬러 프리셋 */}
@@ -1500,16 +1500,17 @@ const SettingsPage = () => {
                 marginBottom: 'var(--space-md)'
               }}>
                 {[
-                  { color: '#E82E01', name: '레드 오렌지' },
+                  { color: '#38BDF8', name: '스카이 블루' },
                   { color: '#00d4ff', name: '사이버 블루' },
-                  { color: '#00ff88', name: '네온 그린' },
-                  { color: '#ff6b35', name: '오렌지' },
-                  { color: '#9b59b6', name: '퍼플' },
-                  { color: '#e74c3c', name: '레드' },
                   { color: '#3498db', name: '블루' },
-                  { color: '#f39c12', name: '골드' },
+                  { color: '#00ff88', name: '네온 그린' },
                   { color: '#1abc9c', name: '터콰이즈' },
-                  { color: '#e91e63', name: '핑크' }
+                  { color: '#E82E01', name: '레드 오렌지' },
+                  { color: '#ff6b35', name: '오렌지' },
+                  { color: '#f39c12', name: '골드' },
+                  { color: '#e91e63', name: '핑크' },
+                  { color: '#9b59b6', name: '퍼플' },
+                  { color: '#e74c3c', name: '레드' }
                 ].map((preset) => (
                   <button
                     key={preset.color}
@@ -1530,12 +1531,12 @@ const SettingsPage = () => {
                     }}
                     title={preset.name}
                     onMouseEnter={(e) => {
-                      e.target.style.transform = 'scale(1.1)';
-                      e.target.style.boxShadow = `0 0 15px ${preset.color}60`;
+                      e.currentTarget.style.transform = 'scale(1.1)';
+                      e.currentTarget.style.boxShadow = `0 0 15px ${preset.color}60`;
                     }}
                     onMouseLeave={(e) => {
-                      e.target.style.transform = 'scale(1)';
-                      e.target.style.boxShadow = state.ui.primaryColor === preset.color 
+                      e.currentTarget.style.transform = 'scale(1)';
+                      e.currentTarget.style.boxShadow = state.ui.primaryColor === preset.color 
                         ? `0 0 15px ${preset.color}60` 
                         : 'none';
                     }}
@@ -1607,8 +1608,8 @@ const SettingsPage = () => {
             {/* 로고 설정 */}
             <div className="card-row" style={{ flexDirection: 'column', alignItems: 'stretch', marginTop: 'var(--space-lg)' }}>
               <div style={{ marginBottom: 'var(--space-md)' }}>
-                <div className="card-label" style={{ fontSize: 'var(--font-size-base)', color: 'var(--text-primary)', marginBottom: 'var(--space-xs)' }}>로고 설정</div>
-                <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-tertiary)' }}>헤더에 표시되는 로고 이미지를 변경합니다</div>
+                <div className="card-label" style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-primary)', marginBottom: '2px' }}>로고 설정</div>
+                <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--text-tertiary)' }}>헤더에 표시되는 로고 이미지를 변경합니다</div>
               </div>
 
               <div style={{
@@ -1712,8 +1713,8 @@ const SettingsPage = () => {
             {/* 테마 설정 */}
             <div className="card-row" style={{ flexDirection: 'column', alignItems: 'stretch', marginTop: 'var(--space-lg)' }}>
               <div style={{ marginBottom: 'var(--space-md)' }}>
-                <div className="card-label" style={{ fontSize: 'var(--font-size-base)', color: 'var(--text-primary)', marginBottom: 'var(--space-xs)' }}>테마 모드</div>
-                <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-tertiary)' }}>다크 모드 또는 라이트 모드를 선택합니다</div>
+                <div className="card-label" style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-primary)', marginBottom: '2px' }}>테마 모드</div>
+                <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--text-tertiary)' }}>다크 모드 또는 라이트 모드를 선택합니다</div>
               </div>
 
               <div style={{

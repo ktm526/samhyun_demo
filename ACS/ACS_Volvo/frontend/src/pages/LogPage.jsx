@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useRobots } from '../hooks/useRobots';
 import { useMissions } from '../hooks/useMissions';
+import { logsAPI } from '../services/api';
 import TabComponent from '../components/log/TabComponent';
 import DashboardTab from '../components/log/DashboardTab';
 import LogTab from '../components/log/LogTab';
@@ -10,172 +11,116 @@ const LogPage = () => {
   const { missions } = useMissions();
   const [logs, setLogs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [expandedLogs, setExpandedLogs] = useState(new Set());
   const [activeTab, setActiveTab] = useState('dashboard');
   const [filters, setFilters] = useState({
     level: 'all',
     category: 'all',
+    eventType: 'all',
     robot: 'all',
     dateFrom: '',
     dateTo: ''
   });
+  
+  // 통계 데이터
+  const [stats, setStats] = useState({
+    totalLogs: 0,
+    successCount: 0,
+    errorCount: 0,
+    warningCount: 0,
+    infoCount: 0,
+    totalWorkTime: 0,
+    totalMissions: 0,
+    completedMissions: 0,
+    failedMissions: 0,
+    moveCommands: 0,
+    disconnectionCount: 0
+  });
+  const [robotWorkTime, setRobotWorkTime] = useState({});
+  const [robotTaskCount, setRobotTaskCount] = useState({});
+  const [uniqueRobots, setUniqueRobots] = useState([]);
 
-  useEffect(() => {
-    // 더 풍부한 모의 로그 데이터
-    // 오늘 날짜로 설정된 모의 로그 데이터
-    const today = new Date();
-    const mockLogs = [
-      {
-        id: 1,
-        timestamp: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 14, 30, 22),
-        level: 'success',
-        category: 'mission',
-        robotId: 'Robot-001',
-        message: 'A구역에서 B구역으로 물품 이송 완료',
-        details: '소요시간: 12분 30초, 운반 물품: 전자부품 5박스',
-        duration: 750 // 초 단위
-      },
-      {
-        id: 2,
-        timestamp: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 14, 28, 15),
-        level: 'warning',
-        category: 'system',
-        robotId: 'Robot-002',
-        message: '로봇 배터리 부족 경고',
-        details: '배터리 잔량: 15%, 충전소로 이동 중',
-        duration: null
-      },
-      {
-        id: 3,
-        timestamp: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 14, 25, 33),
-        level: 'error',
-        category: 'navigation',
-        robotId: 'Robot-003',
-        message: '경로 계획 실패',
-        details: '목적지: C구역, 장애물 감지로 인한 재계획 필요',
-        duration: null
-      },
-      {
-        id: 4,
-        timestamp: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 14, 22, 45),
-        level: 'info',
-        category: 'robot',
-        robotId: 'Robot-002',
-        message: '충전소 A에서 충전 시작',
-        details: '예상 충전 시간: 45분',
-        duration: 2700
-      },
-      {
-        id: 5,
-        timestamp: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 14, 20, 18),
-        level: 'success',
-        category: 'mission',
-        robotId: 'Robot-004',
-        message: '창고 정리 임무 완료',
-        details: '정리된 구역: D구역, 이동된 물품: 23개',
-        duration: 1800
-      },
-      {
-        id: 6,
-        timestamp: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 13, 45, 12),
-        level: 'success',
-        category: 'mission',
-        robotId: 'Robot-001',
-        message: '품질 검사 임무 완료',
-        details: '검사 완료: 50개 제품, 불량품: 2개 발견',
-        duration: 900
-      },
-      {
-        id: 7,
-        timestamp: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 13, 30, 5),
-        level: 'info',
-        category: 'system',
-        robotId: 'Robot-003',
-        message: '정기 점검 완료',
-        details: '모든 센서 정상, 다음 점검 예정',
-        duration: null
-      },
-      {
-        id: 8,
-        timestamp: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 15, 30),
-        level: 'warning',
-        category: 'navigation',
-        robotId: 'Robot-005',
-        message: '경로 지연 발생',
-        details: '예상보다 5분 지연, 다른 로봇과의 충돌 회피',
-        duration: null
-      },
-      {
-        id: 9,
-        timestamp: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 11, 50, 18),
-        level: 'success',
-        category: 'mission',
-        robotId: 'Robot-005',
-        message: '포장 작업 완료',
-        details: '포장 완료: 30박스, 출고 대기 상태',
-        duration: 2100
-      },
-      {
-        id: 10,
-        timestamp: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 10, 30, 45),
-        level: 'info',
-        category: 'robot',
-        robotId: 'Robot-001',
-        message: '작업 시작',
-        details: '오늘 첫 번째 임무 시작',
-        duration: null
-      },
-      // 더 많은 태스크 데이터 추가
-      {
-        id: 11,
-        timestamp: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 9, 15, 0),
-        level: 'success',
-        category: 'mission',
-        robotId: 'Robot-003',
-        message: '물류센터 입고 작업 완료',
-        details: '입고 완료: 100박스, 재고 업데이트 완료',
-        duration: 3600
-      },
-      {
-        id: 12,
-        timestamp: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 8, 30, 0),
-        level: 'info',
-        category: 'robot',
-        robotId: 'Robot-004',
-        message: '충전 완료 및 작업 준비',
-        details: '배터리 100%, 첫 번째 임무 대기 중',
-        duration: 1800
-      }
-    ];
+  // 로그 데이터 가져오기
+  const fetchLogs = useCallback(async () => {
+    try {
+      setLoading(true);
+      setError(null);
 
-    setTimeout(() => {
-      setLogs(mockLogs);
+      // 로그 데이터 가져오기
+      const logsResponse = await logsAPI.getAll({
+        level: filters.level,
+        category: filters.category,
+        event_type: filters.eventType,
+        robot: filters.robot,
+        dateFrom: filters.dateFrom,
+        dateTo: filters.dateTo,
+        limit: 500
+      });
+
+      // 날짜 문자열을 Date 객체로 변환
+      const logsData = (logsResponse.data || []).map(log => ({
+        ...log,
+        timestamp: new Date(log.timestamp || log.created_at)
+      }));
+
+      setLogs(logsData);
+    } catch (err) {
+      console.error('로그 조회 오류:', err);
+      setError('로그 데이터를 불러오는데 실패했습니다.');
+    } finally {
       setLoading(false);
-    }, 500);
-  }, []);
+    }
+  }, [filters]);
+
+  // 통계 데이터 가져오기
+  const fetchStats = useCallback(async () => {
+    try {
+      const statsResponse = await logsAPI.getStats({
+        dateFrom: filters.dateFrom,
+        dateTo: filters.dateTo,
+        robot_name: filters.robot !== 'all' ? filters.robot : undefined
+      });
+
+      if (statsResponse.stats) {
+        setStats(statsResponse.stats);
+      }
+      if (statsResponse.robotWorkTime) {
+        setRobotWorkTime(statsResponse.robotWorkTime);
+      }
+      if (statsResponse.robotTaskCount) {
+        setRobotTaskCount(statsResponse.robotTaskCount);
+      }
+      if (statsResponse.uniqueRobots) {
+        setUniqueRobots(statsResponse.uniqueRobots);
+      }
+    } catch (err) {
+      console.error('통계 조회 오류:', err);
+    }
+  }, [filters.dateFrom, filters.dateTo, filters.robot]);
+
+  // 초기 데이터 로드
+  useEffect(() => {
+    fetchLogs();
+    fetchStats();
+  }, [fetchLogs, fetchStats]);
+
+  // 자동 새로고침 (30초마다)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetchLogs();
+      fetchStats();
+    }, 30000);
+
+    return () => clearInterval(interval);
+  }, [fetchLogs, fetchStats]);
 
   const handleFilterChange = (filterType, value) => {
     setFilters(prev => ({ ...prev, [filterType]: value }));
   };
 
-  const filteredLogs = logs.filter(log => {
-    if (filters.level !== 'all' && log.level !== filters.level) return false;
-    if (filters.category !== 'all' && log.category !== filters.category) return false;
-    if (filters.robot !== 'all' && log.robotId !== filters.robot) return false;
-    
-    if (filters.dateFrom) {
-      const fromDate = new Date(filters.dateFrom);
-      if (log.timestamp < fromDate) return false;
-    }
-    
-    if (filters.dateTo) {
-      const toDate = new Date(filters.dateTo);
-      toDate.setHours(23, 59, 59, 999);
-      if (log.timestamp > toDate) return false;
-    }
-    
-    return true;
-  });
+  // 클라이언트 측 필터링 (서버에서 처리되지 않은 경우)
+  const filteredLogs = logs;
 
   const getLevelColor = (level) => {
     switch (level) {
@@ -198,7 +143,9 @@ const LogPage = () => {
   };
 
   const formatTimestamp = (timestamp) => {
-    return timestamp.toLocaleString('ko-KR', {
+    if (!timestamp) return '-';
+    const date = timestamp instanceof Date ? timestamp : new Date(timestamp);
+    return date.toLocaleString('ko-KR', {
       year: 'numeric',
       month: '2-digit',
       day: '2-digit',
@@ -212,36 +159,15 @@ const LogPage = () => {
     if (!seconds) return '-';
     const hours = Math.floor(seconds / 3600);
     const minutes = Math.floor((seconds % 3600) / 60);
-    return hours > 0 ? `${hours}시간 ${minutes}분` : `${minutes}분`;
-  };
-
-  // 통계 계산
-  const stats = {
-    totalLogs: filteredLogs.length,
-    successCount: filteredLogs.filter(log => log.level === 'success').length,
-    errorCount: filteredLogs.filter(log => log.level === 'error').length,
-    warningCount: filteredLogs.filter(log => log.level === 'warning').length,
-    totalWorkTime: filteredLogs.reduce((total, log) => total + (log.duration || 0), 0)
-  };
-
-  // 로봇별 작업 시간
-  const robotWorkTime = {};
-  filteredLogs.forEach(log => {
-    if (log.duration && log.robotId) {
-      robotWorkTime[log.robotId] = (robotWorkTime[log.robotId] || 0) + log.duration;
+    const secs = seconds % 60;
+    if (hours > 0) {
+      return `${hours}시간 ${minutes}분`;
     }
-  });
-
-  // 로봇별 작업 건수
-  const robotTaskCount = {};
-  filteredLogs.forEach(log => {
-    if (log.robotId) {
-      robotTaskCount[log.robotId] = (robotTaskCount[log.robotId] || 0) + 1;
+    if (minutes > 0) {
+      return `${minutes}분 ${secs}초`;
     }
-  });
-
-  // 고유 로봇 목록
-  const uniqueRobots = [...new Set(logs.map(log => log.robotId))];
+    return `${secs}초`;
+  };
 
   const toggleLogExpansion = (logId) => {
     setExpandedLogs(prev => {
@@ -253,6 +179,12 @@ const LogPage = () => {
       }
       return newSet;
     });
+  };
+
+  // 수동 새로고침
+  const handleRefresh = () => {
+    fetchLogs();
+    fetchStats();
   };
 
   // 탭 설정
@@ -273,6 +205,42 @@ const LogPage = () => {
       fontFamily: 'Pretendard, sans-serif',
       overflow: 'auto'
     }}>
+      {/* 에러 상태 */}
+      {error && (
+        <div className="card" style={{ 
+          backgroundColor: 'rgba(239, 71, 111, 0.1)', 
+          borderColor: 'var(--status-error)',
+          marginBottom: 'var(--space-lg)'
+        }}>
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: 'var(--space-md)',
+            padding: 'var(--space-md)'
+          }}>
+            <i className="fas fa-exclamation-circle" style={{ color: 'var(--status-error)', fontSize: '1.5rem' }}></i>
+            <div>
+              <div style={{ fontWeight: '600', color: 'var(--status-error)' }}>오류 발생</div>
+              <div style={{ color: 'var(--text-secondary)' }}>{error}</div>
+            </div>
+            <button
+              onClick={handleRefresh}
+              style={{
+                marginLeft: 'auto',
+                padding: 'var(--space-sm) var(--space-md)',
+                backgroundColor: 'var(--primary-color)',
+                border: 'none',
+                borderRadius: 'var(--radius-md)',
+                color: 'white',
+                cursor: 'pointer'
+              }}
+            >
+              다시 시도
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* 탭 컴포넌트 */}
       <TabComponent 
         activeTab={activeTab}
@@ -303,10 +271,38 @@ const LogPage = () => {
           formatDuration={formatDuration}
           filters={filters}
           onFilterChange={handleFilterChange}
+          uniqueRobots={uniqueRobots}
         />
+      )}
+
+      {/* 로딩 오버레이 */}
+      {loading && logs.length === 0 && (
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          backgroundColor: 'rgba(0, 0, 0, 0.3)',
+          zIndex: 100
+        }}>
+          <div style={{ 
+            textAlign: 'center',
+            padding: 'var(--space-xl)',
+            backgroundColor: 'var(--bg-secondary)',
+            borderRadius: 'var(--radius-lg)',
+            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)'
+          }}>
+            <i className="fas fa-spinner fa-spin" style={{ fontSize: '2rem', color: 'var(--primary-color)' }}></i>
+            <p style={{ marginTop: 'var(--space-md)', color: 'var(--text-secondary)' }}>로그 데이터를 불러오는 중...</p>
+          </div>
+        </div>
       )}
     </div>
   );
 };
 
-export default LogPage; 
+export default LogPage;

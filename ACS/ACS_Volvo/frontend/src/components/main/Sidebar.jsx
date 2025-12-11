@@ -100,14 +100,14 @@ const Sidebar = ({
               transition: 'all 0.3s ease'
             }}
             onMouseEnter={(e) => {
-              e.target.style.backgroundColor = 'var(--bg-primary)';
-              e.target.style.borderColor = 'var(--primary-color)';
-              e.target.style.color = 'var(--text-primary)';
+              e.currentTarget.style.backgroundColor = 'var(--bg-primary)';
+              e.currentTarget.style.borderColor = 'var(--primary-color)';
+              e.currentTarget.style.color = 'var(--text-primary)';
             }}
             onMouseLeave={(e) => {
-              e.target.style.backgroundColor = 'transparent';
-              e.target.style.borderColor = 'var(--border-primary)';
-              e.target.style.color = 'var(--text-secondary)';
+              e.currentTarget.style.backgroundColor = 'transparent';
+              e.currentTarget.style.borderColor = 'var(--border-primary)';
+              e.currentTarget.style.color = 'var(--text-secondary)';
             }}
           >
             <i className="fas fa-times"></i>
@@ -211,7 +211,7 @@ const Sidebar = ({
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: 'linear-gradient(90deg, transparent, rgba(232, 46, 1, 0.1), transparent)',
+                    background: 'linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.1), transparent)',
                     animation: 'loading-shimmer 2s infinite'
                   }}></div>
                 )}
@@ -259,7 +259,7 @@ const Sidebar = ({
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: 'linear-gradient(90deg, transparent, rgba(232, 46, 1, 0.1), transparent)',
+                    background: 'linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.1), transparent)',
                     animation: 'loading-shimmer 2s infinite 0.5s'
                   }}></div>
                 )}
@@ -297,7 +297,7 @@ const Sidebar = ({
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: 'linear-gradient(90deg, transparent, rgba(232, 46, 1, 0.1), transparent)',
+                    background: 'linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.1), transparent)',
                     animation: 'loading-shimmer 2s infinite'
                   }}></div>
                 )}
@@ -333,7 +333,7 @@ const Sidebar = ({
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: 'linear-gradient(90deg, transparent, rgba(232, 46, 1, 0.1), transparent)',
+                    background: 'linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.1), transparent)',
                     animation: 'loading-shimmer 2s infinite 0.5s'
                   }}></div>
                 )}
@@ -380,7 +380,7 @@ const Sidebar = ({
                   left: 0,
                   right: 0,
                   bottom: 0,
-                  background: 'linear-gradient(90deg, transparent, rgba(232, 46, 1, 0.1), transparent)',
+                  background: 'linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.1), transparent)',
                   animation: 'loading-shimmer 2s infinite'
                 }}></div>
               )}
@@ -416,7 +416,7 @@ const Sidebar = ({
                   left: 0,
                   right: 0,
                   bottom: 0,
-                  background: 'linear-gradient(90deg, transparent, rgba(232, 46, 1, 0.1), transparent)',
+                  background: 'linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.1), transparent)',
                   animation: 'loading-shimmer 2s infinite 0.5s'
                 }}></div>
               )}
@@ -471,7 +471,7 @@ const Sidebar = ({
                   left: 0,
                   right: 0,
                   bottom: 0,
-                  background: 'linear-gradient(90deg, transparent, rgba(232, 46, 1, 0.1), transparent)',
+                  background: 'linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.1), transparent)',
                   animation: `loading-shimmer 2s infinite ${index * 0.3}s`
                 }}></div>
                 
@@ -587,14 +587,14 @@ const Sidebar = ({
               msUserSelect: 'none'
             }}
             onMouseEnter={(e) => {
-              e.target.style.backgroundColor = 'var(--accent-color)';
-              e.target.style.transform = 'translateY(-2px)';
-              e.target.style.boxShadow = '0 6px 30px var(--primary-color), 0 0 60px var(--border-accent)';
+              e.currentTarget.style.backgroundColor = 'var(--accent-color)';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = '0 6px 30px var(--primary-color), 0 0 60px var(--border-accent)';
             }}
             onMouseLeave={(e) => {
-              e.target.style.backgroundColor = 'var(--primary-color)';
-              e.target.style.transform = 'translateY(0)';
-              e.target.style.boxShadow = 'var(--shadow-glow-strong)';
+              e.currentTarget.style.backgroundColor = 'var(--primary-color)';
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = 'var(--shadow-glow-strong)';
             }}
           >
             <i className="fas fa-plus" style={{

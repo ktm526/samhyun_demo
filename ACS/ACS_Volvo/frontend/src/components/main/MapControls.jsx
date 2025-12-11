@@ -174,12 +174,12 @@ const MapControls = ({
               justifyContent: 'center'
             }}
             onMouseEnter={(e) => {
-              e.target.style.color = 'var(--primary-color)';
-              e.target.style.background = 'rgba(232, 46, 1, 0.1)';
+              e.currentTarget.style.color = 'var(--primary-color)';
+              e.currentTarget.style.background = 'rgba(56, 189, 248, 0.1)';
             }}
             onMouseLeave={(e) => {
-              e.target.style.color = 'var(--text-secondary)';
-              e.target.style.background = 'none';
+              e.currentTarget.style.color = 'var(--text-secondary)';
+              e.currentTarget.style.background = 'none';
             }}
           >
             <i className={`fas fa-chevron-${isExpanded ? 'up' : 'down'}`}></i>
@@ -229,16 +229,16 @@ const MapControls = ({
                 }}
                 onMouseEnter={(e) => {
                   if (!mapLoading) {
-                    e.target.style.background = 'linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary))';
-                    e.target.style.transform = 'translateY(-1px)';
-                    e.target.style.boxShadow = '0 4px 12px rgba(232, 46, 1, 0.2)';
+                    e.currentTarget.style.background = 'linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary))';
+                    e.currentTarget.style.transform = 'translateY(-1px)';
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(56, 189, 248, 0.2)';
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (!mapLoading) {
-                    e.target.style.background = 'linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary))';
-                    e.target.style.transform = 'translateY(0)';
-                    e.target.style.boxShadow = 'none';
+                    e.currentTarget.style.background = 'linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary))';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = 'none';
                   }
                 }}
               >
@@ -296,12 +296,12 @@ const MapControls = ({
                           marginBottom: '2px'
                         }}
                         onMouseEnter={(e) => {
-                          e.target.style.background = 'var(--primary-color)30';
-                          e.target.style.borderColor = 'var(--primary-color)';
+                          e.currentTarget.style.background = 'var(--primary-color)30';
+                          e.currentTarget.style.borderColor = 'var(--primary-color)';
                         }}
                         onMouseLeave={(e) => {
-                          e.target.style.background = selectedMap?.id === map.id ? 'var(--primary-color)20' : 'transparent';
-                          e.target.style.borderColor = selectedMap?.id === map.id ? 'var(--primary-color)' : 'transparent';
+                          e.currentTarget.style.background = selectedMap?.id === map.id ? 'var(--primary-color)20' : 'transparent';
+                          e.currentTarget.style.borderColor = selectedMap?.id === map.id ? 'var(--primary-color)' : 'transparent';
                         }}
                       >
                         <i className="fas fa-map" style={{ fontSize: '10px' }}></i>
@@ -368,14 +368,14 @@ const MapControls = ({
                   justifyContent: 'center'
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.background = 'linear-gradient(135deg, var(--primary-color)30, var(--primary-color)15)';
-                  e.target.style.transform = 'translateY(-1px)';
-                  e.target.style.boxShadow = '0 4px 12px rgba(232, 46, 1, 0.3)';
+                  e.currentTarget.style.background = 'linear-gradient(135deg, var(--primary-color)30, var(--primary-color)15)';
+                  e.currentTarget.style.transform = 'translateY(-1px)';
+                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(56, 189, 248, 0.3)';
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.background = 'linear-gradient(135deg, var(--primary-color)20, var(--primary-color)10)';
-                  e.target.style.transform = 'translateY(0)';
-                  e.target.style.boxShadow = 'none';
+                  e.currentTarget.style.background = 'linear-gradient(135deg, var(--primary-color)20, var(--primary-color)10)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
                 }}
               >
                 <i className={`fas ${getViewModeIcon()}`} style={{ fontSize: '10px' }}></i>
@@ -424,14 +424,14 @@ const MapControls = ({
                   }}
                   onMouseEnter={(e) => {
                     if (zoomLevel > 0.5) {
-                      e.target.style.background = 'var(--border-primary)';
-                      e.target.style.transform = 'scale(1.05)';
+                      e.currentTarget.style.background = 'var(--border-primary)';
+                      e.currentTarget.style.transform = 'scale(1.05)';
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (zoomLevel > 0.5) {
-                      e.target.style.background = 'var(--bg-secondary)';
-                      e.target.style.transform = 'scale(1)';
+                      e.currentTarget.style.background = 'var(--bg-secondary)';
+                      e.currentTarget.style.transform = 'scale(1)';
                     }
                   }}
                 >
@@ -475,14 +475,14 @@ const MapControls = ({
                   }}
                   onMouseEnter={(e) => {
                     if (zoomLevel < 3) {
-                      e.target.style.background = 'var(--border-primary)';
-                      e.target.style.transform = 'scale(1.05)';
+                      e.currentTarget.style.background = 'var(--border-primary)';
+                      e.currentTarget.style.transform = 'scale(1.05)';
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (zoomLevel < 3) {
-                      e.target.style.background = 'var(--bg-secondary)';
-                      e.target.style.transform = 'scale(1)';
+                      e.currentTarget.style.background = 'var(--bg-secondary)';
+                      e.currentTarget.style.transform = 'scale(1)';
                     }
                   }}
                 >
@@ -712,14 +712,14 @@ const MapControls = ({
                   }}
                   onMouseEnter={(e) => {
                     if (!stlLoading) {
-                      e.target.style.background = 'linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary))';
-                      e.target.style.transform = 'translateY(-1px)';
+                      e.currentTarget.style.background = 'linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary))';
+                      e.currentTarget.style.transform = 'translateY(-1px)';
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (!stlLoading) {
-                      e.target.style.background = 'linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary))';
-                      e.target.style.transform = 'translateY(0)';
+                      e.currentTarget.style.background = 'linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary))';
+                      e.currentTarget.style.transform = 'translateY(0)';
                     }
                   }}
                 >
@@ -734,7 +734,7 @@ const MapControls = ({
                       left: '1px',
                       right: '1px',
                       height: '2px',
-                      backgroundColor: 'rgba(232, 46, 1, 0.2)',
+                      backgroundColor: 'rgba(56, 189, 248, 0.2)',
                       borderRadius: '0 0 5px 5px',
                       overflow: 'hidden'
                     }}>
@@ -769,18 +769,18 @@ const MapControls = ({
                   }}
                   onMouseEnter={(e) => {
                     if (stlMetadata || stlLoading) {
-                      e.target.style.background = showStlModel ? 
+                      e.currentTarget.style.background = showStlModel ? 
                         'linear-gradient(135deg, var(--primary-color)40, var(--primary-color)20)' : 
                         'var(--border-primary)';
-                      e.target.style.transform = 'scale(1.05)';
+                      e.currentTarget.style.transform = 'scale(1.05)';
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (stlMetadata || stlLoading) {
-                      e.target.style.background = showStlModel ? 
+                      e.currentTarget.style.background = showStlModel ? 
                         'linear-gradient(135deg, var(--primary-color)30, var(--primary-color)15)' : 
                         'var(--bg-secondary)';
-                      e.target.style.transform = 'scale(1)';
+                      e.currentTarget.style.transform = 'scale(1)';
                     }
                   }}
                 >
@@ -1010,16 +1010,16 @@ const MapControls = ({
                   justifyContent: 'space-between'
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.background = trackedRobot ? 
+                  e.currentTarget.style.background = trackedRobot ? 
                     'linear-gradient(135deg, var(--primary-color)40, var(--primary-color)20)' : 
                     'var(--border-primary)';
-                  e.target.style.transform = 'translateY(-1px)';
+                  e.currentTarget.style.transform = 'translateY(-1px)';
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.background = trackedRobot ? 
+                  e.currentTarget.style.background = trackedRobot ? 
                     'linear-gradient(135deg, var(--primary-color)30, var(--primary-color)15)' : 
                     'var(--bg-secondary)';
-                  e.target.style.transform = 'translateY(0)';
+                  e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
                 <span style={{
@@ -1081,12 +1081,12 @@ const MapControls = ({
                 gap: 'var(--space-xs)'
               }}
               onMouseEnter={(e) => {
-                e.target.style.background = 'var(--border-primary)';
-                e.target.style.color = 'var(--text-primary)';
+                e.currentTarget.style.background = 'var(--border-primary)';
+                e.currentTarget.style.color = 'var(--text-primary)';
               }}
               onMouseLeave={(e) => {
-                e.target.style.background = 'var(--bg-tertiary)';
-                e.target.style.color = 'var(--text-secondary)';
+                e.currentTarget.style.background = 'var(--bg-tertiary)';
+                e.currentTarget.style.color = 'var(--text-secondary)';
               }}
             >
               <i className="fas fa-times" style={{ fontSize: '10px' }}></i>
@@ -1128,14 +1128,14 @@ const MapControls = ({
                 }}
                 onMouseEnter={(e) => {
                   if (trackedRobot !== robot.id) {
-                    e.target.style.background = 'var(--bg-tertiary)';
-                    e.target.style.border = '1px solid var(--border-primary)';
+                    e.currentTarget.style.background = 'var(--bg-tertiary)';
+                    e.currentTarget.style.border = '1px solid var(--border-primary)';
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (trackedRobot !== robot.id) {
-                    e.target.style.background = 'transparent';
-                    e.target.style.border = '1px solid transparent';
+                    e.currentTarget.style.background = 'transparent';
+                    e.currentTarget.style.border = '1px solid transparent';
                   }
                 }}
               >

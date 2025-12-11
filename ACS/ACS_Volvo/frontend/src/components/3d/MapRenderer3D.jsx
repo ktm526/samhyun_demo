@@ -323,8 +323,8 @@ function MapNode({ node, mapInfo, theme = 'dark', isSelected = false, onHover, o
     textPrimary: theme === 'dark' ? '#ffffff' : '#2c3e50',
     textSecondary: theme === 'dark' ? '#cccccc' : '#6c757d',
     border: theme === 'dark' ? '#333333' : '#e0e0e0',
-    buttonPrimary: '#E82E01',
-    buttonHover: '#FF5722',
+    buttonPrimary: '#38BDF8',
+    buttonHover: '#0EA5E9',
     robotItem: theme === 'dark' ? '#2a2a2a' : '#f8f9fa',
     robotItemHover: theme === 'dark' ? '#363636' : '#e9ecef',
     robotItemDisabled: theme === 'dark' ? '#1a1a1a' : '#f0f0f0'
@@ -532,12 +532,12 @@ function MapNode({ node, mapInfo, theme = 'dark', isSelected = false, onHover, o
                             }}
                             onMouseEnter={(e) => {
                               if (isAvailable && !isSelectedRobot) {
-                                e.target.style.backgroundColor = themeColors.robotItem;
+                                e.currentTarget.style.backgroundColor = themeColors.robotItem;
                               }
                             }}
                             onMouseLeave={(e) => {
                               if (isAvailable && !isSelectedRobot) {
-                                e.target.style.backgroundColor = 'transparent';
+                                e.currentTarget.style.backgroundColor = 'transparent';
                               }
                             }}
                           >
@@ -614,14 +614,14 @@ function MapNode({ node, mapInfo, theme = 'dark', isSelected = false, onHover, o
                     }}
                     onMouseEnter={(e) => {
                       if (!e.target.disabled) {
-                        e.target.style.backgroundColor = themeColors.buttonHover;
-                        e.target.style.boxShadow = `0 0 15px ${themeColors.buttonPrimary}60`;
+                        e.currentTarget.style.backgroundColor = themeColors.buttonHover;
+                        e.currentTarget.style.boxShadow = `0 0 15px ${themeColors.buttonPrimary}60`;
                       }
                     }}
                     onMouseLeave={(e) => {
                       if (!e.target.disabled) {
-                        e.target.style.backgroundColor = themeColors.buttonPrimary;
-                        e.target.style.boxShadow = `0 0 10px ${themeColors.buttonPrimary}40`;
+                        e.currentTarget.style.backgroundColor = themeColors.buttonPrimary;
+                        e.currentTarget.style.boxShadow = `0 0 10px ${themeColors.buttonPrimary}40`;
                       }
                     }}
                   >
@@ -884,7 +884,7 @@ function StlModelRenderer({ stlModel, visible = true, theme = 'dark' }) {
               color: '#e2e8f0',
               padding: '12px 16px',
               borderRadius: '10px',
-              border: '1px solid rgba(232,46,1,0.4)',
+              border: '1px solid rgba(56,189,248,0.4)',
               fontSize: '12px',
               minWidth: '220px'
             }}

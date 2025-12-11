@@ -434,14 +434,14 @@ const StepInputSection = ({
                       msUserSelect: 'none'
                     }}
                     onMouseEnter={(e) => {
-                      e.target.style.backgroundColor = 'var(--bg-card)';
-                      e.target.style.borderColor = getStationColor(station.type);
-                      e.target.style.boxShadow = `0 0 20px ${getStationColor(station.type)}40`;
+                      e.currentTarget.style.backgroundColor = 'var(--bg-card)';
+                      e.currentTarget.style.borderColor = getStationColor(station.type);
+                      e.currentTarget.style.boxShadow = `0 0 20px ${getStationColor(station.type)}40`;
                     }}
                     onMouseLeave={(e) => {
-                      e.target.style.backgroundColor = 'var(--bg-tertiary)';
-                      e.target.style.borderColor = 'var(--border-primary)';
-                      e.target.style.boxShadow = 'none';
+                      e.currentTarget.style.backgroundColor = 'var(--bg-tertiary)';
+                      e.currentTarget.style.borderColor = 'var(--border-primary)';
+                      e.currentTarget.style.boxShadow = 'none';
                     }}
                   >
                     <div style={{

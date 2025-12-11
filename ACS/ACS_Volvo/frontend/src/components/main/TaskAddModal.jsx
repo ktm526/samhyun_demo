@@ -264,12 +264,12 @@ const TaskAddModal = ({ isOpen, onClose, onTaskCreated, robots = [], mapData = n
               msUserSelect: 'none'
             }}
             onMouseEnter={(e) => {
-              e.target.style.backgroundColor = 'var(--bg-tertiary)';
-              e.target.style.color = 'var(--text-primary)';
+              e.currentTarget.style.backgroundColor = 'var(--bg-tertiary)';
+              e.currentTarget.style.color = 'var(--text-primary)';
             }}
             onMouseLeave={(e) => {
-              e.target.style.backgroundColor = 'transparent';
-              e.target.style.color = 'var(--text-secondary)';
+              e.currentTarget.style.backgroundColor = 'transparent';
+              e.currentTarget.style.color = 'var(--text-secondary)';
             }}
           >
             <i className="fas fa-times"></i>
@@ -351,12 +351,12 @@ const TaskAddModal = ({ isOpen, onClose, onTaskCreated, robots = [], mapData = n
                 msUserSelect: 'none'
               }}
               onMouseEnter={(e) => {
-                e.target.style.backgroundColor = 'var(--bg-primary)';
-                e.target.style.color = 'var(--text-primary)';
+                e.currentTarget.style.backgroundColor = 'var(--bg-primary)';
+                e.currentTarget.style.color = 'var(--text-primary)';
               }}
               onMouseLeave={(e) => {
-                e.target.style.backgroundColor = 'var(--bg-tertiary)';
-                e.target.style.color = 'var(--text-secondary)';
+                e.currentTarget.style.backgroundColor = 'var(--bg-tertiary)';
+                e.currentTarget.style.color = 'var(--text-secondary)';
               }}
             >
               취소
@@ -381,7 +381,7 @@ const TaskAddModal = ({ isOpen, onClose, onTaskCreated, robots = [], mapData = n
                 justifyContent: 'center',
                 gap: 'var(--space-sm)',
                 minWidth: '140px',
-                boxShadow: isSubmitting ? 'none' : '0 0 20px rgba(232, 46, 1, 0.3)',
+                boxShadow: isSubmitting ? 'none' : '0 0 20px rgba(56, 189, 248, 0.3)',
                 userSelect: 'none',
                 WebkitUserSelect: 'none',
                 MozUserSelect: 'none',
@@ -389,14 +389,14 @@ const TaskAddModal = ({ isOpen, onClose, onTaskCreated, robots = [], mapData = n
               }}
               onMouseEnter={(e) => {
                 if (!isSubmitting) {
-                  e.target.style.backgroundColor = '#00b8e6';
-                  e.target.style.boxShadow = '0 0 30px rgba(232, 46, 1, 0.5)';
+                  e.currentTarget.style.backgroundColor = '#00b8e6';
+                  e.currentTarget.style.boxShadow = '0 0 30px rgba(56, 189, 248, 0.5)';
                 }
               }}
               onMouseLeave={(e) => {
                 if (!isSubmitting) {
-                  e.target.style.backgroundColor = 'var(--primary-color)';
-                  e.target.style.boxShadow = '0 0 20px rgba(232, 46, 1, 0.3)';
+                  e.currentTarget.style.backgroundColor = 'var(--primary-color)';
+                  e.currentTarget.style.boxShadow = '0 0 20px rgba(56, 189, 248, 0.3)';
                 }
               }}
             >

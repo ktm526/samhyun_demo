@@ -7,6 +7,8 @@ const mapRoutes = require('./maps');
 const missionRoutes = require('./missions');
 const pcdRoutes = require('./pcd');
 const monitoringRoutes = require('./monitoring');
+const logsRoutes = require('./logs');
+const videoRoutes = require('./video');
 
 // 기본 라우트
 router.get('/', (req, res) => {
@@ -18,6 +20,8 @@ router.get('/', (req, res) => {
       maps: '/api/maps',
       missions: '/api/missions',
       pcd: '/api/pcd',
+      logs: '/api/logs',
+      video: '/api/video',
       monitoring: {
         todayLogs: '/api/monitoring/network/today',
         metrics: '/api/monitoring/metrics'
@@ -32,5 +36,7 @@ router.use('/maps', mapRoutes);
 router.use('/missions', missionRoutes);
 router.use('/pcd', pcdRoutes);
 router.use('/monitoring', monitoringRoutes);
+router.use('/logs', logsRoutes);
+router.use('/video', videoRoutes);
 
 module.exports = router; 

@@ -297,6 +297,150 @@ const initializeDatabase = () => {
           return;
         }
         
+      });
+
+      // 활동 로그 테이블 (고도화된 스키마)
+      db.run(`
+        CREATE TABLE IF NOT EXISTS activity_logs (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          -- 기본 분류
+          level TEXT NOT NULL DEFAULT 'info',
+          category TEXT NOT NULL DEFAULT 'system',
+          event_type TEXT NOT NULL DEFAULT 'general',
+          
+          -- 로봇 정보
+          robot_id INTEGER,
+          robot_name TEXT,
+          robot_ip TEXT,
+          robot_status TEXT,
+          
+          -- 미션 정보
+          mission_id INTEGER,
+          mission_name TEXT,
+          mission_type TEXT,
+          mission_priority TEXT,
+          mission_status TEXT,
+          
+          -- 웨이포인트 정보
+          waypoint_index INTEGER,
+          waypoint_total INTEGER,
+          waypoint_name TEXT,
+          
+          -- 이동 명령 정보
+          target_node_id TEXT,
+          target_node_name TEXT,
+          source_x REAL,
+          source_y REAL,
+          target_x REAL,
+          target_y REAL,
+          
+          -- 시간 정보
+          event_start_time DATETIME,
+          event_end_time DATETIME,
+          duration INTEGER,
+          
+          -- 메시지 및 상세 정보
+          message TEXT NOT NULL,
+          details TEXT,
+          error_code TEXT,
+          error_message TEXT,
+          
+          -- 추가 메타데이터
+          metadata TEXT,
+          
+          -- 트리거 소스 (manual, auto, system)
+          trigger_source TEXT DEFAULT 'system',
+          
+          -- 생성 시각
+          created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+          
+          FOREIGN KEY (robot_id) REFERENCES robots(id),
+          FOREIGN KEY (mission_id) REFERENCES missions(id)
+        )
+      `, (err) => {
+        if (err) {
+          reject(err);
+          return;
+        }
+      });
+
+      // 활동 로그 인덱스
+      db.run(`
+        CREATE INDEX IF NOT EXISTS idx_activity_logs_created_at ON activity_logs(created_at);
+      `, (err) => {
+        if (err) {
+          reject(err);
+          return;
+        }
+      });
+
+      db.run(`
+        CREATE INDEX IF NOT EXISTS idx_activity_logs_level ON activity_logs(level);
+      `, (err) => {
+        if (err) {
+          reject(err);
+          return;
+        }
+      });
+
+      db.run(`
+        CREATE INDEX IF NOT EXISTS idx_activity_logs_category ON activity_logs(category);
+      `, (err) => {
+        if (err) {
+          reject(err);
+          return;
+        }
+      });
+
+      db.run(`
+        CREATE INDEX IF NOT EXISTS idx_activity_logs_robot_id ON activity_logs(robot_id);
+      `, (err) => {
+        if (err) {
+          reject(err);
+          return;
+        }
+      });
+
+      // 기존 activity_logs 테이블에 새 컬럼들 추가 (마이그레이션)
+      const activityLogColumns = [
+        'ALTER TABLE activity_logs ADD COLUMN event_type TEXT DEFAULT \'general\'',
+        'ALTER TABLE activity_logs ADD COLUMN robot_ip TEXT',
+        'ALTER TABLE activity_logs ADD COLUMN robot_status TEXT',
+        'ALTER TABLE activity_logs ADD COLUMN mission_name TEXT',
+        'ALTER TABLE activity_logs ADD COLUMN mission_type TEXT',
+        'ALTER TABLE activity_logs ADD COLUMN mission_priority TEXT',
+        'ALTER TABLE activity_logs ADD COLUMN mission_status TEXT',
+        'ALTER TABLE activity_logs ADD COLUMN waypoint_index INTEGER',
+        'ALTER TABLE activity_logs ADD COLUMN waypoint_total INTEGER',
+        'ALTER TABLE activity_logs ADD COLUMN waypoint_name TEXT',
+        'ALTER TABLE activity_logs ADD COLUMN target_node_id TEXT',
+        'ALTER TABLE activity_logs ADD COLUMN target_node_name TEXT',
+        'ALTER TABLE activity_logs ADD COLUMN source_x REAL',
+        'ALTER TABLE activity_logs ADD COLUMN source_y REAL',
+        'ALTER TABLE activity_logs ADD COLUMN target_x REAL',
+        'ALTER TABLE activity_logs ADD COLUMN target_y REAL',
+        'ALTER TABLE activity_logs ADD COLUMN event_start_time DATETIME',
+        'ALTER TABLE activity_logs ADD COLUMN event_end_time DATETIME',
+        'ALTER TABLE activity_logs ADD COLUMN error_code TEXT',
+        'ALTER TABLE activity_logs ADD COLUMN error_message TEXT',
+        'ALTER TABLE activity_logs ADD COLUMN trigger_source TEXT DEFAULT \'system\''
+      ];
+
+      activityLogColumns.forEach(sql => {
+        db.run(sql, (err) => {
+          if (err && !err.message.includes('duplicate column name')) {
+            // 중복 컬럼 에러는 무시 (이미 존재하는 경우)
+          }
+        });
+      });
+
+      // 인덱스 추가
+      db.run(`
+        CREATE INDEX IF NOT EXISTS idx_activity_logs_event_type ON activity_logs(event_type);
+      `, (err) => {
+        if (err) {
+          // 에러 무시
+        }
         
         resolve();
       });

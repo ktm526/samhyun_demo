@@ -259,12 +259,12 @@ const RobotDetailModal = ({ robot, isOpen, onClose }) => {
               transition: 'all 0.2s ease'
             }}
             onMouseEnter={(e) => {
-              e.target.style.backgroundColor = 'var(--bg-secondary)';
-              e.target.style.color = 'var(--text-primary)';
+              e.currentTarget.style.backgroundColor = 'var(--bg-secondary)';
+              e.currentTarget.style.color = 'var(--text-primary)';
             }}
             onMouseLeave={(e) => {
-              e.target.style.backgroundColor = 'var(--bg-tertiary)';
-              e.target.style.color = 'var(--text-secondary)';
+              e.currentTarget.style.backgroundColor = 'var(--bg-tertiary)';
+              e.currentTarget.style.color = 'var(--text-secondary)';
             }}
           >
             <i className="fas fa-times"></i>

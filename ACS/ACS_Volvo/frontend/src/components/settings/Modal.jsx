@@ -99,10 +99,10 @@ const Modal = ({ isOpen, onClose, title, children }) => {
               transition: 'color 0.2s'
             }}
             onMouseOver={(e) => {
-              e.target.style.color = 'var(--text-primary)';
+              e.currentTarget.style.color = 'var(--text-primary)';
             }}
             onMouseOut={(e) => {
-              e.target.style.color = 'var(--text-secondary)';
+              e.currentTarget.style.color = 'var(--text-secondary)';
             }}
           >
             <i className="fas fa-times"></i>

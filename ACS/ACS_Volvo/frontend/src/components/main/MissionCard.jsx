@@ -358,7 +358,7 @@ const MissionCard = ({ mission, onShowDetail, isMobile = false }) => {
               background: progress >= 100 ? 
                 `linear-gradient(90deg, #00ff88, #00dd77)` :
                 progress >= 75 ? 
-                `linear-gradient(90deg, #E82E01, #C42500)` :
+                `linear-gradient(90deg, #38BDF8, #0EA5E9)` :
                 progress >= 50 ? 
                 `linear-gradient(90deg, #ffdd00, #ffcc00)` :
                 `linear-gradient(90deg, #ff8800, #ff7700)`,
@@ -367,7 +367,7 @@ const MissionCard = ({ mission, onShowDetail, isMobile = false }) => {
               boxShadow: progress >= 100 ? 
                 `0 0 8px #00ff8840` :
                 progress >= 75 ? 
-                `0 0 8px #E82E0140` :
+                `0 0 8px #38BDF840` :
                 progress >= 50 ? 
                 `0 0 8px #ffdd0040` :
                 `0 0 8px #ff880040`,

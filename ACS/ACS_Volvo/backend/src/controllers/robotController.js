@@ -1,5 +1,6 @@
 const Robot = require('../models/Robot');
 const robotStatusService = require('../services/robotStatusService');
+const ActivityLogService = require('../services/activityLogService');
 const axios = require('axios');
 
 // order_state 모니터링을 위한 변수들
@@ -81,6 +82,9 @@ const robotController = {
         location_y
       });
 
+      // 로봇 생성 로그
+      await ActivityLogService.logRobotCreated(robot);
+
       res.status(201).json({ 
         message: '로봇이 성공적으로 생성되었습니다.', 
         data: robot 
@@ -138,6 +142,9 @@ const robotController = {
       if (!robot) {
         return res.status(404).json({ error: '로봇을 찾을 수 없습니다.' });
       }
+
+      // 로봇 삭제 로그 (삭제 전에 기록)
+      await ActivityLogService.logRobotDeleted(robot);
 
       await robot.delete();
       
@@ -365,6 +372,9 @@ const robotController = {
         timestamp: timestamp || new Date().toISOString()
       });
 
+      // 이동 요청 로그 (수동 이동)
+      await ActivityLogService.logMoveRequested(robot, nodeId, null, 'manual');
+
       // 실제 로봇에 이동 명령 전송
       try {
         const port = robot.port || 80;
@@ -431,6 +441,9 @@ const robotController = {
       } catch (robotError) {
         // 로봇 통신 실패
         console.error(`❌ 로봇 통신 실패 (${robot.ip_address}:${robot.port || 80}):`, robotError.message);
+
+        // 이동 실패 로그
+        await ActivityLogService.logMoveFailed(robot, nodeId, null, robotError.message);
 
         // 로봇을 disconnected 상태로 마킹
         await robot.markAsDisconnected(`이동 명령 전송 실패: ${robotError.message}`);

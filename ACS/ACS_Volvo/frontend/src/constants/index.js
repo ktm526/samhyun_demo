@@ -73,7 +73,10 @@ export const PATHS = [
 export const API_ENDPOINTS = {
   ROBOTS: '/api/robots',
   MISSIONS: '/api/missions',
-  MOVE_REQUEST: '/api/robots/move'
+  MOVE_REQUEST: '/api/robots/move',
+  LOGS: '/api/logs',
+  LOGS_STATS: '/api/logs/stats',
+  LOGS_ROBOTS: '/api/logs/robots'
 };
 
 // 메뉴 아이템

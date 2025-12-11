@@ -9,12 +9,12 @@
 }
 
 :root {
-  /* Custom color palette - Dark Mode */
-  --primary-color: #E82E01;
-  --primary-glow: #E82E01;
+  /* Custom color palette - Dark Mode (Light Blue Theme) */
+  --primary-color: #38BDF8;
+  --primary-glow: #38BDF8;
   --secondary-color: #0a0a0a;
-  --accent-color: #FF5722;
-  --accent-secondary: #C42500;
+  --accent-color: #0EA5E9;
+  --accent-secondary: #0284C7;
   
   /* Background hierarchy - Dark Mode */
   --bg-primary: #000000;
@@ -32,21 +32,21 @@
   /* Borders and dividers - Dark Mode */
   --border-primary: rgba(255, 255, 255, 0.12);
   --border-secondary: rgba(255, 255, 255, 0.08);
-  --border-accent: rgba(232, 46, 1, 0.3);
+  --border-accent: rgba(56, 189, 248, 0.3);
   
   /* Status colors */
   --status-success: #00ff88;
   --status-warning: #ffaa00;
   --status-error: #ff4444;
-  --status-info: #E82E01;
+  --status-info: #38BDF8;
   --status-idle: #888888;
   
   /* Effects */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 20px rgba(232, 46, 1, 0.2);
-  --shadow-glow-strong: 0 0 30px rgba(232, 46, 1, 0.4);
+  --shadow-glow: 0 0 20px rgba(56, 189, 248, 0.25);
+  --shadow-glow-strong: 0 0 30px rgba(56, 189, 248, 0.45);
   --shadow-modal: 0 25px 50px rgba(0, 0, 0, 0.3);
   
   /* Modal overlay */
@@ -421,16 +421,21 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
 }
 
 .card-title {
-  font-size: var(--font-size-lg);
-  font-weight: 600;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
   color: var(--text-primary);
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: 6px;
+}
+
+.card-title i {
+  font-size: 12px;
+  color: var(--text-secondary);
 }
 
 .card-badge {

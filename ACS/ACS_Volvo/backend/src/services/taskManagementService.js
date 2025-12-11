@@ -3,6 +3,7 @@ const Mission = require('../models/Mission');
 const axios = require('axios');
 const Logger = require('../utils/logger');
 const { query } = require('../database/connection');
+const ActivityLogService = require('./activityLogService');
 
 class TaskManagementService {
   constructor() {
@@ -259,6 +260,10 @@ class TaskManagementService {
         robot_id: robot.id
       });
 
+      // 미션 할당 및 시작 로그
+      await ActivityLogService.logMissionAssigned(task, robot);
+      await ActivityLogService.logMissionStarted(task, robot);
+
       this.logTaskActivity('START', { robot, mission: task });
 
       //Logger.info(`✅ 데이터베이스 업데이트 완료: 로봇 상태 = working, 태스크 상태 = executing, 미션 상태 = in_progress`);
@@ -321,8 +326,12 @@ class TaskManagementService {
     try {
       const currentWaypointIndex = robot.current_waypoint_index;
       const waypoints = task.waypoints;
+      const currentWaypoint = waypoints[currentWaypointIndex];
 
       //Logger.info(`🎯 로봇 ${robot.name}: 웨이포인트 ${currentWaypointIndex + 1}/${waypoints.length} 완료`);
+
+      // 웨이포인트 도착 로그
+      await ActivityLogService.logWaypointArrived(robot, task, currentWaypointIndex, currentWaypoint);
 
       // 진행률 업데이트
       const progress = Math.round(((currentWaypointIndex + 1) / waypoints.length) * 100);
@@ -339,6 +348,9 @@ class TaskManagementService {
           current_waypoint_index: nextWaypointIndex,
           last_command_sent: new Date()  // 새 명령 전송 시간 기록
         });
+
+        // 다음 웨이포인트 시작 로그
+        await ActivityLogService.logWaypointStarted(robot, task, nextWaypointIndex, nextWaypoint);
 
         await this.sendMoveCommand(robot, nextWaypoint);
         
@@ -371,6 +383,9 @@ class TaskManagementService {
 
       // 태스크 상태를 완료로 변경
       await task.updateStatus('completed');
+
+      // 미션 완료 로그
+      await ActivityLogService.logMissionCompleted(task, robot);
 
       this.logTaskActivity('DONE', { robot, mission: task });
 

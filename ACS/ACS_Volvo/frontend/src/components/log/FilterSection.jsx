@@ -5,6 +5,7 @@ const FilterSection = ({ filters = {}, onFilterChange = () => {}, uniqueRobots =
   const handleResetFilters = () => {
     onFilterChange('level', 'all');
     onFilterChange('category', 'all');
+    onFilterChange('eventType', 'all');
     onFilterChange('robot', 'all');
     onFilterChange('dateFrom', '');
     onFilterChange('dateTo', '');
@@ -13,6 +14,7 @@ const FilterSection = ({ filters = {}, onFilterChange = () => {}, uniqueRobots =
   // 활성 필터가 있는지 확인
   const hasActiveFilters = (filters.level && filters.level !== 'all') || 
                           (filters.category && filters.category !== 'all') || 
+                          (filters.eventType && filters.eventType !== 'all') ||
                           (filters.robot && filters.robot !== 'all') || 
                           filters.dateFrom || 
                           filters.dateTo;
@@ -46,10 +48,10 @@ const FilterSection = ({ filters = {}, onFilterChange = () => {}, uniqueRobots =
               msUserSelect: 'none'
             }}
             onMouseEnter={(e) => {
-              e.target.style.backgroundColor = 'rgba(239, 71, 111, 0.2)';
+              e.currentTarget.style.backgroundColor = 'rgba(239, 71, 111, 0.2)';
             }}
             onMouseLeave={(e) => {
-              e.target.style.backgroundColor = 'rgba(239, 71, 111, 0.1)';
+              e.currentTarget.style.backgroundColor = 'rgba(239, 71, 111, 0.1)';
             }}
           >
             <i className="fas fa-times"></i>
@@ -58,7 +60,7 @@ const FilterSection = ({ filters = {}, onFilterChange = () => {}, uniqueRobots =
         )}
       </div>
       <div className="card-content">
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 'var(--space-md)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 'var(--space-md)' }}>
           {/* 레벨 필터 */}
           <div>
             <label style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-secondary)', marginBottom: 'var(--space-xs)', display: 'block' }}>
@@ -104,10 +106,58 @@ const FilterSection = ({ filters = {}, onFilterChange = () => {}, uniqueRobots =
               }}
             >
               <option value="all">전체</option>
-              <option value="mission">임무</option>
+              <option value="mission">미션</option>
               <option value="robot">로봇</option>
-              <option value="system">시스템</option>
               <option value="navigation">네비게이션</option>
+              <option value="command">명령</option>
+              <option value="battery">배터리</option>
+              <option value="system">시스템</option>
+            </select>
+          </div>
+
+          {/* 이벤트 타입 필터 */}
+          <div>
+            <label style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-secondary)', marginBottom: 'var(--space-xs)', display: 'block' }}>
+              이벤트 타입
+            </label>
+            <select
+              value={filters.eventType || 'all'}
+              onChange={(e) => onFilterChange('eventType', e.target.value)}
+              style={{
+                width: '100%',
+                padding: 'var(--space-sm)',
+                backgroundColor: 'var(--bg-secondary)',
+                border: '1px solid var(--border-primary)',
+                borderRadius: 'var(--radius-md)',
+                color: 'var(--text-primary)',
+                fontSize: 'var(--font-size-sm)'
+              }}
+            >
+              <option value="all">전체</option>
+              <optgroup label="미션">
+                <option value="mission_created">미션 생성</option>
+                <option value="mission_started">미션 시작</option>
+                <option value="mission_completed">미션 완료</option>
+                <option value="mission_failed">미션 실패</option>
+                <option value="mission_cancelled">미션 취소</option>
+              </optgroup>
+              <optgroup label="네비게이션">
+                <option value="waypoint_arrived">웨이포인트 도착</option>
+                <option value="move_requested">이동 요청</option>
+                <option value="move_completed">이동 완료</option>
+                <option value="move_failed">이동 실패</option>
+              </optgroup>
+              <optgroup label="로봇">
+                <option value="robot_connected">연결됨</option>
+                <option value="robot_disconnected">연결 끊김</option>
+                <option value="robot_status_changed">상태 변경</option>
+                <option value="robot_error">오류</option>
+              </optgroup>
+              <optgroup label="배터리">
+                <option value="battery_low">배터리 부족</option>
+                <option value="charging_started">충전 시작</option>
+                <option value="charging_completed">충전 완료</option>
+              </optgroup>
             </select>
           </div>
 
@@ -156,12 +206,12 @@ const FilterSection = ({ filters = {}, onFilterChange = () => {}, uniqueRobots =
                 transition: 'all 0.2s ease'
               }}
               onFocus={(e) => {
-                e.target.style.borderColor = 'var(--primary-color)';
-                e.target.style.boxShadow = '0 0 0 2px rgba(232, 46, 1, 0.1)';
+                e.currentTarget.style.borderColor = 'var(--primary-color)';
+                e.currentTarget.style.boxShadow = '0 0 0 2px rgba(56, 189, 248, 0.1)';
               }}
               onBlur={(e) => {
-                e.target.style.borderColor = 'var(--border-primary)';
-                e.target.style.boxShadow = 'none';
+                e.currentTarget.style.borderColor = 'var(--border-primary)';
+                e.currentTarget.style.boxShadow = 'none';
               }}
             />
           </div>
@@ -186,12 +236,12 @@ const FilterSection = ({ filters = {}, onFilterChange = () => {}, uniqueRobots =
                 transition: 'all 0.2s ease'
               }}
               onFocus={(e) => {
-                e.target.style.borderColor = 'var(--primary-color)';
-                e.target.style.boxShadow = '0 0 0 2px rgba(232, 46, 1, 0.1)';
+                e.currentTarget.style.borderColor = 'var(--primary-color)';
+                e.currentTarget.style.boxShadow = '0 0 0 2px rgba(56, 189, 248, 0.1)';
               }}
               onBlur={(e) => {
-                e.target.style.borderColor = 'var(--border-primary)';
-                e.target.style.boxShadow = 'none';
+                e.currentTarget.style.borderColor = 'var(--border-primary)';
+                e.currentTarget.style.boxShadow = 'none';
               }}
             />
           </div>
@@ -201,4 +251,4 @@ const FilterSection = ({ filters = {}, onFilterChange = () => {}, uniqueRobots =
   );
 };
 
-export default FilterSection; 
+export default FilterSection;

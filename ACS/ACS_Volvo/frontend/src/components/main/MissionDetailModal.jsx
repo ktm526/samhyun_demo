@@ -284,12 +284,12 @@ const MissionDetailModal = ({ mission, isOpen, onClose, onMissionUpdate }) => {
               transition: 'all 0.2s ease'
             }}
             onMouseEnter={(e) => {
-              e.target.style.backgroundColor = 'var(--bg-secondary)';
-              e.target.style.color = 'var(--text-primary)';
+              e.currentTarget.style.backgroundColor = 'var(--bg-secondary)';
+              e.currentTarget.style.color = 'var(--text-primary)';
             }}
             onMouseLeave={(e) => {
-              e.target.style.backgroundColor = 'var(--bg-tertiary)';
-              e.target.style.color = 'var(--text-secondary)';
+              e.currentTarget.style.backgroundColor = 'var(--bg-tertiary)';
+              e.currentTarget.style.color = 'var(--text-secondary)';
             }}
           >
             <i className="fas fa-times"></i>
@@ -545,14 +545,14 @@ const MissionDetailModal = ({ mission, isOpen, onClose, onMissionUpdate }) => {
             }}
             onMouseEnter={(e) => {
               if (mission.status !== 'completed' && mission.status !== 'cancelled') {
-                e.target.style.backgroundColor = 'var(--status-error)';
-                e.target.style.color = 'var(--bg-primary)';
+                e.currentTarget.style.backgroundColor = 'var(--status-error)';
+                e.currentTarget.style.color = 'var(--bg-primary)';
               }
             }}
             onMouseLeave={(e) => {
               if (mission.status !== 'completed' && mission.status !== 'cancelled') {
-                e.target.style.backgroundColor = 'transparent';
-                e.target.style.color = 'var(--status-error)';
+                e.currentTarget.style.backgroundColor = 'transparent';
+                e.currentTarget.style.color = 'var(--status-error)';
               }
             }}
           >

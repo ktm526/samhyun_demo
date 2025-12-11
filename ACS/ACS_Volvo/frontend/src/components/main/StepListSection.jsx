@@ -229,12 +229,12 @@ const StepListSection = ({
               msUserSelect: 'none'
             }}
             onMouseEnter={(e) => {
-              e.target.style.backgroundColor = 'var(--bg-tertiary)';
-              e.target.style.color = 'var(--text-primary)';
+              e.currentTarget.style.backgroundColor = 'var(--bg-tertiary)';
+              e.currentTarget.style.color = 'var(--text-primary)';
             }}
             onMouseLeave={(e) => {
-              e.target.style.backgroundColor = 'var(--bg-secondary)';
-              e.target.style.color = 'var(--text-secondary)';
+              e.currentTarget.style.backgroundColor = 'var(--bg-secondary)';
+              e.currentTarget.style.color = 'var(--text-secondary)';
             }}
           >
             <i className="fas fa-save"></i>
@@ -406,12 +406,12 @@ const StepListSection = ({
                           msUserSelect: 'none'
                         }}
                         onMouseEnter={(e) => {
-                          e.target.style.backgroundColor = 'rgba(239, 71, 111, 0.1)';
-                          e.target.style.color = '#ef476f';
+                          e.currentTarget.style.backgroundColor = 'rgba(239, 71, 111, 0.1)';
+                          e.currentTarget.style.color = '#ef476f';
                         }}
                         onMouseLeave={(e) => {
-                          e.target.style.backgroundColor = 'transparent';
-                          e.target.style.color = 'var(--text-tertiary)';
+                          e.currentTarget.style.backgroundColor = 'transparent';
+                          e.currentTarget.style.color = 'var(--text-tertiary)';
                         }}
                       >
                         <i className="fas fa-trash"></i>
@@ -460,7 +460,7 @@ const StepListSection = ({
                   transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
                   transform: `translateY(${translateY}px) ${isHighlighted ? 'scale(1.02)' : 'scale(1)'}`,
                   boxShadow: isHighlighted ? 
-                    '0 8px 25px rgba(232, 46, 1, 0.3), 0 0 20px rgba(232, 46, 1, 0.2)' : 
+                    '0 8px 25px rgba(56, 189, 248, 0.3), 0 0 20px rgba(56, 189, 248, 0.2)' : 
                     'none',
                   borderColor: isHighlighted ? 'var(--primary-color)' : 'var(--border-primary)',
                   zIndex: isAnimating ? (isHighlighted ? 20 : 15) : 1,
@@ -471,7 +471,7 @@ const StepListSection = ({
                   width: '32px',
                   height: '32px',
                   borderRadius: '50%',
-                  backgroundColor: isHighlighted ? '#E82E01' : 'var(--primary-color)',
+                  backgroundColor: 'var(--primary-color)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -480,7 +480,7 @@ const StepListSection = ({
                   fontWeight: '700',
                   transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
                   transform: isHighlighted ? 'scale(1.15) rotate(5deg)' : 'scale(1) rotate(0deg)',
-                  boxShadow: isHighlighted ? '0 0 20px rgba(232, 46, 1, 0.6)' : 'none'
+                  boxShadow: isHighlighted ? '0 0 20px rgba(56, 189, 248, 0.6)' : 'none'
                 }}>
                   {index + 1}
                 </div>
@@ -620,10 +620,10 @@ const StepListSection = ({
                       msUserSelect: 'none'
                     }}
                     onMouseEnter={(e) => {
-                      e.target.style.backgroundColor = 'rgba(239, 71, 111, 0.2)';
+                      e.currentTarget.style.backgroundColor = 'rgba(239, 71, 111, 0.2)';
                     }}
                     onMouseLeave={(e) => {
-                      e.target.style.backgroundColor = 'rgba(239, 71, 111, 0.1)';
+                      e.currentTarget.style.backgroundColor = 'rgba(239, 71, 111, 0.1)';
                     }}
                   >
                     <i className="fas fa-times"></i>

@@ -382,8 +382,8 @@ const Header = () => {
                 transition: 'all 0.3s ease',
                 position: 'relative'
               }}
-              onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
-              onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
             >
               <i className={showRealTime ? "fas fa-clock" : "fas fa-stopwatch"}></i>
               <span style={{
@@ -452,8 +452,8 @@ const Header = () => {
             position: 'relative',
             minWidth: 'auto'
           }}
-          onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
-          onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
           title={state.ui.theme === 'dark' ? '라이트 모드로 전환' : '다크 모드로 전환'}
         >
           <i 
